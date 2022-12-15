@@ -1,0 +1,144 @@
+/* theme colours and screen size */
+:root {
+    --main-dark-colour: rgb(12, 12, 12);
+    --soft-dark-colour: rgb(46, 44, 44);
+  }
+  
+  body {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-image: url("../images/pexels-viktor-mogilat-3977183.jpg");
+    /* Photo by Viktor Mogilat : https://www.pexels.com/photo/pink-cherry-blossom-3977183/ */
+}
+
+#page-content {
+    position: fixed;
+    padding: auto;
+    width: auto;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+h1 {
+    font-family: 'Playfair Display SC', serif;
+    color: var(--main-dark-colour);
+}
+
+h2 {
+    font-family: 'Playfair Display SC', serif;
+    color: var(--main-dark-colour);
+}
+
+h3{
+    font-family: 'Playfair Display', serif;
+    color: var(--main-dark-colour);
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--main-dark-colour);
+}
+
+#page-content {
+    position: fixed;
+    padding: 50px;
+    width: auto;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.header-and-nav{
+    display: flex;
+    flex-direction: column;
+  }
+
+nav {
+    font-family: 'Playfair Display', serif;
+    color: var(--main-dark-colour);
+    text-decoration: none;
+    width: 80%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--main-dark-colour);
+    align-self: center;
+    position: relative;
+}
+
+
+ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    text-align: center;
+    display:inline-block;
+  }
+
+li{
+    list-style-type: none;
+    margin: 0 3vw;
+    padding: 0;
+    display:inline-block;
+    text-align: center;
+  }
+
+  ul li a
+  {display: inline-block;
+    position: relative;
+    display: block;
+    color: black;
+  }
+  
+  ul li  a:link {
+      color: black;
+      text-decoration: none;
+  }
+  
+  ul li a:visited {
+      text-decoration: none;
+      color: var(--main-dark-colour);
+  }
+  
+  ul li a:hover {
+      color: var(--main-dark-colour);
+  }
+  
+  ul li a:hover:before {
+      content: '.';
+      display: inline-block;
+  
+      position: absolute;
+      bottom: -0.5em;
+      left: 0;
+  
+      text-align: center;
+      font-size: larger;
+      width: 100%;
+      color: var(--main-dark-colour);
+  
+  }
+  
+  ul li a:active {
+      text-decoration: none;
+      color: var(--main-dark-colour);
+  }
+  
