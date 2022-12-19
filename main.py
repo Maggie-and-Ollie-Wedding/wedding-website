@@ -8,6 +8,10 @@ app = Flask("magie-and-ollie-wedding") #making an app
 def landing_page():
         return render_template("index.html")
 
+#Placeholder
+@app.route("/watchthisspace")  
+def landing_page():
+        return render_template("placeholder.html")
 
 ###debugging
 if __name__ == "__main__":
