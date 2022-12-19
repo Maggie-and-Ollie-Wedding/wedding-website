@@ -98,8 +98,9 @@ nav {
     opacity: 90%;
     padding-top: 0px;
     padding-bottom: 0px;
-    height: 25px;
+    height: 15px;
     bottom: 40px;
+    font-size: x-small;
 }
 ul{
     margin: 0;
