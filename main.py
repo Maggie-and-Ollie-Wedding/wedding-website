@@ -10,7 +10,7 @@ def landing_page():
 
 #Placeholder
 @app.route("/watchthisspace")  
-def landing_page():
+def placeholder_page():
         return render_template("placeholder.html")
 
 ###debugging

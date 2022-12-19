@@ -90,7 +90,7 @@ nav {
 
 .carousel-display {
     height: auto;
-    width: 90%;
+    width: 50%;
 }
 
 .carousel-caption {
@@ -192,6 +192,11 @@ p{
 
 li {
     font-size: x-small;
+}
+
+.carousel-display {
+    height: auto;
+    width: 90%;
 }
 
   }
