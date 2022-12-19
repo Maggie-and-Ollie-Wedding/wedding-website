@@ -3,6 +3,14 @@
     --main-dark-colour: rgb(12, 12, 12);
     --soft-dark-colour: rgb(46, 44, 44);
   }
+  .header-and-nav {
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
   
   body {
     -webkit-background-size: cover;
@@ -13,14 +21,14 @@
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    overflow: hidden;
+    width: 100vw;
+    /* overflow: hidden; */
     background-image: url("../images/pexels-viktor-mogilat-3977183.jpg");
     /* Photo by Viktor Mogilat : https://www.pexels.com/photo/pink-cherry-blossom-3977183/ */
 }
 
 #page-content {
-    position: fixed;
-    padding: auto;
+    position: absolute;
     width: auto;
     height: auto;
     top: 0;
@@ -54,7 +62,6 @@ p {
 }
 
 #page-content {
-    position: fixed;
     padding: 50px;
     width: auto;
     height: auto;
@@ -142,3 +149,40 @@ li{
       color: var(--main-dark-colour);
   }
   
+  @media only screen and (max-width: 600px) {
+h1{
+    font-size: larger;
+}
+
+h2{
+    font-size: large;
+}
+
+h3{
+    font-size: medium;
+}
+
+p{
+    font-size: small;
+}
+
+#page-content {
+    padding: 100px;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.header-and-nav {
+    width: 100vw;
+}
+li {
+    font-size: small;
+}
+
+  }
