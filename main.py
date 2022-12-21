@@ -8,10 +8,20 @@ app = Flask("magie-and-ollie-wedding") #making an app
 def landing_page():
         return render_template("index.html")
 
-#Placeholder
-@app.route("/watchthisspace")  
-def placeholder_page():
-        return render_template("placeholder.html")
+#RSVP
+@app.route("/rsvp")  
+def rsvp_page():
+        return render_template("RSVP.html")
+
+#Ceremony
+@app.route("/ceremony")  
+def ceremony_page():
+        return render_template("ceremony.html")
+
+#Choir
+@app.route("/choir")  
+def choir_page():
+        return render_template("choir.html")
 
 ###debugging
 if __name__ == "__main__":
