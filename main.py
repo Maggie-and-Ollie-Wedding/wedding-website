@@ -16,15 +16,19 @@ def landing_page():
     
     return render_template("index.html", days_left=days_left)
 
+#Ceremony
+@app.route("/ceremony")  
+def ceremony_page():
+        return render_template("ceremony.html")
 #RSVP
 @app.route("/rsvp")  
 def rsvp_page():
         return render_template("RSVP.html")
 
-#Ceremony
-@app.route("/ceremony")  
-def ceremony_page():
-        return render_template("ceremony.html")
+#Transport and Accommodation
+@app.route("/transport-and-accommodation")
+def transport_and_accommodation_page():
+    return render_template("transport_and_accommodation.html")
 
 #Choir
 @app.route("/choir")  
