@@ -1,12 +1,20 @@
 from flask import Flask, render_template, request, Response #imports functions to use python with html
 import os
+from datetime import date, datetime
 
-app = Flask("magie-and-ollie-wedding") #making an app
+app = Flask("maggie-and-ollie-wedding") #making an app
 
 #Homepage
 @app.route("/")  
 def landing_page():
-        return render_template("index.html")
+
+    today = date.today()
+    wedding = date(2024, 5, 18)
+    time_left = wedding - today
+    days_left = time_left.days
+    print(days_left)
+    
+    return render_template("index.html", days_left=days_left)
 
 #RSVP
 @app.route("/rsvp")  
