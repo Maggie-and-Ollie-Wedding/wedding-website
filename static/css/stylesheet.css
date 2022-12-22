@@ -12,6 +12,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 1;
   }
   .columns {
     display: flex;
@@ -40,7 +41,7 @@
     /* background-image: url("../images/pexels-viktor-mogilat-3977183.jpg"); */
     /* Photo by Viktor Mogilat : https://www.pexels.com/photo/pink-cherry-blossom-3977183/ */
     position: absolute;
-    /* overflow: hidden;  */
+    overflow: hidden; 
 }
 
 .cover-page-image {
@@ -50,6 +51,7 @@
     object-fit: cover;
     opacity: 90%;
     margin-top: 157px;
+    overflow: hidden;
 }
 
 #cover-page-gradient {
@@ -61,6 +63,7 @@
     width: 100vw;
     position: fixed;
     opacity: 100%;
+    overflow: hidden;
 }
 #cover-page {
     z-index: 2;
@@ -75,7 +78,7 @@
     padding-bottom: 50px;
     padding-left: 100px;
     padding-right: 100px;
-    overflow: scroll;
+    overflow: hidden;
     margin-top: 157px;
     position: fixed;
     display: flex;
@@ -86,7 +89,9 @@
     object-fit:scale-down;
 }
 
-
+.main-content{
+    z-index: 2;
+}
 #page-content {
     position: fixed;
     width: auto;
@@ -105,7 +110,7 @@
     flex-direction: column;
     align-items: center;
     color: var(--main-dark-colour);
-    z-index: 0;
+    z-index: 2;
 }
 
 h1 {
@@ -275,7 +280,6 @@ p{
 .header-and-nav {
     width: 100vw;
     margin: 0px;
-    z-index: 5;
 }
 
 li {
