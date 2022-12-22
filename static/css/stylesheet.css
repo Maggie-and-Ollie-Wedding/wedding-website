@@ -16,10 +16,12 @@
   .columns {
     display: flex;
     padding: 10px;
+    flex-direction: row;
   }
   .column {
     display: flex;
     padding: 10px;
+    height: 400px;
   }
 
   #header {padding: 20px;}
@@ -38,7 +40,7 @@
     /* background-image: url("../images/pexels-viktor-mogilat-3977183.jpg"); */
     /* Photo by Viktor Mogilat : https://www.pexels.com/photo/pink-cherry-blossom-3977183/ */
     position: absolute;
-    overflow: hidden; 
+    /* overflow: hidden;  */
 }
 
 .cover-page-image {
@@ -292,4 +294,11 @@ li {
     border-radius: 150px 150px 0px 0px;
 }
 
+.columns {
+    flex-direction: column;
+  }
+
+.column{
+    height: 200px;
+}
   }
