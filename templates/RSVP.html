@@ -51,34 +51,63 @@
             <label for="inputName">Name</label>
             <input type="text" class="form-control" id="name" placeholder="Search for your name">
           </div>
-          <div class="form-group">
+          <div class="form-group rsvp-form">
           <label for="inputName">Invite group</label>
           <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
         </div>
-        <div class="form-check"><label class="switch" for="RSVPCheck1">
+        <div id="person1" class="rsvp-row">
+          <div class="rsvp-column"><p>Person 1</p>
+          </label></div>
+          
+          <div id="rsvp1" class="rsvp-row">
+        <div class="rsvp-column"><label class="switch" for="RSVPCheck1">
           <input type="checkbox" id="RSVPCheck1">
-          <span class="slider round"></span>Person 1
+          <span class="slider round"></span>RSVP
         </label></div>
-        <div class="form-check"><label class="switch" for="RSVPCheck2">
-          <input type="checkbox" id="RSVPCheck2">
-          <span class="slider round"></span>Person 2
-        </label></div> 
-        <div class="form-check"><label class="switch" for="RSVPCheck3">
-          <input type="checkbox" id="RSVPCheck3">
-          <span class="slider round"></span>Person 3
+        <div class="rsvp-column"><label class="switch" for="RSVPChoir1">
+          <input type="checkbox" id="RSVPChoir1">
+          <span class="slider round"></span>Choir
         </label></div>
-        <div class="form-check"><label class="switch" for="RSVPCheck4">
-          <input type="checkbox" id="RSVPCheck4">
-          <span class="slider round"></span>Person 4
+        <div class="rsvp-column dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownVocalPart1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Vocal Part
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Soprano</a>
+              <a class="dropdown-item" href="#">Mezzosoprano</a>
+              <a class="dropdown-item" href="#">Alto</a>
+              <a class="dropdown-item" href="#">Tenor</a>
+              <a class="dropdown-item" href="#">Baritone</a>
+              <a class="dropdown-item" href="#">Bass</a>
+            </div>
+          </div>
+        <div class="rsvp-column"><label class="switch" for="RSVPDiet1">
+          <input type="checkbox" id="RSVPDiet1">
+          <span class="slider round"></span>Dietary Requirements
         </label></div>
-        <div class="form-check"><label class="switch" for="RSVPCheck5">
-          <input type="checkbox" id="RSVPCheck5">
-          <span class="slider round"></span>Person 5
-        </label></div>
-        <div ><label class="switch" for="RSVPCheck6">
-          <input type="checkbox" id="RSVPCheck6">
-          <span class="slider round"></span>Person 6
-        </label></div>
+        <div class="rsvp-column dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownDiet1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dietary Requirements
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Nut allergy</a>
+            <a class="dropdown-item" href="#">Vegetarian</a>
+            <a class="dropdown-item" href="#">Vegan</a>
+            <a class="dropdown-item" href="#">Dairy free</a>
+            <a class="dropdown-item" href="#">No pork</a>
+            <a class="dropdown-item" href="#">No beef</a>
+            <a class="dropdown-item" href="#">Other</a>
+          </div>
+          <div class="rsvp-column">
+            <label for="inputDietaryRequirement"></label>
+            <input type="text" class="form-control textinput" id="dietaryReq" placeholder="Describe dietary requirement">
+          </div>
+          <div class="rsvp-column">
+            <label for="inputDietaryRequirement"></label>
+            <input type="text" class="form-control textinput" id="dietaryReq" placeholder="Song request">
+          </div>
+        </div>
+      </div>
 
         </form>
       </div>
