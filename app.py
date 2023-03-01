@@ -1,17 +1,40 @@
 from flask import Flask, render_template, request, Response #imports functions to use python with html
 import os
+from datetime import date, datetime
 
-app = Flask("magie-and-ollie-wedding") #making an app
+app = Flask("maggie-and-ollie-wedding") #making an app
 
 #Homepage
 @app.route("/")  
 def landing_page():
-        return render_template("index.html")
 
-#Placeholder
-@app.route("/watchthisspace")  
-def placeholder_page():
-        return render_template("placeholder.html")
+    today = date.today()
+    wedding = date(2024, 5, 18)
+    time_left = wedding - today
+    days_left = time_left.days
+    print(days_left)
+    
+    return render_template("index.html", days_left=days_left)
+
+#Ceremony
+@app.route("/ceremony")  
+def ceremony_page():
+        return render_template("ceremony.html")
+#RSVP
+@app.route("/rsvp")  
+def rsvp_page():
+        return render_template("RSVP.html")
+
+#Transport and Accommodation
+@app.route("/transport-and-accommodation")
+def transport_and_accommodation_page():
+    return render_template("transport_and_accommodation.html")
+
+#Choir
+@app.route("/choir")  
+def choir_page():
+        return render_template("choir.html")
+
 
 ###debugging
 if __name__ == "__main__":
