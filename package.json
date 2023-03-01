@@ -1,0 +1,8 @@
+{
+ "name": "maggie-and-ollie-wedding",
+ "description": "wedding-website",
+ "version": "1.0.0",
+ "engines": {
+   "node": "12.11.1"
+   }
+}
