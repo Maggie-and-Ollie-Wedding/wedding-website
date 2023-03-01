@@ -55,7 +55,7 @@
           <label for="inputName">Invite group</label>
           <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
         </div>
-        <div id="person1" class="rsvp-row">
+        <div id="person1" class="rsvp-row form-group">
           <div class="rsvp-column"><p>Person 1</p>
           </label></div>
           
@@ -63,6 +63,10 @@
         <div class="rsvp-column"><label class="switch" for="RSVPCheck1">
           <input type="checkbox" id="RSVPCheck1">
           <span class="slider round"></span>RSVP
+        </label></div>
+        <div class="rsvp-column"><label class="switch" for="RSVPBus1">
+          <input type="checkbox" id="RSVPBus1">
+          <span class="slider round"></span>Seat on the Bus
         </label></div>
         <div class="rsvp-column"><label class="switch" for="RSVPChoir1">
           <input type="checkbox" id="RSVPChoir1">
@@ -102,15 +106,17 @@
             <label for="inputDietaryRequirement"></label>
             <input type="text" class="form-control textinput" id="dietaryReq" placeholder="Describe dietary requirement">
           </div>
-          <div class="rsvp-column">
-            <label for="inputDietaryRequirement"></label>
-            <input type="text" class="form-control textinput" id="dietaryReq" placeholder="Song request">
-          </div>
         </div>
       </div>
-
-        </form>
       </div>
+        <div id="person1conf" class="rsvp-row form-group rsvp-form">
+          <p>[Person 1] is [not] able to attend the wedding. They would [not] like a seat on the bus between ceremony and reception [and will be joining the choir, singing X]. They have [the following/no] dietary requirements: [].
+        </p>
+        </form>
+        
+      </div>
+
+     
     </body>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

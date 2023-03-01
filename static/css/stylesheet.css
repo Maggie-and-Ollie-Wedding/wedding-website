@@ -7,7 +7,7 @@
     --mid-dark-colour: #666666;
     --soft-dark-colour: #7c7c7c;
     --soft-background-colour: white;
-    --light-colour: #e3e3e3;
+    --light-colour: #efeeee;
     --warm-colour: #c4bcbc;
     --gentle-mid-colour: #a6a3a1;
     --mid-colour: #959493;
@@ -402,6 +402,7 @@ li {
     height: 60px;
     vertical-align: middle;
     text-align: left;
+    width: 100%;
   }
 
   .rsvp-column {
@@ -414,7 +415,6 @@ li {
   input {
     height: 60px;
     margin: 0px;
-
   }
 
   label {
@@ -443,7 +443,7 @@ li {
 }
 
 .textinput {
-    width: 100%;
+    width: 200%
 }
   .btn-secondary {
     color: var(--main-dark-colour);
