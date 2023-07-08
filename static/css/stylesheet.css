@@ -112,7 +112,7 @@
     padding-bottom: 50px;
     padding-left: 100px;
     padding-right: 100px;
-    /* overflow: scroll; /hidden for invite */
+    overflow: scroll;
     margin-top: 157px;
     position: fixed;
     display: flex;
@@ -226,11 +226,11 @@ a
   
 a:link {
     color: var(--main-dark-colour);
-      text-decoration: none;
+    text-decoration: solid;
   }
   
 a:visited {
-      text-decoration: none;
+      /* text-decoration: none; */
       color: var(--main-dark-colour);
   }
   
@@ -253,7 +253,7 @@ a:hover:before {
   }
   
 a:active {
-      text-decoration: none;
+      /* text-decoration: none; */
       color: var(--main-dark-colour);
   }
 
@@ -266,68 +266,6 @@ a:active {
     display: none;
   }
   
-  @media only screen and (max-width: 600px) {
-h1{
-    font-size: larger;
-}
-
-h2{
-    font-size: large;
-}
-
-h3{
-    font-size: medium;
-}
-
-h4{
-    font-size: small;
-}
-
-p{
-    font-size: small;
-}
-
-#page-content {
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 30px;
-    padding-top: 0px;
-}
-.header-and-nav {
-    width: 100vw;
-    margin: 0px;;
-}
-
-li {
-    font-size: x-small;
-}
-
-.carousel-display {
-    height: 300px;
-    width: 300px;
-    border-radius: 150px 150px 0px 0px;
-}
-
-.square {
-    height: 300px;
-    width: 300px;
-    border-radius: 150px 150px 0px 0px;
-}
-
-.columns {
-    flex-direction: column;
-  }
-
-.column{
-    height: 200px;
-}
-.invite {
-    height: 300px;
-    width: 300px;
-}
-
-  }
-
   /* form switch */
 
   .switch {
@@ -469,3 +407,139 @@ li {
     text-align: left;
     margin-left: 80px;
 }
+
+/* choir info */
+.choir-info-parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.choir-info-child {
+  display: flex;
+  flex-direction: column;
+  max-width: 20%;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.choir-info-grandchild {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  min-height: 10vh;
+}
+
+.choir-info-media {
+  max-height: 15vh;
+  max-width: 100%;
+  display: inline;
+  align-self: end;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  h1{
+      font-size: larger;
+  }
+  
+  h2{
+      font-size: large;
+  }
+  
+  h3{
+      font-size: medium;
+  }
+  
+  h4{
+      font-size: small;
+  }
+  
+  p{
+      font-size: small;
+  }
+  
+  #page-content {
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-bottom: 30px;
+      padding-top: 0px;
+  }
+  .header-and-nav {
+      width: 100vw;
+      margin: 0px;;
+  }
+  
+  li {
+      font-size: x-small;
+  }
+  
+  .carousel-display {
+      height: 300px;
+      width: 300px;
+      border-radius: 150px 150px 0px 0px;
+  }
+  
+  .square {
+      height: 300px;
+      width: 300px;
+      border-radius: 150px 150px 0px 0px;
+  }
+  
+  .columns {
+      flex-direction: column;
+    }
+  
+  .column{
+      height: 200px;
+  }
+  .invite {
+      height: 300px;
+      width: 300px;}
+
+
+
+  }
+
+
+  @media only screen and (max-width: 1000px) {
+  .choir-info-parent {
+    display: flex;
+    flex-direction: column;
+    justify-self:  center;
+    max-width: 100%;
+    align-content: center;
+  }
+  
+  
+  .choir-info-child {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    align-content: center;
+    min-height: 12vh;
+    justify-content: space-between;
+  }
+  
+  .choir-info-grandchild {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    justify-content: center;
+    align-content: center;
+    padding: 15px;
+  }
+  
+  .choir-info-media {
+    max-height: 10vh;
+    max-width: 15vw;
+    align-self: center;
+    justify-self: end;
+  }
+  
+  
+    }
+  
