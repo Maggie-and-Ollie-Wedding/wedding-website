@@ -24,3 +24,27 @@ window.addEventListener('load', (event) => {
   rsvpDietDropdown1.style.display = "none";
 }
  }
+
+// Get all the links
+const links = document.querySelectorAll('a[href^="#"]');
+
+// Attach event listener to each link
+links.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const targetSection = document.querySelector(link.getAttribute('href'));
+    targetSection.scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}

@@ -16,24 +16,20 @@ def landing_page():
     
     return render_template("index.html", days_left=days_left)
 
-#Ceremony
-@app.route("/ceremony")  
-def ceremony_page():
-        return render_template("ceremony.html")
-#RSVP
-@app.route("/rsvp")  
-def rsvp_page():
+#OrderofEvents
+@app.route("/RSVP")  
+def RSVP():
         return render_template("RSVP.html")
 
-#Transport and Accommodation
-@app.route("/transport-and-accommodation")
-def transport_and_accommodation_page():
-    return render_template("transport_and_accommodation.html")
+#OrderofEvents
+@app.route("/order-of-events")  
+def order_of_events():
+        return render_template("orderofevents.html")
 
-#Choir
-@app.route("/choir")  
-def choir_page():
-        return render_template("choir.html")
+#SeatingPlan
+@app.route("/seating-plan")  
+def seating_plan():
+        return render_template("seatingplan.html")
 
 
 ###debugging
