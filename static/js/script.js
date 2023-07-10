@@ -42,6 +42,7 @@ function toggleFormSection (row) {
   var dietSection = document.getElementById('dropdownDiet' + row)
   var dietDetail = document.getElementById('dietDetail' + row)
   var selectedDietOption = dietSection.options[dietSection.selectedIndex].value;
+  var dietDetailColumn = document.getElementById("diet-detail-column"+row)
 
 
   
@@ -60,18 +61,23 @@ function toggleFormSection (row) {
 
   if (dietCheckbox.checked) {
     dietSection.style.display = 'block' // show the section
+    if ( selectedDietOption === 'Multiple/Other') {
+      console.log(selectedDietOption)
+      dietDetail.style.display = 'block' // show the section
+      dietDetailColumn.style.width= "40%"
+    } else {
+      console.log(selectedDietOption)
+      dietDetail.style.display = 'none' // hide the section
+      dietDetailColumn.style.width= "0%"
+  
+    }
   } else {
     dietSection.style.display = 'none' // hide the section
-  }
-
-  if ( selectedDietOption === 'Multiple/Other') {
-    console.log(selectedDietOption)
-    dietDetail.style.display = 'block' // show the section
-  } else {
-    console.log(selectedDietOption)
     dietDetail.style.display = 'none' // hide the section
-
+    dietDetailColumn.style.width= "0%"
   }
+
+  
 }
 
 
