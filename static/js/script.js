@@ -57,6 +57,7 @@ function toggleFormSection (row) {
     choirSection.style.display = 'block' // show the section
   } else {
     choirSection.style.display = 'none' // hide the section
+    choirSection.value = 'Vocal part'
   }
 
   if (dietCheckbox.checked) {
@@ -64,17 +65,21 @@ function toggleFormSection (row) {
     if ( selectedDietOption === 'Multiple/Other') {
       console.log(selectedDietOption)
       dietDetail.style.display = 'block' // show the section
-      dietDetailColumn.style.width= "40%"
+      dietDetailColumn.style.width= "40vw"
     } else {
       console.log(selectedDietOption)
       dietDetail.style.display = 'none' // hide the section
       dietDetailColumn.style.width= "0%"
+      dietSection.value = 'Dietary Requirements'
+      dietDetail.value = ''
   
     }
   } else {
     dietSection.style.display = 'none' // hide the section
     dietDetail.style.display = 'none' // hide the section
     dietDetailColumn.style.width= "0%"
+    dietSection.value = 'Dietary Requirements'
+    dietDetail.value = ''
   }
 
   

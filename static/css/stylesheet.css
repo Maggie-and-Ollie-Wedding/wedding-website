@@ -353,6 +353,15 @@ input:checked+.slider:before {
   justify-content: space-between;
 }
 
+.rsvp-button-row {
+  display: flex;
+  height: 60px;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
 .rsvp-column {
   display: flex;
   vertical-align: middle;
@@ -384,6 +393,29 @@ label {
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   font-size: small;
+}
+
+.form-button {
+  display: block;
+  width: 10%;
+  justify-content: center;
+  align-content: center;
+  font-size: 1rem;
+  line-height: 60px;
+  color: var(--main-dark-colour);
+  background-color: var(--soft-background-colour);
+  background-clip: padding-box;
+  border: 1px solid var(--mid-colour);
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  font-size: small;
+  display: flex;
+  text-align: center;
+  text-justify: center;
+}
+
+.form-button:hover {
+  background-color: var(--light-colour);
 }
 
 .dropdown-toggle {
@@ -452,6 +484,13 @@ label {
   max-width: 100%;
   display: inline;
   align-self: end;
+}
+
+#computer-dietary{
+  display: flex;}
+
+#mobile-dietary{
+  display: none;
 }
 
 @media only screen and (max-width: 600px) {
@@ -526,6 +565,14 @@ label {
     height: 300px;
     width: 300px;
   }
+
+  #computer-dietary{
+    display: none;
+  }
+
+  #mobile-dietary{
+    display: flex;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -595,6 +642,14 @@ label {
 
   .big-menu {
     display: none;
+  }
+
+  #computer-dietary{
+    display: none;
+  }
+
+  #mobile-dietary{
+    display: flex;
   }
 
 }
