@@ -342,6 +342,8 @@ input:checked+.slider:before {
 
 .rsvp-form {
   display: flex;
+  width: 100%
+
 }
 
 .rsvp-row {
@@ -349,7 +351,6 @@ input:checked+.slider:before {
   height: 60px;
   vertical-align: middle;
   text-align: left;
-  width: 100%;
   justify-content: space-between;
 }
 
@@ -380,6 +381,9 @@ label {
   padding-top: 25px;
 }
 
+.form-group {
+  width: 75vw;
+}
 .form-control {
   display: block;
   width: 100%;
@@ -422,11 +426,7 @@ label {
   font-size: small;
 }
 
-.hide-on-load {
-  display: none;
-  justify-content: space-between;
-  width: 100%;
-}
+
 
 .textinput {
   width: 200%;
@@ -566,13 +566,30 @@ label {
     width: 300px;
   }
 
-  #computer-dietary{
-    display: none;
+  
+  .rsvp-block-1 {
+    display: flex;
+    flex-direction: column;
+ 
   }
 
-  #mobile-dietary{
+  .rsvp-block-2 {
     display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
   }
+
+  .rsvp-block-3 {
+    display: flex;
+    width: 100%;
+  }
+  
+  .form-button{
+    width: 30%;
+  }
+  
+  
 }
 
 @media only screen and (max-width: 1000px) {
@@ -632,6 +649,24 @@ label {
   color: var(--light-colour);
 }
 
+.rsvp-block-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.rsvp-block-2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rsvp-block-3 {
+  display: flex;
+  width: 25%;
+}
+
+
 
 
 @media only screen and (max-width: 1575px) {
@@ -644,12 +679,11 @@ label {
     display: none;
   }
 
-  #computer-dietary{
-    display: none;
-  }
+  
+}
 
-  #mobile-dietary{
-    display: flex;
-  }
-
+.hide-on-load {
+  display: none;
+  justify-content: space-between;
+  width: 100%;
 }
