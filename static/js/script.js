@@ -1,50 +1,77 @@
-window.addEventListener('load', (event) => {
-
-  if (window.location.pathname =='/index') {
-    window.onload (carousel_function = function() {
-        ('.carousel').carousel({
-              interval: 20
-            });
-        ('.carousel').carousel('cycle');
-      }
-    )
-          }})
-
-
-
- const rsvpDietSwitch1 = document.getElementById("RSVPDiet1")
- const rsvpDietDropdown1 = document.getElementById("dropdownDiet1")
- const rsvpVocalPartSwitch1 = document.getElementById("RSVPChoir1")
- const rsvpVocalPartDropdown1 = document.getElementById("dropdownVocalPart1")
-   
- function rsvpDiet1() {
- if (rsvpDietSwitch1 === true) {
-  rsvpDietDropdown1.style.display = "block";
-} else {
-  rsvpDietDropdown1.style.display = "none";
-}
- }
+window.addEventListener('load', event => {
+  if (window.location.pathname == '/index') {
+    carousel_function = function () {
+      $('.carousel').carousel({
+        interval: 2000
+      })
+      $('.carousel').carousel('cycle')
+    }
+    carousel_function()
+  }
+})
 
 // Get all the links
-const links = document.querySelectorAll('a[href^="#"]');
+const links = document.querySelectorAll('a[href^="#"]')
 
 // Attach event listener to each link
 links.forEach(link => {
   link.addEventListener('click', e => {
-    e.preventDefault();
-    const targetSection = document.querySelector(link.getAttribute('href'));
+    e.preventDefault()
+    const targetSection = document.querySelector(link.getAttribute('href'))
     targetSection.scrollIntoView({
       behavior: 'smooth'
-    });
-  });
-});
+    })
+  })
+})
 
-
-function myFunction() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
+function myFunction () {
+  var x = document.getElementById('myLinks')
+  if (x.style.display === 'block') {
+    x.style.display = 'none'
   } else {
-    x.style.display = "block";
+    x.style.display = 'block'
   }
 }
+
+function toggleFormSection (row) {
+  var RSVP = document.getElementById('RSVPCheck' + row)
+  var RSVPDetails = document.getElementById('RSVPDetails' + row)
+  var choirCheckbox = document.getElementById('RSVPChoir' + row)
+  var choirSection = document.getElementById('dropdownVocalPart' + row)
+  var dietCheckbox = document.getElementById('RSVPDiet' + row)
+  var dietSection = document.getElementById('dropdownDiet' + row)
+  var dietDetail = document.getElementById('dietDetail' + row)
+  var selectedDietOption = dietSection.options[dietSection.selectedIndex].value;
+
+
+  
+
+  if (RSVP.checked) {
+    RSVPDetails.style.display = 'flex' // show the section
+  } else {
+    RSVPDetails.style.display = 'none' // hide the section
+  }
+
+  if (choirCheckbox.checked) {
+    choirSection.style.display = 'block' // show the section
+  } else {
+    choirSection.style.display = 'none' // hide the section
+  }
+
+  if (dietCheckbox.checked) {
+    dietSection.style.display = 'block' // show the section
+  } else {
+    dietSection.style.display = 'none' // hide the section
+  }
+
+  if ( selectedDietOption === 'Multiple/Other') {
+    console.log(selectedDietOption)
+    dietDetail.style.display = 'block' // show the section
+  } else {
+    console.log(selectedDietOption)
+    dietDetail.style.display = 'none' // hide the section
+
+  }
+}
+
+
