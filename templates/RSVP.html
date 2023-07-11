@@ -14,9 +14,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="../static/css/stylesheet.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <link rel="stylesheet" href="../static/css/stylesheet.css">
+  <link rel="stylesheet" href="../static/css/RSVPstylesheet.css">
   <!-- meta -->
   <meta name="author" content="Maggie Hunt">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -111,8 +111,8 @@
               </label></div>
           </div>
 
-          <div class="rsvp-block-2  hide-on-load" id="RSVPDetails1">
-
+          <span class="hide-on-load rsvp-block-1" id="RSVPDetails1">
+            <div class="rsvp-block-2">
             <div class="rsvp-column"><label class="switch" for="RSVPChoir1">
                 <input type="checkbox" id="RSVPChoir1" onchange="toggleFormSection(1)">
                 <span class="slider round"></span>Choir
@@ -129,7 +129,8 @@
                 <option class="dropdown-item">Baritone</option>
                 <option class="dropdown-item">Bass</option>
               </select>
-            </div>
+            </div></div>
+            <div class="rsvp-block-2">
             <div class="rsvp-column"><label class="switch" for="RSVPDiet1">
                 <input type="checkbox" id="RSVPDiet1" onchange="toggleFormSection(1)">
                 <span class="slider round"></span>Dietary Requirements
@@ -149,7 +150,7 @@
               </select>
             </div>
         </div>
-
+      </span>
         <div class="rsvp-block-3" id="dietary-1">
           <div class="rsvp-column" id="diet-detail-column1">
             <label for="inputDietaryRequirement"></label>
