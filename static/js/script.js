@@ -65,7 +65,11 @@ function toggleFormSection (row) {
     RSVPDetails.style.display = 'none' // hide the section
     choirYes.style.display = 'none'
     dietary.style.display = 'none'
+    dietarySect.style.display = 'none'
+    dietDetail.style.display = 'none'
     RSVPResponse = 'No'
+    dietCheckbox.checked = false
+    choirCheckbox.checked = false
   }
 
   if (choirCheckbox.checked) {
@@ -105,7 +109,6 @@ function toggleFormSection (row) {
     } else {
       dietDetail.style.display = 'none' // hide the section
       dietDetailColumn.style.width = '0%'
-      dietarySect.style.display = 'none'
       dietOption.innerHTML = selectedDietOption
       dietarySect.style.display = 'none'
       // dietSection.value = 'Dietary Requirements'
@@ -186,7 +189,6 @@ function reveal (section) {
         sections.dressCodeCheck.checked = false
         sections.giftRegistry.style.display = 'none'
         sections.giftRegistryCheck.checked = false
-        
       }
     }
   }

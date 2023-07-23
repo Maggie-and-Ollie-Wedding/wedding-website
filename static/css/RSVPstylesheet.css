@@ -11,39 +11,39 @@
     --gentle-mid-colour: #a6a3a1;
     --mid-colour: #959493;
     --border-width: 5px;
-  }
-  
-  button {
+}
+
+button {
     background-color: var(--soft-background-colour);
-  }
-  
-  .rsvp-form {
+}
+
+.rsvp-form {
     display: flex;
     width: 100%;
     height: auto;
     font-family: "Playfair Display SC", serif;
-  }
-  
-  .rsvp-row {
+}
+
+.rsvp-row {
     display: flex;
     vertical-align: middle;
     text-align: left;
     justify-content: space-between;
-  }
-  
-  h4 {
+}
+
+h4 {
     margin-top: 0.5rem;
-  }
-  
-  .rsvp-button-row {
+}
+
+.rsvp-button-row {
     display: flex;
     vertical-align: middle;
     text-align: center;
     width: 100%;
     justify-content: space-around;
-  }
-  
-  .rsvp-column {
+}
+
+.rsvp-column {
     display: flex;
     vertical-align: middle;
     padding-right: 10px;
@@ -51,73 +51,73 @@
     margin-left: 10px;
     width: 100%;
     height: 60px;
-  }
-  
-  .rsvp-column-freetext {
+}
+
+.rsvp-column-freetext {
     display: flex;
     vertical-align: middle;
     text-align: left;
-  }
-  
-  .rsvp-block-1 {
+}
+
+.rsvp-block-1 {
     height: 80px;
     display: flex;
     flex-direction: row;
     flex: 1;
     width: 100%;
-  }
+}
 
-  .rsvp-block-4 {
+.rsvp-block-4 {
     justify-content: space-around;
-  }
+}
 
-  .rsvp-block-5 {
+.rsvp-block-5 {
     display: flex;
-  }
-  
-  .rsvp-block-2 {
+}
+
+.rsvp-block-2 {
     display: flex;
 
-  }
-  
-  .rsvp-block-3 {
+}
+
+.rsvp-block-3 {
     display: flex;
-  }
-  
-  .diet-detail-column {
+}
+
+.diet-detail-column {
     width: 200%;
     display: flex;
     justify-self: flex-end;
-  }
+}
 
-  @media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1000px) {
     .rsvp-block-1 {
-      display: flex;
-      flex-direction: column;
-      height: 2vh;
+        display: flex;
+        flex-direction: column;
+        height: 2vh;
     }
-  
+
     .rsvp-block-2 {
-      display: flex;
-      width: 100%;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-bottom: 2vh;
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 2vh;
     }
-  
+
     .rsvp-block-3 {
-      display: flex;
-      width: 100%;
-      flex-direction: row;
+        display: flex;
+        width: 100%;
+        flex-direction: row;
     }
-  
+
     .diet-detail-column {
         width: 100%;
         margin-top: 1vh;
     }
 
     .form-button {
-      width: 30%;
+        width: 30%;
     }
 
     .rsvp-row {
@@ -127,60 +127,61 @@
         text-align: left;
         justify-content: space-between;
         margin-bottom: 20px;
-      }
-
-  }
-  
-  @media only screen and (max-width: 1575px) {
-    .rsvp-block-1 {
-      display: flex;
-      flex-direction: row;
     }
-  }
-  
-  @media only screen and (max-width: 1000px) {
+
+}
+
+@media only screen and (max-width: 1575px) {
     .rsvp-block-1 {
-      display: flex;
-      flex-direction: column;
-      height: 100%;}
-    
-      .sb-mob {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .rsvp-block-1 {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .sb-mob {
         justify-content: space-between;
         display: flex;
-    vertical-align: middle;
-    text-align: center;
-    width: 100%;
-      }
-   
-  
+        vertical-align: middle;
+        text-align: center;
+        width: 100%;
+    }
+
+
     .rsvp-block-2 {
-      display: flex;
-      width: 100%;
-      flex-direction: row;
-      justify-content: space-between;
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
     }
-  
+
     .rsvp-block-3 {
-      display: flex;
-      flex-direction: row;
+        display: flex;
+        flex-direction: row;
     }
-  
+
     .form-button {
-      width: 30%;
+        width: 30%;
     }
-  }
-  
-  input {
+}
+
+input {
     font-family: "Open Sans", sans-serif;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     width: 75vw;
     font-family: "Playfair Display SC", serif;
     margin-bottom: 1vh;
-  }
-  
-  .form-control {
+}
+
+.form-control {
     display: block;
     width: 100%;
     padding: 10px;
@@ -193,16 +194,15 @@
     border-radius: 0rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     font-size: small;
-  }
-  
- 
-  
+}
 
-  #whole-form-input {
+
+
+#whole-form-input {
     padding-top: 2vh;
     position: relative;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     height: auto;
 }
 
@@ -211,10 +211,10 @@
     padding-top: 0px;
     position: relative;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 
-  .hide-on-load {
+.hide-on-load {
     display: none;
-  }
+}
