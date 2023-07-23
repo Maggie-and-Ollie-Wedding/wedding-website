@@ -293,14 +293,18 @@ a:hover {
 }
 
 a:hover:before {
-  content: "^";
+  content: ".";
   display: inline-block;
   position: absolute;
-  bottom: -1em;
+  bottom: -0.5em;
   left: 0;
   text-align: center;
   width: 100%;
   color: var(--main-dark-colour);
+}
+
+.no-dot:hover:before{
+  content: "";
 }
 
 a:active {
@@ -731,6 +735,7 @@ label {
   position: relative;
   padding-left: 0px;
   height: 30vh;
+  width: 100%;
 }
 
 .button-row-child {
