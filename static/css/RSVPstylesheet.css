@@ -17,7 +17,7 @@
     vertical-align: middle;
     text-align: center;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-around; 
 }
 
 .rsvp-column {
@@ -25,6 +25,15 @@
     vertical-align: middle;
     text-align: left;
     margin-left: 10px;
+    width: 100%;
+}
+
+.rsvp-column-freetext {
+    display: flex;
+    vertical-align: middle;
+    text-align: left;
+    margin-left: 10px;
+    width: 80%;
 }
 
 .rsvp-block-1 {
@@ -41,7 +50,7 @@
 
 .rsvp-block-3 {
     display: flex;
-    width: 25%;
+    justify-content: space-between;
 }
 
 
@@ -116,3 +125,5 @@
 
 
 }
+
+

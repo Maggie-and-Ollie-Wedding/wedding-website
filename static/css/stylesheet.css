@@ -2,12 +2,19 @@
   --cover-page-height: 80vh;
   --main-dark-colour: #636363;
   --mid-dark-colour: #666666;
+  --mid-dark-colour-transparent: rgba(0,0,0, 0.5);
+  --mid-dark-colour-semitransparent: rgba(0,0,0, 0.4);
   --soft-dark-colour: #7c7c7c;
   --soft-background-colour: white;
   --light-colour: #efeeee;
   --warm-colour: #c4bcbc;
   --gentle-mid-colour: #a6a3a1;
   --mid-colour: #959493;
+  --border-width: 5px;
+}
+
+.hide-on-load {
+  display: none;
 }
 
 .header-and-nav {
@@ -31,12 +38,30 @@
   transition: transform 0.5s ease-in-out;
 }
 
+.ceremony-and-reception-parent {
+  display: flex;
+  flex-direction: row;
+  text-align: start;
+
+}
+
+.ceremony-and-reception-child{
+  display: flex;
+  justify-content: center;
+
+}
+.ceremony-and-reception-grandchild{
+  display: inline;
+  justify-content: left;
+  padding: 12px;
+}
+
 .columns {
   display: flex;
   flex-direction: row;
   justify-content: center;
   max-width: 100%;
-  max-height: 100%;
+  max-height: 30vh;
 }
 
 .column {
@@ -161,7 +186,17 @@ h3 {
 }
 
 h4 {
-  padding: 18px;
+  padding: 14px;
+  font-family: "Playfair Display SC", serif;
+}
+
+h5 {
+  padding: 10px;
+  font-family: "Playfair Display SC", serif;
+}
+
+h6 {
+  padding: 10px;
   font-family: "Playfair Display SC", serif;
 }
 
@@ -236,6 +271,7 @@ li {
   color: var(--main-dark-colour);
 }
 
+
 a {
   display: inline-block;
   position: relative;
@@ -257,10 +293,10 @@ a:hover {
 }
 
 a:hover:before {
-  content: ".";
+  content: "^";
   display: inline-block;
   position: absolute;
-  bottom: -0.5em;
+  bottom: -1em;
   left: 0;
   text-align: center;
   width: 100%;
@@ -296,6 +332,64 @@ a:active {
   opacity: 0;
   width: 0;
   height: 0;
+}
+
+
+
+.rsvp-button {
+  border: var(--light-colour);
+  width: 20%;
+  color: var(--light-colour);
+  padding: 10px;
+}
+
+.rsvp-button:hover {
+  background-color: var(--mid-dark-colour-transparent)
+}
+
+.rsvp-button-link:link {
+  color: var(--light-colour);
+  margin-top: 0.5rem;
+}
+
+.rsvp-button-link:hover:before {
+    content: "";
+}
+
+#contact-page {
+  position: absolute;
+  z-index: 2;
+  color: var(--soft-background-colour);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+}
+
+
+.contact-button {
+  border: var(--soft-dark-colour);
+  width: 20%;
+  color: var(--soft-dark-colour);
+  height: auto;
+  margin-bottom: 1rem;
+  
+}
+
+.contact-button:hover {
+  background-color: var(--mid-dark-colour-semitransparent);
+}
+
+.contact-button-link:link {
+  border: var(--soft-dark-colour);
+  margin-top: 0.5rem;
+  padding: 0px;
+}
+
+.contact-button-link:hover:before {
+    content: "";
 }
 
 .slider {
@@ -477,7 +571,7 @@ label {
   }
 
   h4 {
-    font-size: small;
+    font-size: smaller;
   }
 
   p {
@@ -494,9 +588,10 @@ label {
   .header-and-nav {
     width: 100vw;
     margin: 0px;
-
-
   }
+
+
+ 
 
   li {
     font-size: x-small;
@@ -548,6 +643,19 @@ label {
     justify-self: center;
     max-width: 100%;
     align-content: center;
+  }
+
+  .ceremony-and-reception-parent {
+    flex-direction: column;
+  
+  }
+
+  .rsvp-button {
+    width: 30%;
+  }
+  
+  .contact-button{
+    width: 30vw;
   }
 
   .choir-info-child {
@@ -613,9 +721,73 @@ label {
   }
 
 
-.hide-on-load {
-  display: none;
-  justify-content: space-between;
+
+}
+
+.button-row-parent {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  position: relative;
+  padding-left: 0px;
+  height: 30vh;
+}
+
+.button-row-child {
+  flex: 1;
+  display: flex;
+  object-fit: cover;
+  align-items: center; /* Changed align-content to align-items for proper centering */
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  margin: 10px;
+}
+
+
+.button-row-grandchild {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  display: block; /* Changed display to block since it's an image */
 }
+
+.button-row-button {
+  border: none;
+  color: var(--light-colour);
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--mid-dark-colour-semitransparent);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
+
+.button-row-button:hover {
+  background-color: var(--mid-dark-colour-transparent);
+  padding: 10px;
+}
+
+.button-row-button-link:link {
+  color: var(--light-colour);
+}
+
+.button-row-button-link:hover:before {
+  content: "";
+}
+
+
+.button {
+  border-style: solid;
+  border-width: var(--border-width);
+  display: block;
+}
+

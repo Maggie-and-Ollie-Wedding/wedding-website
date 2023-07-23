@@ -9,14 +9,16 @@
   <!-- stylesheets -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../static/css/stylesheet.css">
+    <link rel="stylesheet" href="../static/css/RSVPstylesheet.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../static/css/stylesheet.css">
-  <link rel="stylesheet" href="../static/css/RSVPstylesheet.css">
+  
   <!-- meta -->
   <meta name="author" content="Maggie Hunt">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,31 +35,31 @@
     <nav class="big-menu">
       <ul>
         <li>
-          <a href="#ceremony">Ceremony</a>
+          <a href="/#ceremony">Ceremony</a>
         </li>
         <li>
-          <a href="#reception">Reception</a>
+          <a href="/#reception">Reception</a>
         </li>
         <li>
-          <a href="#rsvp">RSVP</a>
+          <a href="/RSVP">RSVP</a>
         </li>
         <li>
-          <a href="#getting-there">Getting There</a>
+          <a href="/#getting-there-accommodation" onclick="reveal('gettingThere')">Getting There</a>
         </li>
         <li>
-          <a href="#accommodation">Accommodation</a>
+          <a href="/#getting-there-accommodation" onclick="reveal('accommodation')">Accommodation</a>
         </li>
         <li>
-          <a href="#dress-code">Dress Code</a>
+          <a href="/#dress-code-gift-registry-choir" onclick="reveal('dressCode')">Dress Code</a>
         </li>
         <li>
-          <a href="#gift-registry">Gift Registry</a>
+          <a href="/#dress-code-gift-registry-choir" onclick="reveal('giftRegistry')">Gift Registry</a>
         </li>
         <li>
-          <a href="#choir">Choir</a>
+          <a href="/#dress-code-gift-registry-choir" onclick="reveal('choir')">Choir</a>
         </li>
         <li>
-          <a href="#contact-us">Contact Us</a>
+          <a href="/#contact-us">Contact Us</a>
         </li>
       </ul>
     </nav>
@@ -65,15 +67,15 @@
     <!-- Navigation links (hidden by default) -->
     <nav class="small-menu">
       <div id="myLinks">
-        <a href="#ceremony" onclick="myFunction()">Ceremony</a>
-        <a href="#reception" onclick="myFunction()">Reception</a>
-        <a href="#rsvp" onclick="myFunction()">RSVP</a>
-        <a href="#getting-there" onclick="myFunction()">Getting There</a>
-        <a href="#accommodation" onclick="myFunction()">Accommodation</a>
-        <a href="#dress-code" onclick="myFunction()">Dress Code</a>
-        <a href="#gift-registry" onclick="myFunction()">Gift Registry</a>
-        <a href="#choir" onclick="myFunction()">Choir</a>
-        <a href="#contact-us" onclick="myFunction()">Contact Us</a>
+        <a href="/#ceremony" onclick="myFunction()">Ceremony</a>
+        <a href="/#reception" onclick="myFunction()">Reception</a>
+        <a href="/RSVP" onclick="myFunction()">RSVP</a>
+        <a href="/#getting-there-accommodation" onclick="myFunction(); reveal('gettingThere')">Getting There</a>
+        <a href="/#getting-there-accommodation" onclick="myFunction(); reveal('accommodation')">Accommodation</a>
+        <a href="/#dress-code-gift-registry-choir" onclick="myFunction(); reveal('dressCode')">Dress Code</a>
+        <a href="/#dress-code-gift-registry-choir" onclick="myFunction(); reveal('giftRegistry')">Gift Registry</a>
+        <a href="/#dress-code-gift-registry-choir" onclick="myFunction(); reveal('choir')">Choir</a>
+        <a href="/#contact-us" onclick="myFunction()">Contact Us</a>
       </div>
       <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -130,7 +132,7 @@
                 <option class="dropdown-item">Bass</option>
               </select>
             </div></div>
-            <div class="rsvp-block-2">
+            <div class="rsvp-block-3">
             <div class="rsvp-column"><label class="switch" for="RSVPDiet1">
                 <input type="checkbox" id="RSVPDiet1" onchange="toggleFormSection(1)">
                 <span class="slider round"></span>Dietary Requirements
@@ -151,8 +153,8 @@
             </div>
         </div>
       </span>
-        <div class="rsvp-block-3" id="dietary-1">
-          <div class="rsvp-column" id="diet-detail-column1">
+        <div id="dietary-1">
+          <div class="rsvp-column-freetext" id="diet-detail-column1">
             <label for="inputDietaryRequirement"></label>
             <input type="text" class="form-control textinput hide-on-load" id="dietDetail1"
               placeholder="Please provide details of your dietary requirement(s)" oninput="toggleFormSection(1)">
