@@ -48,12 +48,14 @@
 .ceremony-and-reception-child{
   display: flex;
   justify-content: center;
+  flex: 1
 
 }
 .ceremony-and-reception-grandchild{
   display: inline;
   justify-content: left;
   padding: 12px;
+  flex: 1
 }
 
 .columns {
