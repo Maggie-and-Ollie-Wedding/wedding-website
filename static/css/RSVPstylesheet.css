@@ -29,6 +29,7 @@ button {
     vertical-align: middle;
     text-align: left;
     justify-content: space-between;
+    width: 100%;
 }
 
 h4 {
@@ -90,6 +91,16 @@ h4 {
     justify-self: flex-end;
 }
 
+@media only screen and (max-width: 500px){
+    .dropdown-toggle {
+        font-size: xx-small;
+        width: 100px;
+    } 
+    
+    h4 {
+        font-size: xx-small;
+    }
+}
 @media only screen and (max-width: 1000px) {
     .rsvp-block-1 {
         display: flex;
@@ -176,9 +187,14 @@ input {
 }
 
 .form-group {
-    width: 75vw;
+    width: 100%;
     font-family: "Playfair Display SC", serif;
     margin-bottom: 1vh;
+    margin-right: 0px;
+}
+
+form {
+    width: 100%;
 }
 
 .form-control {
