@@ -107,7 +107,6 @@ function toggleFormSection (row) {
       dietDetailColumn.style.width = '0%'
       dietarySect.style.display = 'none'
       dietOption.innerHTML = selectedDietOption
-      dietarySect.style.display = 'none'
       // dietSection.value = 'Dietary Requirements'
       DietResponseDetail = selectedDietOption
       dietDetailText.innerHTML = ''

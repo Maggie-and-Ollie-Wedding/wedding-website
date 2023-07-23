@@ -2,24 +2,20 @@
 <html>
 
 <head>
-  <!-- title: CHANGE ME -->
   <title>Maggie and Ollie's Wedding!</title>
   <link rel="icon" href="../static/images/icon.png">
 
-  <!-- stylesheets -->
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/stylesheet.css">
-    <link rel="stylesheet" href="../static/css/RSVPstylesheet.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="../static/css/stylesheet.css">
+  <link rel="stylesheet" href="../static/css/RSVPstylesheet.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
-  <!-- meta -->
+
+  <!-- Meta -->
   <meta name="author" content="Maggie Hunt">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
@@ -34,33 +30,15 @@
     </div>
     <nav class="big-menu">
       <ul>
-        <li>
-          <a href="/#ceremony">Ceremony</a>
-        </li>
-        <li>
-          <a href="/#reception">Reception</a>
-        </li>
-        <li>
-          <a href="/RSVP">RSVP</a>
-        </li>
-        <li>
-          <a href="/#getting-there-accommodation" onclick="reveal('gettingThere')">Getting There</a>
-        </li>
-        <li>
-          <a href="/#getting-there-accommodation" onclick="reveal('accommodation')">Accommodation</a>
-        </li>
-        <li>
-          <a href="/#dress-code-gift-registry-choir" onclick="reveal('dressCode')">Dress Code</a>
-        </li>
-        <li>
-          <a href="/#dress-code-gift-registry-choir" onclick="reveal('giftRegistry')">Gift Registry</a>
-        </li>
-        <li>
-          <a href="/#dress-code-gift-registry-choir" onclick="reveal('choir')">Choir</a>
-        </li>
-        <li>
-          <a href="/#contact-us">Contact Us</a>
-        </li>
+        <li><a href="/#ceremony">Ceremony</a></li>
+        <li><a href="/#reception">Reception</a></li>
+        <li><a href="/RSVP">RSVP</a></li>
+        <li><a href="/#getting-there-accommodation" onclick="reveal('gettingThere')">Getting There</a></li>
+        <li><a href="/#getting-there-accommodation" onclick="reveal('accommodation')">Accommodation</a></li>
+        <li><a href="/#dress-code-gift-registry-choir" onclick="reveal('dressCode')">Dress Code</a></li>
+        <li><a href="/#dress-code-gift-registry-choir" onclick="reveal('giftRegistry')">Gift Registry</a></li>
+        <li><a href="/#dress-code-gift-registry-choir" onclick="reveal('choir')">Choir</a></li>
+        <li><a href="/#contact-us">Contact Us</a></li>
       </ul>
     </nav>
 
@@ -86,87 +64,83 @@
 
   <div id="page-content" class="main-content">
     <h3>RSVP</h3>
-    <form>
+    <form><div>
       <div class="form-group">
-        <label for="inputName">Name</label>
         <input type="text" class="form-control" id="name" placeholder="Search for your name">
-
       </div>
       <div class="form-group rsvp-form">
         <label for="inputName">Invite group</label>
         <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
       </div>
-      <div id="person1" class="rsvp-row form-group">
-
-
-        <div id="rsvp1" class="rsvp-row rsvp-block-1">
+      <div id="whole-form-input">
+      <div id="person1" class="rsvp-row form-group rsvp-form">
+        <div id="rsvp1" class="rsvp-row rsvp-block-1 form-group">
           <div class="rsvp-block-2">
             <div class="rsvp-column">
-              <p>{Person1}</p>
-
+              <h9>{Person 1}</h9>
             </div>
-
-            <div class="rsvp-column"><label class="switch" for="RSVPCheck1">
+            <div class="rsvp-column">
+              <label class="switch" for="RSVPCheck1">
                 <input type="checkbox" id="RSVPCheck1" onchange="toggleFormSection(1)">
                 <span class="slider round"></span>RSVP
-
-              </label></div>
-          </div>
-
-          <span class="hide-on-load rsvp-block-1" id="RSVPDetails1">
-            <div class="rsvp-block-2">
-            <div class="rsvp-column"><label class="switch" for="RSVPChoir1">
-                <input type="checkbox" id="RSVPChoir1" onchange="toggleFormSection(1)">
-                <span class="slider round"></span>Choir
-              </label></div>
-            <div class="rsvp-column dropdown">
-              <select class=" btn btn-secondary dropdown-toggle hide-on-load" data-toggle="dropdown"
-                aria-labelledby="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" id="dropdownVocalPart1"
-                onchange="toggleFormSection(1)">
-                <option class="dropdown-item">Vocal part</option>
-                <option class="dropdown-item">Soprano</option>
-                <option class="dropdown-item">Mezzosoprano</option>
-                <option class="dropdown-item">Alto</option>
-                <option class="dropdown-item">Tenor</option>
-                <option class="dropdown-item">Baritone</option>
-                <option class="dropdown-item">Bass</option>
-              </select>
-            </div></div>
-            <div class="rsvp-block-3">
-            <div class="rsvp-column"><label class="switch" for="RSVPDiet1">
-                <input type="checkbox" id="RSVPDiet1" onchange="toggleFormSection(1)">
-                <span class="slider round"></span>Dietary Requirements
-              </label></div>
-            <div class="rsvp-column dropdown">
-              <select class=" btn btn-secondary dropdown-toggle hide-on-load" data-toggle="dropdown"
-                aria-labelledby="dropdownMenuButton" aria-haspopup="true" aria-expanded="false"
-                onchange="toggleFormSection(1)" id="dropdownDiet1">
-                <option class="dropdown-item">Dietary Requirements</option>
-                <option class="dropdown-item">Nut allergy</option>
-                <option class="dropdown-item">Vegetarian</option>
-                <option class="dropdown-item">Vegan</option>
-                <option class="dropdown-item">Dairy free</option>
-                <option class="dropdown-item">No pork</option>
-                <option class="dropdown-item">No beef</option>
-                <option class="dropdown-item">Multiple/Other</option>
-              </select>
+              </label>
             </div>
-        </div>
-      </span>
-        <div id="dietary-1">
-          <div class="rsvp-column-freetext" id="diet-detail-column1">
-            <label for="inputDietaryRequirement"></label>
-            <input type="text" class="form-control textinput hide-on-load" id="dietDetail1"
-              placeholder="Please provide details of your dietary requirement(s)" oninput="toggleFormSection(1)">
-            <div id="output"></div>
+          </div>
+          <span class="hide-on-load rsvp-block-1 rsvp-block-4" id="RSVPDetails1">
+            <div class="rsvp-block-2 sb-mob">
+              <div class="rsvp-column">
+                <label class="switch" for="RSVPChoir1">
+                  <input type="checkbox" id="RSVPChoir1" onchange="toggleFormSection(1)">
+                  <span class="slider round"></span>Choir
+                </label>
+              </div>
+              <div class="rsvp-column dropdown rsvp-block-5">
+                <select class="btn btn-secondary dropdown-toggle hide-on-load" data-toggle="dropdown"
+                  aria-labelledby="dropdownMenuButton" aria-haspopup="true" aria-expanded="false"
+                  id="dropdownVocalPart1" onchange="toggleFormSection(1)">
+                  <option class="dropdown-item">Vocal part</option>
+                  <option class="dropdown-item">Soprano</option>
+                  <option class="dropdown-item">Mezzosoprano</option>
+                  <option class="dropdown-item">Alto</option>
+                  <option class="dropdown-item">Tenor</option>
+                  <option class="dropdown-item">Baritone</option>
+                  <option class="dropdown-item">Bass</option>
+                </select>
+              </div>
+            </div>
+            <div class="rsvp-block-3 sb-mob">
+              <div class="rsvp-column">
+                <label class="switch" for="RSVPDiet1">
+                  <input type="checkbox" id="RSVPDiet1" onchange="toggleFormSection(1)">
+                  <span class="slider round"></span>Dietary Requirements
+                </label>
+              </div>
+              <div class="rsvp-column dropdown rsvp-block-5">
+                <select class="btn btn-secondary dropdown-toggle hide-on-load" data-toggle="dropdown"
+                  aria-labelledby="dropdownMenuButton" aria-haspopup="true" aria-expanded="false"
+                  onchange="toggleFormSection(1)" id="dropdownDiet1">
+                  <option class="dropdown-item">Dietary Requirements</option>
+                  <option class="dropdown-item">Nut allergy</option>
+                  <option class="dropdown-item">Vegetarian</option>
+                  <option class="dropdown-item">Vegan</option>
+                  <option class="dropdown-item">Dairy free</option>
+                  <option class="dropdown-item">No pork</option>
+                  <option class="dropdown-item">No beef</option>
+                  <option class="dropdown-item">Multiple/Other</option>
+                </select>
+              </div>
+            </div>
+          </span>
+          <div id="dietary-sect-1" class="diet-detail-column hide-on-load">
+            <div class="rsvp-column-freetext diet-detail-column" id="diet-detail-column1">
+             
+              <input type="text" class="form-control textinput" id="dietDetail1"
+                placeholder="Please provide details of your dietary requirement(s)" oninput="toggleFormSection(1)">
+              <div id="output"></div>
+            </div>
           </div>
         </div>
-
-      </div>
-
-
-        </span>
-      </div>
+      </div></div><div id="confirmation-text">
       <div id="rsvpConfirmation1" class="rsvp-row form-group rsvp-form">
         <p>{Person1} is <span id="RSVPNo1">not </span>able to attend the wedding.
           <span id="ChoirYes1" class="hide-on-load">
@@ -177,10 +151,13 @@
                 id="dietOption1"></span><span id="dietDetailText1"></span></span>
         </p>
       </div>
-      <div class="rsvp-button-row form-group rsvp-form"> <button id="submit" class="form-button">Submit</button></div>
-
+    </div>
+      <div class="rsvp-button-row form-group rsvp-form">
+        <button id="submit" class="contact-button button">
+          <h4>Submit</h4>
+        </button>
+      </div></div></form>
     </form>
-
     <script src="../static/js/script.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -192,8 +169,6 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
-
-
 </body>
 
 </html>

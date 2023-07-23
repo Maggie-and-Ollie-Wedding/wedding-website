@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://127.0.0.1:5500/templates/RSVP.html? -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Maggie and Ollie's Wedding!</title>
+  <link rel="icon" href="http://127.0.0.1:5500/static/images/icon.png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./Maggie and Ollie&#39;s Wedding!_files/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="./Maggie and Ollie&#39;s Wedding!_files/stylesheet.css">
+  <link rel="stylesheet" href="./Maggie and Ollie&#39;s Wedding!_files/RSVPstylesheet.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./Maggie and Ollie&#39;s Wedding!_files/css2" rel="stylesheet">
+  <link rel="stylesheet" href="./Maggie and Ollie&#39;s Wedding!_files/font-awesome.min.css">
+
+  <!-- Meta -->
+  <meta name="author" content="Maggie Hunt">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="The wedding of Maggie Hunt and Oliver Norman">
+</head>
+
+<body>
+  <div class="header-and-nav topnav">
+    <div id="header">
+      <h1><a href="http://127.0.0.1:5500/#cover-page">M&amp;O</a></h1>
+    </div>
+    <nav class="big-menu">
+      <ul>
+        <li><a href="http://127.0.0.1:5500/#ceremony">Ceremony</a></li>
+        <li><a href="http://127.0.0.1:5500/#reception">Reception</a></li>
+        <li><a href="http://127.0.0.1:5500/RSVP">RSVP</a></li>
+        <li><a href="http://127.0.0.1:5500/#getting-there-accommodation" onclick="reveal(&#39;gettingThere&#39;)">Getting There</a></li>
+        <li><a href="http://127.0.0.1:5500/#getting-there-accommodation" onclick="reveal(&#39;accommodation&#39;)">Accommodation</a></li>
+        <li><a href="http://127.0.0.1:5500/#dress-code-gift-registry-choir" onclick="reveal(&#39;dressCode&#39;)">Dress Code</a></li>
+        <li><a href="http://127.0.0.1:5500/#dress-code-gift-registry-choir" onclick="reveal(&#39;giftRegistry&#39;)">Gift Registry</a></li>
+        <li><a href="http://127.0.0.1:5500/#dress-code-gift-registry-choir" onclick="reveal(&#39;choir&#39;)">Choir</a></li>
+        <li><a href="http://127.0.0.1:5500/#contact-us">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- Navigation links (hidden by default) -->
+    <nav class="small-menu">
+      <div id="myLinks">
+        <a href="http://127.0.0.1:5500/#ceremony" onclick="myFunction()">Ceremony</a>
+        <a href="http://127.0.0.1:5500/#reception" onclick="myFunction()">Reception</a>
+        <a href="http://127.0.0.1:5500/RSVP" onclick="myFunction()">RSVP</a>
+        <a href="http://127.0.0.1:5500/#getting-there-accommodation" onclick="myFunction(); reveal(&#39;gettingThere&#39;)">Getting There</a>
+        <a href="http://127.0.0.1:5500/#getting-there-accommodation" onclick="myFunction(); reveal(&#39;accommodation&#39;)">Accommodation</a>
+        <a href="http://127.0.0.1:5500/#dress-code-gift-registry-choir" onclick="myFunction(); reveal(&#39;dressCode&#39;)">Dress Code</a>
+        <a href="http://127.0.0.1:5500/#dress-code-gift-registry-choir" onclick="myFunction(); reveal(&#39;giftRegistry&#39;)">Gift Registry</a>
+        <a href="http://127.0.0.1:5500/#dress-code-gift-registry-choir" onclick="myFunction(); reveal(&#39;choir&#39;)">Choir</a>
+        <a href="http://127.0.0.1:5500/#contact-us" onclick="myFunction()">Contact Us</a>
+      </div>
+      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </nav>
+  </div>
+
+  <div id="page-content" class="main-content">
+    <h3>RSVP</h3>
+    <form><div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="name" placeholder="Search for your name">
+      </div>
+      <div class="form-group rsvp-form">
+        <label for="inputName">Invite group</label>
+        <input class="form-control" type="text" placeholder="Readonly input here…" readonly="">
+      </div>
+      <div id="whole-form-input">
+      <div id="person1" class="rsvp-row form-group rsvp-form">
+        <div id="rsvp1" class="rsvp-row rsvp-block-1 form-group">
+          <div class="rsvp-block-2">
+            <div class="rsvp-column">
+              <h9>{Person 1}</h9>
+            </div>
+            <div class="rsvp-column">
+              <label class="switch" for="RSVPCheck1">
+                <input type="checkbox" id="RSVPCheck1" onchange="toggleFormSection(1)">
+                <span class="slider round"></span>RSVP
+              </label>
+            </div>
+          </div>
+          <span class="hide-on-load rsvp-block-1 rsvp-block-4" id="RSVPDetails1" style="display: flex;">
+            <div class="rsvp-block-2">
+              <div class="rsvp-column">
+                <label class="switch" for="RSVPChoir1">
+                  <input type="checkbox" id="RSVPChoir1" onchange="toggleFormSection(1)">
+                  <span class="slider round"></span>Choir
+                </label>
+              </div>
+              <div class="rsvp-column dropdown">
+                <select class="btn btn-secondary dropdown-toggle hide-on-load" data-toggle="dropdown" aria-labelledby="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" id="dropdownVocalPart1" onchange="toggleFormSection(1)" style="display: block;">
+                  <option class="dropdown-item">Vocal part</option>
+                  <option class="dropdown-item">Soprano</option>
+                  <option class="dropdown-item">Mezzosoprano</option>
+                  <option class="dropdown-item">Alto</option>
+                  <option class="dropdown-item">Tenor</option>
+                  <option class="dropdown-item">Baritone</option>
+                  <option class="dropdown-item">Bass</option>
+                </select>
+              </div>
+            </div>
+            <div class="rsvp-block-3">
+              <div class="rsvp-column">
+                <label class="switch" for="RSVPDiet1">
+                  <input type="checkbox" id="RSVPDiet1" onchange="toggleFormSection(1)">
+                  <span class="slider round"></span>Dietary Requirements
+                </label>
+              </div>
+              <div class="rsvp-column dropdown rsvp-block-5">
+                <select class="btn btn-secondary dropdown-toggle hide-on-load" data-toggle="dropdown" aria-labelledby="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" onchange="toggleFormSection(1)" id="dropdownDiet1" style="display: block;">
+                  <option class="dropdown-item">Dietary Requirements</option>
+                  <option class="dropdown-item">Nut allergy</option>
+                  <option class="dropdown-item">Vegetarian</option>
+                  <option class="dropdown-item">Vegan</option>
+                  <option class="dropdown-item">Dairy free</option>
+                  <option class="dropdown-item">No pork</option>
+                  <option class="dropdown-item">No beef</option>
+                  <option class="dropdown-item">Multiple/Other</option>
+                </select>
+              </div>
+            </div>
+          </span>
+          <div id="dietary-sect-1" class="diet-detail-column hide-on-load" style="display: flex;">
+            <div class="rsvp-column-freetext diet-detail-column" id="diet-detail-column1" style="width: 100%; display: flex;">
+              <label for="inputDietaryRequirement"></label>
+              <input type="text" class="form-control textinput" id="dietDetail1" placeholder="Please provide details of your dietary requirement(s)" oninput="toggleFormSection(1)" style="display: flex;">
+              <div id="output"></div>
+            </div>
+          </div>
+        </div>
+      </div></div><div id="confirmation-text">
+      <div id="rsvpConfirmation1" class="rsvp-row form-group rsvp-form">
+        <p>{Person1} is <span id="RSVPNo1" style="display: none;">not </span>able to attend the wedding.
+          <span id="ChoirYes1" class="hide-on-load" style="display: inline;">
+            They will be joining the choir, singing <span id="voicePartGuest1">Vocal part</span>.
+          </span>
+          <span id="dietary1" class="hide-on-load" style="display: inline; width: 0%;">They have <span id="DietNo1" style="display: none;">no dietary requirements</span>
+            <span id="DietYes1" class="hide-on-load" style="display: inline;">the following dietary requirements: <span id="dietOption1" style="display: none;">Dietary Requirements</span><span id="dietDetailText1" style="display: inline;"></span></span>
+        </span></p>
+      </div>
+    </div>
+      <div class="rsvp-button-row form-group rsvp-form">
+        <button id="submit" class="contact-button button">
+          <h4>Submit</h4>
+        </button>
+      </div></div></form>
+    
+    <script src="./Maggie and Ollie&#39;s Wedding!_files/script.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+
+</div></body></html>
