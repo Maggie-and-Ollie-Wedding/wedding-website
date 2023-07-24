@@ -95,7 +95,7 @@ body {
   background-repeat: no-repeat;
   width: 90vw;
   background-color: var(--soft-background-colour);
-  overflow: scroll
+  overflow: scroll;
 }
 
 
@@ -375,6 +375,23 @@ a:active {
   justify-content: center;
 }
 
+.bus-box-div {
+  display: flex;
+  justify-content: center;
+}
+.bus-box {
+  border: var(--soft-dark-colour);
+  width: 60%;
+  color: var(--soft-dark-colour);
+  height: auto;
+  margin-bottom: 1rem;
+  border-style: solid;
+  border-width: var(--border-width);
+  display: flex;
+  margin-top: 0.5rem;
+  padding: 20px;
+
+}
 
 .contact-button {
   border: var(--soft-dark-colour);

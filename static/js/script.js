@@ -1,13 +1,17 @@
 window.addEventListener('load', event => {
-  if (window.location.pathname == '/index') {
-    carousel_function = function () {
-      $('.carousel').carousel({
-        interval: 2000
-      })
-      $('.carousel').carousel('cycle')
-    }
-    carousel_function()
-  }
+const pageContent = document.getElementById('page-content')
+
+pageContent.style.opacity='1'
+
+  // if (window.location.pathname == '/index') {
+  //   carousel_function = function () {
+  //     $('.carousel').carousel({
+  //       interval: 2000
+  //     })
+  //     $('.carousel').carousel('cycle')
+  //   }
+  //   carousel_function()
+  // }
 })
 
 // Get all the links
@@ -32,6 +36,7 @@ function myFunction () {
     x.style.display = 'block'
   }
 }
+
 
 function toggleFormSection (row) {
   var RSVP = document.getElementById('RSVPCheck' + row)

@@ -13,6 +13,11 @@
     --border-width: 5px;
 }
 
+#page-content {
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+
 button {
     background-color: var(--soft-background-colour);
 }
