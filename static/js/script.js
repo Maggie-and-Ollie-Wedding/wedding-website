@@ -123,6 +123,8 @@ function toggleFormSection (row) {
     dietSection.style.display = 'none' // hide the section
     dietDetail.style.display = 'none' // hide the section
     dietDetailColumn.style.width = '0%'
+    dietarySect.style.display = 'none'
+    dietDetailColumn.style.display = 'none'
     dietary.style.display = 'none'
     dietDetail.value = ''
     dietDetailText.innerHTML = ''
