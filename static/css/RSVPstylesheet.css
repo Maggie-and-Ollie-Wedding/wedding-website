@@ -91,7 +91,7 @@ h4 {
 }
 
 .diet-detail-column {
-    width: 200%;
+    width: 100%;
     display: flex;
     justify-self: flex-end;
 }

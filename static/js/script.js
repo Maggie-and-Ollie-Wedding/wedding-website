@@ -113,7 +113,8 @@ function toggleFormSection (row) {
       })
     } else {
       dietDetail.style.display = 'none' // hide the section
-      dietDetailColumn.style.width = '0%'
+      dietDetailColumn.style.width = '100%'
+      dietDetail.style.width = '100%'
       dietOption.innerHTML = selectedDietOption
       dietarySect.style.display = 'none'
       // dietSection.value = 'Dietary Requirements'
@@ -200,3 +201,26 @@ function reveal (section) {
     }
   }
 }
+
+// if (window.location.pathname === '/RSVP') {
+
+function numberOfInvitees(numberOfInvitees) {
+
+  console.log.numberOfInvitees;
+
+  inviteeNumbers = [1, 2, 3, 4, 5, 6]
+  
+  for (inviteeNumber of inviteeNumbers) {
+  
+  var inviteLine = document.getElementById("person"+inviteeNumber)
+  var inviteConfirmation = document.getElementById("rsvpConfirmation"+inviteeNumber)
+  
+  if (numberOfInvitees<inviteeNumber){
+    inviteLine.style.display = 'none'
+    inviteConfirmation.style.display = 'none'
+  }
+}
+}
+// console.log(numberFromFlask)
+// numberOfInvitees(numberFromFlask)
+// }
