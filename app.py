@@ -2,12 +2,14 @@ from flask import Flask, render_template, request, Response #imports functions t
 import os
 from datetime import date, datetime
 import json
-from google.cloud import bigquery
+# from google.cloud import bigquery
 
 
 app = Flask("maggie-and-ollie-wedding") #making an app
 GCP_Credentials = ""
-client = bigquery.Client()
+# client = bigquery.Client()
+client = "x"
+trees_from_RSVP = 24
 
 
 
@@ -19,9 +21,10 @@ def landing_page():
     wedding = date(2024, 5, 18)
     time_left = wedding - today
     days_left = time_left.days
-    print(days_left)
+    number_of_trees = trees_from_RSVP
+
     
-    return render_template("index.html", days_left=days_left)
+    return render_template("index.html", days_left=days_left, number_of_trees=number_of_trees)
 
 #RSVPPage
 @app.route("/RSVP")  
@@ -80,7 +83,6 @@ def RSVP_form():
          "inviteGroup": lookup_invite.invitees_names_list
         }
 
-        # Assuming invitees_listing.invitees is the list of invitees
         for i, invitee in enumerate(lookup_invite.invitees[:6]):
                 lookupData[f"invitee{i + 1}"] = invitee
 
@@ -88,11 +90,17 @@ def RSVP_form():
         for i in range(len(lookup_invite.invitees), 6):
                 lookupData[f"invitee{i + 1}"] = ""
 
-
+        print(lookupData)
         return render_template("RSVP.html", lookupData=lookupData)
     
-    
-        # return render_template("RSVP.html", numberofInvitees=numberofInvitees, invitee1=invitee1,invitee2=invitee2,invitee3=invitee3,invitee4=invitee4,invitee5=invitee5,invitee6=invitee6, inviteGroup=inviteGroup)
+def submitRSVP():
+       #create json object per row in form
+       #pair with row from query
+       #mailgun responses too all
+       #treeapp planting
+       #update tree count
+       trees_from_RSVP+=1
+       return trees_from_RSVP #ensure updates on homepage
 
 #OrderofEvents
 @app.route("/order-of-events")  
@@ -109,5 +117,3 @@ def seating_plan():
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
 ###app.run(debug=True) #runs the app. the debug part - unlocks debugging feature.
-
-##app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
