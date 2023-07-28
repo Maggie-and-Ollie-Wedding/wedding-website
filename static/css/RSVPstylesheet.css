@@ -217,6 +217,14 @@ form {
     font-size: small;
 }
 
+#list-of-invitations-names {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+   overflow: hidden;
+
+  }
+
 
 
 #whole-form-input {

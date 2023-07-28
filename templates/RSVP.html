@@ -70,12 +70,26 @@
     <form>
       <div>
         <div class="form-group">
-          <input type="text" class="form-control" id="search_your_name" placeholder="Search for your name">
+          <!-- <input type="text" class="form-control" id="search-your-name" placeholder="{{invitationList}}" data-toggle="dropdown" onchange="inviteSearch()"  aria-autocomplete="true" 
+          aria-expanded="true">   <select class="form-select" multiple aria-label="multiple select example"
+                      id="list-of-invitations-names" onchange="selectInvitation()">
+                    </select> -->
+
+                    
+<input type="text" class="form-control" id="search-your-name" oninput="inviteSearch(invitations)" placeholder="Search for your name...">
+<select class="form-select form-control hide-on-load" id="list-of-invitations-names" aria-label="Search for your name" onchange="selectInvitation()">
+  <!-- No initial options in the select element -->
+</select>
         </div>
+        
+     
+
         <div class="form-group rsvp-form">
-          <label for="inputName">Invite group</label>
-          <input class="form-control" type="text" placeholder="{{lookupData['inviteGroup']}}" readonly>
+          <label for="inputName">Invitation Group</label>
+          <input class="form-control" type="text" placeholder="..." readonly id="invitation-group">
         </div>
+
+  
         <div id="whole-form-input">
           <div id="person1" class="rsvp-row form-group rsvp-form">
             <div id="rsvp1" class="rsvp-row rsvp-block-1 form-group">
@@ -568,7 +582,7 @@
           </div>
 
         </div>
-        <div class="rsvp-button-row form-group rsvp-form">
+        <div class="rsvp-button-row form-group rsvp-form hide-on-load">
           <button id="submit" class="contact-button button">
             <h4>Submit</h4>
           </button>
@@ -577,9 +591,15 @@
 <!-- TODO ADD TREE AND CONTACT BUTTON -->
     </form>
     <script src="../static/js/script.js"></script>
+    <script src="../static/js/RSVPformscript.js"></script>
+    <script src="../static/js/RSVPlookupscript.js"></script>
     <script>
-      numberFromFlask = {{ lookupData['numberofInvitees'] }};
+      listOfInvitations = {{invitationList|safe}}
+      numberFromFlask = {{ lookupData['numberofInvitees']|safe }};
       numberOfInvitees(numberFromFlask);
+      listOfInvitees(listOfInvitations);
+      invitations = searchableList (listOfInvitations);
+    setDropdownSize();
     </script>
 </body>
 
