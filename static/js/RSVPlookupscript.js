@@ -1,12 +1,12 @@
 function capitalizeNames (input) {
-  console.log(input)
-  capitalized = input.replace(/\b\w/g, match => match.toUpperCase())
+ standard_input = input.toLowerCase()
+  capitalized = standard_input.replace(/\b\w/g, match => match.toUpperCase())
   console.log(capitalized)
   return capitalized
 }
 
 function searchableList (listOfInvitations) {
-  const listOfInvitationsAndGuests = listOfInvitations
+  const listOfInvitationsAndGuests = listOfInvitations.sort()
 
   const invitations = listOfInvitationsAndGuests.map(str =>
     str.replace(/'/g, '')
@@ -17,7 +17,8 @@ function searchableList (listOfInvitations) {
 }
 
 function listOfInvitees (listOfInvitations) {
-  const invitees = listOfInvitations.flatMap(str =>
+  sorted_listOfInvitations = listOfInvitations.sort()
+  const invitees = sorted_listOfInvitations.flatMap(str =>
     str
       .replace(/'/g, '')
       .split(',')
@@ -28,78 +29,63 @@ function listOfInvitees (listOfInvitations) {
   return invitees
 }
 
-function inviteSearch (invitations) {
-  const searchYourName = document.getElementById('search-your-name')
-  console.log('inviteSearch()')
+
+
+function inviteSearch(invitations) {
+  const searchYourName = document.getElementById('search-your-name');
+  const showNamesList = document.getElementById('list-of-invitations-names');
+  const invitationGroup = document.getElementById('invitation-group');
+  console.log('inviteSearch()');
 
   searchYourName.addEventListener('input', function () {
-    const showNamesList = document.getElementById('list-of-invitations-names')
+    const searchYourNameContent = capitalizeNames(searchYourName.value);
+    const filteredInvitations = invitations.filter(option =>
+      option.includes(searchYourNameContent)
+    );
 
-    showNamesList.innerHTML = ''
-    console.log(searchYourName.value.length)
-    if (searchYourName.value.length > 2) {
-      var searchYourNameContent = capitalizeNames(searchYourName.value)
-      listOfInvitationBullets = []
-      console.log(searchYourNameContent)
-      console.log(invitations)
-      console.log(invitations.includes(searchYourNameContent))
-      const containsSearchString = invitations.some(option =>
-        option.includes(searchYourNameContent)
-      )
+    showNamesList.innerHTML = '';
 
-      console.log(containsSearchString)
+    if (searchYourNameContent.length > 2 && filteredInvitations.length > 0) {
+      listOfInvitationBullets = filteredInvitations;
+      
 
-      for (var i = 0; i < invitations.length; i++) {
-        if (containsSearchString) {
-          console.log(invitations[i])
-          inviteesNamesBullets = invitations[i]
-          // inviteesNamesBullets = '<option>' + invitees[i] + '</option>'
-          listOfInvitationBullets.push(inviteesNamesBullets)
-        }
-      }
+      var numberOfOptions=0
 
-      const showNamesList = document.getElementById('list-of-invitations-names')
-      console.log(listOfInvitationBullets)
       listOfInvitationBullets.forEach(optionText => {
-        const optionElement = document.createElement('option')
+        const optionElement = document.createElement('option');
+        optionElement.value = optionText;
+        optionElement.textContent = optionText;
+        showNamesList.appendChild(optionElement);
+        numberOfOptions +=1
+        console.log(numberOfOptions)
+      });
 
-        optionElement.value = optionText
-        optionElement.textContent = optionText
-
-        showNamesList.appendChild(optionElement)
-      })
-      console.log(showNamesList)
-      if (listOfInvitationBullets.length === 0) {
-        showNamesList.style.display = 'none'
-        console.log(listOfInvitationBullets.length === 0)
-      } else {
-        showNamesList.style.display = 'flex'
+      showNamesList.style.display = 'flex';
+      function setDropdownSize() {
+        const selectElement = document.getElementById('list-of-invitations-names');
+        const maxVisibleOptions = 3;
+        const optionCount = numberOfOptions;
+      
+        const actualSize = Math.min(maxVisibleOptions, optionCount);
+      
+        selectElement.size = actualSize;
       }
+      setDropdownSize();
+      
+      
     } else {
-      showNamesList.style.display = 'none'
+      showNamesList.style.display = 'none';
     }
-  })
+  });
+
+  showNamesList.addEventListener('click', function () {
+    invitationGroup.textContent = showNamesList.value;
+    showNamesList.style.display = 'none';
+  });
+
+  showNamesList.addEventListener('mousedown', function (e) {
+    e.preventDefault();
+  });
 }
 
-function selectInvitation () {
-  const options = listOfInvitationBullets.getElementsByTagName('option')
 
-  for (let i = 0; i < options.length; i++) {
-    const optionText = options[i].textContent.toLowerCase()
-    const filterValueLowerCase = filterValue.toLowerCase()
-
-    if (optionText.includes(filterValueLowerCase)) {
-      options[i].style.display = 'block'
-    } else {
-      options[i].style.display = 'none'
-    }
-  }
-}
-
-function setDropdownSize () {
-  const selectElement = document.getElementById('list-of-invitations-names')
-  const optionCount = selectElement.getElementsByTagName('option').length
-  const maxVisibleOptions = 4
-
-  selectElement.size = Math.min(maxVisibleOptions, optionCount)
-}

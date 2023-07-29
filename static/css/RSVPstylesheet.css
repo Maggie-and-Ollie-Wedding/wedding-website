@@ -217,6 +217,27 @@ form {
     font-size: small;
 }
 
+option {padding:10px;
+font-size: larger;}
+
+list-of-invitations-names {
+    line-height: 60px;
+}
+
+.form-control-lookup {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--main-dark-colour);
+    background-color: var(--soft-background-colour);
+    background-clip: padding-box;
+    border: 1px solid var(--mid-colour);
+    border-radius: 0rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    font-size: small;
+}
+
 #list-of-invitations-names {
     appearance: none;
     -webkit-appearance: none;
@@ -246,4 +267,8 @@ form {
 
 .hide-on-load {
     display: none;
+}
+
+#contact-page {
+    position: relative;
 }

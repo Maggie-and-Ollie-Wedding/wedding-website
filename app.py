@@ -6,37 +6,9 @@ from google.cloud import bigquery
 
 app = Flask("maggie-and-ollie-wedding") #making an app
 client = bigquery.Client()
-trees_from_RSVP = 24
+number_of_trees = 24
 
 
-def invitees_listing(invite):
-        
-        invite_number = invite['id']
-        invitees_query_SQL= "SELECT * FROM `maggie-and-ollie-wedding.wedding_1805.RSVP_table`WHERE Invite_ID = "+invite_number
-        invitees_lookup_query_job = client.query(invitees_query_SQL)
-        invitees_lookup_results = invitees_lookup_query_job.result()
-        count=1
-        invitees = []
-        for invitee in invitees_lookup_results:
-                fullname= invitee["Full_Name"]
-                varname = f"invitee{count}"
-                invitees.append({varname: fullname})
-                count+=1
-
-        lookupData = {
-        "numberofInvitees": lookup_invite.invitees_count,
-         "inviteGroup": lookup_invite.invitees_names_list
-        }
-
-        for i, invitee in enumerate(lookup_invite.invitees[:6]):
-                lookupData[f"invitee{i + 1}"] = invitee
-
-        # If the invitees list has less than 6 items, the remaining keys will have empty strings as values
-        for i in range(len(lookup_invite.invitees), 6):
-                lookupData[f"invitee{i + 1}"] = ""
-
-        print(lookupData)
-        return invitees
 
 # invitees_listing(lookup_invite("Testing Person18"))
 #Homepage
@@ -47,8 +19,7 @@ def landing_page():
     wedding = date(2024, 5, 18)
     time_left = wedding - today
     days_left = time_left.days
-    number_of_trees = trees_from_RSVP
-
+    
     
     return render_template("index.html", days_left=days_left, number_of_trees=number_of_trees)
 
@@ -60,6 +31,7 @@ def RSVP():
         "inviteGroup" : "Full list here"}
         #keep this or jinja2 will break
         invite_lookup_query_SQL = f'SELECT * FROM `maggie-and-ollie-wedding.wedding_1805.invitations_table`'
+
         
         invite_lookup_query_job = client.query(invite_lookup_query_SQL)
         invite_lookup_results = list(invite_lookup_query_job)
@@ -76,13 +48,49 @@ def RSVP():
                 "people_on_invite": invite_names_list, 
                 "headocunt": invitees_count
                 }
+                
                 list_results.append(invite_obj)
                 invitationList.append(invite_names_list)
 
-        return render_template("RSVP.html", lookupData=lookupData, invite=invite_obj, list_results=list_results, invitationList=invitationList)
+        
+        return render_template("RSVP.html", lookupData=lookupData, invite=invite_obj, number_of_trees=number_of_trees, list_results=list_results, invitationList=invitationList, lookup_id=invite_id)
 
-@app.route("/RSVP?")  
-def RSVP_form():
+
+# def RSVP_invite_list():
+#         for invite in RSVP.invite_lookup_results:
+# lookup_value = str(request.form['list-of-invitations-names'])
+#                if str(RSVP.lookup_value) == RSVP.invite_names_list:
+#                 invite_number = RSVP.invite_id
+#                 lookup_invite = RSVP.invite_obj
+              
+#                 invitees_query_SQL= "SELECT * FROM `maggie-and-ollie-wedding.wedding_1805.RSVP_table`WHERE Invite_ID = "+invite_number
+#                 invitees_lookup_query_job = client.query(invitees_query_SQL)
+#                 invitees_lookup_results = invitees_lookup_query_job.result()
+#                 count=1
+#                 invitees = []
+#                 for invitee in invitees_lookup_results:
+#                         fullname= invitee["Full_Name"]
+#                         varname = f"invitee{count}"
+#                         invitees.append({varname: fullname})
+#                         count+=1
+
+#                 lookupData = {
+#                 "numberofInvitees": lookup_invite.invitees_count,
+#                 "inviteGroup": lookup_invite.invitees_names_list
+#                 }
+
+#                 for i, invitee in enumerate(lookup_invite.invitees[:6]):
+#                         lookupData[f"invitee{i + 1}"] = invitee
+
+#                 # If the invitees list has less than 6 items, the remaining keys will have empty strings as values
+#                 for i in range(len(lookup_invite.invitees), 6):
+#                         lookupData[f"invitee{i + 1}"] = ""
+
+
+#         return render_template("RSVP.html", lookupData=lookupData, lookup_id=invite_number, invitees=invitees)
+
+@app.route("/thank-you")  
+def RSVP_form(number_of_trees):
 
         # def lookup_invite():
         #         invite_lookup_query_start = ' SELECT * FROM `maggie-and-ollie-wedding.wedding_1805.invitations_table` WHERE Invite_Group_Name LIKE "%'
@@ -142,14 +150,14 @@ def RSVP_form():
         # print(lookupData)
         # return render_template("RSVP.html", lookupData=lookupData)
     
-        def submitRSVP():
+       
        #create json object per row in form
        #pair with row from query
        #mailgun responses too all
        #treeapp planting
        #update tree count
-                trees_from_RSVP+=1
-                return trees_from_RSVP #ensure updates on homepage
+        number_of_trees+=1
+        return render_template("thank-you.html", number_of_trees=number_of_trees)
 
 #OrderofEvents
 @app.route("/order-of-events")  
