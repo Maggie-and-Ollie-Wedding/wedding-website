@@ -78,7 +78,7 @@ function inviteSearch(invitations) {
     }
   });
 
-  showNamesList.addEventListener('click', function () {
+  showNamesList.addEventListener('mousedown', function () {
     invitationGroup.textContent = showNamesList.value;
     showNamesList.style.display = 'none';
   });
