@@ -2,8 +2,9 @@
     --cover-page-height: 80vh;
     --main-dark-colour: #636363;
     --mid-dark-colour: #666666;
-    --mid-dark-colour-transparent: rgba(0, 0, 0, 0.5);
-    --mid-dark-colour-semitransparent: rgba(0, 0, 0, 0.4);
+    --dark-colour-transparent: rgba(0, 0, 0, 0.5);
+    --dark-colour-semitransparent: rgba(0, 0, 0, 0.4);
+    --warm-colour-semitransparent: rgba(196, 188, 188, 0.5);
     --soft-dark-colour: #7c7c7c;
     --soft-background-colour: white;
     --light-colour: #efeeee;
@@ -16,7 +17,7 @@
 #page-content {
     opacity: 0.5;
     transition: opacity 0.2s;
-  }
+}
 
 button {
     background-color: var(--soft-background-colour);
@@ -55,7 +56,7 @@ h4 {
     padding-right: 10px;
     text-align: left;
     margin-left: 10px;
-    width: 100%;
+    width: 20vw;
     height: 60px;
 }
 
@@ -70,43 +71,82 @@ h4 {
     display: flex;
     flex-direction: row;
     flex: 1;
-    width: 100%;
+    width: 40vw;
 }
 
 .rsvp-block-4 {
-    justify-content: space-around;
+    min-height: 100%;
 }
 
 .rsvp-block-5 {
     display: flex;
+    min-height: 100%;
+    width: 100%;
 }
 
 .rsvp-block-2 {
     display: flex;
-
+    min-height: 100%;
+    width: 20vw;
 }
 
 .rsvp-block-3 {
     display: flex;
+    min-height: 100%;
+}
+
+.form-grid {
+    display: flex;
+    flex: 2;
+    min-height: 100%;
 }
 
 .diet-detail-column {
     width: 100%;
     display: flex;
     justify-self: flex-end;
+    margin-left: 20px;
 }
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 500px) {
     .dropdown-toggle {
         font-size: xx-small;
-        width: 100px;
-    } 
-    
+        width: 50vw;
+    }
+    .diet-detail-column {
+        width: 100%;
+        margin-left: 0px;
+    }
+
     h4 {
         font-size: xx-small;
     }
+
+
+    
 }
+
+@media only screen and (min-width: 1000px) and (max-width: 1250px) {
+
+    .rsvp-column {
+        width: 15vw;
+    }
+
+    .diet-detail-column {
+        margin-left: 40px;
+    }
+
+    .dropdown-toggle {
+        max-width: 10vw;
+    }
+
+}
+
 @media only screen and (max-width: 1000px) {
+
+    .dropdown-toggle {
+        min-width: 50vw;
+    }
     .rsvp-block-1 {
         display: flex;
         flex-direction: column;
@@ -143,6 +183,10 @@ h4 {
         text-align: left;
         justify-content: space-between;
         margin-bottom: 20px;
+    }
+
+    .diet-detail-column {
+        margin-left: 0px;
     }
 
 }
@@ -217,11 +261,23 @@ form {
     font-size: small;
 }
 
-option {padding:10px;
-font-size: larger;}
+option {
+    padding: 10px;
+    font-size: larger;
+    width: 100%;
+}
 
-list-of-invitations-names {
+li {
+    cursor: pointer;
+}
+
+#list-of-invitations-names {
     line-height: 60px;
+    width: 100%;
+}
+
+option:hover {
+    background-color: var(--warm-colour-semitransparent);
 }
 
 .form-control-lookup {
@@ -242,9 +298,9 @@ list-of-invitations-names {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-   overflow: hidden;
+    overflow: hidden;
 
-  }
+}
 
 
 
@@ -271,4 +327,8 @@ list-of-invitations-names {
 
 #contact-page {
     position: relative;
+}
+
+.person-row {
+    display: none;
 }

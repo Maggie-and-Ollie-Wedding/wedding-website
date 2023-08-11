@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
   <title>Maggie and Ollie's Wedding!</title>
   <link rel="icon" href="../static/images/icon.png">
 
@@ -23,10 +24,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="The wedding of Maggie Hunt and Oliver Norman">
+  
 </head>
 
-<body>
-
+<body><input type="checkbox" id="up-to-top-check" hidden>
+  <button id="up-to-top" title="Go to top"><a class="up-to-top-link" href="#RSVP-form-start">^</a></button>
+  
   <div class="header-and-nav topnav">
     <div id="header">
       <h1><a href="/">M&O</a></h1>
@@ -35,47 +38,47 @@
       <ul>
         <li><a href="/#ceremony">Ceremony</a></li>
         <li><a href="/#reception">Reception</a></li>
-        <li><a href="/RSVP">RSVP</a></li>
-        <li><a href="/#getting-there-accommodation" onclick="reveal('gettingThere')">Getting There</a></li>
-        <li><a href="/#getting-there-accommodation" onclick="reveal('accommodation')">Accommodation</a></li>
-        <li><a href="/#dress-code-gift-registry-choir" onclick="reveal('dressCode')">Dress Code</a></li>
-        <li><a href="/#dress-code-gift-registry-choir" onclick="reveal('giftRegistry')">Gift Registry</a></li>
-        <li><a href="/#dress-code-gift-registry-choir" onclick="reveal('choir')">Choir</a></li>
-        <li><a href="/#contact-us">Contact Us</a></li>
+        <li><a href="RSVP">RSVP</a></li>
+        <li><a onclick="revealFromRSVP('gettingThere')">Getting There</a></li>
+        <li><a onclick="revealFromRSVP('accommodation')">Accommodation</a></li>
+        <li><a onclick="revealFromRSVP('dressCode')">Dress Code</a></li>
+        <li><a onclick="revealFromRSVP('giftRegistry')">Gift Registry</a></li>
+        <li><a onclick="revealFromRSVP('choir')">Choir</a></li>
+        <li><a href="#contact-us">Contact Us</a></li>
       </ul>
     </nav>
 
     <!-- Navigation links (hidden by default) -->
     <nav class="small-menu">
       <div id="myLinks">
-        <a href="/#ceremony" onclick="myFunction()">Ceremony</a>
-        <a href="/#reception" onclick="myFunction()">Reception</a>
-        <a href="/RSVP" onclick="myFunction()">RSVP</a>
-        <a href="/#getting-there-accommodation" onclick="myFunction(); reveal('gettingThere')">Getting There</a>
-        <a href="/#getting-there-accommodation" onclick="myFunction(); reveal('accommodation')">Accommodation</a>
-        <a href="/#dress-code-gift-registry-choir" onclick="myFunction(); reveal('dressCode')">Dress Code</a>
-        <a href="/#dress-code-gift-registry-choir" onclick="myFunction(); reveal('giftRegistry')">Gift Registry</a>
-        <a href="/#dress-code-gift-registry-choir" onclick="myFunction(); reveal('choir')">Choir</a>
-        <a href="/#contact-us" onclick="myFunction()">Contact Us</a>
+        <a href="/#ceremony" onclick="expandFunction()">Ceremony</a>
+        <a href="/#reception" onclick="expandFunction()">Reception</a>
+        <a href="/RSVP" onclick="expandFunction()">RSVP</a>
+        <a href="/#getting-there-accommodation" onclick="expandFunction(); revealFromRSVP('gettingThere')">Getting There</a>
+        <a href="/#getting-there-accommodation" onclick="expandFunction(); revealFromRSVP('accommodation')">Accommodation</a>
+        <a href="/#dress-code-gift-registry-choir" onclick="expandFunction(); revealFromRSVP('dressCode')">Dress Code</a>
+        <a href="/#dress-code-gift-registry-choir" onclick="expandFunction(); revealFromRSVP('giftRegistry')">Gift Registry</a>
+        <a href="/#dress-code-gift-registry-choir" onclick="expandFunction(); revealFromRSVP('choir')">Choir</a>
+        <a href="/#contact-us" onclick="expandFunction()">Contact Us</a>
       </div>
       <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <a href="javascript:void(0);" class="icon" onclick="expandFunction()">
         <i class="fa fa-bars"></i>
       </a>
     </nav>
   </div>
 
   <div id="page-content" class="main-content">
-    <h3>RSVP</h3>
-    <form>
+    <h3 id="RSVP-form-start">RSVP</h3>
+    <form id="rsvp-form" action="/thankyou" method="post">
       <div>
         <div class="form-group">
 
 
-          <input type="text" class="form-control" id="search-your-name" oninput="inviteSearch(invitations)"
+          <input type="text" class="form-control" id="search-your-name" autocomplete="off" oninput="inviteSearch(invitations)"
             placeholder="Search for your name...">
           <select class="form-select form-control-lookup hide-on-load" id="list-of-invitations-names" size="3"
-            aria-label="Search for your name" onchange="selectInvitation()">
+            aria-label="Search for your name" onchange="selectInvitation(); numberOfInvitees();">
             <!-- No initial options in the select element -->
           </select>
         </div>
@@ -89,12 +92,12 @@
 
 
         <div id="whole-form-input">
-          <div id="person1" class="rsvp-row form-group rsvp-form">
+          <div id="person1" class="rsvp-row form-group rsvp-form person-row">
             <div id="rsvp1" class="rsvp-row rsvp-block-1 form-group">
               <div class="rsvp-block-2">
                 <div class="rsvp-column">
 
-                  <h9>{{lookupData["invitee1"]}}</h9>
+                  <h9><span id="invitee-form1"></span></h9>
                 </div>
                 <div class="rsvp-column">
                   <label class="switch" for="RSVPCheck1">
@@ -102,7 +105,7 @@
                     <span class="slider round"></span>RSVP
                   </label>
                 </div>
-              </div>
+              </div> <span class="form-grid">
               <span class="hide-on-load rsvp-block-1 rsvp-block-4" id="RSVPDetails1">
                 <div class="rsvp-block-2 sb-mob">
                   <div class="rsvp-column">
@@ -125,7 +128,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="rsvp-block-3 sb-mob">
+                <div class="rsvp-block-2 sb-mob">
                   <div class="rsvp-column">
                     <label class="switch" for="RSVPDiet1">
                       <input type="checkbox" id="RSVPDiet1" onchange="toggleFormSection(1)">
@@ -147,23 +150,23 @@
                     </select>
                   </div>
                 </div>
-              </span>
-              <div id="dietary-sect-1" class="diet-detail-column hide-on-load">
+              
+              <div id="dietary-sect-1" class="diet-detail-column hide-on-load rsvp-block-2">
                 <div class="rsvp-column-freetext diet-detail-column" id="diet-detail-column1">
 
                   <input type="text" class="form-control textinput" id="dietDetail1"
                     placeholder="Please provide details of your dietary requirement(s)" oninput="toggleFormSection(1)">
                   <div id="output"></div>
                 </div>
-              </div>
+              </div></span></span>
             </div>
           </div>
-          <div id="person2" class="rsvp-row form-group rsvp-form">
+          <div id="person2" class="rsvp-row form-group rsvp-form  person-row">
             <div id="rsvp2" class="rsvp-row rsvp-block-1 form-group">
               <div class="rsvp-block-2">
                 <div class="rsvp-column">
 
-                  <h9>{{lookupData["invitee2"]}}</h9>
+                  <h9><span id="invitee-form2"></span></h9>
                 </div>
                 <div class="rsvp-column">
                   <label class="switch" for="RSVPCheck2">
@@ -194,7 +197,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="rsvp-block-3 sb-mob">
+                <div class="rsvp-block-2 sb-mob">
                   <div class="rsvp-column">
                     <label class="switch" for="RSVPDiet2">
                       <input type="checkbox" id="RSVPDiet2" onchange="toggleFormSection(2)">
@@ -217,7 +220,7 @@
                   </div>
                 </div>
               </span>
-              <div id="dietary-sect-2" class="diet-detail-column hide-on-load">
+              <div id="dietary-sect-2" class="diet-detail-column hide-on-load rsvp-block-2">
                 <div class="rsvp-column-freetext diet-detail-column" id="diet-detail-column2">
 
                   <input type="text" class="form-control textinput" id="dietDetail2"
@@ -227,12 +230,12 @@
               </div>
             </div>
           </div>
-          <div id="person3" class="rsvp-row form-group rsvp-form">
+          <div id="person3" class="rsvp-row form-group rsvp-form  person-row">
             <div id="rsvp3" class="rsvp-row rsvp-block-1 form-group">
               <div class="rsvp-block-2">
                 <div class="rsvp-column">
 
-                  <h9>{{lookupData["invitee3"]}}</h9>
+                  <h9><span id="invitee-form3"></span></h9>
                 </div>
                 <div class="rsvp-column">
                   <label class="switch" for="RSVPCheck3">
@@ -263,7 +266,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="rsvp-block-3 sb-mob">
+                <div class="rsvp-block-2 sb-mob">
                   <div class="rsvp-column">
                     <label class="switch" for="RSVPDiet3">
                       <input type="checkbox" id="RSVPDiet3" onchange="toggleFormSection(3)">
@@ -286,7 +289,7 @@
                   </div>
                 </div>
               </span>
-              <div id="dietary-sect-3" class="diet-detail-column hide-on-load">
+              <div id="dietary-sect-3" class="diet-detail-column hide-on-load rsvp-block-2">
                 <div class="rsvp-column-freetext diet-detail-column" id="diet-detail-column3">
 
                   <input type="text" class="form-control textinput" id="dietDetail3"
@@ -296,12 +299,12 @@
               </div>
             </div>
           </div>
-          <div id="person4" class="rsvp-row form-group rsvp-form">
+          <div id="person4" class="rsvp-row form-group rsvp-form  person-row">
             <div id="rsvp4" class="rsvp-row rsvp-block-1 form-group">
               <div class="rsvp-block-2">
                 <div class="rsvp-column">
 
-                  <h9>{{lookupData["invitee4"]}}</h9>
+                  <h9><span id="invitee-form4"></span></h9>
                 </div>
                 <div class="rsvp-column">
                   <label class="switch" for="RSVPCheck4">
@@ -332,7 +335,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="rsvp-block-3 sb-mob">
+                <div class="rsvp-block-2 sb-mob">
                   <div class="rsvp-column">
                     <label class="switch" for="RSVPDiet4">
                       <input type="checkbox" id="RSVPDiet4" onchange="toggleFormSection(4)">
@@ -355,7 +358,7 @@
                   </div>
                 </div>
               </span>
-              <div id="dietary-sect-4" class="diet-detail-column hide-on-load">
+              <div id="dietary-sect-4" class="diet-detail-column hide-on-load rsvp-block-2">
                 <div class="rsvp-column-freetext diet-detail-column" id="diet-detail-column4">
 
                   <input type="text" class="form-control textinput" id="dietDetail4"
@@ -365,12 +368,12 @@
               </div>
             </div>
           </div>
-          <div id="person5" class="rsvp-row form-group rsvp-form">
+          <div id="person5" class="rsvp-row form-group rsvp-form person-row">
             <div id="rsvp5" class="rsvp-row rsvp-block-1 form-group">
               <div class="rsvp-block-2">
                 <div class="rsvp-column">
 
-                  <h9>{{lookupData["invitee5"]}}</h9>
+                  <h9><span id="invitee-form5"></span></h9>
                 </div>
                 <div class="rsvp-column">
                   <label class="switch" for="RSVPCheck5">
@@ -401,7 +404,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="rsvp-block-3 sb-mob">
+                <div class="rsvp-block-2 sb-mob">
                   <div class="rsvp-column">
                     <label class="switch" for="RSVPDiet5">
                       <input type="checkbox" id="RSVPDiet5" onchange="toggleFormSection(5)">
@@ -424,7 +427,7 @@
                   </div>
                 </div>
               </span>
-              <div id="dietary-sect-5" class="diet-detail-column hide-on-load">
+              <div id="dietary-sect-5" class="diet-detail-column hide-on-load rsvp-block-2">
                 <div class="rsvp-column-freetext diet-detail-column" id="diet-detail-column5">
 
                   <input type="text" class="form-control textinput" id="dietDetail5"
@@ -434,12 +437,12 @@
               </div>
             </div>
           </div>
-          <div id="person6" class="rsvp-row form-group rsvp-form">
+          <div id="person6" class="rsvp-row form-group rsvp-form person-row">
             <div id="rsvp6" class="rsvp-row rsvp-block-1 form-group">
               <div class="rsvp-block-2">
                 <div class="rsvp-column">
 
-                  <h9>{{lookupData["invitee6"]}}</h9>
+                  <h9><span id="invitee-form6"></span></h9>
                 </div>
                 <div class="rsvp-column">
                   <label class="switch" for="RSVPCheck6">
@@ -470,7 +473,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="rsvp-block-3 sb-mob">
+                <div class="rsvp-block-2 sb-mob">
                   <div class="rsvp-column">
                     <label class="switch" for="RSVPDiet6">
                       <input type="checkbox" id="RSVPDiet6" onchange="toggleFormSection(6)">
@@ -493,7 +496,7 @@
                   </div>
                 </div>
               </span>
-              <div id="dietary-sect-6" class="diet-detail-column hide-on-load">
+              <div id="dietary-sect-6" class="diet-detail-column hide-on-load rsvp-block-2">
                 <div class="rsvp-column-freetext diet-detail-column" id="diet-detail-column6">
 
                   <input type="text" class="form-control textinput" id="dietDetail6"
@@ -505,9 +508,9 @@
           </div>
         </div>
         <div id="confirmation-text">
-          <div id="rsvpConfirmation1" class="rsvp-row form-group rsvp-form">
+          <div id="rsvpConfirmation1" class="rsvp-row form-group rsvp-form  person-row">
             <p>
-              {{lookupData["invitee1"]}}
+              <span id="invitee-summary1"></span>
               is <span id="RSVPNo1">not </span>able to attend the wedding.
 
               <span id="ChoirYes1" class="hide-on-load">
@@ -518,9 +521,9 @@
                     id="dietOption1"></span><span id="dietDetailText1"></span></span>
             </p>
           </div>
-          <div id="rsvpConfirmation2" class="rsvp-row form-group rsvp-form">
+          <div id="rsvpConfirmation2" class="rsvp-row form-group rsvp-form  person-row">
             <p>
-              {{lookupData["invitee2"]}}
+              <span id="invitee-summary2"></span>
               is <span id="RSVPNo2">not </span>able to attend the wedding.
               <span id="ChoirYes2" class="hide-on-load">
                 They will be joining the choir, singing <span id="voicePartGuest2"></span>.
@@ -530,9 +533,9 @@
                     id="dietOption2"></span><span id="dietDetailText2"></span></span>
             </p>
           </div>
-          <div id="rsvpConfirmation3" class="rsvp-row form-group rsvp-form">
+          <div id="rsvpConfirmation3" class="rsvp-row form-group rsvp-form  person-row">
             <p>
-              {{lookupData["invitee3"]}}
+              <span id="invitee-summary3"></span>
               is <span id="RSVPNo3">not </span>able to attend the wedding.
               <span id="ChoirYes3" class="hide-on-load">
                 They will be joining the choir, singing <span id="voicePartGuest3"></span>.
@@ -542,9 +545,9 @@
                     id="dietOption3"></span><span id="dietDetailText3"></span></span>
             </p>
           </div>
-          <div id="rsvpConfirmation4" class="rsvp-row form-group rsvp-form">
+          <div id="rsvpConfirmation4" class="rsvp-row form-group rsvp-form  person-row">
             <p>
-              {{lookupData["invitee4"]}}
+              <span id="invitee-summary4"></span>
               is <span id="RSVPNo4">not </span>able to attend the wedding.
               <span id="ChoirYes4" class="hide-on-load">
                 They will be joining the choir, singing <span id="voicePartGuest4"></span>.
@@ -554,9 +557,9 @@
                     id="dietOption4"></span><span id="dietDetailText4"></span></span>
             </p>
           </div>
-          <div id="rsvpConfirmation5" class="rsvp-row form-group rsvp-form">
+          <div id="rsvpConfirmation5" class="rsvp-row form-group rsvp-form  person-row">
             <p>
-              {{lookupData["invitee5"]}}
+              <span id="invitee-summary5"></span>
               is <span id="RSVPNo5">not </span>able to attend the wedding.
               <span id="ChoirYes5" class="hide-on-load">
                 They will be joining the choir, singing <span id="voicePartGuest5"></span>.
@@ -566,9 +569,9 @@
                     id="dietOption5"></span><span id="dietDetailText5"></span></span>
             </p>
           </div>
-          <div id="rsvpConfirmation6" class="rsvp-row form-group rsvp-form">
+          <div id="rsvpConfirmation6" class="rsvp-row form-group rsvp-form  person-row">
             <p>
-              {{lookupData["invitee6"]}}
+              <span id="invitee-summary6"></span>
               is <span id="RSVPNo6">not </span>able to attend the wedding.
               <span id="ChoirYes6" class="hide-on-load">
                 They will be joining the choir, singing <span id="voicePartGuest6"></span>.
@@ -580,9 +583,9 @@
           </div>
 
         </div>
-        <div class="rsvp-button-row form-group rsvp-form hide-on-load">
-          <button id="submit" class="contact-button button" action="/thank-you">
-            <h4>Submit</h4>
+        <div class="rsvp-button-row form-group rsvp-form hide-on-load" id="submit-rsvp-button-section">
+          <button id="submit-rsvp-button" class="contact-button button" action="/thank-you">
+            <h4>RSVP</h4>
           </button>
         </div>
       </div>
@@ -617,8 +620,7 @@
   <script src="../static/js/RSVPlookupscript.js"></script>
   <script>
     listOfInvitations = {{ invitationList | safe }}
-    numberFromFlask = {{ lookupData['numberofInvitees'] | safe }};
-    numberOfInvitees(numberFromFlask);
+    
     listOfInvitees(listOfInvitations);
     invitations = searchableList(listOfInvitations);
   </script>

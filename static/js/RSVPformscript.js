@@ -86,13 +86,13 @@ function toggleFormSection (row) {
   } else {
     dietSection.style.display = 'none' // hide the section
     dietDetail.style.display = 'none' // hide the section
-    dietDetailColumn.style.width = '0%'
-    dietarySect.style.display = 'none'
+    dietDetailColumn.style.width = '100%'
+    // dietarySect.style.display = 'none'
     dietDetailColumn.style.display = 'none'
     dietary.style.display = 'none'
     dietDetail.value = ''
     dietDetailText.innerHTML = ''
-    dietary.style.width = '0%'
+    dietary.style.width = '100%'
     dietSection.value = 'Dietary Requirements'
     DietYes.style.display = 'none'
     DietNo.style.display = 'inline'
@@ -100,20 +100,82 @@ function toggleFormSection (row) {
     console.log('no')
   }
 }
-function numberOfInvitees (numberOfInvitees) {
-  console.log.numberOfInvitees
+
+function numberOfInvitees () {
+  var numberOfInvitees = 0
+
+  const selectElement = document.getElementById('list-of-invitations-names')
+  var selectedOption = selectElement.value
+
+  console.log(selectedOption)
+  inviteesList = [];
+
+  if (selectedOption.includes(' and ') || selectedOption.includes(', ')) {
+    var stringListOfInvitees = selectedOption.replace(' and ', ', ');
+    for (const value of stringListOfInvitees.split(', ')) {
+      inviteesList.push(value);
+    }
+  } else {
+    var stringListOfInvitees = String(selectedOption);
+    inviteesList.push(stringListOfInvitees);
+  }
+  
+
+    console.log("stringListofInvitees ", stringListOfInvitees)
+    console.log(inviteesList, " list")
+
+    var numberOfCommas = (stringListOfInvitees.match(/,/g) || []).length
+    var numberOfInvitees = 1 + numberOfCommas
+
+    console.log(numberOfInvitees)
+    
+  
+  console.log("invitesList: ", inviteesList)
 
   inviteeNumbers = [1, 2, 3, 4, 5, 6]
+  console.log(numberOfInvitees, " invitees")
 
   for (inviteeNumber of inviteeNumbers) {
+    console.log(inviteeNumber, "inviteeNumber")
     var inviteLine = document.getElementById('person' + inviteeNumber)
-    var inviteConfirmation = document.getElementById(
-      'rsvpConfirmation' + inviteeNumber
-    )
+    var inviteConfirmation = document.getElementById('rsvpConfirmation' + inviteeNumber)
 
     if (numberOfInvitees < inviteeNumber) {
       inviteLine.style.display = 'none'
       inviteConfirmation.style.display = 'none'
+      console.log("not displaying row number ", numberOfInvitees)
+
+    } else {
+      inviteLine.style.display = 'inline'
+      inviteConfirmation.style.display = 'inline'
+
+      
+      var fullName = inviteesList[inviteeNumber - 1]
+      var nameOnForm = document.getElementById('invitee-form' + inviteeNumber)
+      var nameSummary = document.getElementById('invitee-summary' + inviteeNumber)
+      console.log("name summary ", nameSummary, "name on form ", nameOnForm, "fullname ", fullName, "invite line", inviteLine, "inviteConfirmation", inviteConfirmation)
+      nameOnForm.innerHTML = fullName
+      nameSummary.innerHTML = fullName
     }
-  }
+  } 
 }
+
+function RSVPJSONConstructor() {
+
+  var fullname = nameOnForm.value
+  datetime = new Date()
+
+  var jsonData = {
+    'Full_Name': fullname,
+    'Invite_ID': 123,
+    'Choir_BOOL': ifchecked,
+    'Choir_Part': value,
+    'Dietary_BOOL': ifchecked,
+    'Dietary_Detail_Long': value,
+    'RSVP_BOOL': ifchecked,
+    'Dietary_Detail': value,
+    'RSVP_Datetime': datetime,
+    'RSVP_Responder': value
+  };
+
+  }

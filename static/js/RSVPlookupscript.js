@@ -1,7 +1,6 @@
 function capitalizeNames (input) {
  standard_input = input.toLowerCase()
   capitalized = standard_input.replace(/\b\w/g, match => match.toUpperCase())
-  console.log(capitalized)
   return capitalized
 }
 
@@ -24,8 +23,6 @@ function listOfInvitees (listOfInvitations) {
       .split(',')
       .map(item => item.trim())
   )
-
-  console.log(invitees)
   return invitees
 }
 
@@ -35,7 +32,6 @@ function inviteSearch(invitations) {
   const searchYourName = document.getElementById('search-your-name');
   const showNamesList = document.getElementById('list-of-invitations-names');
   const invitationGroup = document.getElementById('invitation-group');
-  console.log('inviteSearch()');
 
   searchYourName.addEventListener('input', function () {
     const searchYourNameContent = capitalizeNames(searchYourName.value);
@@ -57,7 +53,6 @@ function inviteSearch(invitations) {
         optionElement.textContent = optionText;
         showNamesList.appendChild(optionElement);
         numberOfOptions +=1
-        console.log(numberOfOptions)
       });
 
       showNamesList.style.display = 'flex';
@@ -78,14 +73,40 @@ function inviteSearch(invitations) {
     }
   });
 
-  showNamesList.addEventListener('mousedown', function () {
+  showNamesList.addEventListener('click', function () {
     invitationGroup.textContent = showNamesList.value;
     showNamesList.style.display = 'none';
   });
 
-  showNamesList.addEventListener('mousedown', function (e) {
+  showNamesList.addEventListener('click', function (e) {
     e.preventDefault();
   });
 }
 
+function selectInvitation() {
 
+          const RSVPButton = document.getElementById('submit-rsvp-button-section')
+          const selectElement = document.getElementById('list-of-invitations-names');
+          var selectedOption = selectElement.value;
+
+          RSVPButton.style.display = 'flex';
+         
+          
+          if (selectedOption) {
+              JSONSTRING = JSON.stringify({ 'selectedOption': selectedOption })
+              console.log(JSONSTRING)
+                fetch('/rsvp_list', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSONSTRING,
+                })
+                
+                .then(response => response.json())
+                
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+}
