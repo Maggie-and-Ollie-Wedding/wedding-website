@@ -152,30 +152,13 @@ function numberOfInvitees () {
       
       var fullName = inviteesList[inviteeNumber - 1]
       var nameOnForm = document.getElementById('invitee-form' + inviteeNumber)
+      var nameOnFormValue = document.getElementById('invitee-form-value' + inviteeNumber)
       var nameSummary = document.getElementById('invitee-summary' + inviteeNumber)
       console.log("name summary ", nameSummary, "name on form ", nameOnForm, "fullname ", fullName, "invite line", inviteLine, "inviteConfirmation", inviteConfirmation)
       nameOnForm.innerHTML = fullName
       nameSummary.innerHTML = fullName
+      nameOnFormValue.value = fullName
+      console.log(nameOnFormValue, "name on form value")
     }
   } 
 }
-
-function RSVPJSONConstructor() {
-
-  var fullname = nameOnForm.value
-  datetime = new Date()
-
-  var jsonData = {
-    'Full_Name': fullname,
-    'Invite_ID': 123,
-    'Choir_BOOL': ifchecked,
-    'Choir_Part': value,
-    'Dietary_BOOL': ifchecked,
-    'Dietary_Detail_Long': value,
-    'RSVP_BOOL': ifchecked,
-    'Dietary_Detail': value,
-    'RSVP_Datetime': datetime,
-    'RSVP_Responder': value
-  };
-
-  }
