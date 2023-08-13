@@ -1,11 +1,27 @@
+from __future__ import print_function
 from flask import Flask, render_template, request, jsonify, Response #imports functions to use python with html
 import os
 from datetime import date, datetime
 import json
 from google.cloud import bigquery
 
+from googleapiclient.discovery import build
+from google.oauth2 import service_account
+from googleapiclient.errors import HttpError
+from email.message import EmailMessage
+import base64
+
+import http.client
+
+treapp_url=os.getenv('TREEAPP_API_URL')
+treeapp_key=os.getenv('TREEAPP_API_KEY')
+
+
+
+
 app = Flask("maggie-and-ollie-wedding") #making an app
 client = bigquery.Client()
+
 
 def number_of_trees_lookup():
     tree_query_SQL = "SELECT * FROM `maggie-and-ollie-wedding.wedding_1805.other_numbers` WHERE key = 'tree_count'"
@@ -13,6 +29,34 @@ def number_of_trees_lookup():
     tree_lookup_results = list(tree_query_job)[0]
     number_of_trees_value = tree_lookup_results[1]
     return number_of_trees_value
+
+def treeapp():
+        conn = http.client.HTTPSConnection(treapp_url)
+
+        payload = "{\n  \"quantity\": 1\n}"
+
+        headers = {
+        'Idempotency-Key': "",
+        'Content-Type': "application/json",
+        'Accept': "application/json",
+        'X-Treeapp-Api-Key': treeapp_key
+
+        }
+
+        conn.request("POST", "/v1/usage-records", payload, headers)
+
+        res = conn.getresponse()
+        data = res.read()
+
+        print(data.decode("utf-8"))
+
+        increase_tree_number_query = "UPDATE `maggie-and-ollie-wedding.wedding_1805.other_numbers` SET value = value + 1 WHERE key = 'tree_count'"
+        client.query(increase_tree_number_query)
+
+        print("ok")
+
+        return "ok"
+
 
 #Homepage
 @app.route("/")  
@@ -125,17 +169,28 @@ def RSVP_group():
                                         RSVP_Datetime = '{response_datetime}', RSVP_Responder = '{responder_name}'
                                         WHERE Full_Name = '{full_name}'
                                         """
-                                query_result = client.query(update_invite_query) 
+                                client.query(update_invite_query) 
+                                
+                                email_query = f"""
+                                SELECT Email
+                                FROM `maggie-and-ollie-wedding.wedding_1805.RSVP_table`
+                                WHERE Full_Name = '{full_name}'
+                                """
+                                email_query_job = client.query(email_query)
+                                email = list(email_query_job.result())[0][0]
+                                print(email)
+
+
+
         print(invitation_valid, "valid")
         if invitation_valid:
+
+                treeapp()
  
                 update_invitation_row_query = f"UPDATE `maggie-and-ollie-wedding.wedding_1805.invitations_table` SET Active = false, Email_Sent = TRUE WHERE Invite_ID = '{invitation_ID}';" 
                 update_invitation_row = client.query(update_invitation_row_query)
 
                 number_of_trees_now = number_of_trees_original+1
-
-                increase_tree_number_query = "UPDATE `maggie-and-ollie-wedding.wedding_1805.other_numbers` SET value = value + 1 WHERE key = 'tree_count'"
-                client.query(increase_tree_number_query)
                 
                 return render_template("thankyou.html", number_of_trees=number_of_trees_now)
                         
