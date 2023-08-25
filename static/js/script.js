@@ -131,7 +131,7 @@ function reveal (section) {
 
 
 function revealFromRSVP(section) {
-  console.log(section);
+
 
   if (section === 'gettingThere' || section === 'accommodation') {
     window.location.href = "/#getting-there-accommodation";

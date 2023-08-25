@@ -11,7 +11,6 @@ function searchableList (listOfInvitations) {
     str.replace(/'/g, '')
   )
 
-  console.log('searchableList():')
   return invitations
 }
 
@@ -88,7 +87,6 @@ function inviteSearch(invitations) {
 
 function selectInvitation() {
 
-          console.log('selectinvitation')
           const RSVPButton = document.getElementById('submit-rsvp-button-section')
           const selectElement = document.getElementById('list-of-invitations-names');
           var selectedOption = selectElement.value;
@@ -99,7 +97,7 @@ function selectInvitation() {
           
           if (selectedOption) {
               JSONSTRING = JSON.stringify({ 'selectedOption': selectedOption })
-              console.log(JSONSTRING)
+              
                 fetch('/rsvp_list', {
                     method: 'POST',
                     headers: {

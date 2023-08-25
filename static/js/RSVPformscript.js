@@ -100,13 +100,12 @@ function toggleFormSection (row) {
 function numberOfInvitees () {
 
   selectInvitation()
-  console.log('numberOfInvitees()')
+
   var numberOfInvitees = 0
 
   const selectElement = document.getElementById('list-of-invitations-names')
   var selectedOption = selectElement.value
 
-  console.log(selectedOption)
   inviteesList = [];
 
   if (selectedOption.includes(' and ') || selectedOption.includes(', ')) {
