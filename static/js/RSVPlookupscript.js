@@ -63,7 +63,7 @@ function inviteSearch(invitations) {
         
           else { maxVisibleOptions = 3;}
         
-          console.log(maxVisibleOptions)
+       
         const actualSize = Math.max(maxVisibleOptions, 2)
       
         selectElement.size = actualSize;

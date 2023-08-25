@@ -59,7 +59,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
         email_content = ' '.join(str(rsvp) for rsvp in email_content_list)
 
 
-        html_body=f"<p> Dear {invite_group},<br><br>Thank you for your RSVP!<br><br> Please see summary confirmation below:<br><br>\
+        html_body=f"<p> Dear {invite_group},<br><br>Thank you for your RSVP!<br><br> Please see summary confirmation below:<br>\
                 {email_content} <br><br>\
                 Please <a href='mailto:maggie.and.ollie.wedding@gmail.com'>get in touch</a> if any of this is incorrect.<br><br>\
                 We can't wait to celebrate with you! You can return to our <a href='www.maggieandolliewedding.party'>wedding website</a>\

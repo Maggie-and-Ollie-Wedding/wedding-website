@@ -70,7 +70,7 @@
 
   <div id="page-content" class="main-content">
     <h3 id="RSVP-form-start">RSVP</h3>
-    <form id="rsvp-form" action="/thankyou" method="post">
+    <form id="rsvp-form" action="/thankyou" method="post" onsubmit="submitSwan(event)">
       <div>
         <div class="form-group">
 
@@ -584,7 +584,7 @@
 
         </div>
         <div class="rsvp-button-row form-group rsvp-form hide-on-load" id="submit-rsvp-button-section">
-          <button id="submit-rsvp-button" class="contact-button button" onclick="submitSwan()">
+          <button id="submit-rsvp-button" class="contact-button button">
             <h4>RSVP</h4>
           </button>
         </div>

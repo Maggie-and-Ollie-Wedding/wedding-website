@@ -126,7 +126,7 @@ function numberOfInvitees () {
 
 
   inviteeNumbers = [1, 2, 3, 4, 5, 6]
-  console.log(numberOfInvitees, " invitees")
+ 
 
   for (inviteeNumber of inviteeNumbers) {
     var inviteLine = document.getElementById('person' + inviteeNumber)
@@ -153,28 +153,38 @@ function numberOfInvitees () {
     }
   } 
 }
-function submitSwan() {
+function submitSwan(event) {
   const form = document.getElementById('rsvp-form');
   const gifContainer = document.getElementById('gifContainer');
 
   event.preventDefault();
-  setTimeout(function() {
+
+
     const formValues = new FormData(form);
     for (const value of formValues.values()) {
-      if (value.includes('Racher')) {
-        gifContainer.style.display = 'flex'; // Show the container
-        break;
-      }
-      if (value.includes('Turner')) {
-        gifContainer.style.display = 'flex'; // Show the container
-        break;
-      }
-      if (value.includes('Perry')) {
-        gifContainer.style.display = 'flex'; // Show the container
-        break;
+      const namesToCheck = ['Racher', 'Turner', 'Perry', 'Person4'];
+      const displayDuration = 20000; 
+      
+      for (const name of namesToCheck) {
+          if (value.includes(name)) {
+              gifContainer.style.display = 'flex'; // Show the container
+              var timeout = 10000
+              setTimeout(() => {
+                  gifContainer.style.display = 'none';
+              }, displayDuration);
+              
+              break;
+              
+          }
+       
+      } 
+      if (timeout != 10000){
+        var timeout = 0
       }
     }
-    // Allow the default behavior to proceed after the delay
-    form.submit();
-  }, 100); // 5000 milliseconds = 5 seconds
+    
+    setTimeout(function() {
+      form.submit();
+  }, timeout);
+
 }
