@@ -153,7 +153,14 @@ function numberOfInvitees () {
     }
   } 
 }
+
+
+
 function submitSwan(event) {
+  if (event.key === 'Enter') {
+        event.preventDefault(); // Prevent the default Enter key behavior
+    }
+  else {
   const form = document.getElementById('rsvp-form');
   const gifContainer = document.getElementById('gifContainer');
 
@@ -187,4 +194,4 @@ function submitSwan(event) {
       form.submit();
   }, timeout);
 
-}
+}}
