@@ -58,10 +58,14 @@ function inviteSearch(invitations) {
       showNamesList.style.display = 'flex';
       function setDropdownSize() {
         const selectElement = document.getElementById('list-of-invitations-names');
-        const maxVisibleOptions = 3;
-        const optionCount = numberOfOptions;
-      
-        const actualSize = Math.min(maxVisibleOptions, optionCount);
+        
+        if(numberOfOptions<3){
+          maxVisibleOptions = numberOfOptions}
+        
+          else { maxVisibleOptions = 3;}
+        
+          console.log(maxVisibleOptions)
+        const actualSize = Math.max(maxVisibleOptions, 2)
       
         selectElement.size = actualSize;
       }
@@ -73,23 +77,24 @@ function inviteSearch(invitations) {
     }
   });
 
-  showNamesList.addEventListener('click', function () {
+  showNamesList.addEventListener('click', function (e) {
     invitationGroup.textContent = showNamesList.value;
     showNamesList.style.display = 'none';
-  });
-
-  showNamesList.addEventListener('click', function (e) {
     e.preventDefault();
   });
+
+ 
 }
 
 function selectInvitation() {
 
+          console.log('selectinvitation')
           const RSVPButton = document.getElementById('submit-rsvp-button-section')
           const selectElement = document.getElementById('list-of-invitations-names');
           var selectedOption = selectElement.value;
 
           RSVPButton.style.display = 'flex';
+
          
           
           if (selectedOption) {

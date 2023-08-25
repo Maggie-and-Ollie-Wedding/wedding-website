@@ -4,19 +4,17 @@ import os
 from datetime import date, datetime
 import json
 from google.cloud import bigquery
-
+import resend
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 from googleapiclient.errors import HttpError
 from email.message import EmailMessage
-import base64
 
 import http.client
 
 treapp_url=os.getenv('TREEAPP_API_URL')
 treeapp_key=os.getenv('TREEAPP_API_KEY')
-
-
+resend.api_key = os.getenv('EMAIL_API_KEY')
 
 
 app = Flask("maggie-and-ollie-wedding") #making an app
@@ -56,6 +54,29 @@ def treeapp():
         print("ok")
 
         return "ok"
+
+def email_confirmation(email_addresses, invite_group, email_content_list):
+       
+        email_content = ' '.join(str(rsvp) for rsvp in email_content_list)
+
+
+        html_body=f"<p> Dear {invite_group},<br><br>Thank you for your RSVP!<br><br> Please see summary confirmation below:<br><br>\
+                {email_content} <br><br>\
+                Please <a href='mailto:maggie.and.ollie.wedding@gmail.com'>get in touch</a> if any of this is incorrect.<br><br>\
+                We can't wait to celebrate with you! You can return to our <a href='www.maggieandolliewedding.party'>wedding website</a>\
+                if you would like to review the ceremony details, dress code, and other details.<br><br>\
+                Love,<br><br>\
+                Maggie & Ollie</p>"
+
+        r = resend.Emails.send({
+        "from": "rsvp-noreply@maggieandolliewedding.party",
+        "to":  email_addresses,
+        "cc": "maggie.and.ollie.wedding@gmail.com",
+        "subject": f"RSVP - {invite_group}",
+        "reply_to": "maggie.and.ollie.wedding@gmail.com",
+        "html": html_body
+                })
+        return "email conf sent"
 
 
 #Homepage
@@ -118,6 +139,9 @@ def RSVP_group():
         number_of_trees_original = number_of_trees_lookup()
         invitation_valid = None
 
+        email_addresses = []
+        email_content_list = []
+
         for i in range(1, 6):
                 full_name =  str(form_data.get(f'invitee-form{i}'))
                 if full_name:
@@ -130,6 +154,11 @@ def RSVP_group():
                                 invite_id_query_job = client.query(invite_id_query)
                                 invitation_ID = list(invite_id_query_job.result())[0][0]
                                 print(invitation_ID)
+
+                                invitation_list_query = f'SELECT * FROM `maggie-and-ollie-wedding.wedding_1805.invitations_table` WHERE Invite_ID = "{invitation_ID}"'
+                                invitation_list_query_job = client.query(invitation_list_query)
+                                invite_group = list(invitation_list_query_job.result())[0][1]
+                                print(invite_group)
                         
                         if invitation_valid is None:
                                 invitation_valid_query = f'SELECT * FROM `maggie-and-ollie-wedding.wedding_1805.invitations_table` WHERE Invite_ID = "{invitation_ID}"'
@@ -157,9 +186,30 @@ def RSVP_group():
                                 dietary_detail = str(form_data.get(f'dietDetail{i}'))
                                 response_time = str(response_datetime)
                                 responder = str(responder_name)
-                                summary_string = ( f"{full_name} RSVP'd {RSVP_bool}. Choir: {choir_bool}, {choir_part}. Dietary: {dietary_bool}, {dietary_opt}{dietary_detail}. Response at {response_time} from {responder}.")
-
+                                summary_string_basic = ( f"{full_name} RSVP'd {RSVP_bool}. Choir: {choir_bool}, {choir_part}. \
+                                                  Dietary: {dietary_bool}, {dietary_opt}{dietary_detail}. Response at {response_time} from {responder}.")
+                                print(summary_string_basic)
+                                if RSVP_bool == "TRUE":  
+                                       summary_string = f"{full_name} is able to attend the wedding."
+                                       if choir_bool == "TRUE":
+                                              summary_string = summary_string + f" They will be joining the choir, singing {choir_part}."
+                                       else:
+                                              summary_string = summary_string + " They would not like to join the choir."
+                                       if dietary_bool == "TRUE":
+                                               if dietary_opt == "Multiple/Other":
+                                                      diet_text = dietary_detail
+                                               else:
+                                                      diet_text = dietary_opt
+                                               summary_string = summary_string + f" They have the following dietary requirements: {diet_text}."
+                                       else:
+                                              summary_string = summary_string + " They have no dietary requirements."
+                                        
+                                else:
+                                       summary_string = f"{full_name} is not able to attend the wedding."
                                 print(summary_string)
+
+                                
+                                email_content_list.append(f"<br>{summary_string}<br>")
 
                                 update_invite_query = f"""
                                         UPDATE `maggie-and-ollie-wedding.wedding_1805.RSVP_table`
@@ -179,16 +229,18 @@ def RSVP_group():
                                 email_query_job = client.query(email_query)
                                 email = list(email_query_job.result())[0][0]
                                 print(email)
-
+                                email_addresses.append(email)
 
 
         print(invitation_valid, "valid")
         if invitation_valid:
-
+                
+                
+                email_confirmation(email_addresses, invite_group, email_content_list)
                 treeapp()
  
                 update_invitation_row_query = f"UPDATE `maggie-and-ollie-wedding.wedding_1805.invitations_table` SET Active = false, Email_Sent = TRUE WHERE Invite_ID = '{invitation_ID}';" 
-                update_invitation_row = client.query(update_invitation_row_query)
+                client.query(update_invitation_row_query)
 
                 number_of_trees_now = number_of_trees_original+1
                 
@@ -200,75 +252,6 @@ def RSVP_group():
                return render_template("error.html", number_of_trees=number_of_trees)     
                 
                        
-
-# @app.route('/rsvp_list', methods=['POST'])
-# def rsvp_list():
-#     selected_option = request.json['selectedOption']
-
-#     result = RSVP_list(selected_option)
-
-#     return jsonify({'result': result})
-
-# def RSVP_list(invite_guestlist):
-        
-    
-#         invite_lookup_query_start = ' SELECT * FROM `maggie-and-ollie-wedding.wedding_1805.invitations_table` WHERE Invite_Group_Name = "'
-#         invite_lookup_search_value = invite_guestlist
-#         invite_lookup_query_end = '"'
-#         invite_lookup_query_SQL = invite_lookup_query_start+invite_lookup_search_value+invite_lookup_query_end
-                
-# # Execute the query
-#         invite_lookup_query_job = client.query(invite_lookup_query_SQL)
-
-# # Fetch the results
-#         invite_lookup_results = list(invite_lookup_query_job)[0]
-#         print(invite_lookup_results)     
-#         invite_id = invite_lookup_results[0]
-#         invite_group_name = invite_lookup_results[1]
-#         invitees_count = invite_lookup_results[2]
-#         invite_active = invite_lookup_results[3]
-#         print(invite_active, "invite active")
-
-#         lookupData = {
-#         "numberofInvitees" : invitees_count,
-#         "inviteGroup" : invite_group_name}
-
-#         if invite_active:
-               
-#                 print("new response")
-#                 lookupData = {
-#                         "inviteID": invite_id,
-#                         "numberofInvitees": invitees_count,
-#                         "inviteGroup": invite_guestlist
-#                 }       
-#                 print("invite id:", invite_id)
-#                 print("invitee count", invitees_count)
-#                 print(lookupData)
-#                 invitees_query_SQL= 'SELECT * FROM `maggie-and-ollie-wedding.wedding_1805.RSVP_table`WHERE Invite_ID = "'+invite_id+'"'
-#                 invitees_lookup_query_job = client.query(invitees_query_SQL)
-#                 invitees_lookup_results = list(invitees_lookup_query_job)
-#                 print(invitees_lookup_results)
-#                 count=1
-#                 invitees = []
-
-#                 for invitee in invitees_lookup_results:
-#                         fullname= invitee["Full_Name"]
-#                         varname = f"invitee{count}"
-#                         count+=1
-#                         invitees.append({varname: fullname})
-
-#                 print(invitees)
-
-#                 for i, invitee in enumerate(invite_guestlist[:6]):
-#                         lookupData[f"invitee{i + 1}"] = invitee
-
-#                 # If the invitees list has less than 6 items, the remaining keys will have empty strings as values
-#                 for i in range(len(invite_guestlist), 6):
-#                         lookupData[f"invitee{i + 1}"] = ""
-
-    
-#                 return render_template("RSVP.html", invitees_count=invitees_count, number_of_trees=number_of_trees, lookupData=lookupData, invitees=invitees)
-        
         
 
 #OrderofEvents

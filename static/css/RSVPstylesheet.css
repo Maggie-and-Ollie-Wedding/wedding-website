@@ -332,3 +332,34 @@ option:hover {
 .person-row {
     display: none;
 }
+
+#gifContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* Hide the container initially */
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+  }
+  #gif {
+    animation: zoomAndMove 20s infinite;
+    width: 100%;
+    height: 100%;
+  }
+  @keyframes zoomAndMove {
+    0%, 100% {
+      transform: scale(1) translate(0, 0);
+    }
+    25% {
+      transform: scale(1.2) translate(50px, 50px);
+    }
+    50% {
+      transform: scale(1.5) translate(100px, -100px);
+    }
+    75% {
+      transform: scale(1.2) translate(-50px, -50px);
+    }
+  }

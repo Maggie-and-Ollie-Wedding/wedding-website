@@ -75,19 +75,15 @@ function toggleFormSection (row) {
       dietDetail.style.width = '100%'
       dietOption.innerHTML = selectedDietOption
       dietarySect.style.display = 'none'
-      // dietSection.value = 'Dietary Requirements'
       DietResponseDetail = selectedDietOption
       dietDetailText.innerHTML = ''
-      console.log(selectedDietOption)
       dietOption.style.display = 'inline'
       dietOption.innerHTML = selectedDietOption
-      console.log('not multi')
     }
   } else {
     dietSection.style.display = 'none' // hide the section
     dietDetail.style.display = 'none' // hide the section
     dietDetailColumn.style.width = '100%'
-    // dietarySect.style.display = 'none'
     dietDetailColumn.style.display = 'none'
     dietary.style.display = 'none'
     dietDetail.value = ''
@@ -97,11 +93,14 @@ function toggleFormSection (row) {
     DietYes.style.display = 'none'
     DietNo.style.display = 'inline'
     DietResponse = 'No'
-    console.log('no')
+ 
   }
 }
 
 function numberOfInvitees () {
+
+  selectInvitation()
+  console.log('numberOfInvitees()')
   var numberOfInvitees = 0
 
   const selectElement = document.getElementById('list-of-invitations-names')
@@ -121,29 +120,23 @@ function numberOfInvitees () {
   }
   
 
-    console.log("stringListofInvitees ", stringListOfInvitees)
-    console.log(inviteesList, " list")
+   
 
     var numberOfCommas = (stringListOfInvitees.match(/,/g) || []).length
     var numberOfInvitees = 1 + numberOfCommas
 
-    console.log(numberOfInvitees)
-    
-  
-  console.log("invitesList: ", inviteesList)
 
   inviteeNumbers = [1, 2, 3, 4, 5, 6]
   console.log(numberOfInvitees, " invitees")
 
   for (inviteeNumber of inviteeNumbers) {
-    console.log(inviteeNumber, "inviteeNumber")
     var inviteLine = document.getElementById('person' + inviteeNumber)
     var inviteConfirmation = document.getElementById('rsvpConfirmation' + inviteeNumber)
 
     if (numberOfInvitees < inviteeNumber) {
       inviteLine.style.display = 'none'
       inviteConfirmation.style.display = 'none'
-      console.log("not displaying row number ", numberOfInvitees)
+
 
     } else {
       inviteLine.style.display = 'inline'
@@ -154,11 +147,35 @@ function numberOfInvitees () {
       var nameOnForm = document.getElementById('invitee-form' + inviteeNumber)
       var nameOnFormValue = document.getElementById('invitee-form-value' + inviteeNumber)
       var nameSummary = document.getElementById('invitee-summary' + inviteeNumber)
-      console.log("name summary ", nameSummary, "name on form ", nameOnForm, "fullname ", fullName, "invite line", inviteLine, "inviteConfirmation", inviteConfirmation)
-      nameOnForm.innerHTML = fullName
+        nameOnForm.innerHTML = fullName
       nameSummary.innerHTML = fullName
       nameOnFormValue.value = fullName
-      console.log(nameOnFormValue, "name on form value")
+
     }
   } 
+}
+function submitSwan() {
+  const form = document.getElementById('rsvp-form');
+  const gifContainer = document.getElementById('gifContainer');
+
+  event.preventDefault();
+  setTimeout(function() {
+    const formValues = new FormData(form);
+    for (const value of formValues.values()) {
+      if (value.includes('Racher')) {
+        gifContainer.style.display = 'flex'; // Show the container
+        break;
+      }
+      if (value.includes('Turner')) {
+        gifContainer.style.display = 'flex'; // Show the container
+        break;
+      }
+      if (value.includes('Perry')) {
+        gifContainer.style.display = 'flex'; // Show the container
+        break;
+      }
+    }
+    // Allow the default behavior to proceed after the delay
+    form.submit();
+  }, 100); // 5000 milliseconds = 5 seconds
 }

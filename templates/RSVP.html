@@ -78,7 +78,7 @@
           <input type="text" class="form-control" name="search-your-name" id="search-your-name" autocomplete="off" oninput="inviteSearch(invitations)"
             placeholder="Search for your name...">
           <select class="form-select form-control-lookup hide-on-load" id="list-of-invitations-names" size="3"
-            aria-label="Search for your name" onchange="selectInvitation(); numberOfInvitees();">
+            aria-label="Search for your name" onchange="numberOfInvitees (); selectInvitation();">
             <!-- No initial options in the select element -->
           </select>
         </div>
@@ -584,7 +584,7 @@
 
         </div>
         <div class="rsvp-button-row form-group rsvp-form hide-on-load" id="submit-rsvp-button-section">
-          <button id="submit-rsvp-button" class="contact-button button">
+          <button id="submit-rsvp-button" class="contact-button button" onclick="submitSwan()">
             <h4>RSVP</h4>
           </button>
         </div>
@@ -615,6 +615,10 @@
       </div>
     </div>
   </div>
+
+  <div id="gifContainer">
+    <img id="gif" src="https://media.giphy.com/media/4KEL7wLu9M3IimfIIS/giphy.gif" alt="GIF">
+  </div>
   <script src="../static/js/script.js"></script>
   <script src="../static/js/RSVPformscript.js"></script>
   <script src="../static/js/RSVPlookupscript.js"></script>
@@ -624,7 +628,7 @@
     listOfInvitees(listOfInvitations);
     invitations = searchableList(listOfInvitations);
 
-    form_data = request.form
+    form_data = request.form;
     print(str(form_data))
   </script>
 </body>
