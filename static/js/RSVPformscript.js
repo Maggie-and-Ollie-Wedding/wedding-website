@@ -93,12 +93,10 @@ function toggleFormSection (row) {
     DietYes.style.display = 'none'
     DietNo.style.display = 'inline'
     DietResponse = 'No'
- 
   }
 }
 
 function numberOfInvitees () {
-
   selectInvitation()
 
   var numberOfInvitees = 0
@@ -106,92 +104,83 @@ function numberOfInvitees () {
   const selectElement = document.getElementById('list-of-invitations-names')
   var selectedOption = selectElement.value
 
-  inviteesList = [];
+  inviteesList = []
 
   if (selectedOption.includes(' and ') || selectedOption.includes(', ')) {
-    var stringListOfInvitees = selectedOption.replace(' and ', ', ');
+    var stringListOfInvitees = selectedOption.replace(' and ', ', ')
     for (const value of stringListOfInvitees.split(', ')) {
-      inviteesList.push(value);
+      inviteesList.push(value)
     }
   } else {
-    var stringListOfInvitees = String(selectedOption);
-    inviteesList.push(stringListOfInvitees);
+    var stringListOfInvitees = String(selectedOption)
+    inviteesList.push(stringListOfInvitees)
   }
-  
 
-   
-
-    var numberOfCommas = (stringListOfInvitees.match(/,/g) || []).length
-    var numberOfInvitees = 1 + numberOfCommas
-
+  var numberOfCommas = (stringListOfInvitees.match(/,/g) || []).length
+  var numberOfInvitees = 1 + numberOfCommas
 
   inviteeNumbers = [1, 2, 3, 4, 5, 6]
- 
 
   for (inviteeNumber of inviteeNumbers) {
     var inviteLine = document.getElementById('person' + inviteeNumber)
-    var inviteConfirmation = document.getElementById('rsvpConfirmation' + inviteeNumber)
+    var inviteConfirmation = document.getElementById(
+      'rsvpConfirmation' + inviteeNumber
+    )
 
     if (numberOfInvitees < inviteeNumber) {
       inviteLine.style.display = 'none'
       inviteConfirmation.style.display = 'none'
-
-
     } else {
       inviteLine.style.display = 'inline'
       inviteConfirmation.style.display = 'inline'
 
-      
       var fullName = inviteesList[inviteeNumber - 1]
       var nameOnForm = document.getElementById('invitee-form' + inviteeNumber)
-      var nameOnFormValue = document.getElementById('invitee-form-value' + inviteeNumber)
-      var nameSummary = document.getElementById('invitee-summary' + inviteeNumber)
-        nameOnForm.innerHTML = fullName
+      var nameOnFormValue = document.getElementById(
+        'invitee-form-value' + inviteeNumber
+      )
+      var nameSummary = document.getElementById(
+        'invitee-summary' + inviteeNumber
+      )
+      nameOnForm.innerHTML = fullName
       nameSummary.innerHTML = fullName
       nameOnFormValue.value = fullName
-
     }
-  } 
+  }
 }
 
-
-
-function submitSwan(event) {
+function submitSwan (event) {
   if (event.key === 'Enter') {
-        event.preventDefault(); // Prevent the default Enter key behavior
-    }
-  else {
-  const form = document.getElementById('rsvp-form');
-  const gifContainer = document.getElementById('gifContainer');
+    event.preventDefault() // Prevent the default Enter key behavior
+  } else {
+    const form = document.getElementById('rsvp-form')
+    const gifContainer = document.getElementById('gifContainer')
 
-  event.preventDefault();
+    event.preventDefault()
 
-
-    const formValues = new FormData(form);
+    const formValues = new FormData(form)
     for (const value of formValues.values()) {
-      const namesToCheck = ['Racher', 'Turner', 'Perry', 'Person4'];
-      const displayDuration = 20000; 
-      
+      const namesToCheck = ['Racher', 'Turner', 'Perry', 'Person4']
+      const displayDuration = 20000
+
       for (const name of namesToCheck) {
-          if (value.includes(name)) {
-              gifContainer.style.display = 'flex'; // Show the container
-              var timeout = 10000
-              setTimeout(() => {
-                  gifContainer.style.display = 'none';
-              }, displayDuration);
-              
-              break;
-              
-          }
-       
-      } 
-      if (timeout != 10000){
+        if (value.includes(name)) {
+          gifContainer.style.display = 'flex' // Show the container
+          var timeout = 10000
+          setTimeout(() => {
+            gifContainer.style.display = 'none'
+          }, displayDuration)
+
+          break
+        }
+      }
+      if (timeout != 10000) {
         var timeout = 0
       }
     }
-    
-    setTimeout(function() {
-      form.submit();
-  }, timeout);
 
-}}
+    setTimeout(function () {
+      form.submit()
+    }, timeout)
+  }
+}
