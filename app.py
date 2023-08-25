@@ -46,12 +46,11 @@ def treeapp():
         res = conn.getresponse()
         data = res.read()
 
-        print(data.decode("utf-8"))
+
 
         increase_tree_number_query = "UPDATE `maggie-and-ollie-wedding.wedding_1805.other_numbers` SET value = value + 1 WHERE key = 'tree_count'"
         client.query(increase_tree_number_query)
 
-        print("ok")
 
         return "ok"
 
@@ -89,9 +88,9 @@ def landing_page():
     days_left = time_left.days
     
     number_of_years = str(today.year-2014)
-    print(number_of_years)
+
     number_of_trees = number_of_trees_lookup()
-    print(number_of_trees)
+
     
     return render_template("index.html", days_left=days_left,  number_of_years=number_of_years, number_of_trees=number_of_trees)
 
@@ -153,27 +152,26 @@ def RSVP_group():
                                 """
                                 invite_id_query_job = client.query(invite_id_query)
                                 invitation_ID = list(invite_id_query_job.result())[0][0]
-                                print(invitation_ID)
+                             
 
                                 invitation_list_query = f'SELECT * FROM `maggie-and-ollie-wedding.wedding_1805.invitations_table` WHERE Invite_ID = "{invitation_ID}"'
                                 invitation_list_query_job = client.query(invitation_list_query)
                                 invite_group = list(invitation_list_query_job.result())[0][1]
-                                print(invite_group)
+                           
                         
                         if invitation_valid is None:
                                 invitation_valid_query = f'SELECT * FROM `maggie-and-ollie-wedding.wedding_1805.invitations_table` WHERE Invite_ID = "{invitation_ID}"'
 
-                                print(invitation_valid_query)
+                             
                             
                                 invitation_valid_query_job = client.query(invitation_valid_query)
                                 invitation_valid_rows = list(invitation_valid_query_job.result())
-                                print(invitation_valid_rows)
+                                
                                 
                                 if invitation_valid_rows:
                                         invitation_valid = invitation_valid_rows[0][3]
-                                        print("invitation valid? ", invitation_valid)
-                                else:
-                                        print("No matching rows found for invitation ID:", invitation_ID)
+                                        
+                                
 
                         
                         if invitation_valid:
@@ -188,7 +186,7 @@ def RSVP_group():
                                 responder = str(responder_name)
                                 summary_string_basic = ( f"{full_name} RSVP'd {RSVP_bool}. Choir: {choir_bool}, {choir_part}. \
                                                   Dietary: {dietary_bool}, {dietary_opt}{dietary_detail}. Response at {response_time} from {responder}.")
-                                print(summary_string_basic)
+                               
                                 if RSVP_bool == "TRUE":  
                                        summary_string = f"{full_name} is able to attend the wedding."
                                        if choir_bool == "TRUE":
@@ -206,7 +204,7 @@ def RSVP_group():
                                         
                                 else:
                                        summary_string = f"{full_name} is not able to attend the wedding."
-                                print(summary_string)
+                               
 
                                 
                                 email_content_list.append(f"<br>{summary_string}<br>")
@@ -228,11 +226,11 @@ def RSVP_group():
                                 """
                                 email_query_job = client.query(email_query)
                                 email = list(email_query_job.result())[0][0]
-                                print(email)
+                            
                                 email_addresses.append(email)
 
 
-        print(invitation_valid, "valid")
+  
         if invitation_valid:
                 
                 
@@ -258,14 +256,14 @@ def RSVP_group():
 @app.route("/order-of-events")  
 def order_of_events():
         number_of_trees = number_of_trees()
-        print(number_of_trees)
+        
         return render_template("orderofevents.html")
 
 #SeatingPlan
 @app.route("/seating-plan")  
 def seating_plan():
         number_of_trees = number_of_trees()
-        print(number_of_trees)
+      
         return render_template("seatingplan.html")
 
 
