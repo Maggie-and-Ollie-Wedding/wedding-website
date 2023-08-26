@@ -62,8 +62,8 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
         html_body=f"<p> Dear {invite_group},<br><br>Thank you for your RSVP!<br><br> Please see summary confirmation below:<br>\
                 {email_content} <br><br>\
                 Please <a href='mailto:maggie.and.ollie.wedding@gmail.com'>get in touch</a> if any of this is incorrect.<br><br>\
-                We can't wait to celebrate with you! You can return to our <a href='www.maggieandolliewedding.party'>wedding website</a>\
-                if you would like to review the ceremony details, dress code, and other details.<br><br>\
+                We can't wait to celebrate with you! You can return to our <a href='https://www.maggieandolliewedding.party'>wedding website</a>\
+                if you would like to review the ceremony details, dress code, and other information.<br><br>\
                 Love,<br><br>\
                 Maggie & Ollie</p>"
 
@@ -75,6 +75,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
         "reply_to": "maggie.and.ollie.wedding@gmail.com",
         "html": html_body
                 })
+        print("email sent")
         return "email conf sent"
 
 
