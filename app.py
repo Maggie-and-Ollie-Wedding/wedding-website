@@ -70,7 +70,6 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
                 Maggie & Ollie</p>"
 
         print("email drafted")
-        print(resend.api_key)
         r = resend.Emails.send({
         "from": "rsvp-noreply@maggieandolliewedding.party",
         "to":  email_addresses,
