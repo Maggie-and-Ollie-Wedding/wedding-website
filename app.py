@@ -250,7 +250,7 @@ def RSVP_group():
                 email_confirmation(email_addresses, invite_group, email_content_list)
                 print("email_confirmation sent")
                 treeapp()
-                print("tree planted")
+                print("tree planted function pulled")
  
                 update_invitation_row_query = f"UPDATE `maggie-and-ollie-wedding.wedding_1805.invitations_table` SET Active = false, Email_Sent = TRUE WHERE Invite_ID = '{invitation_ID}';" 
                 client.query(update_invitation_row_query)
