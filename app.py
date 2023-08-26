@@ -80,7 +80,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
         "html": html_body
                 })
 
-        print("API Response status code: ", r.status)
+
         return "email conf sent"
 
 
