@@ -50,6 +50,7 @@ def treeapp():
 
         increase_tree_number_query = "UPDATE `maggie-and-ollie-wedding.wedding_1805.other_numbers` SET value = value + 1 WHERE key = 'tree_count'"
         client.query(increase_tree_number_query)
+        print("treeapp plant complete")
 
 
         return "ok"
@@ -67,6 +68,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
                 Love,<br><br>\
                 Maggie & Ollie</p>"
 
+        print("email drafted")
         r = resend.Emails.send({
         "from": "rsvp-noreply@maggieandolliewedding.party",
         "to":  email_addresses,
@@ -75,6 +77,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
         "reply_to": "maggie.and.ollie.wedding@gmail.com",
         "html": html_body
                 })
+        print("email address ", email_addresses)
         print("email sent")
         return "email conf sent"
 
@@ -236,7 +239,9 @@ def RSVP_group():
                 
                 
                 email_confirmation(email_addresses, invite_group, email_content_list)
+                print("email_confirmation sent")
                 treeapp()
+                print("tree planted")
  
                 update_invitation_row_query = f"UPDATE `maggie-and-ollie-wedding.wedding_1805.invitations_table` SET Active = false, Email_Sent = TRUE WHERE Invite_ID = '{invitation_ID}';" 
                 client.query(update_invitation_row_query)
