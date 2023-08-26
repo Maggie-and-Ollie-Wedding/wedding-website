@@ -54,6 +54,7 @@ def treeapp():
         res = conn.getresponse()
         data = res.read()
 
+        print("tree planted - now updating db")
 
 
         increase_tree_number_query = "UPDATE `maggie-and-ollie-wedding.wedding_1805.other_numbers` SET value = value + 1 WHERE key = 'tree_count'"
