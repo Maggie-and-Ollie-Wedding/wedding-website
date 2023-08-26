@@ -17,6 +17,7 @@ treeapp_key=os.getenv('TREEAPP_API_KEY')
 resend.api_key = os.getenv('EMAIL_API_KEY')
 
 
+
 app = Flask("maggie-and-ollie-wedding") #making an app
 client = bigquery.Client()
 
@@ -69,6 +70,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
                 Maggie & Ollie</p>"
 
         print("email drafted")
+        print(resend.api_key)
         r = resend.Emails.send({
         "from": "rsvp-noreply@maggieandolliewedding.party",
         "to":  email_addresses,
