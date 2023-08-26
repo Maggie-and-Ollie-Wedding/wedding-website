@@ -28,41 +28,36 @@ def number_of_trees_lookup():
     tree_lookup_results = list(tree_query_job)[0]
     number_of_trees_value = tree_lookup_results[1]
     return number_of_trees_value
+def treeapp_plant():
+    # Generate Idempotency Key
+    idempotency_key = str(uuid.uuid4())
+    print("Generated Idempotency Key:", idempotency_key)
 
-def treeapp():
-        conn = http.client.HTTPSConnection(treapp_url)
-
-
-        idempotency_key = str(uuid.uuid4())
-        return idempotency_key
-
-        print("Generated Idempotency Key:", idempotency_key)
-
-
-        payload = "{\n  \"quantity\": 1\n}"
-
-        headers = {
+    # API Request
+    conn = http.client.HTTPSConnection(treapp_url)
+    payload = json.dumps({
+        "quantity": 1
+    })
+    headers = {
         'Idempotency-Key': idempotency_key,
         'Content-Type': "application/json",
         'Accept': "application/json",
         'X-Treeapp-Api-Key': treeapp_key
+    }
+    conn.request("POST", "/v1/usage-records", payload, headers)
+    res = conn.getresponse()
+    data = res.read()
+    print("API Response:", data.decode('utf-8'))
 
-        }
+    # Update Database
+    increase_tree_number_query = "UPDATE `maggie-and-ollie-wedding.wedding_1805.other_numbers` SET value = value + 1 WHERE key = 'tree_count'"
+    client.query(increase_tree_number_query)
+    print("Database updated")
 
-        conn.request("POST", "/v1/usage-records", payload, headers)
-
-        res = conn.getresponse()
-        data = res.read()
-
-        print("tree planted - now updating db")
-
-
-        increase_tree_number_query = "UPDATE `maggie-and-ollie-wedding.wedding_1805.other_numbers` SET value = value + 1 WHERE key = 'tree_count'"
-        client.query(increase_tree_number_query)
-        print("treeapp plant complete")
+    return "Tree planted and database updated"
 
 
-        return "ok"
+
 
 def email_confirmation(email_addresses, invite_group, email_content_list):
        
@@ -249,8 +244,9 @@ def RSVP_group():
                 
                 email_confirmation(email_addresses, invite_group, email_content_list)
                 print("email_confirmation sent")
-                treeapp()
-                print("tree planted function pulled")
+                t = treeapp_plant()
+                print(t)
+                print("tree planted function called")
  
                 update_invitation_row_query = f"UPDATE `maggie-and-ollie-wedding.wedding_1805.invitations_table` SET Active = false, Email_Sent = TRUE WHERE Invite_ID = '{invitation_ID}';" 
                 client.query(update_invitation_row_query)
