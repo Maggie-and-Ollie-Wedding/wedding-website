@@ -9,7 +9,7 @@ from googleapiclient.discovery import build
 from google.oauth2 import service_account
 from googleapiclient.errors import HttpError
 from email.message import EmailMessage
-
+import uuid
 import http.client
 
 treapp_url=os.getenv('TREEAPP_API_URL')
@@ -32,10 +32,17 @@ def number_of_trees_lookup():
 def treeapp():
         conn = http.client.HTTPSConnection(treapp_url)
 
+
+        idempotency_key = str(uuid.uuid4())
+        return idempotency_key
+
+        print("Generated Idempotency Key:", idempotency_key)
+
+
         payload = "{\n  \"quantity\": 1\n}"
 
         headers = {
-        'Idempotency-Key': "",
+        'Idempotency-Key': idempotency_key,
         'Content-Type': "application/json",
         'Accept': "application/json",
         'X-Treeapp-Api-Key': treeapp_key
