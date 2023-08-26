@@ -14,8 +14,8 @@ import http.client
 
 treapp_url=os.getenv('TREEAPP_API_URL')
 treeapp_key=os.getenv('TREEAPP_API_KEY')
-resend.api_key = os.getenv('EMAIL_API_KEY')
-
+# resend.api_key = os.getenv('EMAIL_API_KEY')
+resend.api_key = "re_UtPZQixm_KRsK7MFKaAx2M3FmYbuRv3Hw"
 
 app = Flask("maggie-and-ollie-wedding") #making an app
 client = bigquery.Client()
