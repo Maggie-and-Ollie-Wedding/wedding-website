@@ -473,6 +473,16 @@ a:active {
   justify-content: center;
 }
 
+.map-parent {
+  display: flex;
+  flex-direction: row;
+}
+
+.map-child {
+  display: flex;
+  flex-direction: column; 
+}
+
 .choir-info-child {
   display: flex;
   flex-direction: column;
@@ -652,6 +662,22 @@ a:active {
     align-content: center;
     min-height: 12vh;
     justify-content: space-between;
+  }
+
+
+  .map-parent {
+    display: flex;
+    flex-direction: column; 
+    position: relative;
+    padding-bottom: 10px;
+  }
+
+
+  .map-child {
+    display: flex;
+    flex-direction: column; 
+    position: relative;
+    height: 100px;
   }
 
   .choir-info-grandchild {
