@@ -28,93 +28,154 @@
   <meta name="description" content="The wedding of Maggie Hunt and Oliver Norman">
 </head>
 
-<body class="notMainPage">
-  <div class="header-and-nav">
+<!-- <body class="notMainPage"> -->
+
+  <body><input type="checkbox" id="up-to-top-check" hidden>
+    <button id="up-to-top" title="Go to top" onclick="reveal('topButton')"><a class="up-to-top-link"
+        href="#page-content">^</a></button>
+
+  <div class="header-and-nav topnav">
     <div id="header">
       <h1><a href="/">M&O</a></h1>
     </div>
-    <nav>
+    <nav class="big-menu">
       <ul>
-        <li>
-          <a href="/ceremony">Ceremony</a>
-        </li>
-        <li>
-          <a href="/rsvp">RSVP</a>
-        </li>
-        <li>
-          <a href="/transport-and-accommodation">Transport and Accommodation</a>
-        </li>
-        <li>
-          <a href="/choir">Choir</a>
-        </li>
-        <li>
-          <a href="https://prezola.com/wishlists/10270629/" target="_blank">Gift Registry</a>
-        </li>
+        <li><a href="/#ceremony">Ceremony</a></li>
+        <li><a href="/#reception">Reception</a></li>
+        <li><a href="RSVP">RSVP</a></li>
+        <li><a onclick="revealFromRSVP('gettingThere')">Getting There</a></li>
+        <li><a onclick="revealFromRSVP('accommodation')">Accommodation</a></li>
+        <li><a onclick="revealFromRSVP('dressCode')">Dress Code</a></li>
+        <li><a onclick="revealFromRSVP('giftRegistry')">Gift Registry</a></li>
+        <li><a onclick="revealFromRSVP('choir')">Choir</a></li>
+        <li><a href="#contact-us">Contact Us</a></li>
       </ul>
     </nav>
-  </div>
-  <div id="page-content">
-    <h3>Order of Events</h3>
-    <br>
-    <div class="timetable">
-      <h4>17th May 2024</h4>
-      <div class="timetable-row">
-        <div class="time">5pm</div>
-        <div class="event">Rehearsal ceremony</div>
-      </div>
-      <div class="timetable-row">
-        <div class="time">7pm</div>
-        <div class="event">Rehearsal participants dinner</div>
-      </div>
-      <br>
-      <h4>18th May 2024</h4>
-      <div class="timetable-row">
-        <div class="time">10am</div>
-        <div class="event">Consort rehearsal</div>
-      </div>
-      <div class="timetable-row">
-        <div class="time">12.15pm</div>
-        <div class="event">Curtis Family Choir rehearsal</div>
-      </div>
-      <div class="timetable-row">
-        <div class="time">1pm</div>
-        <div class="event">Rehearsals end</div>
-        <br>
-      </div>
-      <br>
-      <h4>Ceremony</h4>
-      <div class="timetable-row">
-        <div class="time">2pm</div>
-        <div class="event">Ceremony begins</div>
-      </div>
-      <div class="timetable-row">
-        <div class="time">3pm</div>
-        <div class="event">Ceremony ends; buses to the reception</div>
-      </div>
-      <br>
-      <h4>Reception</h4>
-      <div class="timetable-row">
-        <div class="time">4pm</div>
-        <div class="event">Champagne reception, guestbook and photographs</div>
-      </div>
-      <div class="timetable-row">
-        <div class="time">5.30pm</div>
-        <div class="event">Wedding breakfast and speeches</div>
-      </div>
-      <div class="timetable-row">
-        <div class="time">8pm</div>
-        <div class="event">Dancefloor opens</div>
-      </div>
-      <div class="timetable-row">
-        <div class="time">11.30pm</div>
-        <div class="event">Last orders at the bar</div>
-      </div>
-      <div class="timetable-row">
-        <div class="time">Midnight</div>
-        <div class="event">Carriages</div>
-      </div>
-      <div>
 
+    <!-- Navigation links (hidden by default) -->
+    <nav class="small-menu">
+      <div id="myLinks">
+        <a href="/#ceremony" onclick="expandFunction()">Ceremony</a>
+        <a href="/#reception" onclick="expandFunction()">Reception</a>
+        <a href="/RSVP" onclick="expandFunction()">RSVP</a>
+        <a href="/#getting-there-accommodation" onclick="expandFunction(); revealFromRSVP('gettingThere')">Getting
+          There</a>
+        <a href="/#getting-there-accommodation"
+          onclick="expandFunction(); revealFromRSVP('accommodation')">Accommodation</a>
+        <a href="/#dress-code-gift-registry-choir" onclick="expandFunction(); revealFromRSVP('dressCode')">Dress
+          Code</a>
+        <a href="/#dress-code-gift-registry-choir" onclick="expandFunction(); revealFromRSVP('giftRegistry')">Gift
+          Registry</a>
+        <a href="/#dress-code-gift-registry-choir" onclick="expandFunction(); revealFromRSVP('choir')">Choir</a>
+        <a href="/#contact-us" onclick="expandFunction()">Contact Us</a>
+      </div>
+      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+      <a href="javascript:void(0);" class="icon" onclick="expandFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </nav>
+  </div>
+  <br>
+  <div id="page-content">
+    <div class="button-row-parent info-page-button">
+    <div class="button-row-child" id="order-tile" onclick="reveal('order')">
+      <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement57bw.jpg" class="button-row-grandchild">
+      <div class="button-row-button" id="accommodation-button">
+        <a class="button-row-button-link">
+          <h4>Order of the Day</h4>
+        </a>
+      </div>
+      <input type="checkbox" id="order-check" hidden>
+    </div></div>
+    <div class="page-section">
+      <div class="hide-on-load" id="order">
+        <h3>Order of Events</h3>
+        <br>
+        <div class="timetable">
+        
+          <div class="timetable-row">
+            <div class="time">10am</div>
+            <div class="event">Consort rehearsal</div>
+          </div>
+          <div class="timetable-row">
+            <div class="time">12.15pm</div>
+            <div class="event">Family & Friends Choir rehearsal</div>
+          </div>
+          <div class="timetable-row">
+            <div class="time">1pm</div>
+            <div class="event">Rehearsals end</div>
+            <br>
+          </div>
+          <br>
+          <h4>Ceremony</h4>
+          <div class="timetable-row">
+            <div class="time">2pm</div>
+            <div class="event">Ceremony begins</div>
+          </div>
+          <div class="timetable-row">
+            <div class="time">3pm</div>
+            <div class="event">Buses to the reception</div>
+          </div>
+          <br>
+          <h4>Reception</h4>
+          <div class="timetable-row">
+            <div class="time">4pm</div>
+            <div class="event">Champagne reception</div>
+          </div><div><i>Please go to the blue room to contribute to our audio guestbook!</i></div>
+          <div class="timetable-row">
+            <div class="time">5.30pm</div>
+            <div class="event">Wedding breakfast and speeches</div>
+          </div>
+          <div class="timetable-row">
+            <div class="time">8pm</div>
+            <div class="event">Dancefloor opens</div>
+          </div>
+          <div class="timetable-row">
+            <div class="time">11.30pm</div>
+            <div class="event">Last orders at the bar</div>
+          </div>
+          <div class="timetable-row">
+            <div class="time">Midnight</div>
+            <div class="event">Carriages</div>
+          </div>
+        
+      </div>
+    </div>
+</div>
+
+    <div class="button-row-parent info-page-button">
+      <div class="button-row-child" id="seating-tile" onclick="reveal('seating')">
+        <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement70bw.jpg" class="button-row-grandchild">
+        <div class="button-row-button" id="accommodation-button">
+          <a class="button-row-button-link">
+            <h4>Seating Plan</h4>
+          </a>
+        </div>
+        <input type="checkbox" id="seating-check" hidden>
+      </div></div>
+<div class="page-section">
+      <div class="hide-on-load" id="seating">
+        <h3>Seating Chart</h3>
+      </div>
+    </div>
+
+      <div class="button-row-parent info-page-button">
+        <div class="button-row-child" id="menu-tile" onclick="reveal('menu')">
+          <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement90bw.jpg" class="button-row-grandchild">
+          <div class="button-row-button" id="accommodation-button">
+            <a class="button-row-button-link">
+              <h4>Menu</h4>
+            </a>
+          </div>
+          <input type="checkbox" id="menu-check" hidden>
+        </div></div>
+        <div class="page-section">
+          <div class="hide-on-load" id="menu">
+            <h3>Menu</h3>
+           
+          </div>
+        </div>
+    
       </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -123,5 +184,7 @@
   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="../static/js/script.js"></script>
+  <script src="../static/js/infoscript.js"></script>
 
 </html>

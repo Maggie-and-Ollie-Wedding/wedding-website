@@ -261,7 +261,7 @@ def RSVP_group():
         
 
 #Info
-@app.route("/info")  
+@app.route("/info180524")  
 def info():
         number_of_trees = number_of_trees()
         

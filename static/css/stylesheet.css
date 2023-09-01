@@ -57,13 +57,7 @@
   border-bottom: 1px solid var(--main-dark-colour);
 }
 
-.page-section {
-  width: 75vw;
-  padding-bottom: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
-  transition: transform 0.5s ease-in-out;
-}
+
 
 .ceremony-and-reception-parent {
   display: flex;
@@ -186,7 +180,6 @@ body {
   padding-bottom: 50px;
   padding-left: 100px;
   padding-right: 100px;
-  height: 80vh;
   width: 100vw;
   overflow-x: hidden;
   overflow-y: auto;
@@ -543,6 +536,7 @@ a:active {
     padding-top: 0px;
   }
 
+
   .header-and-nav {
     width: 100vw;
     margin: 0px;
@@ -810,4 +804,8 @@ a:active {
   border-style: solid;
   border-width: var(--border-width);
   display: block;
+}
+
+.info-page-button {
+  height: 25vh;
 }
