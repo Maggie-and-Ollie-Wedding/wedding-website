@@ -260,6 +260,13 @@ def RSVP_group():
                        
         
 
+#Info
+@app.route("/info")  
+def info():
+        number_of_trees = number_of_trees()
+        
+        return render_template("info.html")
+
 #OrderofEvents
 @app.route("/order-of-events")  
 def order_of_events():
