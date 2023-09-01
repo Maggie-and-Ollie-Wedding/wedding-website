@@ -339,6 +339,7 @@ a:hover:before {
 
 a:active {
   color: var(--main-dark-colour);
+  text-decoration: none;
 }
 
 .noScrollBar {
@@ -678,6 +679,7 @@ a:active {
     flex-direction: column; 
     position: relative;
     height: 100px;
+    padding: 10px;
   }
 
   .choir-info-grandchild {
