@@ -445,7 +445,7 @@ a:active {
 .btn-secondary {
   color: var(--main-dark-colour);
   background-color: var(--soft-background-colour);
-  border-color: var(--gentle-mid-colour);
+  border-color: var(--mid-dark-colour);
   height: 60px;
 }
 
