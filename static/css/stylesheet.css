@@ -674,6 +674,10 @@ a:active {
     padding-bottom: 10px;
   }
 
+  .ceremony-iframe {
+    height: 100px;
+  }
+
 
   .map-child {
     display: flex;
