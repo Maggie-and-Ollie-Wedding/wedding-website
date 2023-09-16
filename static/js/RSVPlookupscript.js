@@ -75,11 +75,11 @@ function inviteSearch(invitations) {
       showNamesList.style.display = 'none';
     }
   });
-  
-  showNamesList.addEventListener('click', function (e) {
+
+  showNamesList.addEventListener('change', function (e) {
     invitationGroup.textContent = showNamesList.value;
     showNamesList.style.display = 'none';
-    e.preventDefault();
+    // e.preventDefault();
   });
 
  
