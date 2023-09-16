@@ -32,14 +32,6 @@ function inviteSearch(invitations) {
   const showNamesList = document.getElementById('list-of-invitations-names');
   const invitationGroup = document.getElementById('invitation-group');
 
-  searchYourName.addEventListener('focus', function () {
-    showNamesList.style.display = 'block';
-  });
-
-  searchYourName.addEventListener('blur', function () {
-    showNamesList.style.display = 'none';
-  });
-
 
   searchYourName.addEventListener('input', function () {
     const searchYourNameContent = capitalizeNames(searchYourName.value);
