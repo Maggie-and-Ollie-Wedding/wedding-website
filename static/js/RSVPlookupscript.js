@@ -88,7 +88,18 @@ function inviteSearch(invitations) {
   showNamesList.addEventListener('change', function (e) {
     invitationGroup.textContent = showNamesList.value;
     showNamesList.style.display = 'none';
-    // e.preventDefault();
+    e.preventDefault();
+  });
+
+  selectElement.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      this.focus();
+  });
+
+  selectElement.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      this.selectedIndex = 0; // This will keep the first option selected
+      this.blur();
   });
 
  
