@@ -32,6 +32,14 @@ function inviteSearch(invitations) {
   const showNamesList = document.getElementById('list-of-invitations-names');
   const invitationGroup = document.getElementById('invitation-group');
 
+  searchYourName.addEventListener('focus', function () {
+    showNamesList.style.display = 'block';
+  });
+
+  searchYourName.addEventListener('blur', function () {
+    showNamesList.style.display = 'none';
+  });
+
 
   searchYourName.addEventListener('input', function () {
     const searchYourNameContent = capitalizeNames(searchYourName.value);
@@ -48,7 +56,7 @@ function inviteSearch(invitations) {
       var numberOfOptions=0
 
       listOfInvitationBullets.forEach(optionText => {
-        const optionElement = document.createElement('option');
+        const optionElement = document.createElement('li');
         optionElement.value = optionText;
         optionElement.textContent = optionText;
         showNamesList.appendChild(optionElement);
@@ -77,26 +85,12 @@ function inviteSearch(invitations) {
     }
   });
 
-  showNamesList.addEventListener('change', function () {
+  showNamesList.addEventListener('change', function (e) {
     invitationGroup.textContent = showNamesList.value;
     showNamesList.style.display = 'none';
     // e.preventDefault();
   });
 
- showNamesList.addEventListener('click', function () {
-    invitationGroup.textContent = showNamesList.value;
-    showNamesList.style.display = 'none';
-  });
-
-  showNamesList.addEventListener('click', function (e) {
-    e.preventDefault();
-  });
-
- 
-  showNamesList.addEventListener('change', function (e) {
-    e.preventDefault();
-  });
- 
  
 }
 
