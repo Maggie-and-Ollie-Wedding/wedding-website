@@ -75,10 +75,6 @@ function inviteSearch(invitations) {
       showNamesList.style.display = 'none';
     }
   });
-
-  showNamesList.addEventListener('change', function (e) {
-    e.preventDefault();
-  });
   
   showNamesList.addEventListener('click', function (e) {
     invitationGroup.textContent = showNamesList.value;
