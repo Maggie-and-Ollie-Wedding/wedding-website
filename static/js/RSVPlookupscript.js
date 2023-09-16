@@ -56,7 +56,7 @@ function inviteSearch(invitations) {
       var numberOfOptions=0
 
       listOfInvitationBullets.forEach(optionText => {
-        const optionElement = document.createElement('li');
+        const optionElement = document.createElement('option');
         optionElement.value = optionText;
         optionElement.textContent = optionText;
         showNamesList.appendChild(optionElement);
