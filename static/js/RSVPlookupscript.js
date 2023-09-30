@@ -83,7 +83,10 @@ function inviteSearch(invitations) {
   });
 
   showNamesList.addEventListener('click', function (e) {
+    console.log(showNamesList.value)
+    console.log(showNamesList.value.JSONSTRING)
     invitationGroup.textContent = showNamesList.value;
+
     showNamesList.style.display = 'none';
     e.preventDefault();
   });
