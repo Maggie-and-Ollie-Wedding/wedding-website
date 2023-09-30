@@ -5,4 +5,4 @@ export TREEAPP_API_KEY="b2b_test_sgS2KopWbNrAv2gOfsCVDpcIy8Um9Hxn8CuQHVcCuWHcFCj
 export EMAIL_API_KEY="re_MEzUCBUK_LToyum42Q6dDx4PKVgCBwGEG"
 export HEROKU_EMAIL_API_KEY="re_eLX3W2fY_3EGzf4P1E9h9EdvjRz8PU7ih"
 
-python3 app.py
+python3 test.py

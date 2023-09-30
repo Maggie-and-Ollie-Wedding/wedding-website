@@ -3,226 +3,276 @@
 
 <head>
 
-      <!-- stylesheets -->
- 
-<link
-  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap"
-  rel="stylesheet">
-<!-- <link rel="stylesheet" href="../static/css/stylesheet.css"> -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <!-- stylesheets -->
 
-    <style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap"
+    rel="stylesheet">
 
-:root {
-  --cover-page-height: 60vh;
-  --main-dark-colour: #636363;
-  --mid-dark-colour: #666666;
-  --dark-colour-transparent: rgba(0,0,0, 0.5);
-  --dark-colour-semitransparent: rgba(0,0,0, 0.4);
-  --warm-colour-semitransparent: rgba(196,188,188,0.5);
-  --soft-dark-colour: #7c7c7c;
-  --soft-background-colour: white;
-  --light-colour: #efeeee;
-  --warm-colour: #c4bcbc;
-  --gentle-mid-colour: #a6a3a1;
-  --mid-colour: #959493;
-  --border-width: 5px;
-}
-
-body {
-  background-size: cover;
-  text-align: center;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 90vw;
-  background-color: var(--soft-background-colour);
-  overflow-x: hidden;
-  overflow-y: scroll;
-  height: auto;
-
-}
-
-.page-section {
-  width: 75vw;
-  padding-bottom: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
-  transition: transform 0.5s ease-in-out;
-}
-#cover-page-gradient {
-  z-index: -2;
-  background: var(--soft-background-colour);
-  background: linear-gradient(0deg,
-      rgba(252, 250, 250, 0) 0%,
-      rgba(0, 0, 0, 1) 100%);
-  height: var(--cover-page-height);
-  width: 100vw;
-  position: absolute;
-  opacity: 1;
-  z-index: 0;
-
-}
-
-.cover-page-image {
-  z-index: -4;
-  height: var(--cover-page-height);
-  width: 100vw;
-  object-fit: cover;
-  opacity: 0.9;
-}
+  <style>
+    :root {
+      --cover-page-height: 40vh;
+      --main-dark-colour: #091d36;
+    --mid-dark-colour: #053c5c;
+    --dark-colour-transparent: rgba(0,0,0, 0.5);
+    --dark-colour-semitransparent: rgba(2, 9, 18,0.4);
+    --warm-colour-semitransparent: rgba(226,196, 132, 0.5);
+    --soft-dark-colour: #e1c892;
+    --soft-background-colour: #ffffff;
+    --light-colour: #fafaf7;
+    --warm-colour: #f1e2c7;
+    --gentle-mid-colour: #f6f0e5;
+    --mid-colour: #053c5c;
+      --border-width: 5px;
+    }
 
 
-#cover-page {
-  position: absolute;
-  z-index: 2;
-  color: var(--soft-background-colour);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
-  height: auto;
-  justify-content: center;
-}
+    body {
+      background-size: cover;
+      text-align: center;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 90vw;
+      background-color: var(--soft-background-colour);
+      overflow-x: hidden;
+      overflow-y: scroll;
+      height: auto;
+      margin: 0px;
 
-#cover-page .centered-text {
-  text-align: center;
-}
-
-
-html,
-body {
-  scroll-behavior: smooth;
-}
+    }
 
 
 
-h1,
-h2,
-h5 {
-  font-family: "Playfair Display SC", serif;
-}
+    .page-section {
+      width: 75vw;
+      transition: transform 0.5s ease-in-out;
+    }
 
-h3 {
-  padding: 24px;
-  font-family: "Playfair Display SC", serif;
-}
+    #cover-page-gradient {
+      z-index: -2;
+      background: var(--soft-background-colour);
+      background: linear-gradient(0deg,
+          rgba(252, 250, 250, 0) 0%,
+          rgb(2, 9, 18) 100%);
+      height: var(--cover-page-height);
+      width: 100vw;
+      position: absolute;
+      opacity: 1;
+      z-index: 0;
 
-h4 {
-  padding: 14px;
-  font-family: "Playfair Display SC", serif;
-}
+    }
 
-h5 {
-  padding: 10px;
-  font-family: "Playfair Display SC", serif;
-}
-
-h6 {
-  padding: 10px;
-  font-family: "Playfair Display SC", serif;
-}
-
-p {
-  font-family: "Open Sans", sans-serif;
-}
-
-.carousel-display-home {
-  height: var(--cover-page-height);
-  width: 100vw;
-  border-radius: 300px 300px 0px 0px;
-  position: relative;
-  z-index: -2;
-}
-
-.ceremony-and-reception-parent {
-    flex-direction: column;
-  
-  }
+    .cover-page-image {
+      z-index: -4;
+      height: var(--cover-page-height);
+      width: 100vw;
+      object-fit: cover;
+      opacity: 0.9;
+    }
 
 
-.ceremony-and-reception-parent {
-  display: flex;
-  flex-direction: row;
-  text-align: start;
+    #cover-page {
+      position: absolute;
+      z-index: 2;
+      color: var(--soft-background-colour);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100vw;
+      height: var(--cover-page-height);
+      justify-content: center;
+    }
 
-}
+    #cover-page .centered-text {
+      text-align: center;
+    }
 
-.ceremony-and-reception-child{
-  display: flex;
-  justify-content: center;
-  flex: 1
 
-}
-.ceremony-and-reception-grandchild{
-  display: inline;
-  justify-content: left;
-  padding: 12px;
-  flex: 1
-}
-  
-.rsvp-button {
-  border: var(--light-colour);
-  width: 15%;
-  height: 10%;
-  color: var(--light-colour);
-  padding: 5;
-  border: 5px solid var(--light-colour); /* Add border */
-}
-.rsvp-button-link {
-            color: var(--light-colour);
-            margin-top: 0.5rem;
-            text-decoration: none; /* Remove underline */
-            display: inline-block;
-            padding: 10px;
-           
-        }
+    html,
+    body {
+      scroll-behavior: smooth;
+    }
 
-.rsvp-button:hover {
-  background-color: var(--dark-colour-transparent)
-}
 
-.rsvp-button-link:link {
-  color: var(--light-colour);
-  margin-top: 0.5rem;
-}
 
-.rsvp-button-link:hover:before {
-    content: "";
-}
+    h1,
+    h2,
+    h5 {
+      font-family: "Playfair Display SC", serif;
+    }
 
-.cover-page-container {
-            position: relative;
-        display: flex;
-            height: var(--cover-page-height);
-            width: 100vw;
-        }
+    h3 {
+      padding: 24px;
+      font-family: "Playfair Display SC", serif;
+    }
 
-.other-divs {
-       
-            display: flex;
-            position: relative;
-            justify-content: space-around;
-        }
+    h4 {
+      padding: 14px;
+      font-family: "Playfair Display SC", serif;
+    }
 
-        .email-layout {
-            display: flex;
-  flex-direction: column;
-  height: 100vh;
-          
-        }
+    h5 {
+      padding: 10px;
+      font-family: "Playfair Display SC", serif;
+    }
 
-    
+    h6 {
+      padding: 10px;
+      font-family: "Playfair Display SC", serif;
+    }
 
-      </style>
+    p {
+      font-family: "Open Sans", sans-serif;
+    }
+
+    .carousel-display-home {
+      height: var(--cover-page-height);
+      width: 100vw;
+      border-radius: 300px 300px 0px 0px;
+      position: relative;
+      z-index: -2;
+    }
+
+
+
+
+    .ceremony-and-reception-parent {
+      display: flex;
+      flex-direction: row;
+      text-align: start;
+
+    }
+
+    .ceremony-and-reception-child {
+      display: flex;
+      justify-content: center;
+      flex: 1
+    }
+
+    .ceremony-and-reception-grandchild {
+      display: inline;
+      justify-content: left;
+      padding: 12px;
+      flex: 1
+    }
+
+    .rsvp-button {
+      border: var(--main-dark-colour);
+      color: var(--main-dark-colour);
+      border: 5px solid var(--main-dark-colour);
+      /* Add border */
+      display: flex;
+      text-align: center;
+      width: 50%;
+    }
+
+    .rsvp-button-link {
+      color: var(--main-dark-colour);
+      text-decoration: none;
+      display: flex;
+      margin-bottom: 0.5rem;
+    }
+
+    .rsvp-button:hover {
+      background-color: var(--dark-colour-transparent)
+    }
+
+    .rsvp-button-link:link {
+      color: var(--main-dark-colour);
+      margin-top: 0.5rem;
+    }
+
+    .rsvp-button-link:hover:before {
+      content: "";
+    }
+
+    .cover-page-container {
+      position: relative;
+      display: flex;
+      height: var(--cover-page-height);
+      width: 100vw;
+    }
+
+    .other-divs {
+
+      display: flex;
+      position: relative;
+      justify-content: space-around;
+      width: 100vw;
+    }
+
+    .email-layout {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 100vw;
+
+    }
+
+
+    .button-list-parent {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      width: 100vw;
+      color: var(--main-dark-colour);
+    }
+
+    .button-list-child {
+      display: flex;
+      align-self: center;
+      margin: 10px;
+      justify-content: center;
+    }
+
+    @media only screen and (max-width: 800px) {
+      :root {
+        --cover-page-height: 30vh;
+      }
+
+      .ceremony-and-reception-parent {
+      flex-direction: column;
+
+    }
+
+      h1,
+      h2,
+      h5 {
+        font-size: large;
+      }
+
+      h3 {
+        font-size: large;
+      }
+
+      h4 {
+        font-size: large;
+      }
+
+      h5 {
+        font-size: large;
+      }
+
+      h6 {
+        font-size: large;
+      }
+
+      p {
+        font-size: large;
+      }
+    }
+  </style>
 
 
   <!-- title: CHANGE ME -->
   <title>Maggie and Ollie's Wedding!</title>
 </head>
 
-<body>    <div class="email-layout"><div class="cover-page-container">
-    <div class="page-section" id="cover-page">
+<body>
+  <div class="email-layout">
+    <div class="cover-page-container">
+      <div class="page-section" id="cover-page">
         <div>
           <div id="cover-page-gradient"></div>
           <div class="carousel-display-home">
@@ -234,51 +284,54 @@ p {
                     alt="Maggie and Ollie on bridge">
                 </div>
               </div>
-  
+
             </div>
           </div>
         </div>
-  
+
         <div id="cover-page">
           <br>
           <h2>the wedding of</h2>
           <h1>Maggie Rose Prinn Hunt<br>&<br>Oliver John Benjamin Norman</h1>
           <h4>18th May 2024 | Bedfordshire, UK</h4>
-    
-          <div class="rsvp-button button" id="rsvp">
-            <a class="rsvp-button-link" href="https://www.maggieandolliewedding.party">
-              <h2>RSVP</h2>
-            </a>
-          </div>
-        </div>
-      </div></div>
-      <div class="other-divs page-section">
 
-            <p>We are delighted to invite you to our wedding!</p>
-            </div>    <div class="other-divs">
-        <div class="page-section ceremony-and-reception-parent" id="ceremony-and-reception">
-          <div class="ceremony-and-reception-child" id="ceremony">
-            <h3>Ceremony</h3>
-            <div class="ceremony-and-reception-grandchild">
-              <h5>The Parish Church of St Mary The Virgin, Gamlingay<br>
-                2pm
-                <br>
-                Saturday 18th May 2024
-                <br>
-  
-  
-              </h5>
-            </div>
-          </div>
-          <div class="ceremony-and-reception-child" id="reception">
-            <h3>Reception</h3>
-            <div class="ceremony-and-reception-grandchild">
-              <h5>Wrest Park, Silsoe<br>3.30pm Drinks<br>
-            5.30pm Dinner<br>
-        8pm Dancing<br>
-    11.30pm Carriages</h5>
-            </div>
-          </div>
-        </div></div>
-</div>
+
+        </div>
+      </div>
+    </div>
+    <div class="other-divs">
+
+      <h3>{{Names}}</h3>
+    </div>
+    <div class="other-divs">
+      <p>Thank you for your RSVP.</p>
+    </div>
+    <div class="other-divs">
+
+
+      <ul>
+        {{rsvp_details}}
+      </ul>
+    </div>
+    <div>
+
+      <div class="other-divs">
+        <p>If you need to remind yourself of the dress code, choir details, or other information, <br>further information can be found on our website.</p>
+      </div>
+      <div class="button-list-parent">
+        <div class="rsvp-button button button-list-child" id="website">
+          <a class="rsvp-button-link" href="https://www.maggieandolliewedding.party" target="_blank">
+            <h2>website</h2>
+          </a>
+        </div>
+
+       
+
+
+
+      </div>
+    </div>
+
+
+  </div>
 </body>

@@ -17,11 +17,11 @@
       --dark-colour-transparent: rgba(0, 0, 0, 0.5);
       --dark-colour-semitransparent: rgba(2, 9, 18, 0.4);
       --warm-colour-semitransparent: rgba(226, 196, 132, 0.5);
-      --soft-dark-colour: #e2c484;
+      --soft-dark-colour: #e1c892;
       --soft-background-colour: #ffffff;
-      --light-colour: #fffff9;
-      --warm-colour: #e2c484;
-      --gentle-mid-colour: #f1e2c7;
+      --light-colour: #fafaf7;
+      --warm-colour: #f1e2c7;
+      --gentle-mid-colour: #f6f0e5;
       --mid-colour: #053c5c;
       --border-width: 5px;
     }
@@ -118,8 +118,9 @@
     }
 
     h6 {
-      padding: 10px;
+      padding: 0px;
       font-family: "Playfair Display SC", serif;
+      font-size: small;
     }
 
     p {
@@ -226,40 +227,66 @@
       justify-content: center;
     }
 
-    @media only screen and (max-width: 800px) {
-      :root {
-        --cover-page-height: 30vh;
-      }
+    .bus-box-div {
+      display: flex;
+      justify-content: center;
+    }
 
-      .ceremony-and-reception-parent {
-      flex-direction: column;
+    .bus-box {
+      border: var(--soft-dark-colour);
+      width: 60%;
+      height: auto;
+      margin-bottom: 1rem;
+      border-style: solid;
+      border-width: var(--border-width);
+      display: flex;
+      margin-top: 0.5rem;
+      padding: 20px;
 
     }
 
-      h1,
-      h2,
-      h5 {
-        font-size: large;
+    @media only screen and (max-width: 800px) {
+      :root {
+        --cover-page-height: 40vh;
+      }
+
+      .ceremony-and-reception-parent {
+        flex-direction: column;
+
+      }
+
+      h1 {
+        font-size: xx-large;
+      }
+
+      h2 {
+        font-size: x-large;
       }
 
       h3 {
-        font-size: large;
+        font-size: medium;
       }
 
       h4 {
-        font-size: large;
+        font-size: medium;
       }
 
       h5 {
-        font-size: large;
+        font-size: medium;
       }
 
       h6 {
-        font-size: large;
+        font-size: small;
+        padding: 0px;
       }
 
       p {
         font-size: large;
+      }
+
+      .bus-box {
+        width: 80%;
+
       }
     }
   </style>
@@ -293,19 +320,22 @@
           <br>
           <h2>the wedding of</h2>
           <h1>Maggie Rose Prinn Hunt<br>&<br>Oliver John Benjamin Norman</h1>
-          <h4>18th May 2024 | Bedfordshire, UK</h4>
+          <h3>18th May 2024 | Bedfordshire, UK</h3>
 
 
         </div>
       </div>
     </div>
-    <div class="other-divs">
+    <div>
+      <h6>with great pleasure</h6>
+      <h2>Maggie Rose Prinn Hunt<br>&<br>Oliver John Benjamin Norman</h2>
+      <h6>invite</h6>
+      <h2>{invite_group}</h2>
+      <h6>to join them for the celebration of their marriage<br>
+        on</h6>
+      <h2>Saturday the Eighteenth of May 2024</h2>
+    </div>
 
-      <h3>{{Names}}</h3>
-    </div>
-    <div class="other-divs">
-      <p>We are delighted to invite you to our wedding!</p>
-    </div>
     <div class="other-divs">
 
 
@@ -313,42 +343,40 @@
         <div class="ceremony-and-reception-child" id="ceremony">
           <h3>Ceremony</h3>
           <div class="ceremony-and-reception-grandchild">
-            <h5>The Parish Church of St Mary The Virgin, Gamlingay<br>
-              2pm
-              <br>
-              Saturday 18th May 2024
-              <br>
-
-
+            <h5>The Parish Church of <br>St Mary The Virgin,<br>Gamlingay<br><br>2pm
             </h5>
           </div>
         </div>
         <div class="ceremony-and-reception-child" id="reception">
           <h3>Reception</h3>
           <div class="ceremony-and-reception-grandchild">
-            <h5>Wrest Park, Silsoe<br>3.30pm Drinks<br>
-              5.30pm Dinner<br>
-              8pm Dancing<br>
-              11.30pm Carriages</h5>
+            <h5>Wrest Park, <br>Silsoe<br><br>
+              Drinks, dinner and dancing from 4pm<br>
+              Carriages at 11.30pm</h5>
           </div>
         </div>
+
       </div>
     </div>
     <div>
 
       <div class="other-divs">
-        <p>We we kindly request you RSVP by 01/10/23.</p>
+        <div class="bus-box-div">
+          <h6 class="bus-box">There is no parking at the church.<br><br>Please note we are providing transport from
+            the ceremony to the reception venue.</h6>
+        </div>
+      </div>
+      <div class="other-divs">
+        <h5>We we kindly request you RSVP by 17/11/23.</h5>
       </div>
       <div class="button-list-parent">
         <div class="rsvp-button button button-list-child" id="website">
           <a class="rsvp-button-link" href="https://www.maggieandolliewedding.party" target="_blank">
-            <h2>RSVP via our Website</h2>
+            <h2>Details and RSVP</h2>
           </a>
         </div>
 
-        <div class="other-divs">
-          <p>The website also contains further information such as dress code.</p>
-        </div>
+        <br><br>
 
 
 
