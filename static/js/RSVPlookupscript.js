@@ -45,10 +45,7 @@ function inviteSearch(invitations) {
 
     if (searchYourNameContent.length > 2 && filteredInvitations.length > 0) {
       listOfInvitationBullets = filteredInvitations;
-      if (window.innerWidth <= 1000){
-        console.log('mobile')
-
-        showNamesList.focus();}
+      
 
       var numberOfOptions=0
 
@@ -61,6 +58,10 @@ function inviteSearch(invitations) {
       });
 
       showNamesList.style.display = 'flex';
+      if (window.innerWidth <= 1000){
+        console.log('mobile')
+
+        showNamesList.focus();}
 
   
         
