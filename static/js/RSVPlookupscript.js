@@ -1,5 +1,5 @@
 function capitalizeNames (input) {
-  standard_input = input.toLowerCase()
+ standard_input = input.toLowerCase()
   capitalized = standard_input.replace(/\b\w/g, match => match.toUpperCase())
   return capitalized
 }
@@ -25,83 +25,110 @@ function listOfInvitees (listOfInvitations) {
   return invitees
 }
 
-function inviteSearch (invitations) {
-  const searchYourName = document.getElementById('search-your-name')
-  const showNamesList = document.getElementById('list-of-invitations-names')
-  const invitationGroup = document.getElementById('invitation-group')
+
+
+function inviteSearch(invitations) {
+  const searchYourName = document.getElementById('search-your-name');
+  const showNamesList = document.getElementById('list-of-invitations-names');
+  const invitationGroup = document.getElementById('invitation-group');
+  const selectElement = document.getElementById('list-of-invitations-names');
+  var selectedOption = selectElement.value;
+
 
   searchYourName.addEventListener('input', function () {
-    const searchYourNameContent = capitalizeNames(searchYourName.value)
+    const searchYourNameContent = capitalizeNames(searchYourName.value);
     const filteredInvitations = invitations.filter(option =>
       option.includes(searchYourNameContent)
-    )
+    );
 
-    showNamesList.innerHTML = ''
+    showNamesList.innerHTML = '';
 
     if (searchYourNameContent.length > 2 && filteredInvitations.length > 0) {
-      listOfInvitationBullets = filteredInvitations
+      listOfInvitationBullets = filteredInvitations;
+      
 
-      var numberOfOptions = 0
+      var numberOfOptions=0
 
       listOfInvitationBullets.forEach(optionText => {
-        const optionElement = document.createElement('option')
-        optionElement.value = optionText
-        optionElement.textContent = optionText
-        showNamesList.appendChild(optionElement)
-        numberOfOptions += 1
-      })
+        const optionElement = document.createElement('option');
+        optionElement.value = optionText;
+        optionElement.textContent = optionText;
+        showNamesList.appendChild(optionElement);
+        numberOfOptions +=1
+      });
 
-      showNamesList.style.display = 'flex'
-      showNamesList.click()
-      function setDropdownSize () {
-        const selectElement = document.getElementById(
-          'list-of-invitations-names'
-        )
+      showNamesList.style.display = 'flex';
 
-        if (numberOfOptions < 3) {
-          maxVisibleOptions = numberOfOptions
-        } else {
-          maxVisibleOptions = 3
-        }
-
+  
+        
+      function setDropdownSize() {
+        
+    
+        
+       
+        
+        if(numberOfOptions<3){
+          maxVisibleOptions = numberOfOptions}
+        
+        else { maxVisibleOptions = 3;}
+        
+       
         const actualSize = Math.max(maxVisibleOptions, 2)
-
-        selectElement.size = actualSize
+      
+        selectElement.size = actualSize;
       }
-      setDropdownSize()
+
+      setDropdownSize();
+
+      
+      
+      
     } else {
-      showNamesList.style.display = 'none'
+      showNamesList.style.display = 'none';
     }
-  })
+  });
+
+  if (window.innerWidth <= 1000){
+    showNamesList.click();}
 
   showNamesList.addEventListener('click', function (e) {
-    invitationGroup.textContent = showNamesList.value
-    showNamesList.style.display = 'none'
-    e.preventDefault()
-  })
+   
+    invitationGroup.textContent = showNamesList.value;
+
+    showNamesList.style.display = 'none';
+    e.preventDefault();
+  });
+
+ 
 }
 
-function selectInvitation () {
-  const RSVPButton = document.getElementById('submit-rsvp-button-section')
-  const selectElement = document.getElementById('list-of-invitations-names')
-  var selectedOption = selectElement.value
+function selectInvitation() {
 
-  RSVPButton.style.display = 'flex'
+          const RSVPButton = document.getElementById('submit-rsvp-button-section')
+          const selectElement = document.getElementById('list-of-invitations-names');
+          var selectedOption = selectElement.value;
 
-  if (selectedOption) {
-    JSONSTRING = JSON.stringify({ selectedOption: selectedOption })
+          RSVPButton.style.display = 'flex';
 
-    fetch('/rsvp_list', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSONSTRING
-    })
-      .then(response => response.json())
-
-      .catch(error => {
-        console.error('Error:', error)
-      })
-  }
+         
+          
+          if (selectedOption) {
+            console.log(selectedOption)
+              JSONSTRING = JSON.stringify({ 'selectedOption': selectedOption })
+              console.log(JSONSTRING)
+              
+                fetch('/rsvp_list', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSONSTRING,
+                })
+                
+                .then(response => response.json())
+                
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
 }
