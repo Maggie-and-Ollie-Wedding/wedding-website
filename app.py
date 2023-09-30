@@ -267,20 +267,6 @@ def info():
         
         return render_template("info.html")
 
-#OrderofEvents
-@app.route("/order-of-events")  
-def order_of_events():
-        number_of_trees = number_of_trees()
-        
-        return render_template("orderofevents.html")
-
-#SeatingPlan
-@app.route("/seating-plan")  
-def seating_plan():
-        number_of_trees = number_of_trees()
-      
-        return render_template("seatingplan.html")
-
 
 ###debugging
 if __name__ == "__main__":

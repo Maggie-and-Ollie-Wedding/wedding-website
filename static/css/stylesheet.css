@@ -847,3 +847,14 @@ a:hover:before {
   width: 100%;
   color: var(--colour-4);
 }
+
+.dot:after{
+  content: ".";
+  display: inline-block;
+  position: relative;
+    bottom: 0.75em;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  color: var(--colour-4);
+}
