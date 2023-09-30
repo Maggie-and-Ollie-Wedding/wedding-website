@@ -126,7 +126,7 @@ function selectInvitation() {
 
               if (window.innerWidth <= 1000){
                 selectElement.focus();
-                selectedOption.focus();
+              
                 console.log('mobile');
                 const invitationGroup = document.getElementById('invitation-group');
   
