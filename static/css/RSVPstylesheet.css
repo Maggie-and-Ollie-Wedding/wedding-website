@@ -224,6 +224,14 @@ h4 {
     }
 }
 
+@media only screen and (min-width: 1001px) {
+    
+        .form-control {
+            line-height: 60px;
+
+        }
+    }
+
 @media only screen and (max-width: 1000px) {
     .rsvp-block-1 {
         display: flex;
@@ -283,7 +291,6 @@ form {
     width: 100%;
     padding: 10px;
     font-size: 1rem;
-    line-height: 60px;
     color: var(--main-dark-colour);
     background-color: var(--soft-background-colour);
     background-clip: padding-box;
