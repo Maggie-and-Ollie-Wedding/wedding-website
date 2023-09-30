@@ -127,7 +127,7 @@ function selectInvitation() {
 
               if (window.innerWidth <= 1000){
                 console.log('mobile')
-      
+                const invitationGroup = document.getElementById('invitation-group');
               
                 invitationGroup.textContent = selectedOption }
               
