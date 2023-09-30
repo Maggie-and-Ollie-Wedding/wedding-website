@@ -42,7 +42,6 @@ function inviteSearch(invitations) {
     );
 
     showNamesList.innerHTML = '';
-    selectElement.click();
 
     if (searchYourNameContent.length > 2 && filteredInvitations.length > 0) {
       listOfInvitationBullets = filteredInvitations;
@@ -59,6 +58,8 @@ function inviteSearch(invitations) {
       });
 
       showNamesList.style.display = 'flex';
+      selectElement.click();
+      showNamesList.click();
   
         
       function setDropdownSize() {
