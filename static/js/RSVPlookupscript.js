@@ -126,11 +126,10 @@ function selectInvitation() {
               console.log(JSONSTRING)
 
               if (window.innerWidth <= 1000){
-                console.log('mobile')
-                const invitationGroup = document.getElementById('invitation-group');
-              
-                invitationGroup.textContent = selectedOption }
-              
+                selectElement.focus();
+                console.log('mobile');
+              }
+                
                 fetch('/rsvp_list', {
                     method: 'POST',
                     headers: {
