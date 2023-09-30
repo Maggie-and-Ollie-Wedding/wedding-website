@@ -120,6 +120,8 @@ function selectInvitation() {
           if (selectedOption) {
             console.log(selectedOption)
 
+            const showNamesList = document.getElementById('list-of-invitations-names');
+
 
               JSONSTRING = JSON.stringify({ 'selectedOption': selectedOption })
               console.log(JSONSTRING)
