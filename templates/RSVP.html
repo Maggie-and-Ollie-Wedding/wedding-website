@@ -641,8 +641,9 @@
       var listOfInvitations = {{ invitationList | safe }};
       listOfInvitees(listOfInvitations);
       invitations = searchableList(listOfInvitations);
+      try{
       form_data = request.form;
-      console.log(str(form_data));
+      console.log(str(form_data));}
 
   </script>
 </body>
