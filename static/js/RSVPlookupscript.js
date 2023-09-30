@@ -58,7 +58,6 @@ function inviteSearch(invitations) {
       });
 
       showNamesList.style.display = 'flex';
-      selectElement.click();
       showNamesList.click();
   
         
