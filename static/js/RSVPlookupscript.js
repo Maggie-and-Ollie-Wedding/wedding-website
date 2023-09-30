@@ -30,6 +30,7 @@ function listOfInvitees (listOfInvitations) {
 function inviteSearch(invitations) {
   const searchYourName = document.getElementById('search-your-name');
   const showNamesList = document.getElementById('list-of-invitations-names');
+  const showNamesListNames = document.getElementById('list-of-invitations-names-text');
   const invitationGroup = document.getElementById('invitation-group');
 
   searchYourName.addEventListener('focus', function () {
@@ -47,7 +48,7 @@ function inviteSearch(invitations) {
       option.includes(searchYourNameContent)
     );
 
-    showNamesList.innerHTML = '';
+    showNamesListNames.innerHTML = '';
 
     if (searchYourNameContent.length > 2 && filteredInvitations.length > 0) {
       listOfInvitationBullets = filteredInvitations;
