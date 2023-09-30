@@ -32,6 +32,15 @@ function inviteSearch(invitations) {
   const showNamesList = document.getElementById('list-of-invitations-names');
   const invitationGroup = document.getElementById('invitation-group');
 
+  searchYourName.addEventListener('focus', function () {
+    showNamesList.style.display = 'block';
+  });
+
+  searchYourName.addEventListener('blur', function () {
+    showNamesList.style.display = 'none';
+  });
+
+
   searchYourName.addEventListener('input', function () {
     const searchYourNameContent = capitalizeNames(searchYourName.value);
     const filteredInvitations = invitations.filter(option =>
@@ -76,10 +85,21 @@ function inviteSearch(invitations) {
     }
   });
 
-  showNamesList.addEventListener('click', function (e) {
+  showNamesList.addEventListener('change', function (e) {
     invitationGroup.textContent = showNamesList.value;
     showNamesList.style.display = 'none';
     e.preventDefault();
+  });
+
+  selectElement.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      this.focus();
+  });
+
+  selectElement.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      this.selectedIndex = 0; // This will keep the first option selected
+      this.blur();
   });
 
  

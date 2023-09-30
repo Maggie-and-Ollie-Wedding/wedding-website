@@ -163,6 +163,10 @@ h4 {
         max-width: 10vw;
     }
 
+    .hide-on-laptop {
+        display: none;
+    }
+
 }
 
 @media only screen and (max-width: 1000px) {
@@ -346,6 +350,10 @@ option:hover {
 
 .hide-on-load {
     display: none;
+}
+
+.hide-on-laptop {
+    display: block;
 }
 
 #contact-page {
