@@ -231,6 +231,12 @@ h4 {
         height: 100%;
     }
 
+
+    .form-control {
+        line-height: 30px;
+        height: auto;
+    }
+
     .sb-mob {
         justify-content: space-between;
         display: flex;
