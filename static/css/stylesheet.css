@@ -57,13 +57,10 @@
   border-bottom: 1px solid var(--main-dark-colour);
 }
 
-
-
 .ceremony-and-reception-parent {
   display: flex;
   flex-direction: row;
   text-align: start;
-  height: 80vh;
 }
 
 .ceremony-and-reception-child{
