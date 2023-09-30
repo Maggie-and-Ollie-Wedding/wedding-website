@@ -59,7 +59,6 @@ function inviteSearch(invitations) {
 
       showNamesList.style.display = 'flex';
       if (window.innerWidth <= 1000){
-        console.log('mobile')
 
         showNamesList.focus();
       }
@@ -127,7 +126,12 @@ function selectInvitation() {
 
               if (window.innerWidth <= 1000){
                 selectElement.focus();
+                selectedOption.focuus();
                 console.log('mobile');
+                const invitationGroup = document.getElementById('invitation-group');
+  
+                invitationGroup.textContent = showNamesList.value;
+
               }
                 
                 fetch('/rsvp_list', {
