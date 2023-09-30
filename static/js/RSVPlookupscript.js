@@ -31,6 +31,9 @@ function inviteSearch(invitations) {
   const searchYourName = document.getElementById('search-your-name');
   const showNamesList = document.getElementById('list-of-invitations-names');
   const invitationGroup = document.getElementById('invitation-group');
+  const selectElement = document.getElementById('list-of-invitations-names');
+  var selectedOption = selectElement.value;
+
 
   searchYourName.addEventListener('input', function () {
     const searchYourNameContent = capitalizeNames(searchYourName.value);
@@ -57,18 +60,20 @@ function inviteSearch(invitations) {
       showNamesList.style.display = 'flex';
         
       function setDropdownSize() {
+        
        
         
         if(numberOfOptions<3){
           maxVisibleOptions = numberOfOptions}
         
-          else { maxVisibleOptions = 3;}
+        else { maxVisibleOptions = 3;}
         
        
         const actualSize = Math.max(maxVisibleOptions, 2)
       
         selectElement.size = actualSize;
       }
+
       setDropdownSize();
       
       
