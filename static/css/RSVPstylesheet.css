@@ -26,14 +26,14 @@
     --main-dark-colour: #091d36;
     --mid-dark-colour: #053c5c;
     --dark-colour-transparent: rgba(0,0,0, 0.5);
-    --dark-colour-semitransparent: rgba(0,0,0, 0.4);
-    --warm-colour-semitransparent: rgba(226,180,140,0.3);
+    --dark-colour-semitransparent: rgba(2, 9, 18,0.4);
+    --warm-colour-semitransparent: rgba(226,196, 132, 0.5);
     --soft-dark-colour: #e2c484;
-    --soft-background-colour: white;
-    --light-colour: #fffff9;
-    --warm-colour: rgba(226,196,132);
-    --gentle-mid-colour: #f1e2c7;
-    --mid-colour: #e2c484;
+    --soft-background-colour: #ffffff;
+    --light-colour: #fafaf7;
+    --warm-colour: #f1e2c7;
+    --gentle-mid-colour: #f6f0e5;
+    --mid-colour: #053c5c;
     --border-width: 5px;
   }
 
