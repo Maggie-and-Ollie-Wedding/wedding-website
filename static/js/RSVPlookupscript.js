@@ -30,7 +30,7 @@ function listOfInvitees (listOfInvitations) {
 function inviteSearch(invitations) {
   const searchYourName = document.getElementById('search-your-name');
   const showNamesList = document.getElementById('list-of-invitations-names');
-  const showNamesListNames = document.getElementById('list-of-invitations-names-text');
+  // const showNamesListNames = document.getElementById('list-of-invitations-names-text');
   const invitationGroup = document.getElementById('invitation-group');
 
   searchYourName.addEventListener('focus', function () {
@@ -41,14 +41,15 @@ function inviteSearch(invitations) {
     showNamesList.style.display = 'none';
   });
 
-
+  const selectElement = document.getElementById('list-of-invitations-names');
+    
   searchYourName.addEventListener('input', function () {
     const searchYourNameContent = capitalizeNames(searchYourName.value);
     const filteredInvitations = invitations.filter(option =>
       option.includes(searchYourNameContent)
     );
 
-    showNamesListNames.innerHTML = '';
+    showNamesList.innerHTML = '';
 
     if (searchYourNameContent.length > 2 && filteredInvitations.length > 0) {
       listOfInvitationBullets = filteredInvitations;
@@ -65,8 +66,9 @@ function inviteSearch(invitations) {
       });
 
       showNamesList.style.display = 'flex';
+        
       function setDropdownSize() {
-        const selectElement = document.getElementById('list-of-invitations-names');
+       
         
         if(numberOfOptions<3){
           maxVisibleOptions = numberOfOptions}
@@ -91,7 +93,7 @@ function inviteSearch(invitations) {
     showNamesList.style.display = 'none';
     e.preventDefault();
   });
-
+    
   selectElement.addEventListener('touchstart', function(e) {
       e.preventDefault();
       this.focus();
