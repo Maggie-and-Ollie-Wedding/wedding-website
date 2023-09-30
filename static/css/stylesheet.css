@@ -30,9 +30,9 @@
   --warm-colour-semitransparent: rgba(226,196, 132, 0.5);
   --soft-dark-colour: #e2c484;
   --soft-background-colour: #ffffff;
-  --light-colour: #fffff9;
-  --warm-colour: #e2c484;
-  --gentle-mid-colour: #f1e2c7;
+  --light-colour: #fafaf7;
+  --warm-colour: #f1e2c7;
+  --gentle-mid-colour: #f6f0e5;
   --mid-colour: #053c5c;
   --border-width: 5px;
 }
@@ -61,14 +61,7 @@
   display: flex;
   flex-direction: row;
   text-align: start;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> parent of e1b9a0f (updates)
-=======
-
->>>>>>> parent of e1b9a0f (updates)
 }
 
 .ceremony-and-reception-child{

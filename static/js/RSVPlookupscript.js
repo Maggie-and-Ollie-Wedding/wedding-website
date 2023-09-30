@@ -102,7 +102,9 @@ function selectInvitation() {
          
           
           if (selectedOption) {
+            console.log(selectedOption)
               JSONSTRING = JSON.stringify({ 'selectedOption': selectedOption })
+              console.log(JSONSTRING)
               
                 fetch('/rsvp_list', {
                     method: 'POST',
