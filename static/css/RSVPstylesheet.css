@@ -453,3 +453,12 @@ option:hover {
     width: 200%;
   }
   
+  btn-secondary:active {
+    background-color: var(--light-colour);
+    color: var(--main-dark-colour);
+  }
+
+  btn-secondary:hover {
+    background-color: var(--light-colour);
+    color: var(--main-dark-colour);
+  }
