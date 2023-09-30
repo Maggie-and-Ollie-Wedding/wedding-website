@@ -1,19 +1,68 @@
 import resend
 import os
 
-resend.api_key = os.getenv('EMAIL_API_KEY')
-email_address1 = "maggie.rphunt@gmail.com"
-email_address2 = "maggie.hunt@paconsulting.com"
-email_address3 = "maggie.rph@hotmail.co.uk"
+resend.api_key = "re_fnGQipwL_FmXaWvjPETUQQHXgKYFePUmH"
+# os.getenv('EMAIL_API_KEY')
 
+
+resend.Domains.verify(domain_id="cfb7a984-a859-4411-a30d-c0bc8e13fce8")
+
+r = resend.Emails.send({
+"from": "rsvp-noreply@maggieandolliewedding.party",
+  "to":  "maggie.rphunt@gmail.com",
+"html": "<p>hi</p>",
+  "subject": "hi"
+        })
+
+
+from google.cloud import bigquery
+
+# Initialize a BigQuery client
+client = bigquery.Client()
+
+# Define the BigQuery table names and project ID
+project_id = "maggie-and-ollie-wedding.wedding_1805."
+invitations_table_name = "invitations_table"
+rsvp_table_name = "RSVP_table"
+
+# Create a list to store email addresses
 email_addresses = []
-email_content_list = []
 
-email_addresses.append(email_address1)
-email_content_list.append('xyz')
+# Query the invitations table for rows where Email_sent is false
+query = f"""
+    SELECT Invite_ID, Invite_Group_Name
+    FROM `{project_id}.{invitations_table_name}`
+    WHERE Email_sent = false
+"""
 
-invite_group = "Testing 1 & 2"
-email_content = ' '.join(str(rsvp) for rsvp in email_content_list)
+# Execute the query and process the results
+query_job = client.query(query)
+for row in query_job:
+    invite_id = row["Invite_ID"]
+    print(invite_id)
+    invite_group = row["Invite_Group_Name"]
+    print(invite_group)
+
+    # Query the RSVP table for rows with matching Invite_ID
+    rsvp_query = f"""
+        SELECT Email
+        FROM `{project_id}.{rsvp_table_name}`
+        WHERE Invite_ID = '{invite_id}'
+    """
+
+    # Execute the RSVP query
+    rsvp_query_job = client.query(rsvp_query)
+
+    # Append unique email addresses to the list
+    for rsvp_row in rsvp_query_job:
+        email = rsvp_row["Email"]
+        if email not in email_addresses:
+            email_addresses.append(email)
+
+    # Set the value of Invite_Group_Name to a variable called invitation_group
+
+    print(email_addresses)
+
 
 
 html_body_part_1="""
@@ -412,10 +461,11 @@ html_body=str(html_body_part_1+invite_group+html_body_part_2)
 
 r = resend.Emails.send({
 "from": "rsvp-noreply@maggieandolliewedding.party",
+  "to":  email_addresses,
 "html": html_body,
-    "to":  email_addresses,
   "cc": "maggie.and.ollie.wedding@gmail.com",
-  "subject": f"RSVP - {invite_group}",
-  "reply_to": "maggie.and.ollie.wedding@gmail.com"
-  
+    "reply_to": "maggie.and.ollie.wedding@gmail.com",
+  "subject": f"RSVP - {invite_group}"
         })
+
+

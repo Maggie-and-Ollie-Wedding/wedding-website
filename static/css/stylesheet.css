@@ -298,6 +298,7 @@ a {
   position: relative;
   display: block;
   color: var(--main-dark-colour);
+  margin: 0;
 }
 
 a:link {
@@ -313,16 +314,6 @@ a:hover {
   color: var(--main-dark-colour);
 }
 
-a:hover:before {
-  content: ".";
-  display: inline-block;
-  position: absolute;
-  bottom: -0.5em;
-  left: 0;
-  text-align: center;
-  width: 100%;
-  color: var(--warm-colour);
-}
 
 .no-dot:hover:before{
   content: "";
@@ -459,11 +450,7 @@ a:active {
   margin-left: 80px;
 }
 
-.choir-info-parent {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
+
 
 .map-parent {
   display: flex;
@@ -476,7 +463,13 @@ a:active {
   padding: 20px;
 }
 
-.choir-info-child {
+.table-layout-parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.table-layout-child {
   display: flex;
   flex-direction: column;
   max-width: 20%;
@@ -484,7 +477,7 @@ a:active {
   padding: 20px;
 }
 
-.choir-info-grandchild {
+.table-layout-grandchild {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -492,11 +485,37 @@ a:active {
   min-height: 10vh;
 }
 
-.choir-info-media {
+.table-layout-media {
   max-height: 15vh;
   max-width: 100%;
   display: inline;
   align-self: end;
+}
+
+.hotel-table-layout-parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.hotel-table-layout-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-around;
+}
+
+.hotel-table-layout-grandchild {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 10vh;
+  margin: 0;
+}
+.hotel-table-layout-grandchild:link{
+  text-decoration: solid;
 }
 
 #computer-dietary{
@@ -525,6 +544,12 @@ a:active {
 
   p {
     font-size: small;
+
+  }
+
+  .hotel-table-layout-parent {
+    font-size: small;
+    margin: 0px;
   }
 
   #page-content {
@@ -628,7 +653,7 @@ a:active {
   right: 10px;}
 
 
-  .choir-info-parent {
+  .table-layout-parent {
     display: flex;
     flex-direction: column;
     justify-self: center;
@@ -649,7 +674,7 @@ a:active {
     width: 30vw;
   }
 
-  .choir-info-child {
+  .table-layout-child {
     display: flex;
     flex-direction: row;
     max-width: 100%;
@@ -679,7 +704,7 @@ a:active {
     padding: 20px;
   }
 
-  .choir-info-grandchild {
+  .table-layout-grandchild {
     display: flex;
     flex-direction: row;
     max-width: 100%;
@@ -688,7 +713,7 @@ a:active {
     padding: 15px;
   }
 
-  .choir-info-media {
+  .table-layout-media {
     max-height: 10vh;
     max-width: 15vw;
     align-self: center;
@@ -806,4 +831,19 @@ a:active {
 
 .info-page-button {
   height: 25vh;
+}
+
+p.hotel-table-layout-grandchild {
+  margin: 0px;  
+}
+
+a:hover:before {
+  content: ".";
+  display: inline-block;
+  position: absolute;
+  bottom: -0.5em;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  color: var(--colour-4);
 }
