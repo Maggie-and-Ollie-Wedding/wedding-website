@@ -13,8 +13,7 @@
   
 
   .ceremony-and-reception-parent {
-
-    height: 80vh;
+    max-height: 80vh;
   }
 
   
