@@ -1,3 +1,8 @@
+const selectElement = document.getElementById('list-of-invitations-names')
+const form = document.getElementById('rsvp-form')
+const gifContainer = document.getElementById('gifContainer')
+
+
 function toggleFormSection (row) {
   var RSVP = document.getElementById('RSVPCheck' + row)
   var RSVPDetails = document.getElementById('RSVPDetails' + row)
@@ -101,7 +106,7 @@ function numberOfInvitees () {
 
   var numberOfInvitees = 0
 
-  const selectElement = document.getElementById('list-of-invitations-names')
+  
   var selectedOption = selectElement.value
 
   inviteesList = []
@@ -153,12 +158,10 @@ function submitSwan (event) {
   if (event.key === 'Enter') {
     event.preventDefault() // Prevent the default Enter key behavior
   } else {
-    const form = document.getElementById('rsvp-form')
-    const gifContainer = document.getElementById('gifContainer')
-
+    
     event.preventDefault()
 
-    const formValues = new FormData(form)
+    var formValues = new FormData(form)
     for (const value of formValues.values()) {
       const namesToCheck = ['Racher', 'Turner', 'Perry', 'Person4']
       const displayDuration = 20000

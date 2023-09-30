@@ -1,3 +1,10 @@
+const searchYourName = document.getElementById('search-your-name');
+const showNamesList = document.getElementById('list-of-invitations-names');
+const invitationGroup = document.getElementById('invitation-group');
+const selectElement = document.getElementById('list-of-invitations-names');
+const RSVPButton = document.getElementById('submit-rsvp-button-section')
+  
+
 function capitalizeNames (input) {
  standard_input = input.toLowerCase()
   capitalized = standard_input.replace(/\b\w/g, match => match.toUpperCase())
@@ -5,9 +12,9 @@ function capitalizeNames (input) {
 }
 
 function searchableList (listOfInvitations) {
-  const listOfInvitationsAndGuests = listOfInvitations.sort()
+ var listOfInvitationsAndGuests = listOfInvitations.sort()
 
-  const invitations = listOfInvitationsAndGuests.map(str =>
+ var invitations = listOfInvitationsAndGuests.map(str =>
     str.replace(/'/g, '')
   )
 
@@ -16,7 +23,7 @@ function searchableList (listOfInvitations) {
 
 function listOfInvitees (listOfInvitations) {
   sorted_listOfInvitations = listOfInvitations.sort()
-  const invitees = sorted_listOfInvitations.flatMap(str =>
+  var invitees = sorted_listOfInvitations.flatMap(str =>
     str
       .replace(/'/g, '')
       .split(',')
@@ -28,16 +35,13 @@ function listOfInvitees (listOfInvitations) {
 
 
 function inviteSearch(invitations) {
-  const searchYourName = document.getElementById('search-your-name');
-  const showNamesList = document.getElementById('list-of-invitations-names');
-  const invitationGroup = document.getElementById('invitation-group');
-  const selectElement = document.getElementById('list-of-invitations-names');
+  
   var selectedOption = selectElement.value;
 
 
   searchYourName.addEventListener('input', function () {
-    const searchYourNameContent = capitalizeNames(searchYourName.value);
-    const filteredInvitations = invitations.filter(option =>
+    var searchYourNameContent = capitalizeNames(searchYourName.value);
+    var filteredInvitations = invitations.filter(option =>
       option.includes(searchYourNameContent)
     );
 
@@ -50,7 +54,7 @@ function inviteSearch(invitations) {
       var numberOfOptions=0
 
       listOfInvitationBullets.forEach(optionText => {
-        const optionElement = document.createElement('option');
+        var optionElement = document.createElement('option');
         optionElement.value = optionText;
         optionElement.textContent = optionText;
         showNamesList.appendChild(optionElement);
@@ -77,7 +81,7 @@ function inviteSearch(invitations) {
         else { maxVisibleOptions = 3;}
         
        
-        const actualSize = Math.max(maxVisibleOptions, 2)
+        var actualSize = Math.max(maxVisibleOptions, 2)
       
         selectElement.size = actualSize;
       }
@@ -107,8 +111,7 @@ function inviteSearch(invitations) {
 
 function selectInvitation() {
 
-          const RSVPButton = document.getElementById('submit-rsvp-button-section')
-          const selectElement = document.getElementById('list-of-invitations-names');
+          
           var selectedOption = selectElement.value;
 
           RSVPButton.style.display = 'flex';
@@ -120,7 +123,6 @@ function selectInvitation() {
           if (selectedOption) {
             console.log(selectedOption)
 
-            const showNamesList = document.getElementById('list-of-invitations-names');
 
 
               JSONSTRING = JSON.stringify({ 'selectedOption': selectedOption })
@@ -130,8 +132,7 @@ function selectInvitation() {
                 selectElement.focus();
               
                 console.log('mobile');
-                const invitationGroup = document.getElementById('invitation-group');
-  
+                
                 invitationGroup.textContent = showNamesList.value;
 
               }
