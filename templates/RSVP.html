@@ -641,10 +641,16 @@
 
     listOfInvitees(listOfInvitations);
     invitations = searchableList(listOfInvitations);
+    try {
+      form_data = request.form;
+      console.log(str(form_data))
+    }
+    catch (error) {
+      console.error(error);
+    }
 
-    form_data = request.form;
-    print(str(form_data))
   </script>
 </body>
 
 </html>
+
