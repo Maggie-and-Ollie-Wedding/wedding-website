@@ -61,7 +61,8 @@ function inviteSearch(invitations) {
       if (window.innerWidth <= 1000){
         console.log('mobile')
 
-        showNamesList.focus();}
+        showNamesList.focus();
+      }
 
   
         
@@ -113,12 +114,22 @@ function selectInvitation() {
 
           RSVPButton.style.display = 'flex';
 
+
+
          
           
           if (selectedOption) {
             console.log(selectedOption)
+
+
               JSONSTRING = JSON.stringify({ 'selectedOption': selectedOption })
               console.log(JSONSTRING)
+
+              if (window.innerWidth <= 1000){
+                console.log('mobile')
+      
+              
+                invitationGroup.textContent = selectedOption }
               
                 fetch('/rsvp_list', {
                     method: 'POST',
