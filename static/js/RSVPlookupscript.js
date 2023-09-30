@@ -29,8 +29,6 @@ function inviteSearch (invitations) {
   const searchYourName = document.getElementById('search-your-name')
   const showNamesList = document.getElementById('list-of-invitations-names')
   const invitationGroup = document.getElementById('invitation-group')
-  const selectElement = document.getElementById('list-of-invitations-names')
-  var selectedOption = selectElement.value
 
   searchYourName.addEventListener('input', function () {
     const searchYourNameContent = capitalizeNames(searchYourName.value)
@@ -55,8 +53,11 @@ function inviteSearch (invitations) {
 
       showNamesList.style.display = 'flex'
       showNamesList.click()
-
       function setDropdownSize () {
+        const selectElement = document.getElementById(
+          'list-of-invitations-names'
+        )
+
         if (numberOfOptions < 3) {
           maxVisibleOptions = numberOfOptions
         } else {
@@ -67,7 +68,6 @@ function inviteSearch (invitations) {
 
         selectElement.size = actualSize
       }
-
       setDropdownSize()
     } else {
       showNamesList.style.display = 'none'
@@ -75,10 +75,7 @@ function inviteSearch (invitations) {
   })
 
   showNamesList.addEventListener('click', function (e) {
-    console.log(showNamesList.value)
-    console.log(showNamesList.value.JSONSTRING)
     invitationGroup.textContent = showNamesList.value
-
     showNamesList.style.display = 'none'
     e.preventDefault()
   })
@@ -92,9 +89,7 @@ function selectInvitation () {
   RSVPButton.style.display = 'flex'
 
   if (selectedOption) {
-    console.log(selectedOption)
     JSONSTRING = JSON.stringify({ selectedOption: selectedOption })
-    console.log(JSONSTRING)
 
     fetch('/rsvp_list', {
       method: 'POST',
