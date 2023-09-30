@@ -82,6 +82,7 @@ function inviteSearch(invitations) {
     showNamesList.style.display = 'none';
     e.preventDefault();
   });
+
  
 }
 
