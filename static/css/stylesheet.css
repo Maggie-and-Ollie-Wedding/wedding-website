@@ -551,6 +551,11 @@ a:active {
   .hotel-table-layout-parent {
     font-size: xx-small;
     margin: 0px;
+
+  }
+
+  .hotel-table-layout-grandchild {
+    height: 50px;
   }
 
   #page-content {
