@@ -497,7 +497,7 @@ a:active {
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
-  font-size: smaller;
+  font-size: x-small;
 }
 
 .hotel-table-layout-child {
@@ -549,7 +549,7 @@ a:active {
   }
 
   .hotel-table-layout-parent {
-    font-size: x-small;
+    font-size: xx-small;
     margin: 0px;
   }
 
