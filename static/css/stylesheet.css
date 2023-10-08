@@ -55,6 +55,7 @@
   flex-direction: column;
   position: sticky;
   border-bottom: 1px solid var(--main-dark-colour);
+  
 }
 
 .ceremony-and-reception-parent {
@@ -104,17 +105,33 @@
 #header {
   padding: 20px;
   position: sticky;
+
 }
 
 body {
-  background-size: cover;
+  background-size: 100vw;
   text-align: center;
   background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 90vw;
+  background-position: bottom;
+  width: 100vw;
   background-color: var(--soft-background-colour);
   overflow: scroll;
+  position: absolute;
+  height: 100vh;
+}
+
+
+.footer{
+  /* position: absolute; */
+  width: 100vw;
+  background: url(../images/footerweb.png) no-repeat bottom center fixed;
+  background-size: contain;
+  background-attachment:scroll;
+  background-position: bottom;
+  min-height: 25vh;
+
+  /* 150px;
+  z-index: 0;  */
 }
 
 
@@ -167,15 +184,15 @@ body {
 
 .other-divs {
   margin-top: var(--cover-page-height);
-  position: absolute;
+  position: relative;
 }
 
 #page-content {
   /* bottom: 0; */
   /* top: 0; */
-  position: absolute;
+  position: relative;
   padding-top: 0px;
-  padding-bottom: 50px;
+  padding-bottom: 0px;
   padding-left: 100px;
   padding-right: 100px;
   width: 100vw;
@@ -525,7 +542,25 @@ a:active {
   display: none;
 }
 
+@media only screen and (max-width: 800px) {
+
+  .footer{
+    
+    width: 100vw;
+  background: url(../images/footermob.png) no-repeat bottom center fixed;
+  background-size: contain;
+  background-attachment:scroll;
+  background-position: bottom;
+  min-height: 15vh;
+  max-height: 25vh;
+    
+  }
+}
 @media only screen and (max-width: 600px) {
+
+
+
+
   h1 {
     font-size: larger;
   }
@@ -568,6 +603,7 @@ a:active {
   .header-and-nav {
     width: 100vw;
     margin: 0px;
+
   }
 
 
@@ -730,6 +766,7 @@ a:active {
 /* Style the navigation menu */
 .topnav {
   overflow: hidden;
+  
 }
 
 /* Hide the links inside the navigation menu (except for logo/home) */
@@ -862,4 +899,10 @@ a:hover:before {
   text-align: center;
   width: 100%;
   color: var(--colour-4);
+}
+
+@media only screen and (max-width: 600px) {
+  .contact-button{
+    width: 50vw;
+  }
 }

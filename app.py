@@ -64,396 +64,112 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
         email_content = ' '.join(str(rsvp) for rsvp in email_content_list)
 
 
-        html_body_1="""<!DOCTYPE html>
-<html>
+html_body_1="""<!DOCTYPE html>
+<html lang="en">
 
 <head>
 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="x-apple-disable-message-reformatting" />
 
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap"
     rel="stylesheet">
 
-    <style>
-      :root {
-        --cover-page-height: 40vh;
-        --main-dark-colour: #091d36;
-        --mid-dark-colour: #053c5c;
-        --dark-colour-transparent: rgba(0, 0, 0, 0.5);
-        --dark-colour-semitransparent: rgba(2, 9, 18, 0.4);
-        --warm-colour-semitransparent: rgba(226, 196, 132, 0.5);
-        --soft-dark-colour: #e1c892;
-        --soft-background-colour: #ffffff;
-        --light-colour: #fafaf7;
-        --warm-colour: #f1e2c7;
-        --gentle-mid-colour: #f6f0e5;
-        --mid-colour: #053c5c;
-        --border-width: 5px;
-        --colour-4:  #e2c484;
-      }
-  
-  
-      body {
-        background-size: cover;
-        text-align: center;
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 90vw;
-        background-color: var(--soft-background-colour);
-        overflow-x: hidden;
-        overflow-y: scroll;
-        height: auto;
-        margin: 0px;
-  
-      }
-  
-  
-  
-      .page-section {
-        width: 75vw;
-        transition: transform 0.5s ease-in-out;
-      }
-  
-      #cover-page-gradient {
-        z-index: -2;
-        background: var(--soft-background-colour);
-        background: linear-gradient(0deg,
-            rgba(252, 250, 250, 0) 0%,
-            rgb(2, 9, 18) 100%);
-        height: var(--cover-page-height);
-        width: 100vw;
-        position: absolute;
-        opacity: 1;
-        z-index: 0;
-  
-      }
-  
-      .cover-page-image {
-        z-index: -4;
-        height: var(--cover-page-height);
-        width: 100vw;
-        object-fit: cover;
-        opacity: 0.9;
-      }
-  
-  
-      #cover-page {
-        position: absolute;
-        z-index: 2;
-        color: var(--soft-background-colour);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100vw;
-        height: var(--cover-page-height);
-        justify-content: center;
-      }
-  
-      #cover-page .centered-text {
-        text-align: center;
-      }
-  
-  
-      html,
-      body {
-        scroll-behavior: smooth;
-      }
-  
-  
-  
-      h1,
-      h2,
-      h5 {
-        font-family: "Playfair Display SC", serif;
-      }
-  
-      h3 {
-        padding: 24px;
-        font-family: "Playfair Display SC", serif;
-      }
-  
-      h4 {
-        padding: 14px;
-        font-family: "Playfair Display SC", serif;
-      }
-  
-      h5 {
-        padding: 10px;
-        font-family: "Playfair Display SC", serif;
-      }
-  
-      h6 {
-        padding: 0px;
-        font-family: "Playfair Display SC", serif;
-        font-size: small;
-      }
-  
-      p {
-        font-family: "Open Sans", sans-serif;
-      }
-  
-      .carousel-display-home {
-        height: var(--cover-page-height);
-        width: 100vw;
-        border-radius: 300px 300px 0px 0px;
-        position: relative;
-        z-index: -2;
-      }
-  
-  
-  
-  
-      .ceremony-and-reception-parent {
-        display: flex;
-        flex-direction: row;
-        text-align: start;
-  
-      }
-  
-      .ceremony-and-reception-child {
-        display: flex;
-        justify-content: center;
-        flex: 1
-      }
-  
-      .ceremony-and-reception-grandchild {
-        display: inline;
-        justify-content: left;
-        padding: 12px;
-        flex: 1
-      }
-  
-      .rsvp-button {
-        border: var(--main-dark-colour);
-        color: var(--main-dark-colour);
-        border: 5px solid var(--main-dark-colour);
-        /* Add border */
-        display: flex;
-        text-align: center;
-        width: 50%;
-      }
-  
-      .rsvp-button-link {
-        color: var(--main-dark-colour);
-        text-decoration: none;
-        display: flex;
-        margin-bottom: 0.5rem;
-      }
-  
-      .rsvp-button:hover {
-        background-color: var(--dark-colour-transparent)
-      }
-  
-      .rsvp-button-link:link {
-        color: var(--main-dark-colour);
-        margin-top: 0.5rem;
-      }
-  
-      .rsvp-button-link:hover:before {
-        content: "";
-      }
-  
-      .cover-page-container {
-        position: relative;
-        display: flex;
-        height: var(--cover-page-height);
-        width: 100vw;
-      }
-  
-      .other-divs {
-  
-        display: flex;
-        position: relative;
-        justify-content: space-around;
-      }
-  
-      .email-layout {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        width: 100vw;
-  
-      }
-  
-  
-      .button-list-parent {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        width: 100%;
-        color: var(--main-dark-colour);
-      }
-  
-      .button-list-child {
-        display: flex;
-        align-self: center;
-        margin: 10px;
-        justify-content: center;
-      }
-  
-      .bus-box-div {
-        display: flex;
-        justify-content: center;
-      }
-  
-      .bus-box {
-        border: var(--soft-dark-colour);
-        width: 60%;
-        height: auto;
-        margin-bottom: 1rem;
-        border-style: solid;
-        border-width: var(--border-width);
-        display: flex;
-        margin-top: 0.5rem;
-        padding: 20px;
-  
-      }
-  
-      @media only screen and (max-width: 800px) {
-        :root {
-          --cover-page-height: 40vh;
-        }
-  
-        .ceremony-and-reception-parent {
-          flex-direction: column;
-  
-        }
-  
-        h1 {
-          font-size: xx-large;
-        }
-  
-        h2 {
-          font-size: x-large;
-        }
-  
-        h3 {
-          font-size: medium;
-        }
-  
-        h4 {
-          font-size: medium;
-        }
-  
-        h5 {
-          font-size: medium;
-        }
-  
-        h6 {
-          font-size: small;
-          padding: 0px;
-        }
-  
-        p {
-          font-size: large;
-        }
-  
-        .bus-box {
-          width: 80%;
-  
-        }}
+  <style>
+   
 
-        .email-content {
-      padding: 10px;
+
+
+    body {
+      
+      text-align: center;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100vw;
+      max-width:800px;
+      background-color: white;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      min-width: 400px;
+      height: auto;
+      margin: 0px;
+      font-family: "Playfair Display SC", serif;
+
     }
 
-    .dot:after{
-  content: ".";
-  display: inline-block;
-  position: relative;
-    bottom: 0.75em;
-  left: 0;
-  text-align: center;
-  width: 100%;
-  color: var(--colour-4);
-}
-      
-    </style>
 
+
+    html,
+    body {
+      scroll-behavior: smooth;
+    }
+
+
+
+    h3 {
+      padding: 24px;
+      margin: 24px;
+    }
+
+    h4 {
+      padding: 14px;
+
+    }
+
+    h5 {
+      padding: 10px;
+
+    }
+
+    h6 {
+      padding: 0px;
+      margin: 0px;
+      font-size: small;
+    }
+
+    p {
+      font-family: "Open Sans", sans-serif;
+    }
+
+
+ 
+
+  </style>
+
+
+  <!-- title: CHANGE ME -->
   <title>Maggie and Ollie's Wedding!</title>
 </head>
 
 <body>
   <div class="email-layout">
-    <div class="cover-page-container">
-      <div class="page-section" id="cover-page">
-        <div>
-          <div id="cover-page-gradient"></div>
-          <div class="carousel-display-home">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img class="d-block w-100 cover-page-image"
-                    src="../static/images/EngagementPhotos/Maggie_OllieEngagement89_sq.jpg"
-                    alt="Maggie and Ollie on bridge">
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div id="cover-page">
-          <br>
-          <h2>the wedding of</h2>
-          <h1>Maggie Rose Prinn Hunt<br>&<br>Oliver John Benjamin Norman</h1>
-          <h3>18th May 2024 | Bedfordshire, UK</h3>
+    <div>
+     
 
 
-        </div>
-      </div>
+
+     
     </div>
     <div class="email-content">
-    <div>
-      <h4>Dear """
-       
+      <div><p>Dear </p>
+        <p>"""
+html_body_2="""</p></div>
 
-        html_body_2="""
-    </div>
-    <div class="other-divs">
-      <h2><span class="dot">Thank you for your response to our invitation.</span></h2></div>
-      <div class="other-divs"><p>You have confirmed that:</p>
-    </div>
-    <div class="other-divs">
-"""
-
-  
-
-
-        html_body_3="""
-    </div>
-
-    <div class="other-divs">
-      <p>If anything changes with regard to your ability to attend please let us know as soon as you can.</p>
-    </div>
-    <div>
-
-      <div class="other-divs">
-        <p>In the meantime, if you need to remind yourself of the dress code, or other information, <br>further details can be found on our website.</p>
+      <div class="div-display">
+       <a href="https://www.maggieandolliewedding.party"> <img
+          src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaDS14085OBWeL6zvD1cKPonkSi-v0z3gdC3sqStnIXA6XAzz3EAB5La87I8gXnAKBSvcUFdcZxyJbFkrpnByUV5PDXY=s1600"
+          title="Logo" style="display:block" height="auto" width="100%" ></a>
       </div>
-      <div class="button-list-parent">
-        <div class="rsvp-button button button-list-child" id="website">
-          <a class="rsvp-button-link" href="https://www.maggieandolliewedding.party" target="_blank">
-            <h2>website</h2>
-          </a>
-        </div>
-
-       
 
 
-
-      </div>
     </div>
+  </div>
+</body>"""
 
-<br>
-  <div>
-    <img src="../static/images/mologo.png" height="auto" width="100px">
-  </div></div></div>
-</body>
-"""
-        html_body=str(html_body_1+invite_group+html_body_2+email_content+html_body_3)
-
+email = html_body_1+invite_group+html_body_2
 
         r = resend.Emails.send({
         "from": "rsvp-noreply@maggieandolliewedding.party",

@@ -1,14 +1,4 @@
-import resend
-import os
-
-resend.api_key = "re_fnGQipwL_FmXaWvjPETUQQHXgKYFePUmH"
-# os.getenv('EMAIL_API_KEY')
-
-
-resend.Domains.verify(domain_id="cfb7a984-a859-4411-a30d-c0bc8e13fce8")
-
-invite_group = "test"
-html_body_1="""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -99,28 +89,15 @@ html_body_1="""<!DOCTYPE html>
     </div>
     <div class="email-content">
       <div><p>Dear </p>
-        <p>"""
-html_body_2="""</p></div>
+        <p>{invite_group}</p></div>
 
       <div class="div-display">
        <a href="https://www.maggieandolliewedding.party"> <img
-          src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaDS14085OBWeL6zvD1cKPonkSi-v0z3gdC3sqStnIXA6XAzz3EAB5La87I8gXnAKBSvcUFdcZxyJbFkrpnByUV5PDXY=s1600"
+          src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaDzCWTdV2wzvJqwMJTxPvbo1wFbx9aiZL3D3tQ74TG88TUetvOBbZR6v7sRdz-VUZIcf2pP1yNdW4sRd9L0L2quk27k=s1600"
           title="Logo" style="display:block" height="auto" width="100%" ></a>
       </div>
 
 
     </div>
   </div>
-</body>"""
-
-email = html_body_1+invite_group+html_body_2
-r = resend.Emails.send(
-    {
-        "from": "rsvp-noreply@maggieandolliewedding.party",
-        "to": 'maggie.rphunt@gmail.com',
-        "html": email,
-        "cc": "maggie.and.ollie.wedding@gmail.com",
-        "reply_to": "maggie.and.ollie.wedding@gmail.com",
-        "subject": f"RSVP - {invite_group}",
-    }
-)
+</body>

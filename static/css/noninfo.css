@@ -1,11 +1,15 @@
 #page-content {
-    height: 80vh;
+    min-height: 30vh;;
+    max-height: 84.5vh;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
   }
 
 
   .page-section {
     width: 75vw;
-    padding-bottom: 30px;
+    /* padding-bottom: 30px; */
     padding-left: 20px;
     padding-right: 20px;
     transition: transform 0.5s ease-in-out;
@@ -14,4 +18,36 @@
 
   .ceremony-and-reception-parent {
     max-height: 80vh;
+  }
+
+  @media only screen and (max-width: 800px) {
+
+    #page-content {
+      min-height: 50vh;;
+      max-height: 87.3vh;
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+
+    #page-content {
+      min-height: 50vh;;
+      max-height: 86vh;
+    }
+  }
+
+  @media only screen and (min-width: 1000px) {
+
+    #page-content {
+      min-height: 50vh;;
+      max-height: 86vh;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+
+    #page-content {
+      min-height: 50vh;;
+      max-height: 88.6vh;
+    }
   }
