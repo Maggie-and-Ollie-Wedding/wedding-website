@@ -1,13 +1,10 @@
 import resend
 import os
 
-resend.api_key = "re_fnGQipwL_FmXaWvjPETUQQHXgKYFePUmH"
-# os.getenv('EMAIL_API_KEY')
+resend.api_key = os.getenv('EMAIL_API_KEY')
 
 
 resend.Domains.verify(domain_id="cfb7a984-a859-4411-a30d-c0bc8e13fce8")
-
-
 
 from google.cloud import bigquery
 
