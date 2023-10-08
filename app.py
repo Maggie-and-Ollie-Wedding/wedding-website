@@ -194,7 +194,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
             "cc": "maggie.and.ollie.wedding@gmail.com",
             "subject": f"RSVP - {invite_group}",
             "reply_to": "maggie.and.ollie.wedding@gmail.com",
-            "html": html_body,
+            "html": html_body_1,
         }
     )
 

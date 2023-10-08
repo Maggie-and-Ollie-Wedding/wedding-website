@@ -106,8 +106,8 @@ function numberOfInvitees () {
 
   inviteesList = []
 
-  if (selectedOption.includes(' and ') || selectedOption.includes(', ')) {
-    var stringListOfInvitees = selectedOption.replace(' and ', ', ')
+  if (selectedOption.includes(' and ') || selectedOption.includes(', ') || selectedOption.includes('& ')) {
+    var stringListOfInvitees = selectedOption.replace(' and ', ', ', '& ')
     for (const value of stringListOfInvitees.split(', ')) {
       inviteesList.push(value)
     }
