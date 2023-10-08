@@ -319,7 +319,7 @@ def RSVP_group():
                                                   Dietary: {dietary_bool}, {dietary_opt}{dietary_detail}. Response at {response_time} from {responder}."
 
                 if RSVP_bool == "TRUE":
-                    summary_string = f"{full_name} is able to attend the wedding."
+                    summary_string = f"<b>{full_name}</b> is able to attend the wedding."
                     if choir_bool == "TRUE":
                         summary_string = (
                             summary_string
@@ -344,9 +344,9 @@ def RSVP_group():
                         )
 
                 else:
-                    summary_string = f"{full_name} is not able to attend the wedding."
+                    summary_string = f"<b>{full_name}</b> is not able to attend the wedding."
 
-                email_content_list.append(f"<br>{summary_string}<br>")
+                email_content_list.append(f"<p>{summary_string}</p>")
 
                 update_invite_query = f"""
                                         UPDATE `maggie-and-ollie-wedding.wedding_1805.RSVP_table`
