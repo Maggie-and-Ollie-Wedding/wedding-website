@@ -1,3 +1,27 @@
+  
+  
+let topButton = document.getElementById('up-to-top')
+let pageContent = document.getElementById('page-content')
+
+pageContent.onscroll = function () {
+
+  scrollFunction()
+}
+
+function scrollFunction () {
+  if (pageContent.scrollTop > 50) {
+    topButton.style.display = 'block'
+    console.log("scroll")
+  } else {
+    topButton.style.display = 'none'
+  }
+}
+
+function topFunction () {
+  document.body.scrollTop = 0
+  document.documentElement.scrollTop = 0
+}
+
 
 function reveal (section) {
     var sections = {
@@ -72,5 +96,3 @@ function reveal (section) {
       }
     }
   }
-  
-  

@@ -1,9 +1,7 @@
 #page-content {
-  max-height: 84.5vh;
-    min-height: 75vh;;
     width: 100vw;
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
   }
 
 
