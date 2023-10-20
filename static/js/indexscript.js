@@ -1,7 +1,6 @@
-  
-  
 let topButton = document.getElementById('up-to-top')
-let pageContent = document.getElementById('page-content')
+let pageContent = document.getElementById('body')
+
 
 pageContent.onscroll = function () {
 
@@ -9,9 +8,9 @@ pageContent.onscroll = function () {
 }
 
 function scrollFunction () {
-  if (pageContent.scrollTop > 50) {
+  
+  if (window.scrollY > 400) {
     topButton.style.display = 'block'
-    console.log("scroll")
   } else {
     topButton.style.display = 'none'
   }
