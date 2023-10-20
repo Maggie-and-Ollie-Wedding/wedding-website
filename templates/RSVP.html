@@ -28,7 +28,11 @@
 
 </head>
 
-<body><input type="checkbox" id="up-to-top-check" hidden>
+
+  <body><div class="wrapper">
+
+
+<input type="checkbox" id="up-to-top-check" hidden>
   <button id="up-to-top" title="Go to top"><a class="up-to-top-link" href="#RSVP-form-start">^</a></button>
 
   <div class="header-and-nav topnav">
@@ -72,7 +76,7 @@
       </a>
     </nav>
   </div>
-
+  <main>
   <div id="page-content" class="main-content">
     <h3 class="dot" id="RSVP-form-start">RSVP</h3>
     <form id="rsvp-form" action="/thankyou" method="post" onsubmit="submitSwan(event)">
@@ -633,6 +637,9 @@
   <div id="gifContainer">
     <img id="gif" src="https://media.giphy.com/media/4KEL7wLu9M3IimfIIS/giphy.gif" alt="GIF">
   </div>
+
+</main>
+<footer class="footer"></footer></div>
   <script src="../static/js/script.js"></script>
   <script src="../static/js/RSVPformscript.js"></script>
   <script src="../static/js/RSVPlookupscript.js"></script>
@@ -650,6 +657,6 @@
 
   </script>
 </body>
-<footer><span></span></footer>
+
 </html>
 
