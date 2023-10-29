@@ -178,7 +178,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
                                 <br>
                                 <p>If anything changes with regard to your ability to attend please let us know as soon as you can.</p>
 
-                                <p>In the meantime, if you need to remind yourself of the dress code, or other information, <br>further
+                                <p>In the meantime, if you need to join the choir WhatsApp, remind yourself of the dress code, or view other information,<br>further
                                   details can be found on our
                                   <a href="https://www.maggieandolliewedding.party" target="_blank">website</a>.
                                 </p>
