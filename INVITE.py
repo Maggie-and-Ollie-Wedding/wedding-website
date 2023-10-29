@@ -176,7 +176,7 @@ else:
 
                           <div class="div-display">
                           <a href="https://www.maggieandolliewedding.party"> <img
-                              src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaDS14085OBWeL6zvD1cKPonkSi-v0z3gdC3sqStnIXA6XAzz3EAB5La87I8gXnAKBSvcUFdcZxyJbFkrpnByUV5PDXY=s1600"
+                              src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaCarWwXWD2eX05qkgtWvQu5chJ77KFs4NBCjfsjJa2RUMlvumApS7BLZmGq-xInLee_Mx00MIauoRG0i6XfhmxrlRLU=s1600"
                               title="Logo" style="display:block" height="auto" width="100%" ></a>
                           </div>
 
@@ -193,7 +193,7 @@ else:
               "html": html_body,
               "cc": "maggie.and.ollie.wedding@gmail.com",
               "reply_to": "maggie.and.ollie.wedding@gmail.com",
-              "subject": f"Invitiation to Maggie & Ollie's Wedding - {invite_group}",
+              "subject": f"Invitation to Maggie & Ollie's Wedding - {invite_group}",
           }
 
       r = resend.Emails.send(params)
