@@ -220,7 +220,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
     else:
       print(email)
 
-      message_content="Domain verification for resend api failed, reverification in process. RSVP confirmation failure for: "+email_addresses
+      message_content="Domain verification for resend api failed, reverification in process. RSVP confirmation failure for: "+email_addresses+" RSVP IS: "+email_content
 
       twilio_client = Client(twilio_account_sid, twilio_auth_token)
 
