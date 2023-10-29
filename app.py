@@ -70,9 +70,6 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
     getdomain = resend.Domains.get(domain_id=resend_domain_id)
     print(getdomain)
 
-    verify = resend.Domains.verify(domain_id=resend_domain_id)
-    print(verify)
-
 
 
     html_body_1 = """<!DOCTYPE html>
