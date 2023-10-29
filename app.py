@@ -21,6 +21,7 @@ import http.client
 treapp_url = os.getenv("TREEAPP_API_URL")
 treeapp_key = os.getenv("TREEAPP_API_KEY")
 resend.api_key = os.getenv("EMAIL_API_KEY")
+resend_domain_id=os.getenv('EMAIL_DOMAIN_ID')
 
 
 app = Flask("maggie-and-ollie-wedding")  # making an app
@@ -64,6 +65,15 @@ def treeapp_plant():
 
 def email_confirmation(email_addresses, invite_group, email_content_list):
     email_content = " ".join(str(rsvp) for rsvp in email_content_list)
+
+    print(email_content)
+    getdomain = resend.Domains.get(domain_id=resend_domain_id)
+    print(getdomain)
+
+    verify = resend.Domains.verify(domain_id=resend_domain_id)
+    print(verify)
+
+
 
     html_body_1 = """<!DOCTYPE html>
 <html lang="en">
