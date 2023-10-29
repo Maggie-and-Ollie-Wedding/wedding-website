@@ -27,13 +27,6 @@ if domain_status != "verified":
 
 else:
 
-  twilio_client = Client(twilio_account_sid, twilio_auth_token)
-
-  message = twilio_client.messages.create(
-        from_=twilio_from,
-        body='invite success',
-        to=twilio_to
-      )
   from google.cloud import bigquery
 
   list_of_sent = []

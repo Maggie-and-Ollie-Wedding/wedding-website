@@ -214,25 +214,19 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
 
 
 
-      twilio_client = Client(twilio_account_sid, twilio_auth_token)
-
-      message = twilio_client.messages.create(
-        from_=twilio_from,
-        body='RSVP success',
-        to=twilio_to
-      )
-
+    
 
       return "email conf sent"
     else:
       print(email)
 
+      message_content="Domain verification for resend api failed, reverification in process. RSVP confirmation failure for: "+email_addresses
 
       twilio_client = Client(twilio_account_sid, twilio_auth_token)
 
       message = twilio_client.messages.create(
         from_=twilio_from,
-        body='Domain verification for resend api failed',
+        body=message_content,
         to=twilio_to
       )
 
