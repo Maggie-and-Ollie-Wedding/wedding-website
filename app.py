@@ -203,7 +203,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
         
       r = resend.Emails.send(
               {
-                  "from": "rsvp-noreply@maggieandolliewedding.party",
+                  "from": "rsvp@maggieandolliewedding.party",
                   "to": email_addresses,
                   "cc": "maggie.and.ollie.wedding@gmail.com",
                   "subject": f"RSVP - {invite_group}",
@@ -308,6 +308,7 @@ def RSVP_group():
 
     email_addresses = []
     email_content_list = []
+    email_sent = False
 
     for i in range(1, 6):
         full_name = str(form_data.get(f"invitee-form{i}"))
@@ -402,22 +403,24 @@ def RSVP_group():
 
                 email_addresses.append(email)
 
-    if invitation_valid:
-        email_confirmation(email_addresses, invite_group, email_content_list)
-        t = treeapp_plant()
-        print(t)
+    while email_sent == False:
+      if invitation_valid:
+          email_confirmation(email_addresses, invite_group, email_content_list)
+          t = treeapp_plant()
+          print(t)
 
-        update_invitation_row_query = f"UPDATE `maggie-and-ollie-wedding.wedding_1805.invitations_table` SET Active = false, Email_Sent = TRUE WHERE Invite_ID = '{invitation_ID}';"
-        client.query(update_invitation_row_query)
+          update_invitation_row_query = f"UPDATE `maggie-and-ollie-wedding.wedding_1805.invitations_table` SET Active = false, Email_Sent = TRUE WHERE Invite_ID = '{invitation_ID}';"
+          client.query(update_invitation_row_query)
 
-        number_of_trees_now = number_of_trees_original + 1
+          number_of_trees_now = number_of_trees_original + 1
+          email_sent == True
 
-        return render_template("thankyou.html", number_of_trees=number_of_trees_now)
+          return render_template("thankyou.html", number_of_trees=number_of_trees_now)
 
-    else:
-        print("response already received")
-        number_of_trees = number_of_trees_lookup()
-        return render_template("error.html", number_of_trees=number_of_trees)
+      else:
+          print("response already received")
+          number_of_trees = number_of_trees_lookup()
+          return render_template("error.html", number_of_trees=number_of_trees)
 
 
 # Info
