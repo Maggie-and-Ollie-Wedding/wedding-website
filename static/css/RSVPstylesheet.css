@@ -30,6 +30,7 @@
     --warm-colour-semitransparent: rgba(226,196, 132, 0.5);
     --soft-dark-colour: #e1c892;
     --soft-background-colour: #ffffff;
+    --light-grey: #c8c6c3;
     --light-colour: #fafaf7;
     --warm-colour: #f1e2c7;
     --gentle-mid-colour: #f6f0e5;
@@ -411,7 +412,7 @@ option:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--gentle-mid-colour);
+    background-color: var(--light-grey);
     transition: 0.4s;
   }
   

@@ -13,12 +13,14 @@ getdomain = resend.Domains.get(domain_id=resend_domain_id)
 domain_status = getdomain['status']
 print(domain_status)
 
+twilio_client = Client(twilio_account_sid, twilio_auth_token)
+
+
 if domain_status != "verified":
   verify = resend.Domains.verify(domain_id=resend_domain_id)
   print("verification in progress. try again later")
 
-  twilio_client = Client(twilio_account_sid, twilio_auth_token)
-
+  
   message = twilio_client.messages.create(
         from_=twilio_from,
         body='verification in progress',
@@ -40,19 +42,19 @@ else:
   rsvp_table_name = "wedding_1805.RSVP_table"
 
   # Create a list to store email addresses
-  email_addresses = []
+ 
 
   # Query the invitations table for rows where Email_sent is false
   query = f"""
       SELECT Invite_ID, Invite_Group_Name
       FROM `{project_id}.{invitations_table_name}`
-      
+      WHERE Email_sent = false
   """
-  # WHERE Email_sent = false
-
+  
   # Execute the query and process the results
   query_job = client.query(query)
   for row in query_job:
+      email_addresses = []
       invite_id = row["Invite_ID"]
       print(invite_id)
       invite_group = row["Invite_Group_Name"]
@@ -186,7 +188,7 @@ else:
       html_body = html_body_1+invite_group+html_body_2
       
       params = {
-              "from": "rsvp-noreply@maggieandolliewedding.party",
+              "from": "rsvp@maggieandolliewedding.party",
               "to": email_addresses,
               "html": html_body,
               "cc": "maggie.and.ollie.wedding@gmail.com",
@@ -207,5 +209,13 @@ else:
       # Wait for the query to complete
       query_job_update_sent.result()
       list_of_sent.append(invite_id)
+
+      invitation_text = invite_group+" invite sent"
+      
+      message = twilio_client.messages.create(
+        from_=twilio_from,
+        body=invitation_text,
+        to=twilio_to
+      )
 
   print(list_of_sent)
