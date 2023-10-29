@@ -1,4 +1,5 @@
 from __future__ import print_function
+from twilio.rest import Client
 from flask import (
     Flask,
     render_template,
@@ -22,6 +23,11 @@ treapp_url = os.getenv("TREEAPP_API_URL")
 treeapp_key = os.getenv("TREEAPP_API_KEY")
 resend.api_key = os.getenv("EMAIL_API_KEY")
 resend_domain_id=os.getenv('EMAIL_DOMAIN_ID')
+twilio_account_sid = os.getenv('TWILIO_ACCOUNT_SID')
+twilio_auth_token = os.getenv('TWILIO_AUTH_TOKEN')
+twilio_from = os.getenv('TWILIO_FROM')
+twilio_to = os.getenv('TWILIO_TO')
+
 
 
 app = Flask("maggie-and-ollie-wedding")  # making an app
@@ -68,144 +74,171 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
 
     print(email_content)
     getdomain = resend.Domains.get(domain_id=resend_domain_id)
-    print(getdomain)
-
-
+    domain_status=getdomain['status']
+    print(domain_status)
 
     html_body_1 = """<!DOCTYPE html>
-<html lang="en">
+                      <html lang="en">
 
-<head>
+                      <head>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="x-apple-disable-message-reformatting" />
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <meta name="x-apple-disable-message-reformatting" />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap"
-    rel="stylesheet">
+                        <link
+                          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap"
+                          rel="stylesheet">
 
-  <style>
-    body {
-      width: 100vw;
-      text-align: left;
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      max-width: 800px;
-      background-color: white;
-      overflow-x: hidden;
-      overflow-y: scroll;
-      min-width: 400px;
-      height: auto;
-      margin: 0px;
-      font-family: "Playfair Display SC", serif;
-    }
+                        <style>
+                          body {
+                            width: 100vw;
+                            text-align: left;
+                            background-attachment: fixed;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            max-width: 800px;
+                            background-color: white;
+                            overflow-x: hidden;
+                            overflow-y: scroll;
+                            min-width: 400px;
+                            height: auto;
+                            margin: 0px;
+                            font-family: "Playfair Display SC", serif;
+                          }
 
-    div-display {
-      width: 100vw;
-    }
+                          div-display {
+                            width: 100vw;
+                          }
 
-    html,
-    body {
-      scroll-behavior: smooth;
-    }
+                          html,
+                          body {
+                            scroll-behavior: smooth;
+                          }
 
-    .other-divs {
-      padding: 20px;
-    }
+                          .other-divs {
+                            padding: 20px;
+                          }
 
-    h3 {
-      padding: 24px;
-      margin: 24px;
-    }
+                          h3 {
+                            padding: 24px;
+                            margin: 24px;
+                          }
 
-    h4 {
-      padding: 14px;
+                          h4 {
+                            padding: 14px;
 
-    }
+                          }
 
-    h5 {
-      padding: 10px;
+                          h5 {
+                            padding: 10px;
 
-    }
+                          }
 
-    h6 {
-      padding: 0px;
-      margin: 0px;
-      font-size: small;
-    }
+                          h6 {
+                            padding: 0px;
+                            margin: 0px;
+                            font-size: small;
+                          }
 
-    p {
-      font-family: "Open Sans", sans-serif;
-    }
+                          p {
+                            font-family: "Open Sans", sans-serif;
+                          }
 
-    .logo-div {
-      align-content: center;
-      justify-content: center;
-      width: 100vw;
-    }
+                          .logo-div {
+                            align-content: center;
+                            justify-content: center;
+                            width: 100vw;
+                          }
 
-    img {
-      justify-self: center;
-      position: relative;
-      margin: 0 auto;
-    }
-  </style>
+                          img {
+                            justify-self: center;
+                            position: relative;
+                            margin: 0 auto;
+                          }
+                        </style>
 
-  <title>Maggie and Ollie's Wedding!</title>
-</head>
+                        <title>Maggie and Ollie's Wedding!</title>
+                      </head>
 
-<body>
-  <div class="email-layout">
-    <div class="div-display">
-      <img
-        src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaDUF4L4_-llNOmMB2jVlNdQJHK3wPwDAxtxS0lhqOWAYyyoUTrwQ2nG_V2olHzPXcJu20AECbVTgBMp4U0mFrg0LYHtaQ=s1600"
-        title="Logo" style="display:block" height="auto" width="100%">
-    </div>
+                      <body>
+                        <div class="email-layout">
+                          <div class="div-display">
+                            <img
+                              src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaDUF4L4_-llNOmMB2jVlNdQJHK3wPwDAxtxS0lhqOWAYyyoUTrwQ2nG_V2olHzPXcJu20AECbVTgBMp4U0mFrg0LYHtaQ=s1600"
+                              title="Logo" style="display:block" height="auto" width="100%">
+                          </div>
 
-    <div class="email-content">
+                          <div class="email-content">
 
-      <div class="other-divs">
-        <div class="other-divs">
-          <p>You have confirmed that:</p>"""
+                            <div class="other-divs">
+                              <div class="other-divs">
+                                <p>You have confirmed that:</p>"""
     html_body_2 = """
-          <br>
-          <p>If anything changes with regard to your ability to attend please let us know as soon as you can.</p>
+                                <br>
+                                <p>If anything changes with regard to your ability to attend please let us know as soon as you can.</p>
 
-          <p>In the meantime, if you need to remind yourself of the dress code, or other information, <br>further
-            details can be found on our
-            <a href="https://www.maggieandolliewedding.party" target="_blank">website</a>.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="logo-div">
+                                <p>In the meantime, if you need to remind yourself of the dress code, or other information, <br>further
+                                  details can be found on our
+                                  <a href="https://www.maggieandolliewedding.party" target="_blank">website</a>.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="logo-div">
 
-      <a href="https://www.maggieandolliewedding.party" target="_blank">
-        <img
-          src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaCVXW4CZ9rp_-qTvUrGv0g_mmgzQBf5Cvqiw1OoukWjh2OlARCOP8By9CWsd3GQO4UVcZsW1EydriWxSIdDSuvyQW0ezw=s1600"
-          title="Logo" style="display:block" height="auto" width="100px">
+                            <a href="https://www.maggieandolliewedding.party" target="_blank">
+                              <img
+                                src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaCVXW4CZ9rp_-qTvUrGv0g_mmgzQBf5Cvqiw1OoukWjh2OlARCOP8By9CWsd3GQO4UVcZsW1EydriWxSIdDSuvyQW0ezw=s1600"
+                                title="Logo" style="display:block" height="auto" width="100px">
 
-      </a>
+                            </a>
 
-    </div>
-</body>"""
+                          </div>
+                      </body>"""
 
     email = html_body_1 + email_content + html_body_2
 
-    r = resend.Emails.send(
-        {
-            "from": "rsvp-noreply@maggieandolliewedding.party",
-            "to": email_addresses,
-            "cc": "maggie.and.ollie.wedding@gmail.com",
-            "subject": f"RSVP - {invite_group}",
-            "reply_to": "maggie.and.ollie.wedding@gmail.com",
-            "html": email
-        }
-    )
+    if domain_status=="verified":
+        
+      r = resend.Emails.send(
+              {
+                  "from": "rsvp-noreply@maggieandolliewedding.party",
+                  "to": email_addresses,
+                  "cc": "maggie.and.ollie.wedding@gmail.com",
+                  "subject": f"RSVP - {invite_group}",
+                  "reply_to": "maggie.and.ollie.wedding@gmail.com",
+                  "html": email
+              }
+          )
 
-    return "email conf sent"
+
+
+      twilio_client = Client(twilio_account_sid, twilio_auth_token)
+
+      message = twilio_client.messages.create(
+        from_=twilio_from,
+        body='RSVP success',
+        to=twilio_to
+      )
+
+
+      return "email conf sent"
+    else:
+      print(email)
+
+
+      twilio_client = Client(twilio_account_sid, twilio_auth_token)
+
+      message = twilio_client.messages.create(
+        from_=twilio_from,
+        body='Domain verification for resend api failed',
+        to=twilio_to
+      )
+
+      print(message.sid)
+      verify = resend.Domains.verify(domain_id=resend_domain_id)
+      return email, ": email conf NOT SENT - domain in process of re-verifying"
 
 
 # Homepage
