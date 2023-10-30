@@ -189,7 +189,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
 
                             <a href="https://www.maggieandolliewedding.party" target="_blank">
                               <img
-                                src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaCVXW4CZ9rp_-qTvUrGv0g_mmgzQBf5Cvqiw1OoukWjh2OlARCOP8By9CWsd3GQO4UVcZsW1EydriWxSIdDSuvyQW0ezw=s1600"
+                                src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaDLJFRyGMyBz3JGkdmUChdIFmxZ59b2TGggVBMUvVHJ6RN7tcYDhCPVfiM_JH3VN3AdQPLHiElBRNPK6vO6XAln1e0C2w=s1600"
                                 title="Logo" style="display:block" height="auto" width="100px">
 
                             </a>
