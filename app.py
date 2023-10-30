@@ -334,14 +334,17 @@ def RSVP_group():
 
                 if invitation_valid_rows:
                     invitation_valid = invitation_valid_rows[0][3]
-
+            
             if invitation_valid:
+                
                 RSVP_bool = (
                     "TRUE" if form_data.get(f"RSVPCheck{i}") == "on" else "FALSE"
                 )
                 choir_bool = (
                     "TRUE" if form_data.get(f"RSVPChoir{i}") == "on" else "FALSE"
                 )
+                print('choir bool: ', choir_bool)
+
                 choir_part = str(form_data.get(f"dropdownVocalPart{i}"))
                 dietary_bool = (
                     "TRUE" if form_data.get(f"RSVPDiet{i}") == "on" else "FALSE"
@@ -352,7 +355,7 @@ def RSVP_group():
                 responder = str(responder_name)
                 summary_string_basic = f"{full_name} RSVP'd {RSVP_bool}. Choir: {choir_bool}, {choir_part}. \
                                                   Dietary: {dietary_bool}, {dietary_opt}{dietary_detail}. Response at {response_time} from {responder}."
-
+                print(summary_string_basic)
                 if RSVP_bool == "TRUE":
                     summary_string = f"<b>{full_name}</b> is able to attend the wedding."
                     if choir_bool == "TRUE":
