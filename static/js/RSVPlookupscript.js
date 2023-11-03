@@ -4,14 +4,29 @@ const selectElement = document.getElementById('list-of-invitations-names')
 const RSVPButton = document.getElementById('submit-rsvp-button-section')
 
 let androidBool
+let mobileBool
 
 function isAndroidMobile () {
-  console.log('andr')
+
   androidBool = /Android/i.test(navigator.userAgent)
-  console.log(androidBool)
   return androidBool
 }
 
+function isMobile() {
+
+if (window.innerWidth <= 1000) {
+  selectElement.focus()
+
+  mobileBool = true
+
+  isAndroidMobile()
+  console.log('android ', androidBool)
+}
+
+console.log('mobile', mobileBool)
+  return mobileBool
+}
+window.onload(isMobile())
 window.onload(isAndroidMobile())
 
 function capitalizeNames (input) {
@@ -54,10 +69,24 @@ function inviteSearch (invitations) {
 
     selectElement.innerHTML = ''
 
+    console.log(androidBool)
+
+    if (androidBool){
+      console.log('adding search')
+      const searchElement = document.createElement('option');
+      searchElement.text = 'Search...';
+      selectElement.appendChild(searchElement)}
+
+    else {
+      console.log('not android')
+    }
+
     if (searchYourNameContent.length > 2 && filteredInvitations.length > 0) {
       let listOfInvitationBullets = filteredInvitations
 
       let numberOfOptions = 0
+
+     
 
       listOfInvitationBullets.forEach(optionText => {
         let optionElement = document.createElement('option')
@@ -135,11 +164,7 @@ function selectInvitation () {
     let JSONSTRING = JSON.stringify({ selectedOption: selectedOption })
     console.log(JSONSTRING)
 
-    if (window.innerWidth <= 1000) {
-      selectElement.focus()
-
-      console.log('mobile')
-
+    if (mobileBool){
       invitationGroup.textContent = selectElement.value
       if (androidBool){
         console.log('android')
