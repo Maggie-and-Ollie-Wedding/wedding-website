@@ -74,7 +74,7 @@ function inviteSearch (invitations) {
     if (androidBool) {
       console.log('adding search')
       const searchElement = document.createElement('option')
-      searchElement.text = 'Search...'
+      searchElement.text = 'Click to search...'
       selectElement.appendChild(searchElement)
     } else {
       console.log('not android')
@@ -94,7 +94,7 @@ function inviteSearch (invitations) {
       })
 
       if (isMobile){
-        selectElement.value = "Search...";
+        selectElement.value = "Click to search...";
 
       }
 
@@ -164,7 +164,7 @@ function selectInvitation () {
   if (selectedOption) {
     console.log(selectedOption)
 
-    if (selectedOption == "Search..."){
+    if (selectedOption == "Click to search..."){
       form.style.display = 'none';
       confirmationText.style.display = 'none';
     }
