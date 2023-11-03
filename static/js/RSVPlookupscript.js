@@ -2,28 +2,28 @@ const searchYourName = document.getElementById('search-your-name')
 const invitationGroup = document.getElementById('invitation-group')
 const selectElement = document.getElementById('list-of-invitations-names')
 const RSVPButton = document.getElementById('submit-rsvp-button-section')
+const form = document.getElementById('whole-form-input')
+const confirmationText = document.getElementById('confirmation-text')
 
 let androidBool
 let mobileBool
 
 function isAndroidMobile () {
-
   androidBool = /Android/i.test(navigator.userAgent)
   return androidBool
 }
 
-function isMobile() {
+function isMobile () {
+  if (window.innerWidth <= 1000) {
+    selectElement.focus()
 
-if (window.innerWidth <= 1000) {
-  selectElement.focus()
+    mobileBool = true
 
-  mobileBool = true
+    isAndroidMobile()
+    console.log('android ', androidBool)
+  }
 
-  isAndroidMobile()
-  console.log('android ', androidBool)
-}
-
-console.log('mobile', mobileBool)
+  console.log('mobile', mobileBool)
   return mobileBool
 }
 window.onload(isMobile())
@@ -71,13 +71,12 @@ function inviteSearch (invitations) {
 
     console.log(androidBool)
 
-    if (androidBool){
+    if (androidBool) {
       console.log('adding search')
-      const searchElement = document.createElement('option');
-      searchElement.text = 'Search...';
-      selectElement.appendChild(searchElement)}
-
-    else {
+      const searchElement = document.createElement('option')
+      searchElement.text = 'Search...'
+      selectElement.appendChild(searchElement)
+    } else {
       console.log('not android')
     }
 
@@ -86,8 +85,6 @@ function inviteSearch (invitations) {
 
       let numberOfOptions = 0
 
-     
-
       listOfInvitationBullets.forEach(optionText => {
         let optionElement = document.createElement('option')
         optionElement.value = optionText
@@ -95,6 +92,11 @@ function inviteSearch (invitations) {
         selectElement.appendChild(optionElement)
         numberOfOptions += 1
       })
+
+      if (isMobile){
+        selectElement.value = "Search...";
+
+      }
 
       selectElement.style.display = 'flex'
       if (window.innerWidth <= 1000) {
@@ -120,56 +122,66 @@ function inviteSearch (invitations) {
       //   console.log("android")
       // }
       // else {
-        console.log('set size')
-      selectElement.style.display = 'none'}
+      console.log('set size')
+      selectElement.style.display = 'none'
+    }
     // }
   })
 
   selectElement.addEventListener('click', hideFunction())
   selectElement.addEventListener('touch', hideFunction())
-  
-  function hideFunction() {
+
+  function hideFunction () {
     invitationGroup.textContent = selectElement.value
 
     console.log('selected')
     console.log(androidBool)
     if (androidBool) {
-      console.log("android true")
+      console.log('android true')
       selectElement.style.display = 'none'
       const clickEvent = new MouseEvent('click', {
         bubbles: true,
         cancelable: true,
         view: window
-      });
-    
+      })
+
       // Dispatch the click event on the element
-      selectElement.dispatchEvent(clickEvent);
-      
+      selectElement.dispatchEvent(clickEvent)
+    } else {
+      selectElement.style.display = 'none'
+      // e.preventDefault()
     }
-    else {
-    selectElement.style.display = 'none'
-    // e.preventDefault()
-  }
   }
 }
 
 function selectInvitation () {
   let selectedOption = selectElement.value
 
+  
+
   RSVPButton.style.display = 'flex'
 
   if (selectedOption) {
     console.log(selectedOption)
 
+    if (selectedOption == "Search..."){
+      form.style.display = 'none';
+      confirmationText.style.display = 'none';
+    }
+  
+    else {
+      form.style.display = 'block';
+      confirmationText.style.display = 'block';
+    }
+
     let JSONSTRING = JSON.stringify({ selectedOption: selectedOption })
     console.log(JSONSTRING)
 
-    if (mobileBool){
+    if (mobileBool) {
       invitationGroup.textContent = selectElement.value
-      if (androidBool){
+      if (androidBool) {
         console.log('android')
-      }
-      else {
+      } else {
         selectElement.style.display = 'none'
       }
     }
