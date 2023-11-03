@@ -90,7 +90,7 @@ function inviteSearch(invitations) {
 
   showNamesList.addEventListener('click', function (e) {
     invitationGroup.textContent = showNamesList.value;
-    showNamesList.style.display = 'none';
+    // showNamesList.style.display = 'none';
     e.preventDefault();
   });
 
