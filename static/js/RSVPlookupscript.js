@@ -107,7 +107,14 @@ function inviteSearch (invitations) {
     if (androidBool) {
       console.log("android true")
       selectElement.style.display = 'none'
-      selectElement.touch()
+      const clickEvent = new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true,
+        view: window
+      });
+    
+      // Dispatch the click event on the element
+      selectElement.dispatchEvent(clickEvent);
       
     }
     else {
@@ -135,7 +142,7 @@ function selectInvitation () {
 
       invitationGroup.textContent = selectElement.value
       if (androidBool){
-        selectElement.preventDefault()
+        console.log('android')
       }
       else {
         selectElement.style.display = 'none'
