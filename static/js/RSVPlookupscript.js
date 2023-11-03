@@ -3,9 +3,11 @@ const invitationGroup = document.getElementById('invitation-group')
 const selectElement = document.getElementById('list-of-invitations-names')
 const RSVPButton = document.getElementById('submit-rsvp-button-section')
 
+let androidBool
+
 function isAndroidMobile () {
   console.log('andr')
-  let androidBool = /Android/i.test(navigator.userAgent)
+  androidBool = /Android/i.test(navigator.userAgent)
   console.log(androidBool)
   return androidBool
 }
@@ -85,21 +87,25 @@ function inviteSearch (invitations) {
 
       setDropdownSize()
     } else {
-      if (androidBool) {
-        console.log("android")
-      }
-      else {
+      // if (androidBool) {
+      //   console.log("android")
+      // }
+      // else {
       selectElement.style.display = 'none'}
-    }
+    // }
   })
 
   selectElement.addEventListener('click', function (e) {
     invitationGroup.textContent = selectElement.value
 
     
-
+    // if (androidBool) {
+    //   console.log("android 2")
+    // }
+    // else {
     selectElement.style.display = 'none'
     e.preventDefault()
+  // }
   })
 }
 
@@ -120,6 +126,9 @@ function selectInvitation () {
       console.log('mobile')
 
       invitationGroup.textContent = selectElement.value
+      if (androidBool){
+        selectElement.preventDefault()
+      }
     }
 
     fetch('/rsvp_list', {
