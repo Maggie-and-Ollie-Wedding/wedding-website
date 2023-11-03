@@ -5,12 +5,14 @@ const RSVPButton = document.getElementById('submit-rsvp-button-section')
 const form = document.getElementById('whole-form-input')
 const confirmationText = document.getElementById('confirmation-text')
 
-let androidBool
+let notiPhoneBool
 let mobileBool
 
-function isAndroidMobile () {
-  androidBool = /Android/i.test(navigator.userAgent)
-  return androidBool
+function isNotiPhoneMobile () {
+
+  notiPhoneBool = !/iPhone/.test(navigator.userAgent)
+  console.log(notiPhoneBool, " is not iphone")
+  return notiPhoneBool
 }
 
 function isMobile () {
@@ -19,15 +21,15 @@ function isMobile () {
 
     mobileBool = true
 
-    isAndroidMobile()
-    console.log('android ', androidBool)
+    isNotiPhoneMobile()
+    console.log('not iphone ', notiPhoneBool)
   }
 
   console.log('mobile', mobileBool)
   return mobileBool
 }
 window.onload(isMobile())
-window.onload(isAndroidMobile())
+window.onload(isNotiPhoneMobile())
 
 function capitalizeNames (input) {
   let standard_input = input.toLowerCase()
@@ -69,15 +71,15 @@ function inviteSearch (invitations) {
 
     selectElement.innerHTML = ''
 
-    console.log(androidBool)
+    console.log(notiPhoneBool)
 
-    if (androidBool) {
+    if (notiPhoneBool) {
       console.log('adding search')
       const searchElement = document.createElement('option')
       searchElement.text = 'Click to search...'
       selectElement.appendChild(searchElement)
     } else {
-      console.log('not android')
+      console.log('not not iphone')
     }
 
     if (searchYourNameContent.length > 2 && filteredInvitations.length > 0) {
@@ -118,14 +120,11 @@ function inviteSearch (invitations) {
 
       setDropdownSize()
     } else {
-      // if (androidBool) {
-      //   console.log("android")
-      // }
-      // else {
+    
       console.log('set size')
       selectElement.style.display = 'none'
     }
-    // }
+
   })
 
   selectElement.addEventListener('click', hideFunction())
@@ -135,9 +134,9 @@ function inviteSearch (invitations) {
     invitationGroup.textContent = selectElement.value
 
     console.log('selected')
-    console.log(androidBool)
-    if (androidBool) {
-      console.log('android true')
+    console.log(notiPhoneBool)
+    if (notiPhoneBool) {
+      console.log('not iphone true')
       selectElement.style.display = 'none'
       const clickEvent = new MouseEvent('click', {
         bubbles: true,
@@ -145,11 +144,11 @@ function inviteSearch (invitations) {
         view: window
       })
 
-      // Dispatch the click event on the element
+    
       selectElement.dispatchEvent(clickEvent)
     } else {
       selectElement.style.display = 'none'
-      // e.preventDefault()
+     
     }
   }
 }
@@ -179,8 +178,8 @@ function selectInvitation () {
 
     if (mobileBool) {
       invitationGroup.textContent = selectElement.value
-      if (androidBool) {
-        console.log('android')
+      if (notiPhoneBool) {
+        console.log('not iphone')
       } else {
         selectElement.style.display = 'none'
       }
