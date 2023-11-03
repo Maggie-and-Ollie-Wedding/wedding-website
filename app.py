@@ -427,9 +427,9 @@ def RSVP_group():
 
 
 # Info
-@app.route("/info180524")
+@app.route("/weddingday/info")
 def info():
-    number_of_trees = number_of_trees()
+    number_of_trees = number_of_trees_lookup()
 
     return render_template("info.html")
 

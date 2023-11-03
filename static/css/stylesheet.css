@@ -1,18 +1,3 @@
-/* :root {
-  --cover-page-height: 80vh;
-  --main-dark-colour: #636363;
-  --mid-dark-colour: #666666;
-  --dark-colour-transparent: rgba(0,0,0, 0.5);
-  --dark-colour-semitransparent: rgba(0,0,0, 0.4);
-  --warm-colour-semitransparent: rgba(196,188,188,0.5);
-  --soft-dark-colour: #7c7c7c;
-  --soft-background-colour: white;
-  --light-colour: #efeeee;
-  --warm-colour: #c4bcbc;
-  --gentle-mid-colour: #a6a3a1;
-  --mid-colour: #959493;
-  --border-width: 5px;
-} */
 
 :root {
   --colour-1: #FFFFFF;
@@ -57,6 +42,7 @@
   position: sticky;
   border-bottom: 1px solid var(--main-dark-colour);
   background-color: var(--soft-background-colour);
+  
   height: fit-content;
   padding-top: 20px;
   
@@ -108,15 +94,12 @@
 
 
 body {
-  /* background-size: 100vw; */
+
   text-align: center;
-  /* background-attachment: fixed;
-  background-position: bottom;
-  width: 100vw; */
   background-color: var(--soft-background-colour);
   overflow: scroll;
-  /* height: 100vh; */
-  /* position: absolute; */
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
 }
 
@@ -372,6 +355,7 @@ a:active {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
 }
 
 main {  flex-grow: 1;}
@@ -886,6 +870,7 @@ p.hotel-table-layout-grandchild {
   margin: 0px;  
 }
 
+
 a:hover:before {
   content: ".";
   display: inline-block;
@@ -897,17 +882,32 @@ a:hover:before {
   color: var(--colour-4);
 }
 
+
 .dot:after{
   content: ".";
   display: inline-block;
   position: relative;
-    bottom: 0.75em;
+    bottom: 0.5em;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  color: var(--colour-4);
+
+ 
+  
+}
+
+
+.mando:hover:before {
+  bottom: -0.25em;
+  content: ".";
+  display: inline-block;
+  position: absolute;
   left: 0;
   text-align: center;
   width: 100%;
   color: var(--colour-4);
 }
-
 @media only screen and (max-width: 600px) {
   .contact-button{
     width: 50vw;
