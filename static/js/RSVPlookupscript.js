@@ -11,7 +11,7 @@ let mobileBool
 function isNotiPhoneMobile () {
 
   notiPhoneBool = !/iPhone/.test(navigator.userAgent)
-  console.log(notiPhoneBool, " is not iphone")
+
   return notiPhoneBool
 }
 
@@ -22,10 +22,10 @@ function isMobile () {
     mobileBool = true
 
     isNotiPhoneMobile()
-    console.log('not iphone ', notiPhoneBool)
+
   }
 
-  console.log('mobile', mobileBool)
+
   return mobileBool
 }
 window.onload(isMobile())
@@ -71,15 +71,15 @@ function inviteSearch (invitations) {
 
     selectElement.innerHTML = ''
 
-    console.log(notiPhoneBool)
+    
 
     if (notiPhoneBool) {
-      console.log('adding search')
+   
       const searchElement = document.createElement('option')
       searchElement.text = 'Click to search...'
       selectElement.appendChild(searchElement)
     } else {
-      console.log('not not iphone')
+      console.log(' ')
     }
 
     if (searchYourNameContent.length > 2 && filteredInvitations.length > 0) {
@@ -121,7 +121,7 @@ function inviteSearch (invitations) {
       setDropdownSize()
     } else {
     
-      console.log('set size')
+
       selectElement.style.display = 'none'
     }
 
@@ -133,10 +133,9 @@ function inviteSearch (invitations) {
   function hideFunction () {
     invitationGroup.textContent = selectElement.value
 
-    console.log('selected')
-    console.log(notiPhoneBool)
+ 
     if (notiPhoneBool) {
-      console.log('not iphone true')
+  
       selectElement.style.display = 'none'
       const clickEvent = new MouseEvent('click', {
         bubbles: true,
@@ -161,7 +160,7 @@ function selectInvitation () {
   RSVPButton.style.display = 'flex'
 
   if (selectedOption) {
-    console.log(selectedOption)
+
 
     if (selectedOption == "Click to search..."){
       form.style.display = 'none';
@@ -174,12 +173,12 @@ function selectInvitation () {
     }
 
     let JSONSTRING = JSON.stringify({ selectedOption: selectedOption })
-    console.log(JSONSTRING)
+   
 
     if (mobileBool) {
       invitationGroup.textContent = selectElement.value
       if (notiPhoneBool) {
-        console.log('not iphone')
+        console.log(' ')
       } else {
         selectElement.style.display = 'none'
       }
