@@ -4,29 +4,29 @@ const selectElement = document.getElementById('list-of-invitations-names')
 const RSVPButton = document.getElementById('submit-rsvp-button-section')
 
 function isAndroidMobile () {
-  androidBool = /Android/i.test(navigator.userAgent)
+  const androidBool = /Android/i.test(navigator.userAgent)
   return androidBool
 }
 
 window.onload(isAndroidMobile())
 
 function capitalizeNames (input) {
-  standard_input = input.toLowerCase()
+  let standard_input = input.toLowerCase()
   capitalized = standard_input.replace(/\b\w/g, match => match.toUpperCase())
   return capitalized
 }
 
 function searchableList (listOfInvitations) {
-  var listOfInvitationsAndGuests = listOfInvitations.sort()
+  const listOfInvitationsAndGuests = listOfInvitations.sort()
 
-  var invitations = listOfInvitationsAndGuests.map(str => str.replace(/'/g, ''))
+  const invitations = listOfInvitationsAndGuests.map(str => str.replace(/'/g, ''))
 
   return invitations
 }
 
 function listOfInvitees (listOfInvitations) {
-  sorted_listOfInvitations = listOfInvitations.sort()
-  var invitees = sorted_listOfInvitations.flatMap(str =>
+  let sorted_listOfInvitations = listOfInvitations.sort()
+  const invitees = sorted_listOfInvitations.flatMap(str =>
     str
       .replace(/'/g, '')
       .split(',')
@@ -36,23 +36,23 @@ function listOfInvitees (listOfInvitations) {
 }
 
 function inviteSearch (invitations) {
-  var selectedOption = selectElement.value
+  let selectedOption = selectElement.value
 
   searchYourName.addEventListener('input', function () {
-    var searchYourNameContent = capitalizeNames(searchYourName.value)
-    var filteredInvitations = invitations.filter(option =>
+    let searchYourNameContent = capitalizeNames(searchYourName.value)
+    let filteredInvitations = invitations.filter(option =>
       option.includes(searchYourNameContent)
     )
 
     selectElement.innerHTML = ''
 
     if (searchYourNameContent.length > 2 && filteredInvitations.length > 0) {
-      listOfInvitationBullets = filteredInvitations
+      let listOfInvitationBullets = filteredInvitations
 
-      var numberOfOptions = 0
+      let numberOfOptions = 0
 
       listOfInvitationBullets.forEach(optionText => {
-        var optionElement = document.createElement('option')
+        let optionElement = document.createElement('option')
         optionElement.value = optionText
         optionElement.textContent = optionText
         selectElement.appendChild(optionElement)
@@ -65,13 +65,14 @@ function inviteSearch (invitations) {
       }
 
       function setDropdownSize () {
+        let maxVisibleOptions
         if (numberOfOptions < 3) {
           maxVisibleOptions = numberOfOptions
         } else {
           maxVisibleOptions = 3
         }
 
-        var actualSize = Math.max(maxVisibleOptions, 2)
+        let actualSize = Math.max(maxVisibleOptions, 2)
 
         selectElement.size = actualSize
       }
@@ -91,14 +92,14 @@ function inviteSearch (invitations) {
 }
 
 function selectInvitation () {
-  var selectedOption = selectElement.value
+  let selectedOption = selectElement.value
 
   RSVPButton.style.display = 'flex'
 
   if (selectedOption) {
     console.log(selectedOption)
 
-    JSONSTRING = JSON.stringify({ selectedOption: selectedOption })
+    let JSONSTRING = JSON.stringify({ selectedOption: selectedOption })
     console.log(JSONSTRING)
 
     if (window.innerWidth <= 1000) {
