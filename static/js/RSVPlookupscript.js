@@ -91,22 +91,29 @@ function inviteSearch (invitations) {
       //   console.log("android")
       // }
       // else {
+        console.log('set size')
       selectElement.style.display = 'none'}
     // }
   })
 
-  selectElement.addEventListener('click', function (e) {
+  selectElement.addEventListener('click', hideFunction())
+  selectElement.addEventListener('touch', hideFunction())
+  
+  function hideFunction() {
     invitationGroup.textContent = selectElement.value
 
-    
-    // if (androidBool) {
-    //   console.log("android 2")
-    // }
-    // else {
+    console.log('selected')
+    console.log(androidBool)
+    if (androidBool) {
+      console.log("android true")
+      selectElement.style.display = 'none'
+      
+    }
+    else {
     selectElement.style.display = 'none'
-    e.preventDefault()
-  // }
-  })
+    // e.preventDefault()
+  }
+  }
 }
 
 function selectInvitation () {
@@ -128,6 +135,9 @@ function selectInvitation () {
       invitationGroup.textContent = selectElement.value
       if (androidBool){
         selectElement.preventDefault()
+      }
+      else {
+        selectElement.style.display = 'none'
       }
     }
 
