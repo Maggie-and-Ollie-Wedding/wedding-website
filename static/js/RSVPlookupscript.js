@@ -65,7 +65,7 @@ function inviteSearch(invitations) {
         showNamesList.focus()
         if (isAndroidMobile()) {
           showNamesList.focus();
-          showNamesList.style.display = 'flex';
+          selectElement.focus();
         }
       }
 
@@ -89,9 +89,10 @@ function inviteSearch(invitations) {
   });
 
   showNamesList.addEventListener('click', function (e) {
-    invitationGroup.textContent = showNamesList.value;
-    // showNamesList.style.display = 'none';
     e.preventDefault();
+    invitationGroup.textContent = showNamesList.value;
+    showNamesList.style.display = 'none';
+    
   });
 
 }
@@ -111,8 +112,8 @@ function selectInvitation() {
 
       invitationGroup.textContent = showNamesList.value
       if (isAndroidMobile()) {
-        showNamesList.style.display = 'flex';
-        
+        selectElement.display = 'block'; 
+        selectElement.focus()
       }
       else
       {
