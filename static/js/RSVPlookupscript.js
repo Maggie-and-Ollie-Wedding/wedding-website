@@ -106,14 +106,17 @@ function selectInvitation() {
 
     JSONSTRING = JSON.stringify({ selectedOption: selectedOption })
     if (window.innerWidth <= 1000) {
-      selectElement.focus()
+      
 
-      console.log('mobile')
 
       invitationGroup.textContent = showNamesList.value
       if (isAndroidMobile()) {
         showNamesList.style.display = 'flex';
-        showNamesList.focus();
+        
+      }
+      else
+      {
+        selectElement.focus()
       }
     }
 
