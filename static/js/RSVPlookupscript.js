@@ -3,8 +3,8 @@ const invitationGroup = document.getElementById('invitation-group')
 const selectElement = document.getElementById('list-of-invitations-names')
 const RSVPButton = document.getElementById('submit-rsvp-button-section')
 
-function isAndroidMobile() {
-  androidBool = /Android/i.test(navigator.userAgent);
+function isAndroidMobile () {
+  androidBool = /Android/i.test(navigator.userAgent)
   return androidBool
 }
 
@@ -35,100 +35,91 @@ function listOfInvitees (listOfInvitations) {
   return invitees
 }
 
-function inviteSearch(invitations) {
+function inviteSearch (invitations) {
   var selectedOption = selectElement.value
 
   searchYourName.addEventListener('input', function () {
-    var searchYourNameContent = capitalizeNames(searchYourName.value);
+    var searchYourNameContent = capitalizeNames(searchYourName.value)
     var filteredInvitations = invitations.filter(option =>
       option.includes(searchYourNameContent)
-    );
+    )
 
-    selectElement.innerHTML = '';
+    selectElement.innerHTML = ''
 
     if (searchYourNameContent.length > 2 && filteredInvitations.length > 0) {
-      listOfInvitationBullets = filteredInvitations;
+      listOfInvitationBullets = filteredInvitations
 
       var numberOfOptions = 0
 
       listOfInvitationBullets.forEach(optionText => {
-        var optionElement = document.createElement('option');
-        optionElement.value = optionText;
-        optionElement.textContent = optionText;
-        selectElement.appendChild(optionElement);
-        numberOfOptions +=1
-      });
+        var optionElement = document.createElement('option')
+        optionElement.value = optionText
+        optionElement.textContent = optionText
+        selectElement.appendChild(optionElement)
+        numberOfOptions += 1
+      })
 
-      selectElement.style.display = 'flex';
+      selectElement.style.display = 'flex'
       if (window.innerWidth <= 1000) {
         selectElement.focus()
-        // if (isAndroidMobile()) {
-        //   selectElement.focus();
-      
-        // }
       }
 
-      function setDropdownSize() {
-        if(numberOfOptions<3){
+      function setDropdownSize () {
+        if (numberOfOptions < 3) {
           maxVisibleOptions = numberOfOptions
-        } 
-        else {
-          maxVisibleOptions = 3;
+        } else {
+          maxVisibleOptions = 3
         }
 
         var actualSize = Math.max(maxVisibleOptions, 2)
 
-        selectElement.size = actualSize;
+        selectElement.size = actualSize
       }
-      setDropdownSize();
 
+      setDropdownSize()
     } else {
-      selectElement.style.display = 'none';
+      selectElement.style.display = 'none'
     }
-  });
+  })
 
   selectElement.addEventListener('click', function (e) {
-    e.preventDefault();
-    invitationGroup.textContent = selectElement.value;
-    selectElement.style.display = 'none';
-    
-  });
+    invitationGroup.textContent = selectElement.value
 
+    selectElement.style.display = 'none'
+    e.preventDefault()
+  })
 }
 
-function selectInvitation() {
-  var selectedOption = selectElement.value;
+function selectInvitation () {
+  var selectedOption = selectElement.value
 
-  RSVPButton.style.display = 'flex';
+  RSVPButton.style.display = 'flex'
 
   if (selectedOption) {
-
+    console.log(selectedOption)
 
     JSONSTRING = JSON.stringify({ selectedOption: selectedOption })
-    // if (window.innerWidth <= 1000) {
-      
+    console.log(JSONSTRING)
 
+    if (window.innerWidth <= 1000) {
+      selectElement.focus()
 
-    //   invitationGroup.textContent = selectElement.value
-    //   if (isAndroidMobile()) {
-    //     selectElement.display = 'block'; 
-    //     selectElement.focus()
-    //   }
-    
-      
-    // }
+      console.log('mobile')
+
+      invitationGroup.textContent = selectElement.value
+    }
 
     fetch('/rsvp_list', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: JSONSTRING,
+      body: JSONSTRING
     })
       .then(response => response.json())
 
       .catch(error => {
-        console.error('Error:', error);
-      });
+        console.error('Error:', error)
+      })
   }
 }
