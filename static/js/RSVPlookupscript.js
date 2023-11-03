@@ -107,7 +107,7 @@ function inviteSearch (invitations) {
     if (androidBool) {
       console.log("android true")
       selectElement.style.display = 'none'
-      selectElement.focus()
+      selectElement.touch()
       
     }
     else {
