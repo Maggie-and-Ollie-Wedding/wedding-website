@@ -4,7 +4,9 @@ const selectElement = document.getElementById('list-of-invitations-names')
 const RSVPButton = document.getElementById('submit-rsvp-button-section')
 
 function isAndroidMobile () {
-  const androidBool = /Android/i.test(navigator.userAgent)
+  console.log('andr')
+  let androidBool = /Android/i.test(navigator.userAgent)
+  console.log(androidBool)
   return androidBool
 }
 
@@ -12,14 +14,18 @@ window.onload(isAndroidMobile())
 
 function capitalizeNames (input) {
   let standard_input = input.toLowerCase()
-  capitalized = standard_input.replace(/\b\w/g, match => match.toUpperCase())
+  let capitalized = standard_input.replace(/\b\w/g, match =>
+    match.toUpperCase()
+  )
   return capitalized
 }
 
 function searchableList (listOfInvitations) {
   const listOfInvitationsAndGuests = listOfInvitations.sort()
 
-  const invitations = listOfInvitationsAndGuests.map(str => str.replace(/'/g, ''))
+  const invitations = listOfInvitationsAndGuests.map(str =>
+    str.replace(/'/g, '')
+  )
 
   return invitations
 }
@@ -79,12 +85,18 @@ function inviteSearch (invitations) {
 
       setDropdownSize()
     } else {
-      selectElement.style.display = 'none'
+      if (androidBool) {
+        console.log("android")
+      }
+      else {
+      selectElement.style.display = 'none'}
     }
   })
 
   selectElement.addEventListener('click', function (e) {
     invitationGroup.textContent = selectElement.value
+
+    
 
     selectElement.style.display = 'none'
     e.preventDefault()
