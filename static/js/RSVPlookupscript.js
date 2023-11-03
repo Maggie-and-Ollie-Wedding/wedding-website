@@ -61,13 +61,13 @@ function inviteSearch(invitations) {
       });
 
       showNamesList.style.display = 'flex';
-      if (window.innerWidth <= 1000) {
-        showNamesList.focus()
-        if (isAndroidMobile()) {
-          showNamesList.focus();
-          selectElement.focus();
-        }
-      }
+      // if (window.innerWidth <= 1000) {
+      //   showNamesList.focus()
+      //   if (isAndroidMobile()) {
+      //     showNamesList.focus();
+      //     selectElement.focus();
+      //   }
+      // }
 
       function setDropdownSize() {
         if(numberOfOptions<3){
@@ -113,11 +113,11 @@ function selectInvitation() {
       invitationGroup.textContent = showNamesList.value
       if (isAndroidMobile()) {
         selectElement.display = 'block'; 
-        selectElement.focus()
+        // selectElement.focus()
       }
       else
       {
-        selectElement.focus()
+        // selectElement.focus()
       }
     }
 
