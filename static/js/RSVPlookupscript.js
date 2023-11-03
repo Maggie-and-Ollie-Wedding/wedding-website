@@ -60,13 +60,13 @@ function inviteSearch(invitations) {
       });
 
       selectElement.style.display = 'flex';
-      // if (window.innerWidth <= 1000) {
-      //   selectElement.focus()
-      //   if (isAndroidMobile()) {
-      //     selectElement.focus();
-      //     selectElement.focus();
-      //   }
-      // }
+      if (window.innerWidth <= 1000) {
+        selectElement.focus()
+        // if (isAndroidMobile()) {
+        //   selectElement.focus();
+      
+        // }
+      }
 
       function setDropdownSize() {
         if(numberOfOptions<3){
@@ -105,20 +105,18 @@ function selectInvitation() {
 
 
     JSONSTRING = JSON.stringify({ selectedOption: selectedOption })
-    if (window.innerWidth <= 1000) {
+    // if (window.innerWidth <= 1000) {
       
 
 
-      invitationGroup.textContent = selectElement.value
-      if (isAndroidMobile()) {
-        selectElement.display = 'block'; 
-        selectElement.focus()
-      }
-      else
-      {
-        selectElement.focus()
-      }
-    }
+    //   invitationGroup.textContent = selectElement.value
+    //   if (isAndroidMobile()) {
+    //     selectElement.display = 'block'; 
+    //     selectElement.focus()
+    //   }
+    
+      
+    // }
 
     fetch('/rsvp_list', {
       method: 'POST',
