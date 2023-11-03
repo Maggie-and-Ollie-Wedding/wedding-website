@@ -1,5 +1,4 @@
 const searchYourName = document.getElementById('search-your-name')
-const showNamesList = document.getElementById('list-of-invitations-names')
 const invitationGroup = document.getElementById('invitation-group')
 const selectElement = document.getElementById('list-of-invitations-names')
 const RSVPButton = document.getElementById('submit-rsvp-button-section')
@@ -45,7 +44,7 @@ function inviteSearch(invitations) {
       option.includes(searchYourNameContent)
     );
 
-    showNamesList.innerHTML = '';
+    selectElement.innerHTML = '';
 
     if (searchYourNameContent.length > 2 && filteredInvitations.length > 0) {
       listOfInvitationBullets = filteredInvitations;
@@ -56,15 +55,15 @@ function inviteSearch(invitations) {
         var optionElement = document.createElement('option');
         optionElement.value = optionText;
         optionElement.textContent = optionText;
-        showNamesList.appendChild(optionElement);
+        selectElement.appendChild(optionElement);
         numberOfOptions +=1
       });
 
-      showNamesList.style.display = 'flex';
+      selectElement.style.display = 'flex';
       // if (window.innerWidth <= 1000) {
-      //   showNamesList.focus()
+      //   selectElement.focus()
       //   if (isAndroidMobile()) {
-      //     showNamesList.focus();
+      //     selectElement.focus();
       //     selectElement.focus();
       //   }
       // }
@@ -84,14 +83,14 @@ function inviteSearch(invitations) {
       setDropdownSize();
 
     } else {
-      showNamesList.style.display = 'none';
+      selectElement.style.display = 'none';
     }
   });
 
-  showNamesList.addEventListener('click', function (e) {
+  selectElement.addEventListener('click', function (e) {
     e.preventDefault();
-    invitationGroup.textContent = showNamesList.value;
-    showNamesList.style.display = 'none';
+    invitationGroup.textContent = selectElement.value;
+    selectElement.style.display = 'none';
     
   });
 
@@ -110,14 +109,14 @@ function selectInvitation() {
       
 
 
-      invitationGroup.textContent = showNamesList.value
+      invitationGroup.textContent = selectElement.value
       if (isAndroidMobile()) {
         selectElement.display = 'block'; 
-        // selectElement.focus()
+        selectElement.focus()
       }
       else
       {
-        // selectElement.focus()
+        selectElement.focus()
       }
     }
 
