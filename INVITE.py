@@ -48,7 +48,7 @@ else:
 
     # Execute the query and process the results
     query_job = client.query(query)
-    while invite_count < 50:
+    while invite_count < 51:
         for row in query_job:
             email_addresses = []
             invite_id = row["Invite_ID"]
