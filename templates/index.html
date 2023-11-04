@@ -1,121 +1,535 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <!-- title: CHANGE ME -->
-        <title>Maggie and Ollie's Wedding!</title>
-        <link rel="icon" href="../static/images/icon.png">
-        
-    <!-- stylesheets -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/stylesheet.css">
 
-    <!-- scripts-->
+<head>
 
-    <!-- meta -->
-    <meta name="author" content="Maggie Hunt">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="The wedding of Maggie Hunt and Oliver Norman">    
-    </head>
-    
-    <body class="noScrollBar">
-      <div class="header-and-nav">
-        <div id="header"><h1><a href="/">M&O</a></h1></div>
-        <nav>
-        <ul>
-          <li>
-            <a href="/ceremony">Ceremony</a>
+
+
+  <!-- title: CHANGE ME -->
+  <title>Maggie and Ollie's Wedding!</title>
+  <link rel="icon" href="../static/images/icon.png">
+
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/stylesheet.css">
+  <link rel="stylesheet" href="../static/css/noninfo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <!-- meta -->
+  <meta name="author" content="Maggie Hunt">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="The wedding of Maggie Hunt and Oliver Norman">
+
+</head>
+
+<body id="body">
+  <input type="checkbox" id="up-to-top-check" hidden>
+  <button id="up-to-top" title="Go to top" onclick="reveal('topButton')"><a class="up-to-top-link"
+      href="#cover-page">^</a></button>
+
+  <div class="header-and-nav topnav">
+    <div id="header">
+      <h1><a class="mando" href="">M&O</a></h1>
+    </div>
+    <nav class="big-menu">
+      <ul>
+        <li>
+          <a href="#ceremony">Ceremony</a>
         </li>
         <li>
-          <a href="/rsvp">RSVP</a>
-      </li>
-      <li>
-        <a href="/transport-and-accommodation">Transport and Accommodation</a>
-    </li>
-      <li>
-        <a href="/choir">Choir</a>
-    </li>
-    <li>
-      <a href="https://prezola.com/wishlists/10270629/" target="_blank">Gift Registry</a>
-  </li>
-        </ul>
-    </nav></div>
-    <div>
-      <div id="cover-page-gradient"></div>
-       <div class="carousel-display-home">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img class="d-block w-100 cover-page-image" src="../static/images/zadarable.JPG" alt="Zadar">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100 cover-page-image" src="../static/images/edd80088-7b88-42b1-88cf-6b1c11a2407d.JPG" alt="Leila">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100 cover-page-image" src="../static/images/16252180_1406401712727874_4595870805118186840_o (1).JPG" alt="ESO">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100 cover-page-image" src="../static/images/16299736_1406370176064361_1995352274273630325_o.JPG" alt="ESO">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100 cover-page-image" src="../static/images/IMG_1915.JPG" alt="ESO">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100 cover-page-image" src="../static/images/635E963F-8FDB-48F2-B950-9B568ADEFD35.JPG" alt="Pimlico">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100 cover-page-image" src="../static/images/IMG_1951.jpg" alt="HP">
-            </div>
-            <div class="carousel-item" data-ride="carousel">
-              <img class="d-block w-100 cover-page-image" src="../static/images/IMG_1956.JPG" alt="Nice">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100 cover-page-image" src="../static/images/IMG_1959.JPG" alt="Party">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100 cover-page-image" src="../static/images/IMG_1961.JPG" alt="Kalkan">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100 cover-page-image" src="../static/images/IMG_1966.JPG" alt="Bears">
-              
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100 cover-page-image" src="../static/images/IMG_1964.JPG" alt="Ceilidh">
-             
-            </div>
-            
-            <div class="carousel-item">
-              <img class="d-block w-100 cover-page-image" src="../static/images/IMG_1971.JPG" alt="Pirates">
-              
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100 cover-page-image" src="../static/images/IMG_1946 (1).JPG" alt="Ironman">
-              <div class="carousel-caption d-none d-md-block">
-                <p>After Ollie's IronMan.</p>
+          <a href="#reception">Reception</a>
+        </li>
+        <li>
+          <a href="/RSVP">RSVP</a>
+        </li>
+        <li>
+          <a href="#getting-there-accommodation" onclick="reveal('gettingThere')">Getting There</a>
+        </li>
+        <li>
+          <a href="#getting-there-accommodation" onclick="reveal('accommodation')">Accommodation</a>
+        </li>
+        <li>
+          <a href="#dress-code-gift-registry-choir" onclick="reveal('dressCode')">Dress Code</a>
+        </li>
+        <li>
+          <a href="#dress-code-gift-registry-choir" onclick="reveal('giftRegistry')">Gift Registry</a>
+        </li>
+        <li>
+          <a href="#dress-code-gift-registry-choir" onclick="reveal('choir')">Choir</a>
+        </li>
+        <li>
+          <a href="#contact-us">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Navigation links (hidden by default) -->
+    <nav class="small-menu">
+      <div id="myLinks">
+        <a href="#ceremony" onclick="expandFunction()">Ceremony</a>
+        <a href="#reception" onclick="expandFunction()">Reception</a>
+        <a href="/RSVP" onclick="expandFunction()">RSVP</a>
+        <a href="#getting-there-accommodation" onclick="expandFunction(); reveal('gettingThere')">Getting There</a>
+        <a href="#getting-there-accommodation" onclick="expandFunction(); reveal('accommodation')">Accommodation</a>
+        <a href="#dress-code-gift-registry-choir" onclick="expandFunction(); reveal('dressCode')">Dress Code</a>
+        <a href="#dress-code-gift-registry-choir" onclick="expandFunction(); reveal('giftRegistry')">Gift Registry</a>
+        <a href="#dress-code-gift-registry-choir" onclick="expandFunction(); reveal('choir')">Choir</a>
+        <a href="#contact-us" onclick="expandFunction()">Contact Us</a>
+      </div>
+      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+      <a href="javascript:void(0);" class="icon" onclick="expandFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </nav>
+  </div>
+  
+
+  <div id="page-content">
+    <div class="page-section" id="cover-page">
+      <div>
+        <div id="cover-page-gradient"></div>
+        <div class="carousel-display-home">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100 cover-page-image"
+                  src="../static/images/EngagementPhotos/Maggie_OllieEngagement89_sq.jpg"
+                  alt="Maggie and Ollie on bridge">
               </div>
             </div>
+
           </div>
-          
+        </div>
+      </div>
+
+      <div id="cover-page">
+        <br>
+        <h2>the wedding of</h2>
+        <h1>Maggie Rose Prinn Hunt<br>&<br>Oliver John Benjamin Norman</h1>
+        <h4>18th May 2024 | Bedfordshire, UK</h4>
+        <br> <br>
+        <p> {{days_left}} days to go!
+        </p><br>
+        <div class="rsvp-button button" id="rsvp">
+          <a class="rsvp-button-link" href="/RSVP">
+            <h2>RSVP</h2>
+          </a>
         </div>
       </div>
     </div>
-      <div id="cover-page" class="main-content page-content">
-        <br>
-        <h2>the wedding of</h2>
-     <h1>Maggie Rose Prinn Hunt<br>&<br>Oliver John Benjamin Norman</h1>
-     <h4>18th May 2024 | Bedfordshire, UK</h4>
-     <br>
-       <p> {{days_left}} days to go!<br>
-       </p></div>
-    </body>
-    
-<script src="../static/js/script.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <div class="other-divs">
+      <div class="page-section" id="about-us">
+        <h3 class="dot">About Us</h3>
+        <p>Maggie and Ollie met {{number_of_years}} years ago; Ollie escorted Maggie to her audition for the university
+          chamber choir in September 2014. After a few rehearsals standing one in front of the other, their friendship grew over a shared
+          passion for choral music, Ipswich Town Football Club (although Ollie often frantically
+          googled facts prior to rehearsals, hoping to impress) and a good trip to the pub. To the surprise of
+          absolutely nobody around them, this friendship eventually blossomed into something more.</p>
 
+        <p>In the first 6 months of their relationship, Maggie invented pigs in blankets toad in the hole (an idea so
+          good Ollie
+          said ‘I love you’ immediately) and braved a Norman family holiday; to balance this she then moved to Morocco
+          to study Arabic,
+          marking the start of nearly two years of long distance. Maggie and Ollie’s relationship grew stronger despite
+          this,
+          resulting in some incredible surprise visits (though Maggie’s surprise execution was by far the superior - Ollie got
+          too excited) and holidays.</p>
+
+        <p>In 2018, Maggie moved down to London and the pair went from one extreme to the other - living together.
+          The next four years saw them travel to over 10 different countries, both change careers into tech, survive 3
+          lockdowns,
+          renovate their first house, and Ollie even taught Maggie to run - meaning that 75 of the 1065km they have
+          covered in races between them* are proudly in her name.</p>
+        <p>*since dating</p>
+
+        <p>Of course, they welcomed their whizzy whippet, Leila, into their lives in 2021, exactly a year before Ollie
+          finally proposed to Maggie on 10th December 2022.</p>
+
+        <p>Maggie and Ollie are so excited to celebrate their wedding with you in just {{days_left}} days!
+        </p>
+      </div>
+      <div class="page-section ceremony-and-reception-parent" id="ceremony-and-reception">
+        <div class="ceremony-and-reception-child" id="ceremony">
+          <h3 class="dot">Ceremony</h3>
+          <div class="ceremony-and-reception-grandchild">
+            <h5>The Parish Church of <br>St Mary The Virgin,<br>Gamlingay<br><br>2pm
+            </h5>
+          </div>
+        </div>
+        <div class="ceremony-and-reception-child" id="reception">
+          <h3 class="dot">Reception</h3>
+          <div class="ceremony-and-reception-grandchild">
+            <h5>Wrest Park, <br>Silsoe<br><br><br>
+            Carriages at 11.45pm</h5>
+          </div>
+        </div>
+        
+      </div>
+      <div class="page-section" id="getting-there-accommodation">
+        <div class="button-row-parent">
+          <div class="button-row-child" id="getting-there-tile" onclick="reveal('gettingThere')">
+            <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement8_sq.jpg" class="button-row-grandchild">
+            <div class="button-row-button" id="getting-there-button">
+              <a class="button-row-button-link">
+                <h4>Getting There</h4>
+              </a>
+            </div>
+          </div>
+          <div></div>
+          <div class="button-row-child" id="accommodation-tile" onclick="reveal('accommodation')">
+            <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement78_sq.jpg" class="button-row-grandchild">
+            <div class="button-row-button" id="accommodation-button">
+              <a class="button-row-button-link">
+                <h4>Where to Stay</h4>
+              </a>
+            </div>
+          </div>
+
+        </div> <input type="checkbox" id="getting-there-check" hidden>
+        <input type="checkbox" id="accommodation-check" hidden>
+
+        <div class="hide-on-load" id="getting-there">
+          <h3 class="dot">Getting There</h3>
+          <p>The ceremony will be held at The Parish Church of St Mary The Virgin, Gamlingay.</p>
+          <div class="bus-box-div">
+            <h6 class="bus-box">There is no parking at the church.<br><br>Please note we are providing transport from
+              the ceremony to the reception venue.</h6>
+          </div>
+          <p>We strongly recommend travelling to the ceremony by taxi or public transport.
+          </p>
+
+          <div class="columns choir map-parent">
+            <div class="column map-child">
+              <!-- todo: resolve - stakc vertically on phone -->
+              <iframe class="ceremony-iframe"
+                src="https://www.google.com/maps/embed?pb=!4v1671725845639!6m8!1m7!1sN8DTHoX9mLRCyhIefLzMjQ!2m2!1d52.15520207246828!2d-0.1875481173418556!3f137.36754966291426!4f14.778427028663316!5f0.7820865974627469"
+                width="Auto" height="auto" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="column map-child">
+              <iframe class="ceremony-iframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2447.864720203055!2d-0.189465684010848!3d52.15496987096889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4877d029461ccf69%3A0x179cd635466d9a26!2sParish%20Church%20of%20Saint%20Mary%20the%20Virgin%20Gamlingay!5e0!3m2!1sen!2suk!4v1671727781658!5m2!1sen!2suk"
+                width="auto" height="auto" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+          <h4>Bus routes</h4>
+          <p>Three bus routes serve Gamlingay village: <a
+              href="https://bustimes.org/services/189-market-square-bus-station" target="_blank"
+              style="display: inline;">189</a>,
+            <a href="https://bustimes.org/services/190-market-square-bus-station" target="_blank"
+              style="display: inline;">190</a> and
+            <a href="https://bustimes.org/services/c2-st-neots-longstowe-orwell-arrington-croydon-the" target="_blank"
+              style="display: inline;">C2</a>. <br>
+            You can find their details and timetables <a href="https://bustimes.org/localities/gamlingay"
+              target="_blank" style="display: inline;">here</a>.
+          </p>
+          <h4>Taxis</h4>
+          <p>Due to the lack of parking, we advise pre-booking a taxi to arrive at the
+            church in plenty of time for the ceremony.<br><br>
+            Local taxi services include:
+          </p>
+
+          <ul>
+            <li>Ampthill Cabs - 01525 404545</li>
+            <li>Flitwick Taxi service - 01525 405060</li>
+            <br>
+            <li>A1 station Taxis - 01525 757575</li>
+            <li>505 Cars Gamlingay - 01767 650505</li>
+            <br>
+            <li>Gamlingay Taxi Service - 01767 400078</li>
+            <li>Derek's Cars Potton - 07590 597351</li>
+            <br>
+            <li>Ace Cars - 01767 834041</li>
+            <li>Potton Taxi Service - 01767 401399</li>
+            <br>
+            <li>Village Cars - 01767 600300</li>
+            <li>Sandy Station Cars - 01767 600006</li>
+          </ul><br><br>
+          <p>This list covers services for Gamlingay and Silsoe, though wherever you choose to stay will likely also
+            have
+            their own recommendations.
+            <br><br>
+            If you arrive early, <a href="https://www.thewheatsheafgamlingay.uk/" target="_blank"
+              style="display: inline;">The Wheatsheaf</a> (the pub opposite the church) will be open from 1pm to
+            entertain
+            friends and family who would like to share in a drink and meet each
+            other before the main event.
+          </p>
+          <div class="bus-box-div">
+            <h6 class="bus-box">We have arranged transport for all our reception guests to travel from the ceremony to
+              the reception.</h6>
+          </div>
+        </div>
+
+
+
+        <div class="hide-on-load" id="accommodation">
+          <h3 class="dot">Where to Stay</h3>
+          <p>There are a number of options within 30 mins
+        drive of both venues - the ceremony in Gamlingay and the reception in Silsoe.
+            <br>
+            <br>
+        We recommend looking at hotels and inns in Potton,
+        Shefford, Amphtill,
+        or Biggleswade. Below is a selection of options, with prices based on a double room, though there are plenty more options in the area.
+          </p>
+ 
+          <div class="hotel-table-layout-parent">
+            <div class="hotel-table-layout-child">
+              <div class="hotel-table-layout-grandchild">
+                <h6>Name</h6>
+              </div><div class="hotel-table-layout-grandchild"></div>
+              <div class="hotel-table-layout-grandchild"><p><a href="https://www.strattonhouse-hotel.co.uk" target="_blank">Stratton House Hotel</a></p></div>
+              <div class="hotel-table-layout-grandchild"><p><a href="https://www.booking.com/hotel/gb/the-hart.en-gb.html" target="_blank">The White Hart Hotel</a></p></div>
+              <div class="hotel-table-layout-grandchild"><p><a href="https://via.eviivo.com/TheKnifeandCleaverMK451" target="_blank">The Knife & Cleaver</a></p></div>
+              <div class="hotel-table-layout-grandchild"><p><a href="https://www.booking.com/hotel/gb/thebedfordswan.en-gb.html" target="_blank">The Swan Hotel</a></p></div>
+              <div class="hotel-table-layout-grandchild"><p><a href="https://thegeorgemaulden.com/stay-at-the-george-inn#our-rooms" target="_blank">The George Inn</a></p></div>
+ 
+            </div>
+            <div class="hotel-table-layout-child">
+              <div class="hotel-table-layout-grandchild">
+                <h6>Town</h6></div><div class="hotel-table-layout-grandchild"></div>
+              <div class="hotel-table-layout-grandchild">
+                <p>Biggleswade</p>
+              </div>
+              <div class="hotel-table-layout-grandchild">
+                <p>Shefford</p>
+              </div>
+              <div class="hotel-table-layout-grandchild">
+                <p>Houghton Conquest</p>
+              </div>
+              <div class="hotel-table-layout-grandchild">
+                <p>Bedford</p>
+              </div>
+              <div class="hotel-table-layout-grandchild">
+                <p>Maulden</p>
+              </div>
+            </div>
+ 
+            <div class="hotel-table-layout-child">
+              <div class="hotel-table-layout-grandchild">
+                <h6>Price<br>(£)</h6></div><div class="hotel-table-layout-grandchild"></div>
+              <div class="hotel-table-layout-grandchild">
+                <p>60</p>
+              </div>
+               <div class="hotel-table-layout-grandchild">
+                <p>70</p>
+              </div>
+               <div class="hotel-table-layout-grandchild">
+                <p>90</p>
+              </div>
+               <div class="hotel-table-layout-grandchild">
+                <p>110</p>
+              </div>
+               <div class="hotel-table-layout-grandchild">
+                <p>120</p>
+              </div>
+            </div>
+            <div class="hotel-table-layout-child">
+              <div class="hotel-table-layout-grandchild">
+                <h6>Closer<br>to</h6></div><div class="hotel-table-layout-grandchild"></div>
+              <div class="hotel-table-layout-grandchild">
+                <p>Gamlingay</p>
+              </div>
+               <div class="hotel-table-layout-grandchild">
+                <p>Silsoe</p>
+              </div>
+               <div class="hotel-table-layout-grandchild">
+                <p>Silsoe</p>
+              </div>
+               <div class="hotel-table-layout-grandchild">
+                <p>Equidistant</p>
+              </div>
+               <div class="hotel-table-layout-grandchild">
+                <p>Silsoe</p>
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+
+      <div class="page-section" id="dress-code-gift-registry-choir">
+        <div class="button-row-parent">
+          <div class="button-row-child" id="dress-code-tile" onclick="reveal('dressCode')">
+            <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement80.jpg" class="button-row-grandchild">
+            <div class="button-row-button" id="dress-code-button">
+              <a class="button-row-button-link">
+                <h4>Dress Code</h4>
+              </a>
+            </div>
+            <div></div>
+          </div>
+          <div class="button-row-child" id="gift-registry-tile" onclick="reveal('giftRegistry')">
+            <img src="../static/images/EngagementPhotos/Maggie_OllieEngagementShoot-101_sq.jpg"
+              class="button-row-grandchild">
+            <div class="button-row-button" id="gift-registry-button">
+              <a class="button-row-button-link">
+                <h4>Gift Registry</h4>
+              </a>
+            </div>
+          </div>
+          <div></div>
+          <div class="button-row-child" id="choir-tile" onclick="reveal('choir')">
+            <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement11.jpg" class="button-row-grandchild">
+            <div class="button-row-button" id="choir-button">
+              <a class="button-row-button-link">
+                <h4>Choir</h4>
+              </a>
+            </div>
+          </div>
+
+        </div>
+        <input type="checkbox" id="dress-code-check" hidden>
+        <input type="checkbox" id="gift-registry-check" hidden>
+        <input type="checkbox" id="choir-check" hidden>
+
+
+        <div class="hide-on-load" id="dress-code">
+          <h3 class="dot">Dress Code</h3>
+          <p>Please note that the dress code is formal, white tie and hats optional. <br><br>
+            The Reception will be held at an English Heritage site - the venue team kindly request that guests wear <a
+              href="https://www.amazon.co.uk/Protectors-Stiletto-Stoppers-Outdoor-Weddings/dp/B0BX9PZRHY/ref=sr_1_15?crid=Y28PU7WUGBNS&keywords=heel+protectors+for+stiletto+shoes&qid=1688847300&refinements=p_n_free_shipping_eligible%3A20930951031&rnid=20930950031&sprefix=heel+protectors+%2Caps%2C212&sr=8-15"
+              target="_blank" style="display: inline;">heel protectors</a> if their shoes have a stiletto heel, to
+            protect
+            the tiled floors. </li>
+          </p>
+        </div>
+        <div class="hide-on-load" id="gift-registry">
+          <a href="https://prezola.com/wishlists/10270629/" target="_blank"><h3 class="dot">Gift Registry</h3></a>
+          <p> We are already so excited to share our wedding celebrations with you, and are so grateful to everyone
+            making
+            their way to be with us on the big day.
+            <br><br>
+            Should you wish to buy us a wedding
+            gift,
+            we have collated a <a href="https://prezola.com/wishlists/10270629/" target="_blank"
+              style="display: inline;">Gift Registry on Prezola</a>.
+            <br><br>
+            We have listed honeymoon experiences and homeware which will last our whole lives;
+            the larger gifts are 'group gifts' where friends and family can pool contributions and choose to contribute any amount.
+            <br><br>We are also raising
+            funds for <a href="https://prezola.com/wishlists/10270629/3668386" target="_blank"
+              style="display: inline;">Alzheimer's Society</a>, which is an incredibly important charity to both of
+            us.<br><br>
+            Dementia has impacted both of our families; it is sadly the reason two of our grandfathers are no longer
+            with
+            us, and two of our grandmothers are not able to attend our wedding.
+            <br> <br>
+            Please consider this cause as you peruse the registry - your support would mean so much!<br><br>
+            Click below to access the registry.<br>
+          </p>
+          <a href="https://prezola.com/wishlists/10270629/" target="_blank" style="display: inline;" class="no-dot"><img
+              src="../static/images/Prezola.png" height="80vh" width="auto"></a>
+          <a href="https://prezola.com/wishlists/10270629/3668386" target="_blank" style="display: inline;"><img
+              src="../static/images/alzheimers_soc.png" height="100vh" width="auto"></a>
+        </div>
+        <div class="hide-on-load" id="choir">
+
+          <h3 class="dot">Choir</h3>
+          <p>We are privileged to have so many musical friends and family - and it is tradition in Maggie's extended
+            family to
+            bring everyone together to sing a piece as part of big events and ceremonies such as weddings.
+            <br><br>
+            If you would like be part of this performance, please note the rehearsal
+            will be
+            at the church on the day of the <a href="/ceremony" target="_blank" style="display: inline;">ceremony</a>,
+            12.15pm-1pm.<br>
+            <br>
+
+          <div class="table-layout-parent">
+            <div class="table-layout-child">
+              <div class="table-layout-grandchild">
+                <p>The choir will be performing Rheinberger's <a
+                    href="https://open.spotify.com/track/0p6rDBRL9aoGtUQX2kp6Am?si=daf03528c03542c4" target="_blank"
+                    style="display: inline;">Abendlied</a>
+                  as the second piece during the signing of the register.
+              </div>
+              <div class="table-layout-grandchild"><iframe src="https://www.youtube.com/embed/sIOagJryMik"
+                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+                picture-in-picture; web-share" class="table-layout-media" allowfullscreen></iframe></div>
+
+
+            </div>
+            <div class="table-layout-child">
+              <div class="table-layout-grandchild">
+                <p>Sheet music will be provided, but you can download it yourself <a
+                    href="https://www.cpdl.org/wiki/images/a/ab/Abendlied_-_Rheinberger.pdf" target="_blank"
+                    style="width: 100%; display: inline;">here</a>.
+                </p>
+              </div>
+              <div class="table-layout-grandchild">
+                <a href="https://www.cpdl.org/wiki/images/a/ab/Abendlied_-_Rheinberger.pdf" target="_blank"
+                  style="display: inline;"><img src="../static/images/abendlied_sheet_music.jpg"
+                    class="table-layout-media" alt="Choir Whatsapp Group QR code">
+                </a> </p>
+              </div>
+            </div>
+
+            <div class="table-layout-child">
+              <div class="table-layout-grandchild">
+                <p>Please join the <a href="https://chat.whatsapp.com/IKnUepep3j0CseehCEPa88" target="_blank"
+                    style="display: inline;">whatsapp group</a> (QR code below) to be kept in the loop.
+                </p>
+              </div>
+              <div class="table-layout-grandchild">
+                <a href="https://chat.whatsapp.com/IKnUepep3j0CseehCEPa88" target="_blank" style="display: inline;"><img
+                    src="../static/images/choirQR.png" alt="Choir Whatsapp Group QR code" class="table-layout-media">
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <br> <br>
+      <div class="page-section" id="trees">
+        <h3 style="padding: 0px;" class="dot">Tree Count</h3>
+        <h2 style="color:  #89ba49;">{{number_of_trees}}</h2>
+        <p>Our wedding vodka is by <a href="https://saplingspirits.com/" target="_blank"
+            style="display: inline;">Sapling Spirits</a>, who plant a tree per bottle sold, and we are also planting a
+          tree with <a href="https://www.thetreeapp.org/about" target="_blank" style="display: inline;">Treeapp</a> for
+          every RSVP we receive!
+          <br><br><a href="https://www.thetreeapp.org/about" target="_blank" style="display: inline;"><img
+              src="../static/images/treeapplogo.png" height="50vh" width="auto"></a>
+
+        </p>
+<br>
+      </div>
+      <div id="contact-page">
+        <div class="contact-button button" id="contact-us">
+          <a class="contact-button-link"
+            href="mailto:maggie.and.ollie.wedding@gmail.com?subject=Wedding%20Website%20Enquiry">
+            <h4>Contact us</h4>
+          </a>
+        </div>
+      </div></div>    
+    
+</div>  </body>
+<footer class="footer"></footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+    <script src="../static/js/script.js"></script>
+    <script src="../static/js/indexscript.js"></script>
+    
 </html>

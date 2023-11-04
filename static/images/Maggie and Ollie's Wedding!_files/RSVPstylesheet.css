@@ -1,0 +1,206 @@
+:root {
+    --cover-page-height: 80vh;
+    --main-dark-colour: #636363;
+    --mid-dark-colour: #666666;
+    --mid-dark-colour-transparent: rgba(0, 0, 0, 0.5);
+    --mid-dark-colour-semitransparent: rgba(0, 0, 0, 0.4);
+    --soft-dark-colour: #7c7c7c;
+    --soft-background-colour: white;
+    --light-colour: #efeeee;
+    --warm-colour: #c4bcbc;
+    --gentle-mid-colour: #a6a3a1;
+    --mid-colour: #959493;
+    --border-width: 5px;
+  }
+  
+  button {
+    background-color: var(--soft-background-colour);
+  }
+  
+  .rsvp-form {
+    display: flex;
+    width: 100%;
+    height: auto;
+    font-family: "Playfair Display SC", serif;
+  }
+  
+  .rsvp-row {
+    display: flex;
+    vertical-align: middle;
+    text-align: left;
+    justify-content: space-between;
+  }
+  
+  h4 {
+    margin-top: 0.5rem;
+  }
+  
+  .rsvp-button-row {
+    display: flex;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .rsvp-column {
+    display: flex;
+    vertical-align: middle;
+    padding-right: 10px;
+    text-align: left;
+    margin-left: 10px;
+    width: 100%;
+    height: 60px;
+  }
+  
+  .rsvp-column-freetext {
+    display: flex;
+    vertical-align: middle;
+    text-align: left;
+  }
+  
+  .rsvp-block-1 {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    width: 100%;
+  }
+
+  .rsvp-block-4 {
+    justify-content: space-around;
+  }
+
+  .rsvp-block-5 {
+    display: flex;
+    justify-self: flex-end;
+  }
+  
+  .rsvp-block-2 {
+    display: flex;
+
+  }
+  
+  .rsvp-block-3 {
+    display: flex;
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .rsvp-block-1 {
+      display: flex;
+      flex-direction: column;
+      height: 2vh;
+      margin-bottom: 20px;
+    }
+  
+    .rsvp-block-2 {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .rsvp-block-3 {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+    }
+  
+    .form-button {
+      width: 30%;
+    }
+
+    .rsvp-row {
+        display: flex;
+
+        vertical-align: middle;
+        text-align: left;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+  }
+  
+  @media only screen and (max-width: 1575px) {
+    .rsvp-block-1 {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .rsvp-block-1 {
+      display: flex;
+      flex-direction: column;
+      height: 30vh;}
+    
+
+   
+  
+    .rsvp-block-2 {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .rsvp-block-3 {
+      display: flex;
+      flex-direction: row;
+    }
+  
+    .form-button {
+      width: 30%;
+    }
+  }
+  
+  input {
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  .form-group {
+    width: 75vw;
+    font-family: "Playfair Display SC", serif;
+  }
+  
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    line-height: 60px;
+    color: var(--main-dark-colour);
+    background-color: var(--soft-background-colour);
+    background-clip: padding-box;
+    border: 1px solid var(--mid-colour);
+    border-radius: 0rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    font-size: small;
+  }
+  
+ 
+  .diet-detail-column {
+    width: 200%;
+    display: flex;
+    justify-self: flex-end;
+  }
+
+  #whole-form-input {
+    padding: 2vh;
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    height: auto;
+}
+
+#confirmation-text {
+    padding: 2vh;
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+}
+
+
+  .hide-on-load {
+    display: none;
+  }

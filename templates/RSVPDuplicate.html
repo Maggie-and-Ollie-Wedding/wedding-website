@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- title: CHANGE ME -->
+  <title>Maggie and Ollie's Wedding!</title>
+  <link rel="icon" href="../static/images/icon.png">
+
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/stylesheet.css">
+  <link rel="stylesheet" href="../static/css/noninfo.css">
+  <link rel="stylesheet" href="../static/css/RSVPstylesheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <!-- meta -->
+  <meta name="author" content="Maggie Hunt">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="The wedding of Maggie Hunt and Oliver Norman">
+</head>
+
+<body><div class="wrapper">
+  <div class="header-and-nav topnav">
+    <div id="header">
+      <h1><a href="/" class="mando">M&O</a></h1> 
+      <!-- todo: fix -->
+    </div>
+    <nav class="big-menu">
+      <ul>
+        <li>
+          <a href="#ceremony">Ceremony</a>
+        </li>
+        <li>
+          <a href="#reception">Reception</a>
+        </li>
+        <li>
+          <a href="/RSVP">RSVP</a>
+        </li>
+        <li><a href="/#getting-there-accommodation" onclick="revealFromRSVP('gettingThere')">Getting There</a></li>
+        <li><a href="/#getting-there-accommodation" onclick="revealFromRSVP('accommodation')">Accommodation</a></li>
+        <li><a href="/#dress-code-gift-registry-choir" onclick="revealFromRSVP('dressCode')">Dress Code</a></li>
+        <li><a href="/#dress-code-gift-registry-choir" onclick="revealFromRSVP('giftRegistry')">Gift Registry</a></li>
+        <li><a href="/#dress-code-gift-registry-choir" onclick="revealFromRSVP('choir')">Choir</a></li>
+        <li>
+          <a href="#contact-us">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Navigation links (hidden by default) -->
+    <nav class="small-menu">
+      <div id="myLinks">
+        <a href="#ceremony" onclick="myFunction()">Ceremony</a>
+        <a href="#reception" onclick="myFunction()">Reception</a>
+        <a href="/RSVP" onclick="myFunction()">RSVP</a>
+        <a href="#getting-there-accommodation" onclick="myFunction(); reveal('gettingThere')">Getting There</a>
+        <a href="#getting-there-accommodation" onclick="myFunction(); reveal('accommodation')">Accommodation</a>
+        <a href="#dress-code-gift-registry-choir" onclick="myFunction(); reveal('dressCode')">Dress Code</a>
+        <a href="#dress-code-gift-registry-choir" onclick="myFunction(); reveal('giftRegistry')">Gift Registry</a>
+        <a href="#dress-code-gift-registry-choir" onclick="myFunction(); reveal('choir')">Choir</a>
+        <a href="#contact-us" onclick="myFunction()">Contact Us</a>
+      </div>
+      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </nav>
+  </div>
+<main>
+  <div id="page-content">
+    <div>
+      <h1 class="dot"><br>RSVP Already Received<br></h1><br>
+      <p>Thank you for already responding to our invitation! You will already have received confirmation of your
+        response via email.<br><br>
+        Please get in touch if you think there is something wrong.<br><br></p>
+    </div>
+
+    <div id="contact-page">
+      <div class="contact-button button" id="contact-us">
+        <a class="contact-button-link"
+          href="mailto:maggie.and.ollie.wedding@gmail.com?subject=Wedding%20Website%20Enquiry">
+          <h4>Contact us</h4>
+        </a>
+      </div>
+    </div>
+
+  
+</main>
+<footer class="footer"></footer></div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="../static/js/script.js"></script>
+</body>
+</html>

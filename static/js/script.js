@@ -1,26 +1,36 @@
-window.addEventListener('load', (event) => {
+window.addEventListener('load', event => {
+  const pageContent = document.getElementById('page-content')
+  pageContent.style.opacity = '1'
+})
 
-  if (window.location.pathname =='/index') {
-    window.onload (carousel_function = function() {
-        ('.carousel').carousel({
-              interval: 20
-            });
-        ('.carousel').carousel('cycle');
-      }
-    )
-          }})
+const links = document.querySelectorAll('a[href^="#"]')
 
+links.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault()
+    const targetSection = document.querySelector(link.getAttribute('href'))
+    targetSection.scrollIntoView({
+      behavior: 'smooth'
+    })
+  })
+})
 
-
- const rsvpDietSwitch1 = document.getElementById("RSVPDiet1")
- const rsvpDietDropdown1 = document.getElementById("dropdownDiet1")
- const rsvpVocalPartSwitch1 = document.getElementById("RSVPChoir1")
- const rsvpVocalPartDropdown1 = document.getElementById("dropdownVocalPart1")
-   
- function rsvpDiet1() {
- if (rsvpDietSwitch1 === true) {
-  rsvpDietDropdown1.style.display = "block";
-} else {
-  rsvpDietDropdown1.style.display = "none";
+function expandFunction () {
+  var x = document.getElementById('myLinks')
+  if (x.style.display === 'block') {
+    x.style.display = 'none'
+  } else {
+    x.style.display = 'block'
+  }
 }
- }
+
+
+function revealFromRSVP (section) {
+  if (section === 'gettingThere' || section === 'accommodation') {
+    window.location.href = '/#getting-there-accommodation'
+  } else {
+    window.location.href = '/#dress-code-gift-registry-choir'
+  }
+
+  reveal(section)
+}
