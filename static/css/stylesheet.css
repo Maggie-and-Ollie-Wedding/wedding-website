@@ -292,6 +292,15 @@ li {
   color: var(--main-dark-colour);
 }
 
+.error-image {
+  display: flex;
+  object-fit: cover;
+  max-height: 40vh;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  object-position: top center;
+}
 
 a {
   display: inline-block;

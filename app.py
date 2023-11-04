@@ -423,7 +423,14 @@ def RSVP_group():
       else:
           print("response already received")
           number_of_trees = number_of_trees_lookup()
-          return render_template("error.html", number_of_trees=number_of_trees)
+          return render_template("RSVPDuplicate.html", number_of_trees=number_of_trees)
+
+
+#Error
+@app.errorhandler(Exception)
+def handle_generic_error(error):
+    error_info =  "{}".format(str(error).capitalize())
+    return render_template("error.html", error_info=error_info)
 
 
 # Info
