@@ -308,7 +308,7 @@ def RSVP_group():
 
     email_addresses = []
     email_content_list = []
-    email_sent = False
+    confirmation_sent = False
 
     for i in range(1, 6):
         full_name = str(form_data.get(f"invitee-form{i}"))
@@ -406,17 +406,17 @@ def RSVP_group():
 
                 email_addresses.append(email)
 
-    while email_sent == False:
+    while confirmation_sent == False:
       if invitation_valid:
           email_confirmation(email_addresses, invite_group, email_content_list)
           t = treeapp_plant()
           print(t)
 
-          update_invitation_row_query = f"UPDATE `maggie-and-ollie-wedding.wedding_1805.invitations_table` SET Active = false, Email_Sent = TRUE WHERE Invite_ID = '{invitation_ID}';"
+          update_invitation_row_query = f"UPDATE `maggie-and-ollie-wedding.wedding_1805.invitations_table` SET Active = FALSE, Confirmation_Sent = TRUE WHERE Invite_ID = '{invitation_ID}';"
           client.query(update_invitation_row_query)
 
           number_of_trees_now = number_of_trees_original + 1
-          email_sent == True
+          confirmation_sent == True
 
           return render_template("thankyou.html", number_of_trees=number_of_trees_now)
 
