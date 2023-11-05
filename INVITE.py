@@ -49,7 +49,7 @@ else:
     # Execute the query and process the results
     query_job = client.query(query)
 
-      for row in query_job:
+    for row in query_job:
           email_addresses = []
           invite_id = row["Invite_ID"]
           print(invite_id)
