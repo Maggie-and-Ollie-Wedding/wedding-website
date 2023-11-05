@@ -9,9 +9,8 @@ let notiPhoneBool
 let mobileBool
 
 function isNotiPhoneMobile () {
-
   notiPhoneBool = !/iPhone/.test(navigator.userAgent)
-
+  console.log('ihpone', notiPhoneBool)
   return notiPhoneBool
 }
 
@@ -22,10 +21,12 @@ function isMobile () {
     mobileBool = true
 
     isNotiPhoneMobile()
-
   }
 
-
+  else {
+    mobileBool = false
+  }
+  console.log('mobile', mobileBool)
   return mobileBool
 }
 window.onload(isMobile())
@@ -63,6 +64,8 @@ function listOfInvitees (listOfInvitations) {
 function inviteSearch (invitations) {
   let selectedOption = selectElement.value
 
+  console.log(selectedOption)
+
   searchYourName.addEventListener('input', function () {
     let searchYourNameContent = capitalizeNames(searchYourName.value)
     let filteredInvitations = invitations.filter(option =>
@@ -71,15 +74,16 @@ function inviteSearch (invitations) {
 
     selectElement.innerHTML = ''
 
-    
+    console.log(selectElement)
 
     if (notiPhoneBool) {
-   
       const searchElement = document.createElement('option')
       searchElement.text = 'Click to search...'
       selectElement.appendChild(searchElement)
+      console.log('not iphone')
     } else {
       console.log(' ')
+      console.log('iphone:')
     }
 
     if (searchYourNameContent.length > 2 && filteredInvitations.length > 0) {
@@ -95,9 +99,8 @@ function inviteSearch (invitations) {
         numberOfOptions += 1
       })
 
-      if (isMobile){
-        selectElement.value = "Click to search...";
-
+      if (mobileBool) {
+        selectElement.value = 'Click to search...'
       }
 
       selectElement.style.display = 'flex'
@@ -119,66 +122,64 @@ function inviteSearch (invitations) {
       }
 
       setDropdownSize()
+      console.log('dropdownsize')
     } else {
-    
+      console.log('none')
 
       selectElement.style.display = 'none'
     }
-
   })
 
   selectElement.addEventListener('click', hideFunction())
   selectElement.addEventListener('touch', hideFunction())
+  selectElement.addEventListener('touchstart', hideFunction())
 
-  function hideFunction () {
+}
+
+function hideFunction () {
     invitationGroup.textContent = selectElement.value
-
- 
+    console.log('hidefunction')
     if (notiPhoneBool) {
-  
       selectElement.style.display = 'none'
+      console.log('not iphone, ready for click')
       const clickEvent = new MouseEvent('click', {
         bubbles: true,
         cancelable: true,
         view: window
       })
 
-    
       selectElement.dispatchEvent(clickEvent)
     } else {
       selectElement.style.display = 'none'
-     
+      console.log('iphone')
     }
   }
-}
+
 
 function selectInvitation () {
   let selectedOption = selectElement.value
 
-  
-
   RSVPButton.style.display = 'flex'
 
   if (selectedOption) {
-
-
-    if (selectedOption == "Click to search..."){
-      form.style.display = 'none';
-      confirmationText.style.display = 'none';
-    }
-  
-    else {
-      form.style.display = 'block';
-      confirmationText.style.display = 'block';
+    if (!mobileBool) {
+    console.log('not mobile')
+    hideFunction()
+  }
+    if (selectedOption == 'Click to search...') {
+      form.style.display = 'none'
+      confirmationText.style.display = 'none'
+    } else {
+      form.style.display = 'block'
+      confirmationText.style.display = 'block'
     }
 
     let JSONSTRING = JSON.stringify({ selectedOption: selectedOption })
-   
 
     if (mobileBool) {
       invitationGroup.textContent = selectElement.value
       if (notiPhoneBool) {
-        console.log(' ')
+        console.log('not iphone', selectElement.value)
       } else {
         selectElement.style.display = 'none'
       }
