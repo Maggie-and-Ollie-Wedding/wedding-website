@@ -178,7 +178,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
                                 <br>
                                 <p>If anything changes with regard to your ability to attend please let us know as soon as you can.</p>
 
-                                <p>In the meantime, if you need to join the choir WhatsApp, remind yourself of the dress code, or view other information,<br>further
+                                <p>In the meantime, if you need to <a href="https://chat.whatsapp.com/IKnUepep3j0CseehCEPa88" target="_blank">join the choir WhatsApp</a>, remind yourself of the dress code, or view other information,<br>further
                                   details can be found on our
                                   <a href="https://www.maggieandolliewedding.party" target="_blank">website</a>.
                                 </p>
@@ -444,4 +444,3 @@ def info():
 ###debugging
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
-###app.run(debug=True) #runs the app. the debug part - unlocks debugging feature.
