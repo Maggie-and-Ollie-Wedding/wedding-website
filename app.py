@@ -165,7 +165,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
                         <div class="email-layout">
                           <div class="div-display">
                             <img
-                              src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaDUF4L4_-llNOmMB2jVlNdQJHK3wPwDAxtxS0lhqOWAYyyoUTrwQ2nG_V2olHzPXcJu20AECbVTgBMp4U0mFrg0LYHtaQ=s1600"
+                              src="https://lh3.googleusercontent.com/pw/ADCreHdQ_H0Fy0Q_tKVoNosPnhUKZ0glALblOkTZq7aOfa8EaezXYtM828WYWkJDVsjtWo9J1Tp44ilGTNMVtWxzRBymbTjL-TnSts69sTyQP-MuUNjS3yc=w2400"
                               title="Logo" style="display:block" height="auto" width="100%">
                           </div>
 
@@ -189,7 +189,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
 
                             <a href="https://www.maggieandolliewedding.party" target="_blank">
                               <img
-                                src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaDLJFRyGMyBz3JGkdmUChdIFmxZ59b2TGggVBMUvVHJ6RN7tcYDhCPVfiM_JH3VN3AdQPLHiElBRNPK6vO6XAln1e0C2w=s1600"
+                                src="https://lh3.googleusercontent.com/pw/ADCreHdCrp0AtKiICliS_zf_FgVdaaoAZ99QazqY4eH2ydsuO705UaWXlDSfvvXrscaye-SHLCj8jTschgEAsOawDnMyZDWDcWroBqE_FTTCdpEmzQvyOgs=w2400"
                                 title="Logo" style="display:block" height="auto" width="100px">
 
                             </a>

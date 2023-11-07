@@ -173,7 +173,7 @@ else:
 
                           <div class="div-display">
                           <a href="https://www.maggieandolliewedding.party"> <img
-                              src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaCarWwXWD2eX05qkgtWvQu5chJ77KFs4NBCjfsjJa2RUMlvumApS7BLZmGq-xInLee_Mx00MIauoRG0i6XfhmxrlRLU=s1600"
+                              src="https://lh3.googleusercontent.com/pw/ADCreHdDLfRtuG_GsQ1UL0ocu53n0SPURJEzxUw6NcabUtObaR0kFM0Ztr-gSuqEqQQGhdxYoF8JbftpBfmI6YPgd08swoWVLZWTkAhZluwDejwB_jZesZM=w2400"
                               title="Logo" style="display:block" height="auto" width="100%" ></a>
                           </div>
 
