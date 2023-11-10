@@ -921,6 +921,7 @@ a:hover:before {
   width: 100%;
   color: var(--colour-4);
 }
+
 @media only screen and (max-width: 600px) {
   .contact-button{
     width: 50vw;
