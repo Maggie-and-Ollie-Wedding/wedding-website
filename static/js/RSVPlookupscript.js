@@ -4,6 +4,7 @@ const selectElement = document.getElementById('list-of-invitations-names')
 const RSVPButton = document.getElementById('submit-rsvp-button-section')
 const form = document.getElementById('whole-form-input')
 const confirmationText = document.getElementById('confirmation-text')
+const instructions = document.getElementById('instructions')
 
 let notiPhoneBool
 let mobileBool
@@ -169,8 +170,10 @@ function selectInvitation () {
     if (selectedOption == 'Click to search...') {
       form.style.display = 'none'
       confirmationText.style.display = 'none'
+      instructions.style.display = 'none'
     } else {
       form.style.display = 'block'
+      instructions.style.display = 'block'
       confirmationText.style.display = 'block'
     }
 
