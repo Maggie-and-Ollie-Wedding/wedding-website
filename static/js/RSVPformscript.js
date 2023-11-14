@@ -126,15 +126,7 @@ function numberOfInvitees () {
     var inviteConfirmation = document.getElementById(
       'rsvpConfirmation' + inviteeNumber
     )
-
-    if (numberOfInvitees < inviteeNumber) {
-      inviteLine.style.display = 'none'
-      inviteConfirmation.style.display = 'none'
-    } else {
-      inviteLine.style.display = 'inline'
-      inviteConfirmation.style.display = 'inline'
-
-      var fullName = inviteesList[inviteeNumber - 1]
+    var fullName = inviteesList[inviteeNumber - 1]
       var nameOnForm = document.getElementById('invitee-form' + inviteeNumber)
       var nameOnFormValue = document.getElementById(
         'invitee-form-value' + inviteeNumber
@@ -142,6 +134,18 @@ function numberOfInvitees () {
       var nameSummary = document.getElementById(
         'invitee-summary' + inviteeNumber
       )
+    
+    if (numberOfInvitees < inviteeNumber) {
+      inviteLine.style.display = 'none'
+      inviteConfirmation.style.display = 'none'
+      nameOnForm.innerHTML = ''
+      nameSummary.innerHTML = ''
+      nameOnFormValue.value = ''
+    } else {
+      inviteLine.style.display = 'inline'
+      inviteConfirmation.style.display = 'inline'
+
+      
       nameOnForm.innerHTML = fullName
       nameSummary.innerHTML = fullName
       nameOnFormValue.value = fullName
