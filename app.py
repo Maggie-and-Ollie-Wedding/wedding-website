@@ -22,12 +22,11 @@ import http.client
 treapp_url = os.getenv("TREEAPP_API_URL")
 treeapp_key = os.getenv("TREEAPP_API_KEY")
 resend.api_key = os.getenv("EMAIL_API_KEY")
-resend_domain_id=os.getenv('EMAIL_DOMAIN_ID')
-twilio_account_sid = os.getenv('TWILIO_ACCOUNT_SID')
-twilio_auth_token = os.getenv('TWILIO_AUTH_TOKEN')
-twilio_from = os.getenv('TWILIO_FROM')
-twilio_to = os.getenv('TWILIO_TO')
-
+resend_domain_id = os.getenv("EMAIL_DOMAIN_ID")
+twilio_account_sid = os.getenv("TWILIO_ACCOUNT_SID")
+twilio_auth_token = os.getenv("TWILIO_AUTH_TOKEN")
+twilio_from = os.getenv("TWILIO_FROM")
+twilio_to = os.getenv("TWILIO_TO")
 
 
 app = Flask("maggie-and-ollie-wedding")  # making an app
@@ -74,7 +73,7 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
 
     print(email_content)
     getdomain = resend.Domains.get(domain_id=resend_domain_id)
-    domain_status=getdomain['status']
+    domain_status = getdomain["status"]
     print(domain_status)
 
     html_body_1 = """<!DOCTYPE html>
@@ -199,40 +198,39 @@ def email_confirmation(email_addresses, invite_group, email_content_list):
 
     email = html_body_1 + email_content + html_body_2
 
-    if domain_status=="verified":
-        
-      r = resend.Emails.send(
-              {
-                  "from": "rsvp@maggieandolliewedding.party",
-                  "to": email_addresses,
-                  "cc": "maggie.and.ollie.wedding@gmail.com",
-                  "subject": f"RSVP - {invite_group}",
-                  "reply_to": "maggie.and.ollie.wedding@gmail.com",
-                  "html": email
-              }
-          )
+    if domain_status == "verified":
 
+        r = resend.Emails.send(
+            {
+                "from": "rsvp@maggieandolliewedding.party",
+                "to": email_addresses,
+                "cc": "maggie.and.ollie.wedding@gmail.com",
+                "subject": f"RSVP - {invite_group}",
+                "reply_to": "maggie.and.ollie.wedding@gmail.com",
+                "html": email,
+            }
+        )
 
-
-    
-
-      return "email conf sent"
+        return "email conf sent"
     else:
-      print(email)
+        print(email)
 
-      message_content="Domain verification for resend api failed, reverification in process. RSVP confirmation failure for: "+email_addresses+" RSVP IS: "+email_content
+        message_content = (
+            "Domain verification for resend api failed, reverification in process. RSVP confirmation failure for: "
+            + email_addresses
+            + " RSVP IS: "
+            + email_content
+        )
 
-      twilio_client = Client(twilio_account_sid, twilio_auth_token)
+        twilio_client = Client(twilio_account_sid, twilio_auth_token)
 
-      message = twilio_client.messages.create(
-        from_=twilio_from,
-        body=message_content,
-        to=twilio_to
-      )
+        message = twilio_client.messages.create(
+            from_=twilio_from, body=message_content, to=twilio_to
+        )
 
-      print(message.sid)
-      verify = resend.Domains.verify(domain_id=resend_domain_id)
-      return email, ": email conf NOT SENT - domain in process of re-verifying"
+        print(message.sid)
+        verify = resend.Domains.verify(domain_id=resend_domain_id)
+        return email, ": email conf NOT SENT - domain in process of re-verifying"
 
 
 # Homepage
@@ -292,7 +290,7 @@ def RSVP():
         number_of_trees=number_of_trees,
         list_results=list_results,
         invitationList=invitationList,
-        lookup_id=invite_id
+        lookup_id=invite_id,
     )
 
 
@@ -335,16 +333,16 @@ def RSVP_group():
 
                 if invitation_valid_rows:
                     invitation_valid = invitation_valid_rows[0][3]
-            
+
             if invitation_valid:
-                
+
                 RSVP_bool = (
                     "TRUE" if form_data.get(f"RSVPCheck{i}") == "on" else "FALSE"
                 )
                 choir_bool = (
                     "TRUE" if form_data.get(f"RSVPChoir{i}") == "on" else "FALSE"
                 )
-                print('choir bool: ', choir_bool)
+                print("choir bool: ", choir_bool)
 
                 choir_part = str(form_data.get(f"dropdownVocalPart{i}"))
                 dietary_bool = (
@@ -358,7 +356,9 @@ def RSVP_group():
                                                   Dietary: {dietary_bool}, {dietary_opt}{dietary_detail}. Response at {response_time} from {responder}."
                 print(summary_string_basic)
                 if RSVP_bool == "TRUE":
-                    summary_string = f"<b>{full_name}</b> is able to attend the wedding."
+                    summary_string = (
+                        f"<b>{full_name}</b> is able to attend the wedding."
+                    )
                     if choir_bool == "TRUE":
                         summary_string = (
                             summary_string
@@ -383,7 +383,9 @@ def RSVP_group():
                         )
 
                 else:
-                    summary_string = f"<b>{full_name}</b> is not able to attend the wedding."
+                    summary_string = (
+                        f"<b>{full_name}</b> is not able to attend the wedding."
+                    )
 
                 email_content_list.append(f"<p>{summary_string}</p>")
 
@@ -395,7 +397,7 @@ def RSVP_group():
                                         RSVP_Datetime = '{response_datetime}', RSVP_Responder = '{responder_name}'
                                         WHERE Full_Name = '{full_name}'
                                         """
-                
+
                 client.query(update_invite_query)
 
                 email_query = f"""
@@ -409,42 +411,42 @@ def RSVP_group():
                 email_addresses.append(email)
 
     while confirmation_sent == False:
-      if invitation_valid:
-          email_confirmation(email_addresses, invite_group, email_content_list)
-          t = treeapp_plant()
-          print(t)
+        if invitation_valid:
+            email_confirmation(email_addresses, invite_group, email_content_list)
+            t = treeapp_plant()
+            print(t)
 
-          update_invitation_row_query = f"UPDATE `maggie-and-ollie-wedding.wedding_1805.invitations_table` SET Active = FALSE, Confirmation_Sent = TRUE WHERE Invite_ID = '{invitation_ID}';"
-          client.query(update_invitation_row_query)
+            update_invitation_row_query = f"UPDATE `maggie-and-ollie-wedding.wedding_1805.invitations_table` SET Active = FALSE, Confirmation_Sent = TRUE WHERE Invite_ID = '{invitation_ID}';"
+            client.query(update_invitation_row_query)
 
-          number_of_trees_now = number_of_trees_original + 1
-          confirmation_sent == True
+            number_of_trees_now = number_of_trees_original + 1
+            confirmation_sent == True
 
-          return render_template("thankyou.html", number_of_trees=number_of_trees_now)
+            return render_template("thankyou.html", number_of_trees=number_of_trees_now)
 
-      else:
-          print("response already received")
-          number_of_trees = number_of_trees_lookup()
-          return render_template("RSVPDuplicate.html", number_of_trees=number_of_trees)
+        else:
+            print("response already received")
+            number_of_trees = number_of_trees_lookup()
+            return render_template(
+                "RSVPDuplicate.html", number_of_trees=number_of_trees
+            )
 
 
-#Error
+# Error
 @app.errorhandler(Exception)
 def handle_generic_error(error):
-    error_info =  "{}".format(str(error).capitalize())
+    error_info = "{}".format(str(error).capitalize())
     return render_template("error.html", error_info=error_info)
 
 
 # Info
 @app.route("/weddingday/info")
 def info():
-    
+
     lookupData = {"tableNumber": 1, "invitName": "Name"}
     # keep this or jinja2 will break
 
-    table_lookup_query_SQL = (
-        f"SELECT * FROM `maggie-and-ollie-wedding.wedding_1805.RSVP_table` WHERE RSVP_BOOL = true"
-    )
+    table_lookup_query_SQL = f"SELECT Full_Name, table_number FROM `maggie-and-ollie-wedding.wedding_1805.RSVP_table` WHERE RSVP_BOOL = true"
 
     table_lookup_query_job = client.query(table_lookup_query_SQL)
     table_lookup_results = list(table_lookup_query_job)
@@ -452,10 +454,9 @@ def info():
     guest_list = {}
 
     for i in table_lookup_results:
-        guest_list[i[0]] = i[14]
+        guest_list[i[0]] = i[1]
 
     guest_list = dict(sorted(guest_list.items()))
-
 
     return render_template("info.html", guest_list=guest_list)
 
