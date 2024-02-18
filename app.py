@@ -279,7 +279,7 @@ def RSVP():
         invite_obj = {
             "id": invite_id,
             "people_on_invite": invite_names_list,
-            "headocunt": invitees_count,
+            "headcount": invitees_count,
         }
 
         list_results.append(invite_obj)
@@ -292,7 +292,7 @@ def RSVP():
         number_of_trees=number_of_trees,
         list_results=list_results,
         invitationList=invitationList,
-        lookup_id=invite_id,
+        lookup_id=invite_id
     )
 
 
@@ -311,6 +311,7 @@ def RSVP_group():
     confirmation_sent = False
 
     for i in range(1, 6):
+        print(i)
         full_name = str(form_data.get(f"invitee-form{i}"))
         if full_name:
             if not invitation_ID:
@@ -394,6 +395,7 @@ def RSVP_group():
                                         RSVP_Datetime = '{response_datetime}', RSVP_Responder = '{responder_name}'
                                         WHERE Full_Name = '{full_name}'
                                         """
+                
                 client.query(update_invite_query)
 
                 email_query = f"""
@@ -436,9 +438,26 @@ def handle_generic_error(error):
 # Info
 @app.route("/weddingday/info")
 def info():
-    number_of_trees = number_of_trees_lookup()
+    
+    lookupData = {"tableNumber": 1, "invitName": "Name"}
+    # keep this or jinja2 will break
 
-    return render_template("info.html")
+    table_lookup_query_SQL = (
+        f"SELECT * FROM `maggie-and-ollie-wedding.wedding_1805.RSVP_table` WHERE RSVP_BOOL = true"
+    )
+
+    table_lookup_query_job = client.query(table_lookup_query_SQL)
+    table_lookup_results = list(table_lookup_query_job)
+
+    guest_list = {}
+
+    for i in table_lookup_results:
+        guest_list[i[0]] = i[14]
+
+    guest_list = dict(sorted(guest_list.items()))
+
+
+    return render_template("info.html", guest_list=guest_list)
 
 
 ###debugging

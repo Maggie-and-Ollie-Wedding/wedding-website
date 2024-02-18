@@ -15,6 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="../static/css/stylesheet.css">
+  <link rel="stylesheet" href="../static/css/info.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -30,69 +31,83 @@
 
 <!-- <body class="notMainPage"> -->
 
-  <body><input type="checkbox" id="up-to-top-check" hidden>
-    <button id="up-to-top" title="Go to top" onclick="reveal('topButton')"><a class="up-to-top-link"
-        href="#page-content">^</a></button>
-
-  <div class="header-and-nav topnav">
-    <div id="header">
-      <h1><a href="/" class="mando">M&O</a></h1>
-    </div>
-    <nav class="big-menu">
-      <ul>
-        <li><a href="/#ceremony">Ceremony</a></li>
-        <li><a href="/#reception">Reception</a></li>
-        <li><a href="RSVP">RSVP</a></li>
-        <li><a onclick="revealFromRSVP('gettingThere')">Getting There</a></li>
-        <li><a onclick="revealFromRSVP('accommodation')">Accommodation</a></li>
-        <li><a onclick="revealFromRSVP('dressCode')">Dress Code</a></li>
-        <li><a onclick="revealFromRSVP('giftRegistry')">Gift Registry</a></li>
-        <li><a onclick="revealFromRSVP('choir')">Choir</a></li>
-        <li><a href="#contact-us">Contact Us</a></li>
-      </ul>
-    </nav>
-
-    <!-- Navigation links (hidden by default) -->
-    <nav class="small-menu">
-      <div id="myLinks">
-        <a href="/#ceremony" onclick="expandFunction()">Ceremony</a>
-        <a href="/#reception" onclick="expandFunction()">Reception</a>
-        <a href="/RSVP" onclick="expandFunction()">RSVP</a>
-        <a href="/#getting-there-accommodation" onclick="expandFunction(); revealFromRSVP('gettingThere')">Getting
-          There</a>
-        <a href="/#getting-there-accommodation"
-          onclick="expandFunction(); revealFromRSVP('accommodation')">Accommodation</a>
-        <a href="/#dress-code-gift-registry-choir" onclick="expandFunction(); revealFromRSVP('dressCode')">Dress
-          Code</a>
-        <a href="/#dress-code-gift-registry-choir" onclick="expandFunction(); revealFromRSVP('giftRegistry')">Gift
-          Registry</a>
-        <a href="/#dress-code-gift-registry-choir" onclick="expandFunction(); revealFromRSVP('choir')">Choir</a>
-        <a href="/#contact-us" onclick="expandFunction()">Contact Us</a>
+<body><input type="checkbox" id="up-to-top-check" hidden>
+  <button id="up-to-top" title="Go to top" onclick="reveal('topButton')"><a class="up-to-top-link"
+      href="#page-content">^</a></button>
+      <div class="header-and-nav topnav">
+        <div id="header">
+          <h1><a class="mando" href="">M&O</a></h1>
+        </div>
+        <nav class="big-menu">
+          <ul>
+            <li>
+              <a href="#ceremony">Ceremony</a>
+            </li>
+            <li>
+              <a href="#reception">Reception</a>
+            </li>
+            <li>
+              <a href="/RSVP">RSVP</a>
+            </li>
+            <li>
+              <a href="#getting-there-accommodation" onclick="reveal('gettingThere')">Getting There</a>
+            </li>
+            <li>
+              <a href="#getting-there-accommodation" onclick="reveal('accommodation')">Accommodation</a>
+            </li>
+            <li>
+              <a href="#dress-code-gift-registry-choir" onclick="reveal('dressCode')">Dress Code</a>
+            </li>
+            <li>
+              <a href="#dress-code-gift-registry-choir" onclick="reveal('giftRegistry')">Gift Registry</a>
+            </li>
+            <li>
+              <a href="#dress-code-gift-registry-choir" onclick="reveal('choir')">Choir</a>
+            </li>
+            <li>
+              <a href="#contact-us">Contact Us</a>
+            </li>
+          </ul>
+        </nav>
+    
+        <!-- Navigation links (hidden by default) -->
+        <nav class="small-menu">
+          <div id="myLinks">
+            <a href="#ceremony" onclick="expandFunction()">Ceremony</a>
+            <a href="#reception" onclick="expandFunction()">Reception</a>
+            <a href="/RSVP" onclick="expandFunction()">RSVP</a>
+            <a href="#getting-there-accommodation" onclick="expandFunction(); reveal('gettingThere')">Getting There</a>
+            <a href="#getting-there-accommodation" onclick="expandFunction(); reveal('accommodation')">Accommodation</a>
+            <a href="#dress-code-gift-registry-choir" onclick="expandFunction(); reveal('dressCode')">Dress Code</a>
+            <a href="#dress-code-gift-registry-choir" onclick="expandFunction(); reveal('giftRegistry')">Gift Registry</a>
+            <a href="#dress-code-gift-registry-choir" onclick="expandFunction(); reveal('choir')">Choir</a>
+            <a href="#contact-us" onclick="expandFunction()">Contact Us</a>
+          </div>
+          <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+          <a href="javascript:void(0);" class="icon" onclick="expandFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </nav>
       </div>
-      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-      <a href="javascript:void(0);" class="icon" onclick="expandFunction()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </nav>
-  </div>
-  <br>
+      
   <div id="page-content">
     <div class="button-row-parent info-page-button">
-    <div class="button-row-child" id="order-tile" onclick="reveal('order')">
-      <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement57bw.jpg" class="button-row-grandchild">
-      <div class="button-row-button" id="accommodation-button">
-        <a class="button-row-button-link">
-          <h4>Order of the Day</h4>
-        </a>
+      <div class="button-row-child" id="order-tile" onclick="reveal('order')">
+        <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement57bw.jpg" class="button-row-grandchild">
+        <div class="button-row-button" id="accommodation-button">
+          <a class="button-row-button-link">
+            <h4>Order of the Day</h4>
+          </a>
+        </div>
+        <input type="checkbox" id="order-check" hidden>
       </div>
-      <input type="checkbox" id="order-check" hidden>
-    </div></div>
+    </div>
     <div class="page-section">
       <div class="hide-on-load" id="order">
         <h3 class="dot">Order of Events</h3>
         <br>
         <div class="timetable">
-        
+
           <div class="timetable-row">
             <div class="time">10am</div>
             <div class="event">Consort rehearsal</div>
@@ -120,8 +135,9 @@
           <h4>Reception</h4>
           <div class="timetable-row">
             <div class="time">4pm</div>
-            <div class="event">Champagne reception</div>
-          </div><div><i>Please go to the blue room to contribute to our audio guestbook!</i></div>
+            <div class="event">Champagne reception<br><i>Please go to the blue room to contribute to our audio guestbook!</i></div>
+          </div>
+          
           <div class="timetable-row">
             <div class="time">5.30pm</div>
             <div class="event">Wedding breakfast and speeches</div>
@@ -138,10 +154,10 @@
             <div class="time">Midnight</div>
             <div class="event">Carriages</div>
           </div>
-        
+          <br>
+        </div>
       </div>
     </div>
-</div>
 
     <div class="button-row-parent info-page-button">
       <div class="button-row-child" id="seating-tile" onclick="reveal('seating')">
@@ -152,42 +168,148 @@
           </a>
         </div>
         <input type="checkbox" id="seating-check" hidden>
-      </div></div>
-<div class="page-section">
+      </div>
+    </div>
+    <div class="page-section">
       <div class="hide-on-load" id="seating">
-        <h3 class="dot">Seating Chart</h3>
+        <h3 class="dot">Seating Plan</h3>
+
+        <div class="view-switch">
+          <div class="view-switch-child"></div>
+          <div class="view-switch-child"></div>
+          <div class="view-switch-child">Table</div>
+          <div class="view-switch-child">
+            <label class="switch" for="TableViewSwitch">
+              <input type="checkbox" id="TableViewSwitch" onchange="changeTableDisplay()">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="view-switch-child">Alphabetical</div>
+          <div class="view-switch-child"></div>
+          <div class="view-switch-child"></div>
+        </div>
+        <div id="per-table">
+          <div id="headTableContainer" class="head-table-container"></div>
+
+          <div id="gridContainer" class="grid-container"></div>
+
+        </div>
+        <div id="per-person" class="hide-on-load">
+
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <h4>Name</h4>
+                </th>
+                <th>
+                  <h4>Table</h4>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="data-table">
+              <!-- Data will be dynamically added here using JavaScript -->
+            </tbody>
+          </table><br>
+        </div>
       </div>
     </div>
 
-      <div class="button-row-parent info-page-button">
-        <div class="button-row-child" id="menu-tile" onclick="reveal('menu')">
-          <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement90bw.jpg" class="button-row-grandchild">
-          <div class="button-row-button" id="accommodation-button">
-            <a class="button-row-button-link">
-              <h4>Menu</h4>
-            </a>
-          </div>
-          <input type="checkbox" id="menu-check" hidden>
-        </div></div>
-        <div class="page-section">
-          <div class="hide-on-load" id="menu">
-            <h3 class="dot">Menu</h3>
-           
-          </div>
+    <div class="button-row-parent info-page-button">
+      <div class="button-row-child" id="menu-tile" onclick="reveal('menu')">
+        <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement90bw.jpg" class="button-row-grandchild">
+        <div class="button-row-button" id="accommodation-button">
+          <a class="button-row-button-link">
+            <h4>Menu</h4>
+          </a>
         </div>
-    
-      
-
+        <input type="checkbox" id="menu-check" hidden>
       </div>
+    </div>
+    <div class="page-section">
+      <div class="hide-on-load" id="menu">
+        <h3 class="dot">Menu</h3>
+        <div>
+          <p>Please note all dietary requirements will be catered for according to RSVP details provided.</p>
+          <h4>Drinks</h4>
+          <p>Crémant de Bretagne</p>
+          <p>Sapling vodka</p>
+          <p>White wine</p>
+          <p>Red wine (with dinner only)</p>
+          <p>Beer</p>
+          <p>Tea and coffee available during champagne reception upon request</p>
+          <h4>Canapés</h4>
+          <p>Pork belly, apple puree and crackling</p>
+          <p>Italian meatballs, tomato and basil chutney</p>
+          <p> Bite sized blinis topped with smoked salmon and caviar</p>
+          <p>Traditional bruschetta (Ve)</p>
+          <p> Falafel with hummus (Ve)</p>
+          <h4>Starter</h4>
+          <p>Artisan bread rolls with butter</p>
+          <p>Antipasti sharing platter:<br>
+            Serrano ham, melon, figs, salami, chorizo, sun blushed tomatoes, olives,<br>mozzarella, basil,
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            hummus, tzatziki, tomato salsa</p>
+          <p>Vegetarian sharing platter:<br>
+            Falafel, flatbreads, griddled mediterranean vegetables, melon,<br>figs, sun blush tomatoes, olives, basil,
+            spicy tomato chutney</p>
+
+
+
+
+          <h4>Main</h4>
+          <p>Pork belly and black pudding potato cake<br> with parsnip and spiced apple puree, baby apple, and perfect
+            crackling</p>
+          <p>Roasted butternut squash risotto, sun dried tomatoes, green olives, pumpkin seeds</p>
+          <h4>Dessert</h4>
+          <p>Apple tarte fine and honeycomb<br>with dairy-free vanilla ice cream</p>
+          <p>Fresh tea and coffee served with baby chocolate brownies</p>
+          <h4>Cupcakes</h4>
+          <p>Victoria sponge</p>
+          <p>Pistachio and lemon</p>
+          <p>Lemon drizzle and poppyseed</p>
+          <p>Biscoff</p>
+          <p>Allergen-free chocolate cupcakes will be served directly to those with relevant dietary requirements.</p>
+          <h4>Late night snack</h4>
+          <p>Sausage baps</p>
+          <p>Halloumi and red pepper baps</p>
+          <p>Electrolyte water (lemon flavour)</p>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   <script src="../static/js/script.js"></script>
   <script src="../static/js/infoscript.js"></script>
+  <script src="../static/js/tables_display.js"></script>
+  <script>
+
+    var guestlist = {{ guest_list | safe }};
+
+
+    try {
+
+      guestListFunction(guestlist);
+    }
+
+    catch {
+      console.error();
+    }
+
+  </script>
 </body>
 <footer class="footer"></footer>
+
 </html>
