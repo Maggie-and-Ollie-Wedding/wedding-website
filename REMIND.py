@@ -43,7 +43,7 @@ else:
     query = f"""
       SELECT Invite_ID, Invite_Group_Name
       FROM `{project_id}.{invitations_table_name}`
-      WHERE Email_sent = false
+      WHERE Reminder_sent = FALSE
   """
 
     # Execute the query and process the results
@@ -61,7 +61,8 @@ else:
           rsvp_query = f"""
           SELECT Email
           FROM `{project_id}.{rsvp_table_name}`
-          WHERE Invite_ID = '{invite_id}'
+          WHERE Invite_ID = '{invite_id}
+          AND RSVP_BOOL = true'
     """
 
           #
@@ -77,110 +78,8 @@ else:
           # Set the value of Invite_Group_Name to a variable called invitation_group
 
           print(email_addresses)
-          html_body_1 = """<!DOCTYPE html>
-              <html lang="en">
-
-              <head>
-
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <meta name="x-apple-disable-message-reformatting" />
-
-                <link
-                  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap"
-                  rel="stylesheet">
-
-                <style>
-                
-
-
-
-                  body {
-                    
-                    text-align: center;
-                    background-attachment: fixed;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    width: 100vw;
-                    max-width:800px;
-                    background-color: white;
-                    overflow-x: hidden;
-                    overflow-y: scroll;
-                    min-width: 400px;
-                    height: auto;
-                    margin: 0px;
-                    font-family: "Playfair Display SC", serif;
-
-                  }
-
-
-
-                  html,
-                  body {
-                    scroll-behavior: smooth;
-                  }
-
-
-
-                  h3 {
-                    padding: 24px;
-                    margin: 24px;
-                  }
-
-                  h4 {
-                    padding: 14px;
-
-                  }
-
-                  h5 {
-                    padding: 10px;
-
-                  }
-
-                  h6 {
-                    padding: 0px;
-                    margin: 0px;
-                    font-size: small;
-                  }
-
-                  p {
-                    font-family: "Open Sans", sans-serif;
-                  }
-
-
-              
-
-                </style>
-
-
-                <!-- title: CHANGE ME -->
-                <title>Maggie and Ollie's Wedding!</title>
-              </head>
-
-              <body>
-                <div class="email-layout">
-                  <div>
-                  
-
-
-
-                  
-                  </div>
-                  <div class="email-content">
-                    <div><p>Dear</p>
-                      <p>"""
-          html_body_2 = """,</p></div>
-
-                          <div class="div-display">
-                          <a href="https://www.maggieandolliewedding.party"> <img
-                              src="https://lh3.googleusercontent.com/pw/AP1GczMPd1Ykyi5-DYukq_YxsHcH3HYcOPzi372u8YMM5p1hCEcfL-CqqOrbVHrddYazZG37FSVdzZp9wkB-F5rviake3u-zgPsQ2nZYVABzrMsl07ugf-Y=w2400"
-                              title="Logo" style="display:block" height="auto" width="100%" ></a>
-                          </div>
-
-
-                        </div>
-                      </div>
-                        </body>"""
+          html_body_1 = """ """
+          html_body_2 = """ """
 
           html_body = html_body_1 + invite_group + html_body_2
 
@@ -190,17 +89,18 @@ else:
               "html": html_body,
               "cc": "maggie.and.ollie.wedding@gmail.com",
               "reply_to": "maggie.and.ollie.wedding@gmail.com",
-              "subject": f"Invitation to Maggie & Ollie's Wedding - {invite_group}",
+              "subject": f"Maggie & Ollie's Wedding - Reminder",
           }
 
           r = resend.Emails.send(params)
 
           update_sent_query = f"""
           UPDATE `{project_id}.{invitations_table_name }`
-          SET Email_sent = TRUE
+          SET Reminder_sent = TRUE 
           WHERE Invite_ID = '{invite_id}'
       """
-
+#todo: add Reminder_sent column; group invitees. Test with us
+          
           query_job_update_sent = client.query(update_sent_query)
 
           # Wait for the query to complete
@@ -216,3 +116,5 @@ else:
           print("invtations sent:", invite_count)
 
     print(list_of_sent)
+
+
