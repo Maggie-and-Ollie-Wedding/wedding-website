@@ -6,6 +6,7 @@ from flask import (
     request,
     jsonify,
     Response,
+    redirect
 )  # imports functions to use python with html
 import os
 from datetime import date, datetime
@@ -438,6 +439,11 @@ def handle_generic_error(error):
     error_info = "{}".format(str(error).capitalize())
     return render_template("error.html", error_info=error_info)
 
+
+@app.route("/dresscode")
+def dress_code():
+    youtube_url = "https://www.youtube.com/watch?v=xvFZjo5PgG0&autoplay=1"
+    return redirect(youtube_url)
 
 # Info
 @app.route("/weddingday/info")
