@@ -151,9 +151,26 @@ li {
   font-size: medium;
 }
 
+.drinkslist {
+  font-family: "Playfair", serif;
+  font-size: small;
+}
+
+i {
+  font-size: small;
+}
+
 
 @media only screen and (max-width: 500px) {
 
+
+  h2 {
+    font-size: x-large;
+  }
+
+  i{
+    font-size: smaller;
+  }
 
   li {
     font-size: small;
@@ -191,4 +208,19 @@ display: grid;
 }
 
 
+}
+
+h3 {
+  margin: 0px;
+  padding-bottom: 0px;
+}
+
+img {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+
+.info-page-button{
+  height: 20vh;
 }

@@ -446,7 +446,7 @@ def dress_code():
     return redirect(youtube_url)
 
 # Info
-@app.route("/weddingday/info")
+@app.route("/info")
 def info():
 
     lookupData = {"tableNumber": 1, "invitName": "Name"}
