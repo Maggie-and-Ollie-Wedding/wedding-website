@@ -439,13 +439,13 @@ def handle_generic_error(error):
     error_info = "{}".format(str(error).capitalize())
     return render_template("error.html", error_info=error_info)
 
-
+#april fools
 @app.route("/dresscode")
 def dress_code():
     youtube_url = "https://www.youtube.com/watch?v=xvFZjo5PgG0&autoplay=1"
     return redirect(youtube_url)
 
-# Info
+# Info for guests
 @app.route("/info")
 def info():
 
@@ -465,6 +465,13 @@ def info():
     guest_list = dict(sorted(guest_list.items()))
 
     return render_template("info.html", guest_list=guest_list)
+
+
+#info for team
+@app.route("/otd")
+def on_the_day():
+    google_drive_url = "https://drive.google.com/drive/folders/1ylt9a0IV5o7E1gYerCbiUaQid3tX-X51?usp=sharing"
+    return redirect(google_drive_url)
 
 
 ###debugging
