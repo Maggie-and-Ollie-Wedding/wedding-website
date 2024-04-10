@@ -73,4 +73,10 @@ function reveal (section) {
       }
     }
   }
+
+
+  function sharedPhotoAlbum() {
+    url = "https://photos.app.goo.gl/13u8A3TDBUmP12NR7"
+          window.open(url, '_blank');
+        }
   
