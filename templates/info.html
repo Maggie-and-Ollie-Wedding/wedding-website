@@ -34,11 +34,7 @@
 <body><input type="checkbox" id="up-to-top-check" hidden>
   <button id="up-to-top" title="Go to top" onclick="reveal('topButton')"><a class="up-to-top-link"
       href="#page-content">^</a></button>
-  <div class="header-and-nav topnav">
-    <div id="header">
-      <h1><a class="mando" href="/">M&O</a></h1>
-    </div>
-  </div>
+  
 
   <div id="page-content">
     <div class="button-row-parent info-page-button">
@@ -107,6 +103,46 @@
     </div>
 
     <div class="button-row-parent info-page-button">
+      <!-- <div class="button-row-parent info-page-button"> -->
+        <div class="button-row-child" id="seating-tile" onclick="sharedPhotoAlbum()">
+          <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement17.jpg" class="button-row-grandchild">
+          <div class="button-row-button" id="accommodation-button">
+            <a class="button-row-button-link">
+              <h2>Upload Your Photos</h2>
+            </a>
+          </div>
+         
+        </div>
+      <!-- </div> -->
+      <div class="button-row-child" id="guestbook-tile" onclick="reveal('guestbook')">
+        <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement89_sq.jpg" class="button-row-grandchild">
+        <div class="button-row-button" id="accommodation-button">
+          <a class="button-row-button-link">
+            <h2>Guestbook</h2>
+          </a>
+        </div>
+        <input type="checkbox" id="guestbook-check" hidden>
+      </div>
+    </div>
+    <div class="page-section">
+      <div class="hide-on-load" id="guestbook">
+        <h3 class="dot">Audio Guestbook</h3>
+        <br>
+        <p>
+          We invite our guests to step into the beautiful blue and gold Drawing Room, where a golden telephone awaits to capture your messages in our audio guest book.
+          </p><p>
+          Simply pick up the handset and leave a message after the tone!
+          
+          </p><p>
+          
+          Can't make it in time? No worries! The telephone will be moved to the Orangery for after the wedding breakfast, offering another chance to leave your messages.
+          </p><p>
+          Your presence and words mean the world to us and we cannot wait to listen back to them all.
+          </p><p>
+          Thank you for being a part of our special day. </p>
+      </div>
+    </div>
+    <div class="button-row-parent info-page-button">
       <div class="button-row-child" id="seating-tile" onclick="reveal('seating')">
         <img src="../static/images/EngagementPhotos/maggieollieinfo3.jpg" class="button-row-grandchild">
         <div class="button-row-button" id="accommodation-button">
@@ -162,17 +198,79 @@
       </div>
     </div>
 
+    
+    
+
+
     <div class="button-row-parent info-page-button">
-      <div class="button-row-child" id="menu-tile" onclick="reveal('drinks')">
-        <img src="../static/images/EngagementPhotos/maggieollieinfo2.jpg" class="button-row-grandchild">
+      <div class="button-row-child" id="menu-tile" onclick="reveal('menu')">
+        <img src="../static/images/EngagementPhotos/maggieollieinfo4.jpg" class="button-row-grandchild">
         <div class="button-row-button" id="accommodation-button">
           <a class="button-row-button-link">
-            <h2>Drinks</h2>
+            <h2>Menu</h2>
           </a>
         </div>
-        <input type="checkbox" id="drinks-check" hidden>
+        <input type="checkbox" id="menu-check" hidden>
+      </div>
+
+      <!-- <div class="button-row-parent info-page-button"> -->
+        <div class="button-row-child" id="drinks-tile" onclick="reveal('drinks')">
+          <img src="../static/images/EngagementPhotos/maggieollieinfo2.jpg" class="button-row-grandchild">
+          <div class="button-row-button" id="accommodation-button">
+            <a class="button-row-button-link">
+              <h2>Drinks</h2>
+            </a>
+          </div>
+          <input type="checkbox" id="drinks-check" hidden>
+        </div>
+      <!-- </div> -->
+    </div>
+    <div class="page-section">
+      <div class="hide-on-load" id="menu">
+        <h3 class="dot">Menu</h3>
+        <div>
+          <p><i>Please note all dietary requirements will be catered for according to RSVP details provided.</i></p>
+      
+
+
+          <h4>Canapés</h4>
+          <p>Pork belly, apple puree and crackling</p>
+          <p>Italian meatballs, tomato and basil chutney</p>
+          <p> Bite sized blinis topped with smoked salmon and caviar</p>
+          <p>Traditional bruschetta (Ve)</p>
+          <p> Falafel with hummus (Ve)</p>
+          <h4>Starter</h4>
+          <p>Artisan bread rolls with butter</p>
+          <p>Antipasti sharing platter:<br>
+            Serrano ham, melon, figs, salami, chorizo, sun blushed tomatoes, olives,<br>mozzarella, basil,
+
+            hummus, tzatziki, tomato salsa</p>
+          <p>Vegetarian sharing platter:<br>
+            Falafel, flatbreads, griddled mediterranean vegetables, melon,<br>figs, sun blush tomatoes, olives, basil,
+            spicy tomato chutney</p>
+
+
+
+
+          <h4>Main</h4>
+          <p>Pork belly and black pudding potato cake<br> with parsnip and spiced apple puree, baby apple, and perfect
+            crackling</p>
+          <p>Roasted butternut squash risotto, sun dried tomatoes, green olives, pumpkin seeds</p>
+          <h4>Dessert</h4>
+          <p>Apple tarte fine and honeycomb<br>with dairy-free vanilla ice cream</p>
+          <h4>Cupcakes</h4>
+          <p>Victoria sponge</p>
+          <p>Pistachio and lemon</p>
+          <p>Lemon drizzle and poppyseed</p>
+          <p>Biscoff</p>
+          <p><i>Allergen-free chocolate cupcakes will be served directly to those with relevant dietary requirements.</i></p>
+          <h4>Late night snack</h4>
+          <p>Sausage baps</p>
+          <p>Halloumi and red pepper baps</p>
+        </div>
       </div>
     </div>
+
     <div class="page-section">
       <div class="hide-on-load" id="drinks">
         <h3 class="dot">Drinks</h3>
@@ -262,78 +360,7 @@
         </div>
       </div>
     </div>
-
-
-    <div class="button-row-parent info-page-button">
-      <div class="button-row-child" id="menu-tile" onclick="reveal('menu')">
-        <img src="../static/images/EngagementPhotos/maggieollieinfo4.jpg" class="button-row-grandchild">
-        <div class="button-row-button" id="accommodation-button">
-          <a class="button-row-button-link">
-            <h2>Menu</h2>
-          </a>
-        </div>
-        <input type="checkbox" id="menu-check" hidden>
-      </div>
-    </div>
-    <div class="page-section">
-      <div class="hide-on-load" id="menu">
-        <h3 class="dot">Menu</h3>
-        <div>
-          <p><i>Please note all dietary requirements will be catered for according to RSVP details provided.</i></p>
-      
-
-
-          <h4>Canapés</h4>
-          <p>Pork belly, apple puree and crackling</p>
-          <p>Italian meatballs, tomato and basil chutney</p>
-          <p> Bite sized blinis topped with smoked salmon and caviar</p>
-          <p>Traditional bruschetta (Ve)</p>
-          <p> Falafel with hummus (Ve)</p>
-          <h4>Starter</h4>
-          <p>Artisan bread rolls with butter</p>
-          <p>Antipasti sharing platter:<br>
-            Serrano ham, melon, figs, salami, chorizo, sun blushed tomatoes, olives,<br>mozzarella, basil,
-
-            hummus, tzatziki, tomato salsa</p>
-          <p>Vegetarian sharing platter:<br>
-            Falafel, flatbreads, griddled mediterranean vegetables, melon,<br>figs, sun blush tomatoes, olives, basil,
-            spicy tomato chutney</p>
-
-
-
-
-          <h4>Main</h4>
-          <p>Pork belly and black pudding potato cake<br> with parsnip and spiced apple puree, baby apple, and perfect
-            crackling</p>
-          <p>Roasted butternut squash risotto, sun dried tomatoes, green olives, pumpkin seeds</p>
-          <h4>Dessert</h4>
-          <p>Apple tarte fine and honeycomb<br>with dairy-free vanilla ice cream</p>
-          <h4>Cupcakes</h4>
-          <p>Victoria sponge</p>
-          <p>Pistachio and lemon</p>
-          <p>Lemon drizzle and poppyseed</p>
-          <p>Biscoff</p>
-          <p><i>Allergen-free chocolate cupcakes will be served directly to those with relevant dietary requirements.</i></p>
-          <h4>Late night snack</h4>
-          <p>Sausage baps</p>
-          <p>Halloumi and red pepper baps</p>
-        </div>
-      </div>
-    </div>
-
-<div class="button-row-parent info-page-button">
-      <div class="button-row-child" id="seating-tile" onclick="sharedPhotoAlbum()">
-        <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement17.jpg" class="button-row-grandchild">
-        <div class="button-row-button" id="accommodation-button">
-          <a class="button-row-button-link">
-            <h2>Upload Your Photos</h2>
-          </a>
-        </div>
-       
-      </div>
-    </div>
     
-
   </div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -364,6 +391,6 @@
 
   </script>
 </body>
-<footer class="footer"></footer>
+<a href="/"><footer id="footer" class="footer"></footer></a>
 
 </html>

@@ -104,18 +104,6 @@ body {
 }
 
 
-.footer{
-
-  width: 100vw;
-  background: url(../images/footerweb.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-   background-attachment:scroll;
-  background-position: bottom;
-  min-height: 20vh;
-  bottom: 0;
-}
-
 
 #cover-page-gradient {
   z-index: -2;
@@ -540,19 +528,6 @@ main {  flex-grow: 1;}
   display: none;
 }
 
-@media only screen and (max-width: 500px) {
-
-  .footer{
-    
-    width: 100vw;
-  background: url(../images/footermob.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-attachment: scroll;
-  background-position: bottom;
-
-  }
-}
 @media only screen and (max-width: 600px) {
 
 

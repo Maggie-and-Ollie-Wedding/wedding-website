@@ -30,6 +30,34 @@
 
 }
 
+footer {
+  min-height: 10vh;
+  position: static;
+  background: url(../images/mologo.png);
+  background-repeat: no-repeat;
+    background-size: contain;
+     background-attachment:scroll;
+    background-position: bottom;
+}
+
+
+@media only screen and (max-width: 500px) {
+
+  .footer{
+    
+    width: 100vw;
+    background: url(../images/mologo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: scroll;
+  background-position: bottom;
+
+  }
+}
+
+.mando {
+  font-size: xx-large;
+}
 #seating {
   width: 30vw;
   align-items: center;
@@ -49,8 +77,15 @@ tr {
   font-family: "Open Sans", sans-serif;
 }
 #page-content {
-  padding-bottom: 0px
+  padding-bottom: 0px;
+  min-height: 90vh;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+
 }
+
 
 
 
