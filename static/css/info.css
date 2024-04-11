@@ -78,9 +78,8 @@ tr {
 }
 #page-content {
   padding-bottom: 0px;
-  min-height: 90vh;
+  min-height: 80vh;
   align-items: center;
-  justify-content: center;
   padding-left: 20px;
   padding-right: 20px;
 
