@@ -9,8 +9,8 @@
   --cover-page-height: 80vh;
   --main-dark-colour: #091d36;
   --mid-dark-colour: #053c5c;
-  --dark-colour-transparent: rgba(0, 0, 0, 0.5);
-  --dark-colour-semitransparent: rgba(2, 9, 18, 0.4);
+  --dark-colour-transparent: rgba(0, 0, 0, 0.6);
+  --dark-colour-semitransparent: rgba(2, 9, 18, 0.6);
   --warm-colour-semitransparent: rgba(226, 196, 132, 0.5);
   --soft-dark-colour: #e1c892;
   --soft-background-colour: #ffffff;
@@ -78,7 +78,7 @@ tr {
 }
 #page-content {
   padding-bottom: 0px;
-  min-height: 80vh;
+  min-height: 70vh;
   align-items: center;
   padding-left: 20px;
   padding-right: 20px;
