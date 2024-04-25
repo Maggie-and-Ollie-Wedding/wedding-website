@@ -152,7 +152,16 @@ input:checked+.slider:before {
 
 .event {
   text-align: left;
-  width: 40vw;
+  width: 30vw;
+  margin: 10px;
+  margin-top: 0px;
+}
+
+.location {
+  text-align: left;
+  width: 30vw;
+  font-style: italic;
+  margin-right: 40px;
 }
 .timetable {
   font-family: "Open Sans", sans-serif;
@@ -175,6 +184,9 @@ input:checked+.slider:before {
 
 }
 
+h4 {
+  font-size: medium;
+}
 
 li {
   font-size: medium;
