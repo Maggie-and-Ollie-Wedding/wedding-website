@@ -27,6 +27,7 @@
 
 .hide-on-load {
   display: none;
+  width: 75vw;
 }
 
 
@@ -380,6 +381,16 @@ main {  flex-grow: 1;}
 #contact-page {
   z-index: 2;
   color: var(--soft-background-colour);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+}
+
+#faq {
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;

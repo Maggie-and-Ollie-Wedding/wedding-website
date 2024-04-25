@@ -67,7 +67,7 @@
           <a href="#dress-code-gift-registry-choir" onclick="reveal('choir')">Choir</a>
         </li>
         <li>
-          <a href="#contact-us">Contact Us</a>
+          <a href="#faq">FAQ's</a>
         </li>
       </ul>
     </nav>
@@ -83,7 +83,7 @@
         <a href="#dress-code-gift-registry-choir" onclick="expandFunction(); reveal('dressCode')">Dress Code</a>
         <a href="#dress-code-gift-registry-choir" onclick="expandFunction(); reveal('giftRegistry')">Gift Registry</a>
         <a href="#dress-code-gift-registry-choir" onclick="expandFunction(); reveal('choir')">Choir</a>
-        <a href="#contact-us" onclick="expandFunction()">Contact Us</a>
+        <a href="#faq" onclick="expandFunction(); reveal('faqs')">FAQ's</a>
       </div>
       <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
       <a href="javascript:void(0);" class="icon" onclick="expandFunction()">
@@ -493,8 +493,78 @@
 
         </div>
 
+     
+      <br><br>
+
+      
+      
+  </div> <div id="faq" class="page-section">
+        <div class="contact-button button" id="faq-button" onclick="reveal('faqs')">
+         
+            <h4 class="contact-button-link">FAQ's</h4>
+
+        </div>
+        <input type="checkbox" id="faqs-check" hidden>
+      
+    <div class="hide-on-load" id="faqs">
+      <h3 class="dot">FAQ's</h3>
+      <h6>Will either of you be changing your name?</h6>
+      <p>No, we have decided to maintain our respective names: Maggie Rose Prinn Hunt and Oliver John Benjamin Norman.<br>Following the ceremony, Maggie will be addressed as Ms. rather than Miss, though! </p>
+      
+      <h6>Will there be toilets at the church?</h6>
+      <p>Toilets are available in St Mary's Church Hall, conveniently located to the left of the church on Church Street.<br>
+      There will also be bathrooms for each reception venue building.</p>
+      
+      <h6>Can I bring my children or a plus one?</h6>
+      <p>We kindly request that only the guests listed on the invitation attend our wedding reception. Thank you for understanding.</p>
+      
+      <h6>Will there be a cloakroom at the reception venue?</h6>
+      <p>There will be storage for coats in the entrance hall of the reception venue.</p>
+
+      <h6>Will there be an open bar?</h6>
+      <p>Of course.</p>
+      
+      <h6>What if I have a food allergy?</h6>
+      <p>To ensure your comfort, please note that your placecard will feature a star indicating that dietary requirements were provided with your RSVP.<br>
+        This will help the caterers ensure you don't receive a meal containing allergens.</p>
+      
+
+      <h6>Can we take photos during the ceremony?</h6>
+      <p>Please switch off your phones during the ceremony - we have hired a professional photographer for the day, so all our guests can live in the moment!<br>
+      That said, we will be sharing a collaborative photo album for any snaps you get at the reception.</p>
+
+      <h6>Is there parking at the venue?</h6>
+      <p>There is no parking at the church, so we are providing transport from the church to the reception.<br>
+        There is some parking (including accessible parking) available at Wrest Park.</p>
+      
+      <h6>Can I bring cards or gifts to the wedding?</h6>
+      <p>We are so grateful for you being part of our special day - there is no need to bring cards or gifts!<br>
+        While your presence is the greatest gift, if you do wish to buy us a wedding
+        gift,<br>
+        please consider selecting a gift from our <a href="#dress-code-gift-registry-choir" onclick="expandFunction(); reveal('giftRegistry')" style="display: inline;">Gift Registry</a>.
+        We kindly ask that gifts not be brought to the wedding, but a cards box will be available next to our guestbook at the reception venue.</p>
+      
+
+      <h6>What accommodations are available for guests with disabilities or other accessibility requirements?</h6>
+      <p>We have ensured that each venue is accessible for guests with mobility challenges, and there are toilet facilities at each building.<br>
+      At the reception, there will be plenty of quieter seated areas for guests to decompress and regulate any sensory overwhelm while overlooking the stunning gardens.<br>
+      Our live band and music are also limited in volume to 80 decibels.<br>
+    All dietary restrictions will be catered for per RSVP responses, including non-alcoholic drink options.</p>
+      
+      
+      <h6>How can we get in touch?</h6>
+      <p>Click the button below!</p><br><br>
+      <div id="contact-page">
+        <div class="contact-button button" id="contact-us">
+          <a class="contact-button-link"
+            href="mailto:maggie.and.ollie.wedding@gmail.com?subject=Wedding%20Website%20Enquiry">
+            <h4>Contact us</h4>
+          </a>
+        </div>
       </div>
-      <br> <br>
+    </div></div>
+   </div>
+    <br>
       <div class="page-section" id="trees">
         <h3 style="padding: 0px;" class="dot">Tree Count</h3>
         <h2 style="color:  #89ba49;">{{number_of_trees}}</h2>
@@ -508,16 +578,9 @@
         </p>
 <br>
       </div>
-      <div id="contact-page">
-        <div class="contact-button button" id="contact-us">
-          <a class="contact-button-link"
-            href="mailto:maggie.and.ollie.wedding@gmail.com?subject=Wedding%20Website%20Enquiry">
-            <h4>Contact us</h4>
-          </a>
-        </div>
-      </div></div>    
-    
-</div>  </body>
+      </div>    
+    </div>    </div>
+ </body>
 <footer class="footer"></footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

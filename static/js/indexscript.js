@@ -27,6 +27,7 @@ function reveal (section) {
       gettingThere: document.getElementById('getting-there'),
       accommodation: document.getElementById('accommodation'),
       dressCode: document.getElementById('dress-code'),
+      faqs: document.getElementById('faqs'),
       giftRegistry: document.getElementById('gift-registry'),
       choir: document.getElementById('choir'),
       gettingThereCheck: document.getElementById('getting-there-check'),
@@ -34,6 +35,7 @@ function reveal (section) {
       dressCodeCheck: document.getElementById('dress-code-check'),
       giftRegistryCheck: document.getElementById('gift-registry-check'),
       choirCheck: document.getElementById('choir-check'),
+      faqsCheck: document.getElementById('faqs-check'),
       topButton: document.getElementById('up-to-top'),
       topButtonCheck: document.getElementById('up-to-top-check')
     }
@@ -44,6 +46,8 @@ function reveal (section) {
     if (section == 'topButton') {
       sections.accommodation.style.display = 'none'
       sections.accommodationCheck.checked = false
+      sections.faqs.style.display = 'none'
+      sections.faqsCheck.checked = false
       sections.gettingThere.style.display = 'none'
       sections.gettingThereCheck.checked = false
       sections.giftRegistry.style.display = 'none'
@@ -91,6 +95,8 @@ function reveal (section) {
             sections.giftRegistry.style.display = 'none'
             sections.giftRegistryCheck.checked = false
           }
+
+          
         }
       }
     }

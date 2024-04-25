@@ -5,14 +5,7 @@
   }
 
 
-  .page-section {
-    width: 75vw;
-    /* padding-bottom: 30px; */
-    padding-left: 20px;
-    padding-right: 20px;
-    transition: transform 0.5s ease-in-out;
-  }
-  
+
 
   .ceremony-and-reception-parent {
     max-height: 80vh;
@@ -80,4 +73,12 @@
   background-position: bottom;
 
   }
+}
+
+.page-section {
+  width: 75vw;
+  /* padding-bottom: 30px; */
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: transform 0.5s ease-in-out;
 }
