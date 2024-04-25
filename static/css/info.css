@@ -1,15 +1,272 @@
+:root {
+  --colour-1: #FFFFFF;
+  --colour-2: #fffff9;
+  --colour-3: #f1e2c7;
+  --colour-4: #e2c484;
+  --colour-5: #053c5c;
+  --colour-6: #091d36;
+  --colour-7: #000000;
+  --cover-page-height: 80vh;
+  --main-dark-colour: #091d36;
+  --mid-dark-colour: #053c5c;
+  --dark-colour-transparent: rgba(0, 0, 0, 0.6);
+  --dark-colour-semitransparent: rgba(2, 9, 18, 0.6);
+  --warm-colour-semitransparent: rgba(226, 196, 132, 0.5);
+  --soft-dark-colour: #e1c892;
+  --soft-background-colour: #ffffff;
+  --light-grey: #c8c6c3;
+  --light-colour: #fafaf7;
+  --warm-colour: #f1e2c7;
+  --gentle-mid-colour: #f6f0e5;
+  --mid-colour: #053c5c;
+  --border-width: 5px;
+}
 
-#page-content {
-    padding-bottom: 0px
-  }
-  
+.view-switch {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  gap: 5px;
+
+}
+
+footer {
+  min-height: 10vh;
+  position: static;
+  background: url(../images/mologo.png);
+  background-repeat: no-repeat;
+    background-size: contain;
+     background-attachment:scroll;
+    background-position: bottom;
+}
+
+
 @media only screen and (max-width: 500px) {
-    .footer {
-    min-height: 7vh;
+
+  .footer{
+    
     width: 100vw;
-    object-fit: cover;
-    /* max-height: 30vh; */
+    background: url(../images/mologo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: scroll;
+  background-position: bottom;
+
+  }
+}
+
+.mando {
+  font-size: xx-large;
+}
+#seating {
+  width: 30vw;
+  align-items: center;
+}
+
+.view-switch-child {
+  font-size: small;
+  font-family: "Playfair Display SC", serif;
+}
+
+table {
+  width: 100%;
+  
+}
+
+tr {
+  font-family: "Open Sans", sans-serif;
+}
+#page-content {
+  padding-bottom: 0px;
+  min-height: 70vh;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+
+
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--light-grey);
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--soft-background-colour);
+  transition: 0.4s;
+}
+
+input:checked+.slider {
+  background-color: var(--warm-colour);
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px var(--gentle-mid-colour);
+}
+
+input:checked+.slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* .head-table-container {
+  /* display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  width: 30%; */
+/* } */
+
+
+
+.grid-item {
+  border: none;
+  padding: 10px;
+}
+
+.time {
+
+  margin-left: 40px;
+}
+
+
+.event {
+  text-align: left;
+  width: 30vw;
+  margin: 10px;
+  margin-top: 0px;
+}
+
+.location {
+  text-align: left;
+  width: 30vw;
+  font-style: italic;
+  margin-right: 40px;
+}
+.timetable {
+  font-family: "Open Sans", sans-serif;
+  font-size: small;
+}
+
+.grid-item ul {
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  text-align: center;
+  font-size: medium;
+  font-family: "Open Sans", sans-serif;
+}
+
+.head-table-item {
+  margin-bottom: 10px;
+
+
+}
+
+h4 {
+  font-size: medium;
+}
+
+li {
+  font-size: medium;
+}
+
+
+#data-table {
+  font-size: medium;
+}
+
+.drinkslist {
+  font-family: "Playfair", serif;
+  font-size: small;
+}
+
+i {
+  font-size: small;
+}
+
+
+@media only screen and (max-width: 500px) {
+
+
+  h2 {
+    font-size: x-large;
+  }
+
+  i{
+    font-size: smaller;
+  }
+
+  li {
+    font-size: small;
   }
 
 
+  #data-table {
+    font-size: small;
+  }
+
+
+  #seating {
+    width: 70vw;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 800px){
+.grid-container {
+display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+}
+
+#seating {
+  align-items: baseline;
+  width: 70vw;
+}
+
+
+#per-person{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+
+}
+
+h3 {
+  margin: 0px;
+  padding-bottom: 0px;
+}
+
+img {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+
+.info-page-button{
+  height: 18vh;
 }

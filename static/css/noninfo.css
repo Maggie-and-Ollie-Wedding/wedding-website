@@ -17,6 +17,18 @@
   .ceremony-and-reception-parent {
     max-height: 80vh;
   }
+
+
+  #faq {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+  }
+  
 /* 
   @media only screen and (max-width: 800px) {
 
@@ -42,3 +54,40 @@
       max-height: 88.6vh;
     }
   } */
+
+
+.footer{
+
+    width: 100vw;
+    background: url(../images/footerweb.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+     background-attachment:scroll;
+    background-position: bottom;
+    min-height: 20vh;
+    bottom: 0;
+  }
+  .footer{
+
+    width: 100vw;
+    background: url(../images/footerweb.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+     background-attachment:scroll;
+    background-position: bottom;
+    bottom: 0;
+  }
+
+@media only screen and (max-width: 500px) {
+
+  .footer{
+    
+    width: 100vw;
+  background: url(../images/footermob.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: scroll;
+  background-position: bottom;
+
+  }
+}

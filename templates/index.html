@@ -48,9 +48,9 @@
         <li>
           <a href="#reception">Reception</a>
         </li>
-        <li>
+        <!-- <li>
           <a href="/RSVP">RSVP</a>
-        </li>
+        </li> -->
         <li>
           <a href="#getting-there-accommodation" onclick="reveal('gettingThere')">Getting There</a>
         </li>
@@ -67,7 +67,8 @@
           <a href="#dress-code-gift-registry-choir" onclick="reveal('choir')">Choir</a>
         </li>
         <li>
-          <a href="#contact-us">Contact Us</a>
+          <!-- <a href="#contact-us">Contact Us</a> -->
+          <a href="#faq">FAQ's</a>
         </li>
       </ul>
     </nav>
@@ -77,13 +78,14 @@
       <div id="myLinks">
         <a href="#ceremony" onclick="expandFunction()">Ceremony</a>
         <a href="#reception" onclick="expandFunction()">Reception</a>
-        <a href="/RSVP" onclick="expandFunction()">RSVP</a>
+        <!-- <a href="/RSVP" onclick="expandFunction()">RSVP</a> -->
         <a href="#getting-there-accommodation" onclick="expandFunction(); reveal('gettingThere')">Getting There</a>
         <a href="#getting-there-accommodation" onclick="expandFunction(); reveal('accommodation')">Accommodation</a>
         <a href="#dress-code-gift-registry-choir" onclick="expandFunction(); reveal('dressCode')">Dress Code</a>
         <a href="#dress-code-gift-registry-choir" onclick="expandFunction(); reveal('giftRegistry')">Gift Registry</a>
         <a href="#dress-code-gift-registry-choir" onclick="expandFunction(); reveal('choir')">Choir</a>
-        <a href="#contact-us" onclick="expandFunction()">Contact Us</a>
+        <!-- <a href="#contact-us" onclick="expandFunction()">Contact Us</a> -->
+        <a href="#faq" onclick="expandFunction(); reveal('faqs')">FAQ's</a>
       </div>
       <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
       <a href="javascript:void(0);" class="icon" onclick="expandFunction()">
@@ -91,7 +93,7 @@
       </a>
     </nav>
   </div>
-  
+
 
   <div id="page-content">
     <div class="page-section" id="cover-page">
@@ -119,18 +121,19 @@
         <br> <br>
         <p> {{days_left}} days to go!
         </p><br>
-        <div class="rsvp-button button" id="rsvp">
+        <!-- <div class="rsvp-button button" id="rsvp">
           <a class="rsvp-button-link" href="/RSVP">
             <h2>RSVP</h2>
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="other-divs">
       <div class="page-section" id="about-us">
         <h3 class="dot">About Us</h3>
         <p>Maggie and Ollie met {{number_of_years}} years ago; Ollie escorted Maggie to her audition for the university
-          chamber choir in September 2014. After a few rehearsals standing one in front of the other, their friendship grew over a shared
+          chamber choir in September 2014. After a few rehearsals standing one in front of the other, their friendship
+          grew over a shared
           passion for choral music, Ipswich Town Football Club (although Ollie often frantically
           googled facts prior to rehearsals, hoping to impress) and a good trip to the pub. To the surprise of
           absolutely nobody around them, this friendship eventually blossomed into something more.</p>
@@ -141,7 +144,8 @@
           to study Arabic,
           marking the start of nearly two years of long distance. Maggie and Ollie’s relationship grew stronger despite
           this,
-          resulting in some incredible surprise visits (though Maggie’s surprise execution was by far the superior - Ollie got
+          resulting in some incredible surprise visits (though Maggie’s surprise execution was by far the superior -
+          Ollie got
           too excited) and holidays.</p>
 
         <p>In 2018, Maggie moved down to London and the pair went from one extreme to the other - living together.
@@ -169,10 +173,10 @@
           <h3 class="dot">Reception</h3>
           <div class="ceremony-and-reception-grandchild">
             <h5>Wrest Park, <br>Silsoe<br><br><br>
-            Carriages at 11.45pm</h5>
+              Carriages at 11.45pm</h5>
           </div>
         </div>
-        
+
       </div>
       <div class="page-section" id="getting-there-accommodation">
         <div class="button-row-parent">
@@ -276,29 +280,46 @@
         <div class="hide-on-load" id="accommodation">
           <h3 class="dot">Where to Stay</h3>
           <p>There are a number of options within 30 mins
-        drive of both venues - the ceremony in Gamlingay and the reception in Silsoe.
+            drive of both venues - the ceremony in Gamlingay and the reception in Silsoe.
             <br>
             <br>
-        We recommend looking at hotels and inns in Potton,
-        Shefford, Amphtill,
-        or Biggleswade. Below is a selection of options, with prices based on a double room, though there are plenty more options in the area.
+            We recommend looking at hotels and inns in Potton,
+            Shefford, Amphtill,
+            or Biggleswade. Below is a selection of options, with prices based on a double room, though there are plenty
+            more options in the area.
           </p>
- 
+
           <div class="hotel-table-layout-parent">
             <div class="hotel-table-layout-child">
               <div class="hotel-table-layout-grandchild">
                 <h6>Name</h6>
-              </div><div class="hotel-table-layout-grandchild"></div>
-              <div class="hotel-table-layout-grandchild"><p><a href="https://www.strattonhouse-hotel.co.uk" target="_blank">Stratton House Hotel</a></p></div>
-              <div class="hotel-table-layout-grandchild"><p><a href="https://www.booking.com/hotel/gb/the-hart.en-gb.html" target="_blank">The White Hart Hotel</a></p></div>
-              <div class="hotel-table-layout-grandchild"><p><a href="https://via.eviivo.com/TheKnifeandCleaverMK451" target="_blank">The Knife & Cleaver</a></p></div>
-              <div class="hotel-table-layout-grandchild"><p><a href="https://www.booking.com/hotel/gb/thebedfordswan.en-gb.html" target="_blank">The Swan Hotel</a></p></div>
-              <div class="hotel-table-layout-grandchild"><p><a href="https://thegeorgemaulden.com/stay-at-the-george-inn#our-rooms" target="_blank">The George Inn</a></p></div>
- 
+              </div>
+              <div class="hotel-table-layout-grandchild"></div>
+              <div class="hotel-table-layout-grandchild">
+                <p><a href="https://www.strattonhouse-hotel.co.uk" target="_blank">Stratton House Hotel</a></p>
+              </div>
+              <div class="hotel-table-layout-grandchild">
+                <p><a href="https://www.booking.com/hotel/gb/the-hart.en-gb.html" target="_blank">The White Hart
+                    Hotel</a></p>
+              </div>
+              <div class="hotel-table-layout-grandchild">
+                <p><a href="https://via.eviivo.com/TheKnifeandCleaverMK451" target="_blank">The Knife & Cleaver</a></p>
+              </div>
+              <div class="hotel-table-layout-grandchild">
+                <p><a href="https://www.booking.com/hotel/gb/thebedfordswan.en-gb.html" target="_blank">The Swan
+                    Hotel</a></p>
+              </div>
+              <div class="hotel-table-layout-grandchild">
+                <p><a href="https://thegeorgemaulden.com/stay-at-the-george-inn#our-rooms" target="_blank">The George
+                    Inn</a></p>
+              </div>
+
             </div>
             <div class="hotel-table-layout-child">
               <div class="hotel-table-layout-grandchild">
-                <h6>Town</h6></div><div class="hotel-table-layout-grandchild"></div>
+                <h6>Town</h6>
+              </div>
+              <div class="hotel-table-layout-grandchild"></div>
               <div class="hotel-table-layout-grandchild">
                 <p>Biggleswade</p>
               </div>
@@ -315,48 +336,52 @@
                 <p>Maulden</p>
               </div>
             </div>
- 
+
             <div class="hotel-table-layout-child">
               <div class="hotel-table-layout-grandchild">
-                <h6>Price<br>(£)</h6></div><div class="hotel-table-layout-grandchild"></div>
+                <h6>Price<br>(£)</h6>
+              </div>
+              <div class="hotel-table-layout-grandchild"></div>
               <div class="hotel-table-layout-grandchild">
                 <p>60</p>
               </div>
-               <div class="hotel-table-layout-grandchild">
+              <div class="hotel-table-layout-grandchild">
                 <p>70</p>
               </div>
-               <div class="hotel-table-layout-grandchild">
+              <div class="hotel-table-layout-grandchild">
                 <p>90</p>
               </div>
-               <div class="hotel-table-layout-grandchild">
+              <div class="hotel-table-layout-grandchild">
                 <p>110</p>
               </div>
-               <div class="hotel-table-layout-grandchild">
+              <div class="hotel-table-layout-grandchild">
                 <p>120</p>
               </div>
             </div>
             <div class="hotel-table-layout-child">
               <div class="hotel-table-layout-grandchild">
-                <h6>Closer<br>to</h6></div><div class="hotel-table-layout-grandchild"></div>
+                <h6>Closer<br>to</h6>
+              </div>
+              <div class="hotel-table-layout-grandchild"></div>
               <div class="hotel-table-layout-grandchild">
                 <p>Gamlingay</p>
               </div>
-               <div class="hotel-table-layout-grandchild">
+              <div class="hotel-table-layout-grandchild">
                 <p>Silsoe</p>
               </div>
-               <div class="hotel-table-layout-grandchild">
+              <div class="hotel-table-layout-grandchild">
                 <p>Silsoe</p>
               </div>
-               <div class="hotel-table-layout-grandchild">
+              <div class="hotel-table-layout-grandchild">
                 <p>Equidistant</p>
               </div>
-               <div class="hotel-table-layout-grandchild">
+              <div class="hotel-table-layout-grandchild">
                 <p>Silsoe</p>
               </div>
             </div>
           </div>
 
-          
+
         </div>
       </div>
 
@@ -398,7 +423,8 @@
 
         <div class="hide-on-load" id="dress-code">
           <h3 class="dot">Dress Code</h3>
-          <p>Please note that the dress code is formal, white tie and hats optional. <br><br>
+          <p>Please note that the dress code is formal (white tie, gowns and hats are all optional, but
+            encouraged).<br><br>
             The Reception will be held at an English Heritage site - the venue team kindly request that guests wear <a
               href="https://www.amazon.co.uk/Protectors-Stiletto-Stoppers-Outdoor-Weddings/dp/B0BX9PZRHY/ref=sr_1_15?crid=Y28PU7WUGBNS&keywords=heel+protectors+for+stiletto+shoes&qid=1688847300&refinements=p_n_free_shipping_eligible%3A20930951031&rnid=20930950031&sprefix=heel+protectors+%2Caps%2C212&sr=8-15"
               target="_blank" style="display: inline;">heel protectors</a> if their shoes have a stiletto heel, to
@@ -407,20 +433,23 @@
           </p>
         </div>
         <div class="hide-on-load" id="gift-registry">
-          <a href="https://prezola.com/wishlists/10270629/" target="_blank"><h3 class="dot">Gift Registry</h3></a>
+          <a href="https://classic.prezola.com/wishlists/10270629/" target="_blank">
+            <h3 class="dot">Gift Registry</h3>
+          </a>
           <p> We are already so excited to share our wedding celebrations with you, and are so grateful to everyone
             making
             their way to be with us on the big day.
             <br><br>
             Should you wish to buy us a wedding
             gift,
-            we have collated a <a href="https://prezola.com/wishlists/10270629/" target="_blank"
+            we have collated a <a href="https://classic.prezola.com/wishlists/10270629/" target="_blank"
               style="display: inline;">Gift Registry on Prezola</a>.
             <br><br>
             We have listed honeymoon experiences and homeware which will last our whole lives;
-            the larger gifts are 'group gifts' where friends and family can pool contributions and choose to contribute any amount.
+            the larger gifts are 'group gifts' where friends and family can pool contributions and choose to contribute
+            any amount.
             <br><br>We are also raising
-            funds for <a href="https://prezola.com/wishlists/10270629/3668386" target="_blank"
+            funds for <a href="https://classic.prezola.com/wishlists/10270629/3668386" target="_blank"
               style="display: inline;">Alzheimer's Society</a>, which is an incredibly important charity to both of
             us.<br><br>
             Dementia has impacted both of our families; it is sadly the reason two of our grandfathers are no longer
@@ -430,9 +459,9 @@
             Please consider this cause as you peruse the registry - your support would mean so much!<br><br>
             Click below to access the registry.<br>
           </p>
-          <a href="https://prezola.com/wishlists/10270629/" target="_blank" style="display: inline;" class="no-dot"><img
-              src="../static/images/Prezola.png" height="80vh" width="auto"></a>
-          <a href="https://prezola.com/wishlists/10270629/3668386" target="_blank" style="display: inline;"><img
+          <a href="https://classic.prezola.com/wishlists/10270629/" target="_blank" style="display: inline;"
+            class="no-dot"><img src="../static/images/Prezola.png" height="80vh" width="auto"></a>
+          <a href="https://classic.prezola.com/wishlists/10270629/3668386" target="_blank" style="display: inline;"><img
               src="../static/images/alzheimers_soc.png" height="100vh" width="auto"></a>
         </div>
         <div class="hide-on-load" id="choir">
@@ -493,43 +522,112 @@
 
         </div>
 
+        <br><br>
+
+
+
       </div>
+      <div id="faq" class="page-section">
+        <div class="contact-button button" id="faq-button" onclick="reveal('faqs')">
+
+          <h4 class="contact-button-link">FAQ's</h4>
+
+        </div>
+        <input type="checkbox" id="faqs-check" hidden>
+
+        <div class="hide-on-load" id="faqs">
+          <h3 class="dot">FAQ's</h3>
+
+          <h6>Will either of you be changing your name?</h6>
+          <p>No, we have decided to retain our respective names: Maggie Rose Prinn Hunt and Oliver John Benjamin Norman.
+            <br>Following the ceremony, Maggie will be addressed as Ms. rather than Miss, though! </p>
+    
+          <h6>Will there be toilets at the church?</h6>
+          <p>Toilets are available in St Mary's Church Hall, conveniently located to the left of the church, on Church Street.<br>
+          There are also be bathrooms in both reception venue buildings.</p>
+    
+          <h6>Can I bring my children or a plus one?</h6>
+          <p>We kindly request that only the guests listed on the invitation attend our wedding reception. Thank you for understanding.</p>
+    
+          <h6>Will there be a cloakroom at the reception venue?</h6>
+          <p>There will be storage for coats in the entrance hall of the reception venue.</p>
+    
+          <h6>Will there be an open bar?</h6>
+          <p>Of course.</p>
+    
+          <h6>What if I have a food allergy?</h6>
+          <p>To ensure your comfort, please note that your placecard will feature a star indicating that dietary requirements were provided with your RSVP.<br>
+            This will help the caterers ensure you don't receive a meal containing allergens.</p>
+    
+    
+          <h6>Can we take photos during the ceremony?</h6>
+          <p>Please switch off your phones during the ceremony - we have hired a professional photographer for the day, so all our guests can live in the moment!<br>
+          That said, we will be sharing a collaborative photo album for any snaps you get at the reception.</p>
+    
+          <h6>Is there parking at the venue?</h6>
+          <p>There is no parking at the church, so we are providing transport from the church to the reception.<br>
+            There is some parking (including accessible parking) available at Wrest Park.</p>
+    
+          <h6>Can I bring cards or gifts to the wedding?</h6>
+          <p>We are so grateful for you being part of our special day - there is no need to bring cards or gifts!<br>
+            While your presence is the greatest gift, if you do wish to buy us a wedding
+            gift,<br>
+            please consider selecting a gift from our <a href="#dress-code-gift-registry-choir" onclick="expandFunction(); reveal('giftRegistry')" style="display: inline;">Gift Registry</a>.
+            We kindly ask that gifts not be brought to the wedding, but a cards box will be available next to our guestbook at the reception venue.</p>
+    
+    
+          <h6>What accommodations are available for guests with disabilities or other accessibility requirements?</h6>
+          <p>We have ensured that each venue is accessible for guests with mobility challenges, and there are toilet facilities at each building.<br>
+          At the reception, there will be plenty of quieter seated areas for guests to decompress and regulate any sensory overwhelm while overlooking the stunning gardens.<br>
+          Our live band and music are also limited in volume to 80 decibels.<br>
+        All dietary restrictions will be catered for per RSVP responses, including non-alcoholic drink options.</p>
+    
+    
+          <h6>How can we get in touch?</h6>
+          <p>Click the button below!</p><br><br>
+          <div id="contact-page">
+            <div class="contact-button button" id="contact-us">
+              <a class="contact-button-link"
+                href="mailto:maggie.and.ollie.wedding@gmail.com?subject=Wedding%20Website%20Enquiry">
+                <h4>Contact us</h4>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
       <br> <br>
       <div class="page-section" id="trees">
         <h3 style="padding: 0px;" class="dot">Tree Count</h3>
         <h2 style="color:  #89ba49;">{{number_of_trees}}</h2>
         <p>Our wedding vodka is by <a href="https://saplingspirits.com/" target="_blank"
-            style="display: inline;">Sapling Spirits</a>, who plant a tree per bottle sold, and we are also planting a
+            style="display: inline;">Sapling
+            Spirits</a>, who plant a tree per bottle sold, and we are also planting a
           tree with <a href="https://www.thetreeapp.org/about" target="_blank" style="display: inline;">Treeapp</a> for
-          every RSVP we receive!
+          every RSVP we have received!
           <br><br><a href="https://www.thetreeapp.org/about" target="_blank" style="display: inline;"><img
               src="../static/images/treeapplogo.png" height="50vh" width="auto"></a>
-
-        </p>
-<br>
       </div>
-      <div id="contact-page">
-        <div class="contact-button button" id="contact-us">
-          <a class="contact-button-link"
-            href="mailto:maggie.and.ollie.wedding@gmail.com?subject=Wedding%20Website%20Enquiry">
-            <h4>Contact us</h4>
-          </a>
-        </div>
-      </div></div>    
-    
-</div>  </body>
+
+    </div>
+    </p>
+    <br>
+  </div>
+  
+  </div>
+
+  </div>
+</body>
 <footer class="footer"></footer>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"></script>
-    <script src="../static/js/script.js"></script>
-    <script src="../static/js/indexscript.js"></script>
-    
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="../static/js/script.js"></script>
+<script src="../static/js/indexscript.js"></script>
+
 </html>

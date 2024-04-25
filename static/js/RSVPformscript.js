@@ -141,6 +141,7 @@ function numberOfInvitees () {
       nameOnForm.innerHTML = ''
       nameSummary.innerHTML = ''
       nameOnFormValue.value = ''
+      
     } else {
       inviteLine.style.display = 'inline'
       inviteConfirmation.style.display = 'inline'

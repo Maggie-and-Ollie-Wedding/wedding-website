@@ -25,6 +25,8 @@ function topFunction () {
 function reveal (section) {
     var sections = {
       gettingThere: document.getElementById('getting-there'),
+      faqs: document.getElementById('faqs'),
+      faqsCheck: document.getElementById('faqs-check'),
       accommodation: document.getElementById('accommodation'),
       dressCode: document.getElementById('dress-code'),
       giftRegistry: document.getElementById('gift-registry'),
@@ -44,6 +46,8 @@ function reveal (section) {
     if (section == 'topButton') {
       sections.accommodation.style.display = 'none'
       sections.accommodationCheck.checked = false
+      sections.faqs.style.display = 'none'
+      sections.faqsCheck.checked = false
       sections.gettingThere.style.display = 'none'
       sections.gettingThereCheck.checked = false
       sections.giftRegistry.style.display = 'none'

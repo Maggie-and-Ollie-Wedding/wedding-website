@@ -15,6 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Display+SC&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="../static/css/stylesheet.css">
+  <link rel="stylesheet" href="../static/css/info.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -30,164 +31,389 @@
 
 <!-- <body class="notMainPage"> -->
 
-  <body><input type="checkbox" id="up-to-top-check" hidden>
-    <button id="up-to-top" title="Go to top" onclick="reveal('topButton')"><a class="up-to-top-link"
-        href="#page-content">^</a></button>
-
-  <div class="header-and-nav topnav">
-    <div id="header">
-      <h1><a href="/" class="mando">M&O</a></h1>
-    </div>
-    <nav class="big-menu">
-      <ul>
-        <li><a href="/#ceremony">Ceremony</a></li>
-        <li><a href="/#reception">Reception</a></li>
-        <li><a href="RSVP">RSVP</a></li>
-        <li><a onclick="revealFromRSVP('gettingThere')">Getting There</a></li>
-        <li><a onclick="revealFromRSVP('accommodation')">Accommodation</a></li>
-        <li><a onclick="revealFromRSVP('dressCode')">Dress Code</a></li>
-        <li><a onclick="revealFromRSVP('giftRegistry')">Gift Registry</a></li>
-        <li><a onclick="revealFromRSVP('choir')">Choir</a></li>
-        <li><a href="#contact-us">Contact Us</a></li>
-      </ul>
-    </nav>
-
-    <!-- Navigation links (hidden by default) -->
-    <nav class="small-menu">
-      <div id="myLinks">
-        <a href="/#ceremony" onclick="expandFunction()">Ceremony</a>
-        <a href="/#reception" onclick="expandFunction()">Reception</a>
-        <a href="/RSVP" onclick="expandFunction()">RSVP</a>
-        <a href="/#getting-there-accommodation" onclick="expandFunction(); revealFromRSVP('gettingThere')">Getting
-          There</a>
-        <a href="/#getting-there-accommodation"
-          onclick="expandFunction(); revealFromRSVP('accommodation')">Accommodation</a>
-        <a href="/#dress-code-gift-registry-choir" onclick="expandFunction(); revealFromRSVP('dressCode')">Dress
-          Code</a>
-        <a href="/#dress-code-gift-registry-choir" onclick="expandFunction(); revealFromRSVP('giftRegistry')">Gift
-          Registry</a>
-        <a href="/#dress-code-gift-registry-choir" onclick="expandFunction(); revealFromRSVP('choir')">Choir</a>
-        <a href="/#contact-us" onclick="expandFunction()">Contact Us</a>
+<body><input type="checkbox" id="up-to-top-check" hidden>
+  <button id="up-to-top" title="Go to top" onclick="reveal('topButton')"><a class="up-to-top-link"
+      href="#page-content">^</a></button>
+  
+      <div>
+        <br>
+        <h4>Welcome to the wedding of</h4>
+        <h1>Maggie Rose Prinn Hunt<br>&<br>Oliver John Benjamin Norman</h1>
+        <br>
+      
       </div>
-      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-      <a href="javascript:void(0);" class="icon" onclick="expandFunction()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </nav>
-  </div>
-  <br>
   <div id="page-content">
     <div class="button-row-parent info-page-button">
-    <div class="button-row-child" id="order-tile" onclick="reveal('order')">
-      <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement57bw.jpg" class="button-row-grandchild">
-      <div class="button-row-button" id="accommodation-button">
-        <a class="button-row-button-link">
-          <h4>Order of the Day</h4>
-        </a>
+      <div class="button-row-child" id="order-tile" onclick="reveal('order')">
+        <img src="../static/images/EngagementPhotos/maggieollieinfo1.jpg" class="button-row-grandchild">
+        <div class="button-row-button" id="accommodation-button">
+          <a class="button-row-button-link">
+            <h2>Order of Events</h2>
+          </a>
+        </div>
+        <input type="checkbox" id="order-check" hidden>
       </div>
-      <input type="checkbox" id="order-check" hidden>
-    </div></div>
+    </div>
     <div class="page-section">
       <div class="hide-on-load" id="order">
         <h3 class="dot">Order of Events</h3>
         <br>
         <div class="timetable">
-        
-          <div class="timetable-row">
-            <div class="time">10am</div>
-            <div class="event">Consort rehearsal</div>
-          </div>
+
           <div class="timetable-row">
             <div class="time">12.15pm</div>
             <div class="event">Family & Friends Choir rehearsal</div>
+            <div class="location">The Church</div>
           </div>
           <div class="timetable-row">
             <div class="time">1pm</div>
-            <div class="event">Rehearsals end</div>
+            <div class="event">Rehearsal end</div>
+            <div class="location">The Wheatsheaf</div>
             <br>
           </div>
           <br>
           <h4>Ceremony</h4>
+        
           <div class="timetable-row">
             <div class="time">2pm</div>
-            <div class="event">Ceremony begins</div>
+            <div class="event">Wedding Ceremony</div>
+            <div class="location">The Church</div>
           </div>
           <div class="timetable-row">
-            <div class="time">3pm</div>
+            <div class="time">3.15pm</div>
             <div class="event">Buses to the reception</div>
+            <div class="location"></div>
           </div>
           <br>
           <h4>Reception</h4>
+          
           <div class="timetable-row">
             <div class="time">4pm</div>
-            <div class="event">Champagne reception</div>
-          </div><div><i>Please go to the blue room to contribute to our audio guestbook!</i></div>
+            <div class="event">Drinks reception and canapés</div>
+            <div class="location">The Mansion House</div>
+          </div>
+
           <div class="timetable-row">
             <div class="time">5.30pm</div>
-            <div class="event">Wedding breakfast and speeches</div>
+            <div class="event">Group photo</div>
+            <div class="location">The Garden Steps</div>
           </div>
-          <div class="timetable-row">
-            <div class="time">8pm</div>
-            <div class="event">Dancefloor opens</div>
-          </div>
-          <div class="timetable-row">
-            <div class="time">11.30pm</div>
-            <div class="event">Last orders at the bar</div>
-          </div>
-          <div class="timetable-row">
-            <div class="time">Midnight</div>
-            <div class="event">Carriages</div>
-          </div>
+          
         
+          <div class="timetable-row">
+            <div class="time">6pm</div>
+            <div class="event">Wedding breakfast and speeches</div>
+            <div class="location">The Orangery</div>
+          </div>
+          <div class="timetable-row">
+            <div class="time">8.30pm</div>
+            <div class="event">Dancefloor opens</div>
+            <div class="location"></div>
+          </div>
+          <div class="timetable-row">
+            <div class="time">11.15pm</div>
+            <div class="event">Last orders at the bar</div>
+            <div class="location"></div>
+          </div>
+          <div class="timetable-row">
+            <div class="time">11.45pm</div>
+            <div class="event">Carriages</div>
+            <div class="location">The Mansion House</div>
+          </div>
+          <br>
+        </div>
       </div>
     </div>
-</div>
 
     <div class="button-row-parent info-page-button">
-      <div class="button-row-child" id="seating-tile" onclick="reveal('seating')">
-        <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement70bw.jpg" class="button-row-grandchild">
+      <!-- <div class="button-row-parent info-page-button"> -->
+        <div class="button-row-child" id="seating-tile" onclick="sharedPhotoAlbum()">
+          <img src="../static/images/EngagementPhotos/maggieollieinfo5.jpg" class="button-row-grandchild">
+          <div class="button-row-button" id="accommodation-button">
+            <a class="button-row-button-link">
+              <h2>Upload Your Photos</h2>
+            </a>
+          </div>
+         
+        </div>
+      <!-- </div> -->
+      <div class="button-row-child" id="guestbook-tile" onclick="reveal('guestbook')">
+        <img src="../static/images/EngagementPhotos/maggieollieinfo6.jpg" class="button-row-grandchild">
         <div class="button-row-button" id="accommodation-button">
           <a class="button-row-button-link">
-            <h4>Seating Plan</h4>
+            <h2>Guestbook</h2>
+          </a>
+        </div>
+        <input type="checkbox" id="guestbook-check" hidden>
+      </div>
+    </div>
+    <div class="page-section">
+      <div class="hide-on-load" id="guestbook">
+        <h3 class="dot">Audio Guestbook</h3>
+        <br>
+        <p>
+          During the drinks reception, we invite our guests to step into the beautiful blue and gold Drawing Room,<br>
+          where a golden telephone awaits to capture your messages in our audio guest book.
+          </p><p>
+          Simply pick up the handset and leave a message after the tone!
+          </p><p>
+          
+          Can't make it in time? No worries! The telephone will be moved to the Orangery for after the wedding breakfast, offering another chance to leave your messages.
+          </p><p>
+          Your presence and words mean the world to us and we cannot wait to listen back to them all.
+          </p><p>
+          Thank you for being a part of our special day. </p>
+      </div>
+    </div>
+    <div class="button-row-parent info-page-button">
+      <div class="button-row-child" id="seating-tile" onclick="reveal('seating')">
+        <img src="../static/images/EngagementPhotos/maggieollieinfo3.jpg" class="button-row-grandchild">
+        <div class="button-row-button" id="accommodation-button">
+          <a class="button-row-button-link">
+            <h2>Seating Plan</h2>
           </a>
         </div>
         <input type="checkbox" id="seating-check" hidden>
-      </div></div>
-<div class="page-section">
+      </div>
+    </div>
+    <div class="page-section">
       <div class="hide-on-load" id="seating">
-        <h3 class="dot">Seating Chart</h3>
+        <h3 class="dot">Seating Plan</h3>
+
+        <div class="view-switch">
+          <div class="view-switch-child"></div>
+          <div class="view-switch-child"></div>
+          <div class="view-switch-child">Table</div>
+          <div class="view-switch-child">
+            <label class="switch" for="TableViewSwitch">
+              <input type="checkbox" id="TableViewSwitch" onchange="changeTableDisplay()">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="view-switch-child">Alphabetical</div>
+          <div class="view-switch-child"></div>
+          <div class="view-switch-child"></div>
+        </div>
+        <div id="per-table">
+          <div id="headTableContainer" class="head-table-container"></div>
+
+          <div id="gridContainer" class="grid-container"></div>
+
+        </div>
+        <div id="per-person" class="hide-on-load">
+
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <h4>Name</h4>
+                </th>
+                <th>
+                  <h4>Table</h4>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="data-table">
+              <!-- Data will be dynamically added here using JavaScript -->
+            </tbody>
+          </table><br>
+        </div>
       </div>
     </div>
 
-      <div class="button-row-parent info-page-button">
-        <div class="button-row-child" id="menu-tile" onclick="reveal('menu')">
-          <img src="../static/images/EngagementPhotos/Maggie_OllieEngagement90bw.jpg" class="button-row-grandchild">
-          <div class="button-row-button" id="accommodation-button">
-            <a class="button-row-button-link">
-              <h4>Menu</h4>
-            </a>
-          </div>
-          <input type="checkbox" id="menu-check" hidden>
-        </div></div>
-        <div class="page-section">
-          <div class="hide-on-load" id="menu">
-            <h3 class="dot">Menu</h3>
-           
-          </div>
-        </div>
     
-      
+    
 
+
+    <div class="button-row-parent info-page-button">
+      <div class="button-row-child" id="menu-tile" onclick="reveal('menu')">
+        <img src="../static/images/EngagementPhotos/maggieollieinfo4.jpg" class="button-row-grandchild">
+        <div class="button-row-button" id="accommodation-button">
+          <a class="button-row-button-link">
+            <h2>Menu</h2>
+          </a>
+        </div>
+        <input type="checkbox" id="menu-check" hidden>
       </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <!-- <div class="button-row-parent info-page-button"> -->
+        <div class="button-row-child" id="drinks-tile" onclick="reveal('drinks')">
+          <img src="../static/images/EngagementPhotos/maggieollieinfo2.jpg" class="button-row-grandchild">
+          <div class="button-row-button" id="accommodation-button">
+            <a class="button-row-button-link">
+              <h2>Drinks</h2>
+            </a>
+          </div>
+          <input type="checkbox" id="drinks-check" hidden>
+        </div>
+      <!-- </div> -->
+    </div>
+    <div class="page-section">
+      <div class="hide-on-load" id="menu">
+        <h3 class="dot">Menu</h3>
+        <div>
+          <p><i>Please note all dietary requirements will be catered for according to RSVP details provided.</i></p>
+      
+
+
+          <h4>Canapés</h4>
+          <p>Pork belly, apple puree and crackling</p>
+          <p>Italian meatballs, tomato and basil chutney</p>
+          <p> Bite sized blinis topped with smoked salmon and caviar</p>
+          <p>Traditional bruschetta (Ve)</p>
+          <p> Falafel with hummus (Ve)</p>
+          <h4>Starter</h4>
+          <p>Artisan bread rolls with butter</p>
+          <p>Antipasti sharing platter:<br>
+            Serrano ham, melon, figs, salami, chorizo, sun blushed tomatoes, olives,<br>mozzarella, basil,
+
+            hummus, tzatziki, tomato salsa</p>
+          <p>Vegetarian sharing platter:<br>
+            Falafel, flatbreads, griddled mediterranean vegetables, melon,<br>figs, sun blush tomatoes, olives, basil,
+            spicy tomato chutney</p>
+
+
+
+
+          <h4>Main Course</h4>
+          <p>Pork belly and black pudding potato cake<br> with parsnip and spiced apple puree, baby apple, and perfect
+            crackling</p>
+          <p>Roasted butternut squash risotto, sun dried tomatoes, green olives, pumpkin seeds</p>
+          <h4>Dessert</h4>
+          <p>Apple tarte fine and honeycomb<br>with dairy-free vanilla ice cream</p>
+          <h4>Cupcakes</h4>
+          <p>Victoria sponge</p>
+          <p>Pistachio and lemon</p>
+          <p>Lemon drizzle and poppyseed</p>
+          <p>Biscoff</p>
+          <p><i>Allergen-free chocolate cupcakes will be served directly to those with relevant dietary requirements.</i></p>
+          <h4>Late night snack</h4>
+          <p>Sausage baps</p>
+          <p>Halloumi and red pepper baps</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-section">
+      <div class="hide-on-load" id="drinks">
+        <h3 class="dot">Drinks</h3>
+        <div>
+        
+          <h4>Wine</h4>
+          <p><span class="drinkslist">Bouvet Ladubay 'Blanc de Blancs' Crémant de Loire</span><br>
+            <i>
+              Established in 1851 by Etienne Bouvet and Celestine Ladubay in Saumur, a Medieval town in the Loire Valley, 
+              Bouvet Ladubay winery was endorsed by Napoleon III 
+              <br>and is the official supplier to the House of Lords!
+              <br>
+              Their 100% Chardonnay vintage crémant, crafted using the traditional French method akin to Champagne, 
+              boasts delightful notes of <br>pear, apple, and white flowers in a refined mousse.
+            </i>
+          </p>
+          <p><span class="drinkslist">Noughty 0% Sparkling Chardonnay</span><br>
+            <i>This vibrant sparkling organic Chardonnay has been entirely de-alcoholised, so provides all of the
+              enjoyment of your favourite bottle of fizz without the alcohol.
+              <br>It’s fresh and crisp with notes of green apple and fine bubbles. </i>
+          </p>
+
+          <p><span class="drinkslist">Cave Vinicole de Hunawihr Kuhlmann-Platz Riesling</span><br>
+            <i>This cooperative was started by a group of small producers in Hunawihr in 1954, but today has member
+              growers throughout the Alsace heartland.
+              <br>Winemaking here is headed by Nicolas Garde, an Alsace-born winemaker, schooled in Burgundy and New Zealand.
+              <br>
+              We chose this wine pairing after a number of rounds of tastings - and it works
+              beautifully with cured meats, and the heftier flavours of black pudding in our main course.</i>
+          </p>
+          <p><span class="drinkslist">Villemarin Picpoul de Pinet</span><br>
+            <i>Picpoul vines are almost exclusively grown in Picpoul de Pinet – an appellation next to the Languedoc’s
+              Thau lagoon near Montpellier.
+
+              <br>It’s incredibly zesty, with intense lemon and grapefruit flavours, and refreshing minerality.
+              It reminded us of apple when we tasted it - a perfect pairing for pork, and a complementary for the
+              risotto.
+            </i>
+          </p>
+          <p><span class="drinkslist">M. Chapoutier 'Belleruche' Côtes du Rhône</span>
+            <br>
+            <i>Please note red wine will be served with dinner only.<br>
+              This wine was made without the use of oak, so it’s fruit-forward. Look out for notes of ripe black cherry,
+              herbs and a kick of peppery spice.
+              <br>It pairs well with flavoursome meat dishes, especially charcuterie.
+              In 2022, this wine won an IWC award for the 2020 vintage, and when we chose it we could see why - it is
+              absolutely delicious, and won every tasting round when we were choosing.
+            </i>
+          </p>
+          <h4>Spirits</h4>
+          
+          <p><span class="drinkslist">Sapling Vodka</span><br>
+            <i>A vodka we originally discovered at Taste of London festival, Sapling plant a tree for every bottle
+              sold.<br>
+
+              Made exclusively from British wheat it is four times distilled, resulting in a very clean, crisp, and
+              naturally sweet taste.
+              <br>
+              The purity brings out herbaceous and citrusy notes which lends itself beautifully to mixing, or drinking on the
+              rocks!
+            </i>
+          </p>
+          <p><span class="drinkslist">Tears of My Enemies</span><br>
+            <i>Tears of My Enemies is a fennel and angelica liqueur, by the Mother of the Bride, Jennifer. Infused on the 2023 'super blue moon', 
+              it has been steeping since August - and if you like absinthe, you will love this!<br>
+              This spirit is best served neat, either over ice or at room temperature. Savour slowly, in a moment of stillness.</i>
+          </p>
+          <h4>Beer</h4>
+          <p><span class="drinkslist">BrewDog Lost Lager</span><br>
+            <i>One of their bestselling brews, Lost Lager was crafted as a fresh twist on the norm –
+            a pilsner made with German saphir hops, with notes of vibrant citrus fruits.<br>
+            Wonderfully crisp and refreshing, our wedding beer being by Brewdog pays tribute to the fact that we met in
+            Scotland!</i>
+          </p>
+
+
+          <h4>Soft drinks / Mixers</h4>
+          <p>Soda Water<br>
+          Lemonade<br>
+          Fevertree Light Ginger Ale<br>
+          Fevertree Light Tonic Water<br>
+          Lemon Electrolytes<br>
+          English Breakfast Tea<br>
+          Coffee<br>
+          <i>Tea and coffee will be provided after the meal, <br>and are available during the drinks reception upon
+            request. Please ask for herbal / decaf tea options, which are also available upon request.</i></p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   <script src="../static/js/script.js"></script>
   <script src="../static/js/infoscript.js"></script>
+  <script src="../static/js/tables_display.js"></script>
+  <script>
+
+    var guestlist = {{ guest_list | safe }};
+
+
+    try {
+
+      guestListFunction(guestlist);
+    }
+
+    catch {
+      console.error();
+    }
+
+  </script>
 </body>
-<footer class="footer"></footer>
+<a href="/"><footer id="footer" class="footer"></footer></a>
+
 </html>
