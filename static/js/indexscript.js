@@ -95,6 +95,10 @@ function reveal (section) {
             sections.giftRegistry.style.display = 'none'
             sections.giftRegistryCheck.checked = false
           }
+
+          if (section == 'faqs') {
+            console.log('FAQS EXPAND')
+          }
         }
       }
     }
