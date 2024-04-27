@@ -22,7 +22,7 @@ function reveal (section) {
     sections.order.style.display = 'none'
     sections.orderCheck.checked = false
     sections.guestbook.style.display = 'none'
-    sections.guestbookCheckCheck.checked = false
+    sections.guestbookCheck.checked = false
     sections.menu.style.display = 'none'
     sections.seating.style.display = 'none'
     sections.seatingCheck.checked = false
@@ -48,7 +48,18 @@ function reveal (section) {
           sections.drinksCheck.checked = false
           sections.drinks.style.display = 'none'
           sections.guestbook.style.display = 'none'
-          sections.guestbookCheckCheck.checked = false
+          sections.guestbookCheck.checked = false
+        }
+
+        if (section == 'guestbook') {
+          sections.seating.style.display = 'none'
+          sections.menu.style.display = 'none'
+          sections.seatingCheck.checked = false
+          sections.menuCheck.checked = false
+          sections.drinksCheck.checked = false
+          sections.drinks.style.display = 'none'
+          sections.order.style.display = 'none'
+          sections.orderCheck.checked = false
         }
 
         if (section == 'seating') {
@@ -59,7 +70,7 @@ function reveal (section) {
           sections.drinksCheck.checked = false
           sections.drinks.style.display = 'none'
           sections.guestbook.style.display = 'none'
-          sections.guestbookCheckCheck.checked = false
+          sections.guestbookCheck.checked = false
         }
 
         if (section == 'menu') {
@@ -70,7 +81,7 @@ function reveal (section) {
           sections.drinksCheck.checked = false
           sections.drinks.style.display = 'none'
           sections.guestbook.style.display = 'none'
-          sections.guestbookCheckCheck.checked = false
+          sections.guestbookCheck.checked = false
         }
 
         if (section == 'order') {
@@ -81,7 +92,7 @@ function reveal (section) {
           sections.drinksCheck.checked = false
           sections.drinks.style.display = 'none'
           sections.guestbook.style.display = 'none'
-          sections.guestbookCheckCheck.checked = false
+          sections.guestbookCheck.checked = false
         }
 
         if (section == 'drinks') {
@@ -92,7 +103,7 @@ function reveal (section) {
           sections.menu.style.display = 'none'
           sections.menuCheck.checked = false
           sections.guestbook.style.display = 'none'
-          sections.guestbookCheckCheck.checked = false
+          sections.guestbookCheck.checked = false
         }
       }
     }
